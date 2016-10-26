@@ -3,11 +3,13 @@ package bo.edu.uto.plantillaproyectomaven.daos;
 import bo.edu.uto.plantillaproyectomaven.dominios.Usuarios;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author dtic
  */
+@Repository(value="usuarios")
 public interface UsuarioDao {
 
 	List getUsuarios() throws DataAccessException;
