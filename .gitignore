@@ -1,0 +1,46 @@
+# Backup de base de datos PostgreSQL #
+*.backup
+
+# Archivos varios #
+*.bak
+# Code #
+*.class
+
+# Paquetes de Archivos #
+# *.jar
+*.war
+# *.ear
+
+# NetBeans #
+target/
+nbproject/
+build/
+dist/
+lib/
+!web/WEB-INF/lib/
+nbbuild/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+build.xml
+
+# -- Sistemas Operativos ------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.*
+!.gitignore
+*~
+
+# Mac OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
