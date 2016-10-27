@@ -1,8 +1,6 @@
 package bo.edu.uto.plantillaproyectomaven.dominios;
-// Generated 20-05-2015 06:39:55 PM by Hibernate Tools 4.3.1
 
 import org.apache.ibatis.type.Alias;
-
 
 @Alias("Usuarios")
 public class Usuarios  implements java.io.Serializable {
@@ -15,7 +13,6 @@ public class Usuarios  implements java.io.Serializable {
 
     public Usuarios() {
     }
-
 	
     public Usuarios(int idUsuario, String apodo, String clave) {
         this.idUsuario = idUsuario;
@@ -69,7 +66,6 @@ public class Usuarios  implements java.io.Serializable {
 	public void setRecordatorio(String recordatorio) {
 		this.recordatorio = recordatorio;
 	}
-   
      
 }
 

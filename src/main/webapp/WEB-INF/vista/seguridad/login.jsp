@@ -9,7 +9,7 @@
 <fmt:setLocale value="es_BO" scope="session"/>
 <html lang="es">
 	<head>
-		<title>SG-Contrataciones :: Identificación</title>
+		<title>Plantilla :: Identificación</title>
 		<base href="${direccion}"/>
 		<meta name="description" content="User login page" />
 

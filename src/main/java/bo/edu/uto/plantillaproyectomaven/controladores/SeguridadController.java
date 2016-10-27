@@ -1,6 +1,8 @@
 package bo.edu.uto.plantillaproyectomaven.controladores;
 
+import bo.edu.uto.plantillaproyectomaven.servicios.UsuarioServicio;
 import java.util.HashMap;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.dtic.tools.Tools;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +17,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/seguridad/**")
 public class SeguridadController {
+	@Autowired
+	UsuarioServicio usuarioServicio;
 	
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request) {
-//		String env = request.getServletContext().getInitParameter("entorno");
+
 		HashMap modelo = new HashMap();
 		modelo.put("prueba", "prueba");
-//		modelo.put("direccion", Tools.get_attr(env, "direccion", request));
-//		modelo.put("titulo", Tools.get_attr(env, "titulo", request));
-//		modelo.put("gestion", Tools.get_attr("Sistema", "gestion", request));
+		List usuarios = usuarioServicio.getUsuarios();
+		
 		return new ModelAndView("seguridad/login", modelo);
 	}
 
