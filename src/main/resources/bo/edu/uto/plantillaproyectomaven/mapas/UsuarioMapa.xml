@@ -18,7 +18,7 @@
 	</select>
 
 	 <select id="getUsuarios" resultType="Usuarios" >
-		 SELECT id_usuario,id_persona, nombre_completo||'-->'||rol as nombre_completo
+		 SELECT id_usuario as idUsuario
 		 FROM _usuarios
 		      join personas using (id_persona)
                       join ( select id_rol,(SELECT id_usuario FROM _usr_roles where  _usr_roles.id_rol=_roles.id_rol limit 1) as id_usuario,rol

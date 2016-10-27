@@ -1,10 +1,10 @@
 package bo.edu.uto.plantillaproyectomaven.controladores;
 
+import bo.edu.uto.plantillaproyectomaven.dominios.Usuarios;
 import bo.edu.uto.plantillaproyectomaven.servicios.UsuarioServicio;
 import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import org.dtic.tools.Tools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +25,7 @@ public class SeguridadController {
 
 		HashMap modelo = new HashMap();
 		modelo.put("prueba", "prueba");
-		List usuarios = usuarioServicio.getUsuarios();
+		List<Usuarios> usuarios = usuarioServicio.getUsuarios();
 		
 		return new ModelAndView("seguridad/login", modelo);
 	}
