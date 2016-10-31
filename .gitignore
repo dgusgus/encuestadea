@@ -23,6 +23,7 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 build.xml
+src/main/webapp/WEB-INF/jdbc.properties
 
 # -- Sistemas Operativos ------------------------------
 # Windows

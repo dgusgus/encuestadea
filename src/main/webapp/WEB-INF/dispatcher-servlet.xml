@@ -20,9 +20,7 @@
 	
 	<context:annotation-config />
 	
-	<context:component-scan base-package="bo.edu.uto.plantillaproyectomaven.controladores"/>
-	<context:component-scan base-package="bo.edu.uto.plantillaproyectomaven.daos"/>
-	<context:component-scan base-package="bo.edu.uto.plantillaproyectomaven.servicios"/>
+	<context:component-scan base-package="bo.edu.uto.plantillaproyectomaven"/>	
 	
 	<mvc:annotation-driven  content-negotiation-manager="contentNegotiationManager" />
 	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">

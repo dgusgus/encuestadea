@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+			 xmlns:beans="http://www.springframework.org/schema/beans"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xsi:schemaLocation="
+				http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+				http://www.springframework.org/schema/security
+				http://www.springframework.org/schema/security/spring-security-4.1.xsd">
+
+	<global-method-security pre-post-annotations="enabled"/>
+
+	<http pattern="/seguridad/login.html" security="none"/>
+	<http pattern="/seguridad/denegado.html" security="none"/>
+	<http pattern="/assets/**" security="none"/>
+
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/**" access="isAuthenticated()"/>
+		<access-denied-handler error-page="/comun/denegado.html" />
+		<form-login
+			login-processing-url="/j_spring_security_check"
+			login-page="/seguridad/login.html"
+			authentication-failure-url="/seguridad/login.html?login_error=1"
+			default-target-url="/principal/index.html"
+			always-use-default-target="true"
+			username-parameter="j_username"
+			password-parameter="j_password"
+		/>
+		<logout logout-success-url="/seguridad/login.html" logout-url="/j_spring_logout" delete-cookies="JSESSIONID" />
+		<session-management invalid-session-url="/seguridad/login.html">
+			<concurrency-control
+				max-sessions="1"
+				expired-url="/seguridad/login.html?error=expired"
+			/>
+		</session-management>
+		<csrf disabled="true" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="acceso">
+			<password-encoder hash="md5"/>
+		</authentication-provider>
+	</authentication-manager>
+
+<!--
+	<global-method-security secured-annotations="enabled" />
+	<global-method-security jsr250-annotations="enabled" />
+	<global-method-security pre-post-annotations="enabled" />
+-->
+
+</beans:beans>
