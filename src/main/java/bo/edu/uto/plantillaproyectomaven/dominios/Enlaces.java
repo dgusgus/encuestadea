@@ -2,7 +2,9 @@ package bo.edu.uto.plantillaproyectomaven.dominios;
 
 import java.util.HashSet;
 import java.util.Set;
+import org.apache.ibatis.type.Alias;
 
+@Alias("Enlaces")
 public class Enlaces implements java.io.Serializable {
 
 	private int idEnlace;

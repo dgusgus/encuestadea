@@ -4,17 +4,17 @@
 
 <mapper namespace="bo.edu.uto.plantillaproyectomaven.mapas.AccesoMapa">
 
-	<update id="setEditarUsuarioClave" parameterType="Usuarios">
-		update _usuarios set clave=md5(#{clave}) where apodo=#{apodo}
-	</update>
-
-	<select id="getBuscarUsuarios" resultType="Usuarios" parameterType="Usuarios" >
-		 SELECT id_usuario,id_persona, nombre_completo,apodo
-		 FROM _usuarios
-			  join personas using (id_persona)
-		 where _usuarios.id_estado and nombre_completo ilike '%'||#{nombre_completo}||'%'
-		 ORDER BY nombres
-                 limit 50;
+	<select id="getDatosUsuario" resultType="UsuarioAcceso">
+		 select * from buscar_conexion(#{apodo}) 
+				as (
+					id_persona integer, 
+					id_usuario integer, 
+					apodo text, 
+					clave text, 
+					nombre_completo text, 
+					id_facultad text, 
+					id_unidad integer
+				)
 	</select>
 
 	 <select id="getUsuarios" resultType="Usuarios" >

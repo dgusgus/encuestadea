@@ -22,7 +22,7 @@ import bo.edu.uto.plantillaproyectomaven.mapas.AccesoMapa;
 public class ComunController {
 
 	@Autowired
-	private AccesoMapa accesoService;
+	private AccesoMapa accesoMapa;
 
 	@RequestMapping("/cabecera")
 	public ModelAndView cabecera(HttpSession hs) {
@@ -35,7 +35,7 @@ public class ComunController {
 	@RequestMapping("/menu")
 	public ModelAndView menu(Integer idRol) {
 		Map modelo = new HashMap();
-		List<Enlaces> menus = this.accesoService.getEnlacesMenu(idRol);
+		List<Enlaces> menus = this.accesoMapa.getEnlacesMenu(idRol);
 		modelo.put("menus", menus);
 		return new ModelAndView("comun/menu", modelo);
 	}
@@ -43,7 +43,7 @@ public class ComunController {
 	@RequestMapping("/roles")
 	public ModelAndView roles(HttpSession hs) {
 		Map modelo = new HashMap();
-		List<Roles> roles = this.accesoService.getRolList((Integer) hs.getAttribute("__id_usuario"));
+		List<Roles> roles = this.accesoMapa.getRolList((Integer) hs.getAttribute("__id_usuario"));
 		modelo.put("apodo", (String) hs.getAttribute("__apodo"));
 		modelo.put("roles", roles);
 		return new ModelAndView("comun/roles", modelo);

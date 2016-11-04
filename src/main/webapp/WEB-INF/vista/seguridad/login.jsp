@@ -18,28 +18,28 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-		<link rel="stylesheet" href="assets/css/bootstrap.css"  />
-		<link rel="stylesheet" href="assets/css/font-awesome.css" />
-		<link rel="stylesheet" href="assets/css/ace-fonts.css"  />
-		<link rel="stylesheet" href="assets/css/ace.css"  />
+		<link rel="stylesheet" href="/assets/css/bootstrap.css"  />
+		<link rel="stylesheet" href="/assets/css/font-awesome.css" />
+		<link rel="stylesheet" href="/assets/css/ace-fonts.css"  />
+		<link rel="stylesheet" href="/assets/css/ace.css"  />
 
-		<script type="text/javascript" src="assets/js/jquery.js" ></script>
+		<script type="text/javascript" src="/assets/js/jquery.js" ></script>
 
 
 		<!--[if lte IE 9]>
-			<link rel="stylesheet" href="assets/css/ace-part2.min.css"  />
+			<link rel="stylesheet" href="/assets/css/ace-part2.min.css"  />
 		<![endif]-->
-		<link rel="stylesheet" href="assets/css/ace-rtl.css"  />
+		<link rel="stylesheet" href="/assets/css/ace-rtl.css"  />
 
 		<!--[if lte IE 9]>
-		  <link rel="stylesheet" href="assets/css/ace-ie.min.css"  />
+		  <link rel="stylesheet" href="/assets/css/ace-ie.min.css"  />
 		<![endif]-->
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
 		<!--[if lt IE 9]>
-		<script type="text/javascript" src="assets/js/html5shiv.min.js" ></script>
-		<script type="text/javascript" src="assets/js/respond.min.js" ></script>
+		<script type="text/javascript" src="/assets/js/html5shiv.min.js" ></script>
+		<script type="text/javascript" src="/assets/js/respond.min.js" ></script>
 		<![endif]-->
 	</head>
 
@@ -156,7 +156,7 @@
 			<c:set var="script">
 
 			if('ontouchstart' in document.documentElement)
-				document.write('<script type="text/javascript"  src="assets/js/jquery.mobile.custom.min.js"><\/script>');
+				document.write('<script type="text/javascript"  src="/assets/js/jquery.mobile.custom.min.js"><\/script>');
 
 			$(function (){
 				$("#j_username").focus();

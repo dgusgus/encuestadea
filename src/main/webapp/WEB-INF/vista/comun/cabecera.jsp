@@ -16,23 +16,23 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css"/>
-		<link rel="stylesheet" href="assets/css/google-fonts.css"/>
+		<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="/assets/css/google-fonts.css"/>
 
 		<!-- page specific plugin styles -->
-		<link rel="stylesheet" href="assets/css/jquery-ui.min.css"/>
-		<link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css"/>
-		<link rel="stylesheet" href="assets/css/chosen.min.css"  />
-		<link rel="stylesheet" href="assets/css/datepicker.min.css"/>
-		<link rel="stylesheet" href="assets/css/ui.jqgrid.min.css"/>
+		<link rel="stylesheet" href="/assets/css/jquery-ui.min.css"/>
+		<link rel="stylesheet" href="/assets/css/jquery-ui.custom.min.css"/>
+		<link rel="stylesheet" href="/assets/css/chosen.min.css"  />
+		<link rel="stylesheet" href="/assets/css/datepicker.min.css"/>
+		<link rel="stylesheet" href="/assets/css/ui.jqgrid.min.css"/>
 
-		<link rel="stylesheet" href="assets/css/fullcalendar.min.css" />
-		<link rel="stylesheet" href="assets/css/bootstrap-dialog.min.css" />
+		<link rel="stylesheet" href="/assets/css/fullcalendar.min.css" />
+		<link rel="stylesheet" href="/assets/css/bootstrap-dialog.min.css" />
 
-		<link rel="stylesheet" href="assets/css/ace.min.css"/>
-		<link rel="stylesheet" href="assets/css/estilos.css"/>
-		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css"/>
+		<link rel="stylesheet" href="/assets/css/ace.min.css"/>
+		<link rel="stylesheet" href="/assets/css/estilos.css"/>
+		<link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css"/>
 
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="assets/css/ace-part2.min.css"/>
@@ -42,18 +42,18 @@
 			<link rel="stylesheet" href="assets/css/ace-ie.min.css"/>
 		<![endif]-->
 
-		<script type="text/javascript" src="assets/js/ace-extra.min.js" ></script>
+		<script type="text/javascript" src="/assets/js/ace-extra.min.js" ></script>
 
 		<!--[if lte IE 8]>
 		<script type="text/javascript" src="assets/js/html5shiv.min.js" ></script>
 		<script type="text/javascript" src="assets/js/respond.min.js" ></script>
 		<![endif]-->
 
-		<script type="text/javascript" src="assets/js/jquery.min.js" ></script>
-		<script src="assets/js/jquery.cookie.js" ></script>
-		<script src="assets/js/jquery-ui.min.js" ></script>
-		<script src="assets/js/jquery.ui.touch-punch.min.js" ></script>
-		<script src="assets/js/chosen.jquery.js" ></script>
+		<script type="text/javascript" src="/assets/js/jquery.min.js" ></script>
+		<script src="/assets/js/jquery.cookie.js" ></script>
+		<script src="/assets/js/jquery-ui.min.js" ></script>
+		<script src="/assets/js/jquery.ui.touch-punch.min.js" ></script>
+		<script src="/assets/js/chosen.jquery.js" ></script>
 
 		<script type="text/javascript">
 <c:set var="script">
@@ -157,7 +157,7 @@ function getMenu(){
 						</li>
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/avatars/avatar2.png"/>
+								<img class="nav-user-photo" src="/assets/avatars/avatar2.png"/>
 								<span class="user-info" title="${nombre}"><small>Usuario</small>${apodo}</span>
 								<i class="ace-icon fa fa-caret-down"></i>
 							</a>

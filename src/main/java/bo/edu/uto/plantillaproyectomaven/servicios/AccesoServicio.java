@@ -1,9 +1,12 @@
 package bo.edu.uto.plantillaproyectomaven.servicios;
 
 import bo.edu.uto.plantillaproyectomaven.dominios.Roles;
+import bo.edu.uto.plantillaproyectomaven.dominios.UsuarioAcceso;
 import bo.edu.uto.plantillaproyectomaven.dominios.Usuarios;
+import bo.edu.uto.plantillaproyectomaven.mapas.AccesoMapa;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -17,14 +20,17 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author dtic
  */
-@Service("acceso")
+@Service("accesoServicio")
 @Transactional(readOnly = true)
 public class AccesoServicio implements UserDetailsService{
 
+	@Autowired
+	AccesoMapa accesoMapa;
+	
 	@Override
 	public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
 
-		Object usuario = new Usuarios(0, "Raul", "password");
+		UsuarioAcceso usuario = accesoMapa.getDatosUsuario(string);
 		if (null == usuario) {
 			throw new UsernameNotFoundException("Usuario NO Registrado");
 		}
@@ -42,7 +48,7 @@ public class AccesoServicio implements UserDetailsService{
 		boolean accountNonLocked = true;
 
 		UserDetails user = new User(
-				"Raul", "password",
+				usuario.getApodo(), usuario.getClave(),
 				enabled,
 				accountNonExpired,
 				credentialsNonExpired,
