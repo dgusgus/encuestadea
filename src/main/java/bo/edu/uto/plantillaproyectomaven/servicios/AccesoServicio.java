@@ -2,7 +2,6 @@ package bo.edu.uto.plantillaproyectomaven.servicios;
 
 import bo.edu.uto.plantillaproyectomaven.dominios.Roles;
 import bo.edu.uto.plantillaproyectomaven.dominios.UsuarioAcceso;
-import bo.edu.uto.plantillaproyectomaven.dominios.Usuarios;
 import bo.edu.uto.plantillaproyectomaven.mapas.AccesoMapa;
 import java.util.ArrayList;
 import java.util.List;
