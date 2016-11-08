@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Contenedor>
+	<Sistema>
+		<descripcion dato="Sistema de Gestión - Contrataciones"/>
+		<gestion dato="2015"/>
+		<version dato="0.1.0"/>
+		<tamano_pagina dato="10"/>
+		<downsysExcept dato=""/>
+		<downsysRun dato="10"/>
+		<downsys200 dato="1"/>
+		<downsys404 dato="2"/>
+		<downsysSession dato="10"/>
+		<fecha_baja_sistema dato=""/>
+	</Sistema>
+	<Produccion>
+		<direccion dato="/PlantillaProyectoMaven/"/>
+		<titulo dato="PlantillaProyectoMaven"/>
+	</Produccion>
+	<Desarrollo>
+		<direccion dato="/PlantillaProyectoMaven/"/>
+		<titulo dato="PlantillaProyectoMaven - Desarrollo"/>
+	</Desarrollo>
+	<Local>
+		<direccion dato="/PlantillaProyectoMaven/"/>
+		<titulo dato="PlantillaProyectoMaven - Local"/>
+	</Local>
+</Contenedor>

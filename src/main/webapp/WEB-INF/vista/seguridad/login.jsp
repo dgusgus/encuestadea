@@ -3,14 +3,14 @@
 <%@page import="org.dtic.tools.Tools"%>
 <%@ taglib prefix="c"		uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn"		uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt"	uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt"		uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec"		uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring"	uri="http://www.springframework.org/tags"%>
 
 <fmt:setLocale value="es_BO" scope="session"/>
 <html lang="es">
 	<head>
-		<title>Plantilla :: Identificación</title>
-		<base href="${direccion}"/>
+		<title>Plantilla :: Identificación</title>		
 		<meta name="description" content="User login page" />
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -18,18 +18,32 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-		<link rel="stylesheet" href="/assets/css/bootstrap.css"  />
-		<link rel="stylesheet" href="/assets/css/font-awesome.css" />
-		<link rel="stylesheet" href="/assets/css/ace-fonts.css"  />
-		<link rel="stylesheet" href="/assets/css/ace.css"  />
+		<!-- let's add tag srping:url -->
+		<spring:url value="/assets/css/bootstrap.css" var="bootstrapcss" />
+		<spring:url value="/assets/css/font-awesome.css" var="fontawesomecss" />
+		<spring:url value="/assets/css/ace-fonts.css" var="acefontscss" />
+		<spring:url value="/assets/css/ace.css" var="acecss" />
+		<spring:url value="/assets/js/jquery.js" var="jqueryjs" />
+		<spring:url value="/assets/css/ace-rtl.css" var="acertlcss" />
+		<spring:url value="/assets/js/jquery.mobile.custom.js" var="jquerymobilecustomjs" />
+		
+<!--		<link href="${crunchifyCSS}" rel="stylesheet" />
+		<script src="${crunchifyJS}"></script>-->
+		<!-- Finish adding tags -->
+		
+		
+		<link rel="stylesheet" href="${bootstrapcss}"  />
+		<link rel="stylesheet" href="${fontawesomecss}" />
+		<link rel="stylesheet" href="${acefontscss}"  />
+		<link rel="stylesheet" href="${acecss}"  />
 
-		<script type="text/javascript" src="/assets/js/jquery.js" ></script>
+		<script type="text/javascript" src="${jqueryjs}" ></script>
 
 
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="/assets/css/ace-part2.min.css"  />
 		<![endif]-->
-		<link rel="stylesheet" href="/assets/css/ace-rtl.css"  />
+		<link rel="stylesheet" href="${acertlcss}"  />
 
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="/assets/css/ace-ie.min.css"  />
@@ -156,7 +170,7 @@
 			<c:set var="script">
 
 			if('ontouchstart' in document.documentElement)
-				document.write('<script type="text/javascript"  src="/assets/js/jquery.mobile.custom.min.js"><\/script>');
+				document.write('<script type="text/javascript"  src="${jquerymobilecustomjs}"><\/script>');
 
 			$(function (){
 				$("#j_username").focus();
