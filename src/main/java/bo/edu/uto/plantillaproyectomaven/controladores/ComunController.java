@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import bo.edu.uto.plantillaproyectomaven.mapas.AccesoMapa;
+import java.util.ArrayList;
 
 /**
  *
@@ -35,7 +36,8 @@ public class ComunController {
 	@RequestMapping("/menu")
 	public ModelAndView menu(Integer idRol) {
 		Map modelo = new HashMap();
-		List<Enlaces> menus = this.accesoMapa.getEnlacesMenu(idRol);
+		List<Enlaces> menus = new ArrayList<>();//this.accesoMapa.getEnlacesMenu(idRol);
+		menus.add(new Enlaces(0, 0, true, 0, 0, "Formulario", "formulario"));
 		modelo.put("menus", menus);
 		return new ModelAndView("comun/menu", modelo);
 	}
@@ -43,7 +45,11 @@ public class ComunController {
 	@RequestMapping("/roles")
 	public ModelAndView roles(HttpSession hs) {
 		Map modelo = new HashMap();
-		List<Roles> roles = this.accesoMapa.getRolList((Integer) hs.getAttribute("__id_usuario"));
+		List<Roles> roles = new ArrayList<>();
+		
+		Roles rol = new Roles(0, Boolean.TRUE, "Docente", "form-prueba", null, null);
+		roles.add(rol);
+		
 		modelo.put("apodo", (String) hs.getAttribute("__apodo"));
 		modelo.put("roles", roles);
 		return new ModelAndView("comun/roles", modelo);

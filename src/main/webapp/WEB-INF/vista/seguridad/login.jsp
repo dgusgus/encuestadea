@@ -19,13 +19,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		<!-- let's add tag srping:url -->
-		<spring:url value="/assets/css/bootstrap.css" var="bootstrapcss" />
-		<spring:url value="/assets/css/font-awesome.css" var="fontawesomecss" />
-		<spring:url value="/assets/css/ace-fonts.css" var="acefontscss" />
-		<spring:url value="/assets/css/ace.css" var="acecss" />
-		<spring:url value="/assets/js/jquery.js" var="jqueryjs" />
-		<spring:url value="/assets/css/ace-rtl.css" var="acertlcss" />
-		<spring:url value="/assets/js/jquery.mobile.custom.js" var="jquerymobilecustomjs" />
+		<spring:url value="/assets/css/bootstrap.min.css" var="bootstrapcss" />
+		<spring:url value="/assets/css/font-awesome.min.css" var="fontawesomecss" />
+		<spring:url value="/assets/css/ace-fonts.min.css" var="acefontscss" />
+		<spring:url value="/assets/css/ace.min.css" var="acecss" />
+		<spring:url value="/assets/js/jquery.min.js" var="jqueryjs" />
+		<spring:url value="/assets/css/ace-rtl.min.css" var="acertlcss" />
+		<spring:url value="/assets/js/jquery.mobile.custom.min.js" var="jquerymobilecustomjs" />
 		
 <!--		<link href="${crunchifyCSS}" rel="stylesheet" />
 		<script src="${crunchifyJS}"></script>-->

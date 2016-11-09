@@ -3,8 +3,9 @@
 <%@page import="org.dtic.tools.Tools"%>
 <%@ taglib prefix="c"		uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn"		uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt"	uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt"		uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec"		uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring"	uri="http://www.springframework.org/tags" %>
 
 <html lang="es">
 	<head>
@@ -16,45 +17,51 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
-		<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
-		<link rel="stylesheet" href="/assets/css/google-fonts.css"/>
+		<spring:url value="/assets/css/bootstrap.min.css" var="bootstrapcss"/>
+		<link rel="stylesheet" href="${bootstrapcss}"/>
+		<spring:url value="/assets/css/font-awesome.min.css" var="fontawesomemincss"/>
+		<link rel="stylesheet" href="${fontawesomemincss}"/>
 
 		<!-- page specific plugin styles -->
-		<link rel="stylesheet" href="/assets/css/jquery-ui.min.css"/>
-		<link rel="stylesheet" href="/assets/css/jquery-ui.custom.min.css"/>
-		<link rel="stylesheet" href="/assets/css/chosen.min.css"  />
-		<link rel="stylesheet" href="/assets/css/datepicker.min.css"/>
-		<link rel="stylesheet" href="/assets/css/ui.jqgrid.min.css"/>
+		<spring:url value="/assets/css/jquery-ui.min.css" var="jqueryuimincss"/>
+		<link rel="stylesheet" href="${jqueryuimincss}"/>
+		<spring:url value="/assets/css/jquery-ui.custom.min.css" var="jqueryuicustommincss"/>
+		<link rel="stylesheet" href="${jqueryuicustommincss}"/>
+		<spring:url value="/assets/css/chosen.min.css" var="chosenmincss"/>
+		<link rel="stylesheet" href="${chosenmincss}"  />
+		<spring:url value="/assets/css/datepicker.min.css" var="datepickermincss"/>
+		<link rel="stylesheet" href="${datepickermincss}"/>
+		<spring:url value="/assets/css/ui.jqgrid.min.css" var="uijqgridmincss"/>
+		<link rel="stylesheet" href="${uijqgridmincss}"/>
+		
+		<spring:url value="/assets/css/fullcalendar.min.css" var="fullcalendarmincss"/>
+		<link rel="stylesheet" href="${fullcalendarmincss}" />		
+		<spring:url value="/assets/css/bootstrap-dialog.min.css" var="bootstrapdialogmincss"/>
+		<link rel="stylesheet" href="${bootstrapdialogmincss}" />
 
-		<link rel="stylesheet" href="/assets/css/fullcalendar.min.css" />
-		<link rel="stylesheet" href="/assets/css/bootstrap-dialog.min.css" />
+		<spring:url value="/assets/css/ace.min.css" var="acemincss"/>
+		<link rel="stylesheet" href="${acemincss}"/>
+		<spring:url value="/assets/css/estilos.css" var="estilos.css"/>
+		<link rel="stylesheet" href="${estilos.css}"/>
+		<spring:url value="/assets/css/bootstrap-datetimepicker.min.css" var="bootstrapdatetimepickermincss"/>
+		<link rel="stylesheet" href="${bootstrapdatetimepickermincss}"/>
 
-		<link rel="stylesheet" href="/assets/css/ace.min.css"/>
-		<link rel="stylesheet" href="/assets/css/estilos.css"/>
-		<link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css"/>
+		<spring:url value="/assets/js/ace-extra.min.js" var="aceextraminjs"/>
+		<script type="text/javascript" src="${aceextraminjs}" ></script>
 
-		<!--[if lte IE 9]>
-			<link rel="stylesheet" href="assets/css/ace-part2.min.css"/>
-		<![endif]-->
-
-		<!--[if lte IE 9]>
-			<link rel="stylesheet" href="assets/css/ace-ie.min.css"/>
-		<![endif]-->
-
-		<script type="text/javascript" src="/assets/js/ace-extra.min.js" ></script>
-
-		<!--[if lte IE 8]>
-		<script type="text/javascript" src="assets/js/html5shiv.min.js" ></script>
-		<script type="text/javascript" src="assets/js/respond.min.js" ></script>
-		<![endif]-->
-
-		<script type="text/javascript" src="/assets/js/jquery.min.js" ></script>
-		<script src="/assets/js/jquery.cookie.js" ></script>
-		<script src="/assets/js/jquery-ui.min.js" ></script>
-		<script src="/assets/js/jquery.ui.touch-punch.min.js" ></script>
-		<script src="/assets/js/chosen.jquery.js" ></script>
-
+		<spring:url value="/assets/js/jquery.min.js" var="jqueryminjs"/>
+		<script type="text/javascript" src="${jqueryminjs}" ></script>
+		<spring:url value="/assets/js/jquery.cookie.js" var="jquerycookiejs"/>
+		<script src="${jquerycookiejs}" ></script>
+		<spring:url value="/assets/js/jquery-ui.min.js" var="jqueryuiminjs"/>
+		<script src="${jqueryuiminjs}" ></script>
+		<spring:url value="/assets/js/jquery.ui.touch-punch.min.js" var="jqueryuitouchpunchminjs"/>
+		<script src="${jqueryuitouchpunchminjs}" ></script>
+		<spring:url value="/assets/js/chosen.jquery.min.js" var="chosenjqueryjs"/>
+		<script src="${chosenjqueryjs}" ></script>
+		<spring:url value="/assets/js/validator.min.js" var="validatorjs"/>
+		<script src="${validatorjs}" ></script>
+		
 		<script type="text/javascript">
 <c:set var="script">
 $(function(){
@@ -157,7 +164,8 @@ function getMenu(){
 						</li>
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="/assets/avatars/avatar2.png"/>
+								<spring:url value="/assets/avatars/avatar2.png" var="avatar2"/>
+								<img class="nav-user-photo" src="${avatar2}"/>
 								<span class="user-info" title="${nombre}"><small>Usuario</small>${apodo}</span>
 								<i class="ace-icon fa fa-caret-down"></i>
 							</a>
