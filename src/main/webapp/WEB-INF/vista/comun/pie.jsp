@@ -2,8 +2,8 @@
 <%@page import="org.dtic.tools.Tools"%>
 <%@ taglib prefix="c"		uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn"		uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt"	uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt"		uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec"		uri="http://www.springframework.org/security/tags" %>
 
 </div> <!-- /.main-content-inner -->
 </div><!-- /.main-content -->
@@ -12,7 +12,7 @@
 	<div class="footer-inner">
 		<div class="footer-content">
 			<span class="bigger-120">
-				<span class="blue bolder">D.T.I.C.</span> &copy; <%= session.getAttribute("__gestion").toString()%>
+				<span class="blue bolder">D.T.I.C.</span> &copy; 2016
 				<br/>
 				<small>Dirección de Tecnologías de Información y Comunicación</small>
 			</span>

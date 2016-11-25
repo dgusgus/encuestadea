@@ -1,7 +1,41 @@
 <%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c"		uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/comun/cabecera.html"/>
 <div class="col-xs-6">
 	<h1>Bienvenido...</h1>
+	
+	<table class="table table-striped table-bordered table-hover" id="flujoProcesos">
+		<thead>
+			<tr>
+				<th class="hidden-480">Título</th>
+				<th>Nombre</th>
+				<th>Sigla</th>
+				<th>Paralelo</th>
+				<th>Titularía</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${docentes}" var="docente" varStatus="contador">
+			<tr>
+				<td id="titulo" class="center hidden-480">${docente.titulo}</td>
+				<td id="nombre" class="right">${docente.nombre}</td>
+				<td id="sigla" class="left">${docente.sigla}</td>
+				<td id="paralelo" class="center">${docente.grupo}</td>
+				<td id="paralelo" class="center">${docente.titularia}</td>
+				<td id="opciones" class="center">
+					<div class="inline pos-rel">
+						<a data-position="auto" class="btn btn-xs btn-primary " href="encuesta/index.html?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}">
+							<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Encuestas</span>
+						</a>
+						
+					</div>
+				</td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+	
 	<a href="#" onclick="nuevo();" class="glyphicon glyphicon-plus"
 		data-toggle="modal" style="font-size: 15px; padding-bottom: 10px;">Nuevo</a>
 		

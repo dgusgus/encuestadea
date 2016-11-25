@@ -14,7 +14,7 @@
 			  join personas using (id_persona)
 		 where _usuarios.id_estado and nombre_completo ilike '%'||#{nombre_completo}||'%'
 		 ORDER BY nombres
-                 limit 50;
+			limit 50;
 	</select>
 
 	 <select id="getUsuarios" resultType="Usuarios" >

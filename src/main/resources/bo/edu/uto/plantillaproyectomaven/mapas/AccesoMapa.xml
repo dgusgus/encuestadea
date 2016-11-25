@@ -5,16 +5,12 @@
 <mapper namespace="bo.edu.uto.plantillaproyectomaven.mapas.AccesoMapa">
 
 	<select id="getDatosUsuario" resultType="UsuarioAcceso">
-		 select * from buscar_conexion(#{apodo}) 
-				as (
-					id_persona integer, 
-					id_usuario integer, 
-					apodo text, 
-					clave text, 
-					nombre_completo text, 
-					id_facultad text, 
-					id_unidad integer
-				)
+		 SELECT u.id_persona,u.id_usuario,u.apodo,u.clave,p.nombre_completo,
+			'-1'::text as id_facultad, '-1'::integer as id_departamento
+		  FROM personas p JOIN dea.usuario u USING(id_persona)
+		  WHERE u.id_estado
+			AND p.id_estado
+			AND u.apodo = #{apodo};
 	</select>
 
 	 <select id="getUsuarios" resultType="Usuarios" >

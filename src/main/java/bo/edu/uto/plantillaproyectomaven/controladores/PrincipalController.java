@@ -1,9 +1,11 @@
 package bo.edu.uto.plantillaproyectomaven.controladores;
 
+import bo.edu.uto.plantillaproyectomaven.dominios.Docente;
 import bo.edu.uto.plantillaproyectomaven.dominios.Enlaces;
 import bo.edu.uto.plantillaproyectomaven.dominios.Roles;
 import bo.edu.uto.plantillaproyectomaven.dominios.UsuarioAcceso;
 import bo.edu.uto.plantillaproyectomaven.mapas.AccesoMapa;
+import bo.edu.uto.plantillaproyectomaven.mapas.DocenteMapa;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +28,9 @@ public class PrincipalController {
 
 	@Autowired
 	private AccesoMapa accesoMapa;
+	
+	@Autowired
+	private DocenteMapa docenteMapa;
 
 	@RequestMapping(value = "/index")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
@@ -48,7 +53,10 @@ public class PrincipalController {
 		ses.setAttribute("__gestion", Tools.get_attr("Sistema", "gestion", request));
 		ses.setAttribute("__version", Tools.get_attr("Sistema", "version", request));
 		//
+		List<Docente> docentes = docenteMapa.getDocentes(null);
+		
 		modelo.put("apodo", x.getName());
+		modelo.put("docentes", docentes);
 		return new ModelAndView("principal/index", modelo);
 	}
 
