@@ -45,4 +45,26 @@
 		order by p.nombre,m.sigla,gr.grupo
 		limit 50;
 	</select>
+	<select id="getDocentesBusqueda" resultType="Docente" parameterType="String" >
+		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia         
+            
+    from	public.paralelos par
+            join public.personas p on p.id_persona=par.id_docente
+            join public.gestiones g on g.id_gestion=par.id_gestion
+                and g.id_facultad in ('F','G','H','I','J','K','L') and g.id_estado
+            join public.facultades f on f.id_facultad=par.id_facultad
+            join public.materias m on m.id_materia=par.id_materia
+            join public.grupos gr on gr.id_grupo=par.id_grupo
+            left outer join public.docentes doc on doc.id_persona=par.id_docente
+            left outer join public.titularias t on t.id_titularia=par.id_titularia
+		where	par.id_docente != 0
+				and par.id_nombramiento != 0
+				and par.id_estado in ('P')
+				and (
+					p.nombre ilike #{criterio}
+					or m.sigla ilike #{criterio}
+				)
+		order by p.nombre,m.sigla,gr.grupo
+		limit 50;
+	</select>
 </mapper>

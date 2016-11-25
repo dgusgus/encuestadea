@@ -33,7 +33,7 @@ public class PrincipalController {
 	private DocenteMapa docenteMapa;
 
 	@RequestMapping(value = "/index")
-	public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, String busqueda) {
 		String env = request.getServletContext().getInitParameter("entorno");
 
 		HashMap modelo = new HashMap();
@@ -53,7 +53,15 @@ public class PrincipalController {
 		ses.setAttribute("__gestion", Tools.get_attr("Sistema", "gestion", request));
 		ses.setAttribute("__version", Tools.get_attr("Sistema", "version", request));
 		//
-		List<Docente> docentes = docenteMapa.getDocentes(null);
+		
+		List<Docente> docentes;		
+		if(busqueda!=null){
+			busqueda = busqueda.trim();
+			busqueda = "%"+busqueda+"%";
+			docentes = docenteMapa.getDocentesBusqueda(busqueda);
+		}else{
+			docentes = docenteMapa.getDocentes(null);
+		}
 		
 		modelo.put("apodo", x.getName());
 		modelo.put("docentes", docentes);

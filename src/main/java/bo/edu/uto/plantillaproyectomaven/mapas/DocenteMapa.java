@@ -15,5 +15,6 @@ import org.springframework.stereotype.Repository;
 public interface DocenteMapa {
 
 	List<Docente> getDocentes(CriterioBusqueda criterio) throws DataAccessException;
+	List<Docente> getDocentesBusqueda(String criterio) throws DataAccessException;
 	Docente getDocenteEncuesta(Encuesta encuesta)throws DataAccessException;
 }
