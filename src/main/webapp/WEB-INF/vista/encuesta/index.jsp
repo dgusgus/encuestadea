@@ -71,7 +71,7 @@
 												<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Modificar</span>
 											</a>
 											<a data-position="auto" class="btn btn-xs btn-primary " href="encuesta/eliminar.html?id_encuesta=${encuesta.id_encuesta}">
-												<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">eliminar</span>
+												<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Eliminar</span>
 											</a>
 										</div>
 									</td>
@@ -590,21 +590,23 @@
 		var selector = '.inputs';
 				
 		$(selector).keydown(function(e) {			
-			var keys = [8, 9, /*16, 17, 18,*/ 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 144, 145, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105];	
-			var index = $(selector).index(this);
+			var keys = [8, 9, /*16, 17, 18,*/ 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 144, 145, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105];			
 			if (e.which == 8 && this.value.length == 0) {
-				$(selector).eq(index-1).focus();
+				var index = $(selector).index(this) - 1;
+				$(selector).eq(index).focus();
 			} else if ($.inArray(e.which, keys) >= 0) {
 				return true;
 			} else if (this.value.length >= charLimit) {
-				$(selector).eq(index+1).focus();
+				var index = $(selector).index(this) + 1;
+				$(selector).eq(index).focus();
 				return false;
 			} else if (e.shiftKey || e.which <= 48 || e.which >= 58) {
 				return false;
 			}
 		}).keyup (function () {
 			if (this.value.length >= charLimit) {
-				$(selector).eq(index+1).focus();
+				var index = $(selector).index(this) + 1;
+				$(selector).eq(index).focus();
 				return false;
 			}
 		});
@@ -634,7 +636,7 @@
 		datos.id_grupo="${docente.id_grupo}";
 		datos.id_gestion="${docente.id_gestion}";
 		datos.id_docente="${docente.id_docente}";*/
-		console.log(datos);
+		//console.log(datos);
 		if(!$('#form').find('.has-error').length) {
 			$.ajax({
 				type: "POST",
