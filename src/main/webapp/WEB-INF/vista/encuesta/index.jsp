@@ -589,34 +589,22 @@
 		var charLimit = 1;
 		var selector = '.inputs';
 				
-		$(selector).keydown(function(e) {
-			
-			var keys = [8, 9, /*16, 17, 18,*/ 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 144, 145, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105];
-			
-			
+		$(selector).keydown(function(e) {			
+			var keys = [8, 9, /*16, 17, 18,*/ 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 144, 145, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105];	
+			var index = $(selector).index(this);
 			if (e.which == 8 && this.value.length == 0) {
-				console.log('borrar');
-				var index = $(selector).index(this) - 1;
-				$(selector).eq(index).focus();
-				//$(this).prev(selector).focus();
+				$(selector).eq(index-1).focus();
 			} else if ($.inArray(e.which, keys) >= 0) {
-				console.log('tecla válida');
 				return true;
 			} else if (this.value.length >= charLimit) {
-				console.log('tecla válida con salto');
-				var index = $(selector).index(this) + 1;
-				$(selector).eq(index).focus();
-				//$(this).next(selector).focus();
+				$(selector).eq(index+1).focus();
 				return false;
 			} else if (e.shiftKey || e.which <= 48 || e.which >= 58) {
-				console.log('tecla especial');
 				return false;
 			}
 		}).keyup (function () {
 			if (this.value.length >= charLimit) {
-				console.log('next directo');
-				var index = $(selector).index(this) + 1;
-				$(selector).eq(index).focus();
+				$(selector).eq(index+1).focus();
 				return false;
 			}
 		});
