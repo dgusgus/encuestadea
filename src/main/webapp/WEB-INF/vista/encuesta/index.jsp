@@ -112,7 +112,7 @@
 								<label class="control-label" for="P1">P1</label>
 								<div class="input-group">
 									<input id="P1" name="P1"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -126,7 +126,7 @@
 								<label class="control-label" for="P2">P2</label>
 								<div class="input-group">
 									<input id="P2" name="P2"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -140,7 +140,7 @@
 								<label class="control-label" for="P3">P3</label>
 								<div class="input-group">
 									<input id="P3" name="P3"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -154,7 +154,7 @@
 								<label class="control-label" for="P4">P4</label>
 								<div class="input-group">
 									<input id="P4" name="P4"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -168,7 +168,7 @@
 								<label class="control-label" for="P5">P5</label>
 								<div class="input-group">
 									<input id="P5" name="P5"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -182,7 +182,7 @@
 								<label class="control-label" for="P6">P6</label>
 								<div class="input-group">
 									<input id="P6" name="P6"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -196,7 +196,7 @@
 								<label class="control-label" for="P7">P7</label>
 								<div class="input-group">
 									<input id="P7" name="P7"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -210,7 +210,7 @@
 								<label class="control-label" for="P8">P8</label>
 								<div class="input-group">
 									<input id="P8" name="P8"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -224,7 +224,7 @@
 								<label class="control-label" for="P9">P9</label>
 								<div class="input-group">
 									<input id="P9" name="P9"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -238,7 +238,7 @@
 								<label class="control-label" for="P10">P10</label>
 								<div class="input-group">
 									<input id="P10" name="P10"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -252,7 +252,7 @@
 								<label class="control-label" for="P11">P11</label>
 								<div class="input-group">
 									<input id="P11" name="P11"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -266,7 +266,7 @@
 								<label class="control-label" for="P12">P12</label>
 								<div class="input-group">
 									<input id="P12" name="P12"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-2]{1}$"
 										   data-error="Min:1 Max:2">
 									<span class="glyphicon form-control-feedback"
@@ -280,7 +280,7 @@
 								<label class="control-label" for="P13">P13</label>
 								<div class="input-group">
 									<input id="P13" name="P13"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-2]{1}$"
 										   data-error="Min:1 Max:2">
 									<span class="glyphicon form-control-feedback"
@@ -297,7 +297,7 @@
 								<label class="control-label" for="P14">P14</label>
 								<div class="input-group">
 									<input id="P14" name="P14"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -311,7 +311,7 @@
 								<label class="control-label" for="P15">P15</label>
 								<div class="input-group">
 									<input id="P15" name="P15"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -325,7 +325,7 @@
 								<label class="control-label" for="P16">P16</label>
 								<div class="input-group">
 									<input id="P16" name="P16"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -339,7 +339,7 @@
 								<label class="control-label" for="P17">P17</label>
 								<div class="input-group">
 									<input id="P17" name="P17"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -353,7 +353,7 @@
 								<label class="control-label" for="P18">P18</label>
 								<div class="input-group">
 									<input id="P18" name="P18"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -367,7 +367,7 @@
 								<label class="control-label" for="P19">P19</label>
 								<div class="input-group">
 									<input id="P19" name="P19"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -381,7 +381,7 @@
 								<label class="control-label" for="P20">P20</label>
 								<div class="input-group">
 									<input id="P20" name="P20"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -395,7 +395,7 @@
 								<label class="control-label" for="P21">P21</label>
 								<div class="input-group">
 									<input id="P21" name="P21"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -409,7 +409,7 @@
 								<label class="control-label" for="P22">P22</label>
 								<div class="input-group">
 									<input id="P22" name="P22"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -423,7 +423,7 @@
 								<label class="control-label" for="P23">P23</label>
 								<div class="input-group">
 									<input id="P23" name="P23"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -437,7 +437,7 @@
 								<label class="control-label" for="P24">P24</label>
 								<div class="input-group">
 									<input id="P24" name="P24"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -451,7 +451,7 @@
 								<label class="control-label" for="P25">P25</label>
 								<div class="input-group">
 									<input id="P25" name="P25"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -465,7 +465,7 @@
 								<label class="control-label" for="P26">P26</label>
 								<div class="input-group">
 									<input id="P26" name="P26"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-4]{1}$"
 										   data-error="Min:1 Max:4">
 									<span class="glyphicon form-control-feedback"
@@ -479,7 +479,7 @@
 								<label class="control-label" for="P27">P27</label>
 								<div class="input-group">
 									<input id="P27" name="P27"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -493,7 +493,7 @@
 								<label class="control-label" for="P28">P28</label>
 								<div class="input-group">
 									<input id="P28" name="P28"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -510,7 +510,7 @@
 								<label class="control-label" for="P29">P29</label>
 								<div class="input-group">
 									<input id="P29" name="P29"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -524,7 +524,7 @@
 								<label class="control-label" for="P30">P30</label>
 								<div class="input-group">
 									<input id="P30" name="P30"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -538,7 +538,7 @@
 								<label class="control-label" for="P31">P31</label>
 								<div class="input-group">
 									<input id="P31" name="P31"
-										   class="form-control input-md" type="text"
+										   class="form-control input-md inputs" type="text"
 										   pattern="^[1-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
@@ -565,23 +565,62 @@
 
 	$(function () {
 		$('#nuevo').on('shown.bs.modal', function (e) {
-			$('#form').validator()
+			$('#form').validator();			
 		});
 
 		$("#btnew").click(function () {
 			nuevo();
 		});
 		
-		$(".input-md").keyup(function () {
-			if (true) {
-				$(this).next('.input-md').focus();
-			}
-		});
+//		$(".input-md").keyup(function () {
+//			if (true) {
+//				$(this).next('.input-md').focus();
+//			}
+//		});
 		
 		jQuery.fn.resetear = function () {
 		  $(this).each (function() { this.reset(); });
-		}
+		};
+		
+		setKeypressFunction();
 	});
+
+	function setKeypressFunction(){
+		var charLimit = 1;
+		var selector = '.inputs';
+				
+		$(selector).keydown(function(e) {
+			
+			var keys = [8, 9, /*16, 17, 18,*/ 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 144, 145, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105];
+			
+			
+			if (e.which == 8 && this.value.length == 0) {
+				console.log('borrar');
+				var index = $(selector).index(this) - 1;
+				$(selector).eq(index).focus();
+				//$(this).prev(selector).focus();
+			} else if ($.inArray(e.which, keys) >= 0) {
+				console.log('tecla válida');
+				return true;
+			} else if (this.value.length >= charLimit) {
+				console.log('tecla válida con salto');
+				var index = $(selector).index(this) + 1;
+				$(selector).eq(index).focus();
+				//$(this).next(selector).focus();
+				return false;
+			} else if (e.shiftKey || e.which <= 48 || e.which >= 58) {
+				console.log('tecla especial');
+				return false;
+			}
+		}).keyup (function () {
+			if (this.value.length >= charLimit) {
+				console.log('next directo');
+				var index = $(selector).index(this) + 1;
+				$(selector).eq(index).focus();
+				return false;
+			}
+		});
+	}
 
 	function listar() {
 		jjAyax("flujo_proceso/listar.html", {idProyecto: "${proyecto.idProyecto}"}, "#tlista");
