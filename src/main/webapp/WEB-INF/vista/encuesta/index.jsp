@@ -644,7 +644,10 @@
 				data: datos,
 				success: function(response){ $('#nuevo').modal('hide');location.reload();}
 			});
-		} 	
+		} 
+		else{
+			$('.has-error input').val('');
+		}
 	}
 
 	function modificar(id) {

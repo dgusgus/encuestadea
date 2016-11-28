@@ -15,7 +15,9 @@
 				<th class="hidden-480">Título</th>
 				<th>Nombre</th>
 				<th>Sigla</th>
+				<th>Nombre Materia</th>
 				<th>Paralelo</th>
+				<th>Gestión</th>
 				<th>Titularía</th>
 				<th>Opciones</th>
 			</tr>
@@ -26,7 +28,9 @@
 				<td id="titulo" class="center hidden-480">${docente.titulo}</td>
 				<td id="nombre" class="right">${docente.nombre}</td>
 				<td id="sigla" class="left">${docente.sigla}</td>
+				<td id="sigla" class="right">${docente.nombreMateria}</td>
 				<td id="paralelo" class="center">${docente.grupo}</td>
+				<td id="paralelo" class="center">${docente.gestion}</td>
 				<td id="paralelo" class="center">${docente.titularia}</td>
 				<td id="opciones" class="center">
 					<div class="inline pos-rel">

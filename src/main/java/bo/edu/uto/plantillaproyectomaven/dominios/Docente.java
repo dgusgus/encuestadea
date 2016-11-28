@@ -21,6 +21,9 @@ public class Docente {
 	private String sigla;
 	private String grupo;
 	private String titularia;
+	private String nombreMateria;
+	private int anioGestion;
+	private String gestion;
 
 	public Long getId_materia() {
 		return id_materia;
@@ -101,4 +104,28 @@ public class Docente {
 	public void setTitularia(String titularia) {
 		this.titularia = titularia;
 	}
+
+	public String getNombreMateria() {
+		return nombreMateria;
+	}
+
+	public void setNombreMateria(String nombreMateria) {
+		this.nombreMateria = nombreMateria;
+	}
+
+	public int getAnioGestion() {
+		return anioGestion;
+	}
+
+	public void setAnioGestion(int anioGestion) {
+		this.anioGestion = anioGestion;
+	}
+
+	public String getGestion() {
+		return gestion;
+	}
+
+	public void setGestion(String gestion) {
+		this.gestion = gestion;
+	}	
 }
