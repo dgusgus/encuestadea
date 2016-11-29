@@ -44,10 +44,14 @@
 					<dl id="dt-list-1" class="dl-horizontal">
 						<dt>Docente:</dt>
 						<dd>${docente.nombre}</dd>
+						<dt>Nombre Materia:</dt>
+						<dd>${docente.nombreMateria}</dd>
 						<dt>Materia:</dt>
-						<dd>${docente.sigla}</dd>
+						<dd>${docente.sigla}</dd>						
 						<dt>Paralelo:</dt>
-						<dd>${docente.grupo}</dd>						
+						<dd>${docente.grupo}</dd>
+						<dt>Gestion:</dt>
+						<dd>${docente.gestion}</dd>						
 					</dl>
 					<div id="tlista" class="widget-main padding-6">
 						<table class="table table-striped table-bordered table-hover" id="flujoProcesos">
@@ -55,7 +59,7 @@
 								<tr>
 									<th class="hidden-480">Nro.</th>
 									<th>Encuesta </th>
-									<th>Nro. Encuesta</th>									
+									<th>Fecha Creación</th>									
 									<th>Opciones</th>
 								</tr>
 							</thead>
@@ -64,15 +68,15 @@
 								<tr>
 									<td id="titulo" class="center hidden-480">${contador.count}</td>
 									<td id="nombre" class="right">Encuesta</td>
-									<td id="sigla" class="left">${encuesta.id_encuesta}</td>									
+									<td id="sigla" class="left"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${encuesta.fecha_creacion}" /></td>									
 									<td id="opciones" class="center">
 										<div class="inline pos-rel">
-											<a data-position="auto" class="btn btn-xs btn-primary " href="encuesta/modificar.html?id_encuesta=${encuesta.id_encuesta}">
+											<button data-position="auto" class="btn btn-xs btn-primary " href="encuesta/modificar.html?id_encuesta=${encuesta.id_encuesta}">
 												<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Modificar</span>
-											</a>
-											<a data-position="auto" class="btn btn-xs btn-primary " href="encuesta/eliminar.html?id_encuesta=${encuesta.id_encuesta}">
+											</button>
+											<button data-position="auto" class="btn btn-xs btn-primary " onclick="eliminar(${encuesta.id_encuesta});">
 												<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Eliminar</span>
-											</a>
+											</button>
 										</div>
 									</td>
 								</tr>
@@ -555,6 +559,28 @@
 				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 			</div>
 		</div>
+	</div>		
+</div>
+
+<div class="modal fade" id="confirmar" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">¿Borrar?</h4>
+			</div>
+			<div class="modal-body">
+				¿Está seguro de Borrar La Encuesta? 
+			</div>
+			<div class="modal-footer">
+				<button id="confirmar-eliminar-btn" type="button" class="btn btn-primary" >Si</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -658,8 +684,21 @@
 
 	}
 
-	function quitar(id) {
-
+	function eliminar(id) {		
+		$('#confirmar').modal('show');
+		$( "#confirmar-eliminar-btn").unbind( "click" );
+		$( "#confirmar-eliminar-btn" ).bind( "click", function() {
+			  guardar_eliminar(id);
+		});
+	}
+	
+	function guardar_eliminar(id){
+		$.ajax({
+			type: "POST",
+			url: 'encuesta/eliminar.html?id_encuesta='+id,        
+			success: function(response){ $('#confirmar').modal('hide');location.reload();},
+			error: function(){alert('Ocurrio un error inesperado');}
+		});
 	}
 	</c:set>
 	<%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>

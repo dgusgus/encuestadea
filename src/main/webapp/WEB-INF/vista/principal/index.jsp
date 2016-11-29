@@ -65,9 +65,9 @@
 	});
 	
 	function nuevo(){	;
-	$('#nuevo').appendTo("body").modal('show');
-	$( "#guardar-btn").unbind( "click" );	
-}
+		$('#nuevo').appendTo("body").modal('show');
+		$( "#guardar-btn").unbind( "click" );	
+	}
 </script>
 </sec:authorize>
 <jsp:include page="/comun/pie.html"/>

@@ -17,9 +17,18 @@
 	<select id="getListaEncuestas" resultType="Encuesta" parameterType="Encuesta" >
 		select	e.*                        
 		from dea.encuesta e
-		where e.id_docente = #{id_docente}
+		where e.id_estado
+		and e.id_docente = #{id_docente}
 		and e.id_materia = #{id_materia}
 		and e.id_grupo = #{id_grupo}
 		and e.id_gestion = #{id_gestion}
 	</select>
+	
+	<update id="getEliminarEncuesta" parameterType="Encuesta" >
+		update dea.encuesta set
+			id_estado = #{id_estado},
+			ultimo_usuario_modificador = #{ultimo_usuario_modificador},
+			fecha_ultima_modificacion = now()
+		where id_encuesta = #{id_encuesta}
+	</update>
 </mapper>

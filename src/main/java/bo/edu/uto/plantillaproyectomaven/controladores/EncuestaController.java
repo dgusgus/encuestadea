@@ -73,12 +73,30 @@ public class EncuestaController {
 		datosEncuesta.setId_usuario(id_usuario);
 		datosEncuesta.setId_estado(true);
 			
-		Long encuestaNueva = encuestaMapa.getNuevaEncuesta(datosEncuesta);
+		encuestaMapa.getNuevaEncuesta(datosEncuesta);
 		
 		respuestasEncuesta.setId_encuesta(datosEncuesta.getId_encuesta());
 		respuestasEncuestaMapa.insertarRespuestasEncuesta(respuestasEncuesta);
 		//modelo.put("lista", lista);
 		//
+		HashMap respuesta = new HashMap();
+		respuesta.put("resultado", true);
+		return respuesta;
+	}
+	
+	@RequestMapping("/eliminar")
+	@ResponseBody
+	public Map eliminar(Encuesta datosEncuesta, HttpSession hs){
+		Map modelo = new HashMap();
+		// Verificando si el Usuario sigue autentificado.
+		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+		modelo.put("logout", id_usuario == null);
+		//
+		datosEncuesta.setUltimo_usuario_modificador(id_usuario);
+		datosEncuesta.setId_estado(false);
+			
+		encuestaMapa.getEliminarEncuesta(datosEncuesta);	
+		
 		HashMap respuesta = new HashMap();
 		respuesta.put("resultado", true);
 		return respuesta;

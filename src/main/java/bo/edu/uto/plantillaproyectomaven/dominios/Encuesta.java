@@ -5,6 +5,8 @@
  */
 package bo.edu.uto.plantillaproyectomaven.dominios;
 
+import java.util.Date;
+
 /**
  *
  * @author raul velasquez
@@ -17,6 +19,9 @@ public class Encuesta {
 	private Long id_docente;
 	private Long id_usuario;
 	private boolean id_estado;
+	private Date fecha_creacion;
+	private Long ultimo_usuario_modificador;
+	private Date fecha_ultima_modificacion;
 
 	public Long getId_encuesta() {
 		return id_encuesta;
@@ -73,4 +78,28 @@ public class Encuesta {
 	public void setId_estado(boolean id_estado) {
 		this.id_estado = id_estado;
 	}
+
+	public Date getFecha_creacion() {
+		return fecha_creacion;
+	}
+
+	public void setFecha_creacion(Date fecha_creacion) {
+		this.fecha_creacion = fecha_creacion;
+	}
+
+	public Long getUltimo_usuario_modificador() {
+		return ultimo_usuario_modificador;
+	}
+
+	public void setUltimo_usuario_modificador(Long ultimo_usuario_modificador) {
+		this.ultimo_usuario_modificador = ultimo_usuario_modificador;
+	}
+
+	public Date getFecha_ultima_modificacion() {
+		return fecha_ultima_modificacion;
+	}
+
+	public void setFecha_ultima_modificacion(Date fecha_ultima_modificacion) {
+		this.fecha_ultima_modificacion = fecha_ultima_modificacion;
+	}	
 }
