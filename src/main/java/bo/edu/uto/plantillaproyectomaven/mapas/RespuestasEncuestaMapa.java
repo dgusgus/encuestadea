@@ -11,6 +11,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RespuestasEncuestaMapa {
 
-	void insertarRespuestasEncuesta(RespuestasEncuesta criterio) throws DataAccessException;	
+	void insertarRespuestasEncuesta(RespuestasEncuesta criterio) throws DataAccessException;
+
+	public RespuestasEncuesta getBuscarRespuestasEncuesta(RespuestasEncuesta datosEncuesta);
+
+	public void modificarRespuestasEncuesta(RespuestasEncuesta respuestasEncuesta);
 	
 }

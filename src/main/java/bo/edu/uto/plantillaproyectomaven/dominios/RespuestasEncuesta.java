@@ -18,37 +18,37 @@ public class RespuestasEncuesta {
 	private Long id_grupo;
 	private Long id_gestion;
 	private Long id_docente;
-	private Integer P1=0;
-	private Integer P2=0;
-	private Integer P3=0;
-	private Integer P4=0;
-	private Integer P5=0;
-	private Integer P6=0;
-	private Integer P7=0;
-	private Integer P8=0;
-	private Integer P9=0;
-	private Integer P10=0;
-	private Integer P11=0;
-	private Integer P12=0;
-	private Integer P13=0;
-	private Integer P14=0;
-	private Integer P15=0;
-	private Integer P16=0;
-	private Integer P17=0;
-	private Integer P18=0;
-	private Integer P19=0;
-	private Integer P20=0;
-	private Integer P21=0;
-	private Integer P22=0;
-	private Integer P23=0;
-	private Integer P24=0;
-	private Integer P25=0;
-	private Integer P26=0;
-	private Integer P27=0;
-	private Integer P28=0;
-	private Integer P29=0;
-	private Integer P30=0;
-	private Integer P31=0;
+	private Integer p1=0;
+	private Integer p2=0;
+	private Integer p3=0;
+	private Integer p4=0;
+	private Integer p5=0;
+	private Integer p6=0;
+	private Integer p7=0;
+	private Integer p8=0;
+	private Integer p9=0;
+	private Integer p10=0;
+	private Integer p11=0;
+	private Integer p12=0;
+	private Integer p13=0;
+	private Integer p14=0;
+	private Integer p15=0;
+	private Integer p16=0;
+	private Integer p17=0;
+	private Integer p18=0;
+	private Integer p19=0;
+	private Integer p20=0;
+	private Integer p21=0;
+	private Integer p22=0;
+	private Integer p23=0;
+	private Integer p24=0;
+	private Integer p25=0;
+	private Integer p26=0;
+	private Integer p27=0;
+	private Integer p28=0;
+	private Integer p29=0;
+	private Integer p30=0;
+	private Integer p31=0;
 
 	public Long getId_respuesta_encuesta() {
 		return id_respuesta_encuesta;
@@ -117,282 +117,282 @@ public class RespuestasEncuesta {
 	}	
 
 	public Integer getP1() {
-		return P1;
+		return p1;
 	}
 
-	public void setP1(Integer P1) {		
-		this.P1 = P1;
-		if(P1==null) this.P1 = 0;
+	public void setP1(Integer p1) {		
+		this.p1 = p1;
+		if(p1==null) this.p1 = 0;
 	}
 
 	public Integer getP2() {
-		return P2;
+		return p2;
 	}
 
-	public void setP2(Integer P2) {
-		this.P2 = P2;
-		if(P2==null) this.P2 = 0;
+	public void setP2(Integer p2) {
+		this.p2 = p2;
+		if(p2==null) this.p2 = 0;
 	}
 
 	public Integer getP3() {
-		return P3;
+		return p3;
 	}
 
-	public void setP3(Integer P3) {
-		this.P3 = P3;
-		if(P3==null) this.P3 = 0;
+	public void setP3(Integer p3) {
+		this.p3 = p3;
+		if(p3==null) this.p3 = 0;
 	}
 
 	public Integer getP4() {
-		return P4;
+		return p4;
 	}
 
-	public void setP4(Integer P4) {
-		this.P4 = P4;
-		if(P4==null) this.P4 = 0;
+	public void setP4(Integer p4) {
+		this.p4 = p4;
+		if(p4==null) this.p4 = 0;
 	}
 
 	public Integer getP5() {
-		return P5;
+		return p5;
 	}
 
-	public void setP5(Integer P5) {
-		this.P5 = P5;
-		if(P5==null) this.P5 = 0;
+	public void setP5(Integer p5) {
+		this.p5 = p5;
+		if(p5==null) this.p5 = 0;
 	}
 
 	public Integer getP6() {
-		return P6;
+		return p6;
 	}
 
-	public void setP6(Integer P6) {
-		this.P6 = P6;
-		if(P6==null) this.P6 = 0;
+	public void setP6(Integer p6) {
+		this.p6 = p6;
+		if(p6==null) this.p6 = 0;
 	}
 
 	public Integer getP7() {
-		return P7;
+		return p7;
 	}
 
-	public void setP7(Integer P7) {
-		this.P7 = P7;
-		if(P7==null) this.P7 = 0;
+	public void setP7(Integer p7) {
+		this.p7 = p7;
+		if(p7==null) this.p7 = 0;
 	}
 
 	public Integer getP8() {
-		return P8;
+		return p8;
 	}
 
-	public void setP8(Integer P8) {
-		this.P8 = P8;
-		if(P8==null) this.P8 = 0;
+	public void setP8(Integer p8) {
+		this.p8 = p8;
+		if(p8==null) this.p8 = 0;
 	}
 
 	public Integer getP9() {
-		return P9;
+		return p9;
 	}
 
-	public void setP9(Integer P9) {
-		this.P9 = P9;
-		if(P9==null) this.P9 = 0;
+	public void setP9(Integer p9) {
+		this.p9 = p9;
+		if(p9==null) this.p9 = 0;
 	}
 
 	public Integer getP10() {
-		return P10;
+		return p10;
 	}
 
-	public void setP10(Integer P10) {
-		this.P10 = P10;
-		if(P10==null) this.P10 = 0;
+	public void setP10(Integer p10) {
+		this.p10 = p10;
+		if(p10==null) this.p10 = 0;
 	}
 
 	public Integer getP11() {
-		return P11;
+		return p11;
 	}
 
-	public void setP11(Integer P11) {
-		this.P11 = P11;
-		if(P11==null) this.P11 = 0;
+	public void setP11(Integer p11) {
+		this.p11 = p11;
+		if(p11==null) this.p11 = 0;
 	}
 
 	public Integer getP12() {
-		return P12;
+		return p12;
 	}
 
-	public void setP12(Integer P12) {
-		this.P12 = P12;
-		if(P12==null) this.P12 = 0;
+	public void setP12(Integer p12) {
+		this.p12 = p12;
+		if(p12==null) this.p12 = 0;
 	}
 
 	public Integer getP13() {
-		return P13;
+		return p13;
 	}
 
-	public void setP13(Integer P13) {
-		this.P13 = P13;
-		if(P13==null) this.P13 = 0;
+	public void setP13(Integer p13) {
+		this.p13 = p13;
+		if(p13==null) this.p13 = 0;
 	}
 
 	public Integer getP14() {
-		return P14;
+		return p14;
 	}
 
-	public void setP14(Integer P14) {
-		this.P14 = P14;
-		if(P14==null) this.P14 = 0;
+	public void setP14(Integer p14) {
+		this.p14 = p14;
+		if(p14==null) this.p14 = 0;
 	}
 
 	public Integer getP15() {
-		return P15;
+		return p15;
 	}
 
-	public void setP15(Integer P15) {
-		this.P15 = P15;
-		if(P15==null) this.P15 = 0;
+	public void setP15(Integer p15) {
+		this.p15 = p15;
+		if(p15==null) this.p15 = 0;
 	}
 
 	public Integer getP16() {
-		return P16;
+		return p16;
 	}
 
-	public void setP16(Integer P16) {
-		this.P16 = P16;
-		if(P16==null) this.P16 = 0;
+	public void setP16(Integer p16) {
+		this.p16 = p16;
+		if(p16==null) this.p16 = 0;
 	}
 
 	public Integer getP17() {
-		return P17;
+		return p17;
 	}
 
-	public void setP17(Integer P17) {
-		this.P17 = P17;
-		if(P17==null) this.P17 = 0;
+	public void setP17(Integer p17) {
+		this.p17 = p17;
+		if(p17==null) this.p17 = 0;
 	}
 
 	public Integer getP18() {
-		return P18;
+		return p18;
 	}
 
-	public void setP18(Integer P18) {
-		this.P18 = P18;
-		if(P18==null) this.P18 = 0;
+	public void setP18(Integer p18) {
+		this.p18 = p18;
+		if(p18==null) this.p18 = 0;
 	}
 
 	public Integer getP19() {
-		return P19;
+		return p19;
 	}
 
-	public void setP19(Integer P19) {
-		this.P19 = P19;
-		if(P19==null) this.P19 = 0;
+	public void setP19(Integer p19) {
+		this.p19 = p19;
+		if(p19==null) this.p19 = 0;
 	}
 
 	public Integer getP20() {
-		return P20;
+		return p20;
 	}
 
-	public void setP20(Integer P20) {
-		this.P20 = P20;
-		if(P20==null) this.P20 = 0;
+	public void setP20(Integer p20) {
+		this.p20 = p20;
+		if(p20==null) this.p20 = 0;
 	}
 
 	public Integer getP21() {
-		return P21;
+		return p21;
 	}
 
-	public void setP21(Integer P21) {
-		this.P21 = P21;
-		if(P21==null) this.P21 = 0;
+	public void setP21(Integer p21) {
+		this.p21 = p21;
+		if(p21==null) this.p21 = 0;
 	}
 
 	public Integer getP22() {
-		return P22;
+		return p22;
 	}
 
-	public void setP22(Integer P22) {
-		this.P22 = P22;
-		if(P22==null) this.P22 = 0;
+	public void setP22(Integer p22) {
+		this.p22 = p22;
+		if(p22==null) this.p22 = 0;
 	}
 
 	public Integer getP23() {
-		return P23;
+		return p23;
 	}
 
-	public void setP23(Integer P23) {
-		this.P23 = P23;
-		if(P23==null) this.P23 = 0;
+	public void setP23(Integer p23) {
+		this.p23 = p23;
+		if(p23==null) this.p23 = 0;
 	}
 
 	public Integer getP24() {
-		return P24;
+		return p24;
 	}
 
-	public void setP24(Integer P24) {
-		this.P24 = P24;
-		if(P24==null) this.P24 = 0;
+	public void setP24(Integer p24) {
+		this.p24 = p24;
+		if(p24==null) this.p24 = 0;
 	}
 
 	public Integer getP25() {
-		return P25;
+		return p25;
 	}
 
-	public void setP25(Integer P25) {
-		this.P25 = P25;
-		if(P25==null) this.P25 = 0;
+	public void setP25(Integer p25) {
+		this.p25 = p25;
+		if(p25==null) this.p25 = 0;
 	}
 
 	public Integer getP26() {
-		return P26;
+		return p26;
 	}
 
-	public void setP26(Integer P26) {
-		this.P26 = P26;
-		if(P26==null) this.P26 = 0;
+	public void setP26(Integer p26) {
+		this.p26 = p26;
+		if(p26==null) this.p26 = 0;
 	}
 
 	public Integer getP27() {
-		return P27;
+		return p27;
 	}
 
-	public void setP27(Integer P27) {
-		this.P27 = P27;
-		if(P27==null) this.P27 = 0;
+	public void setP27(Integer p27) {
+		this.p27 = p27;
+		if(p27==null) this.p27 = 0;
 	}
 
 	public Integer getP28() {
-		return P28;
+		return p28;
 	}
 
-	public void setP28(Integer P28) {
-		this.P28 = P28;
-		if(P28==null) this.P28 = 0;
+	public void setP28(Integer p28) {
+		this.p28 = p28;
+		if(p28==null) this.p28 = 0;
 	}
 
 	public Integer getP29() {
-		return P29;
+		return p29;
 	}
 
-	public void setP29(Integer P29) {
-		this.P29 = P29;
-		if(P29==null) this.P29 = 0;
+	public void setP29(Integer p29) {
+		this.p29 = p29;
+		if(p29==null) this.p29 = 0;
 	}
 
 	public Integer getP30() {
-		return P30;
+		return p30;
 	}
 
-	public void setP30(Integer P30) {
-		this.P30 = P30;
-		if(P30==null) this.P30 = 0;
+	public void setP30(Integer p30) {
+		this.p30 = p30;
+		if(p30==null) this.p30 = 0;
 	}
 
 	public Integer getP31() {
-		return P31;
+		return p31;
 	}
 
-	public void setP31(Integer P31) {
-		this.P31 = P31;
-		if(P31==null) this.P31 = 0;
+	public void setP31(Integer p31) {
+		this.p31 = p31;
+		if(p31==null) this.p31 = 0;
 	}
 	
 }

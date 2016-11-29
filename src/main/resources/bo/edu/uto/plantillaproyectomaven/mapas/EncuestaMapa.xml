@@ -31,4 +31,11 @@
 			fecha_ultima_modificacion = now()
 		where id_encuesta = #{id_encuesta}
 	</update>
+	
+	<update id="getActualizarEncuesta" parameterType="Encuesta" >
+		update dea.encuesta set			
+			ultimo_usuario_modificador = #{ultimo_usuario_modificador},
+			fecha_ultima_modificacion = now()
+		where id_encuesta = #{id_encuesta}
+	</update>
 </mapper>

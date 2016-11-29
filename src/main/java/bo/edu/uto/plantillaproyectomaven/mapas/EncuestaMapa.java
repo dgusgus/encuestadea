@@ -17,5 +17,6 @@ public interface EncuestaMapa {
 	List<Encuesta> getEncuestas(CriterioBusqueda criterio) throws DataAccessException;
 	List<Encuesta> getListaEncuestas(Encuesta criterio) throws DataAccessException;
 	public void getEliminarEncuesta(Encuesta datosEncuesta);
+	public void getActualizarEncuesta(Encuesta datosEncuesta);
 	
 }

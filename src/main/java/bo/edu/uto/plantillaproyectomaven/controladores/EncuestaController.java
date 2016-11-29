@@ -101,4 +101,33 @@ public class EncuestaController {
 		respuesta.put("resultado", true);
 		return respuesta;
 	}
+	
+	@RequestMapping("/buscar")
+	@ResponseBody
+	public RespuestasEncuesta buscar(RespuestasEncuesta datosEncuesta, HttpSession hs){
+		
+		Long id_usuario = (Long) hs.getAttribute("__id_usuario");					
+		datosEncuesta = respuestasEncuestaMapa.getBuscarRespuestasEncuesta(datosEncuesta);				
+		return datosEncuesta;
+	}
+	
+	@RequestMapping("/modificar")
+	@ResponseBody
+	public Map modificar(Encuesta datosEncuesta, RespuestasEncuesta respuestasEncuesta, HttpSession hs){
+		Map modelo = new HashMap();
+		// Verificando si el Usuario sigue autentificado.
+		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+		modelo.put("logout", id_usuario == null);
+		//
+		datosEncuesta.setUltimo_usuario_modificador(id_usuario);		
+			
+		encuestaMapa.getActualizarEncuesta(datosEncuesta);
+				
+		respuestasEncuestaMapa.modificarRespuestasEncuesta(respuestasEncuesta);
+		//modelo.put("lista", lista);
+		//
+		HashMap respuesta = new HashMap();
+		respuesta.put("resultado", true);
+		return respuesta;
+	}
 }
