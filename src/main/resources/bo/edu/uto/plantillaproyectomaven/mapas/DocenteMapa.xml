@@ -5,7 +5,20 @@
 <mapper namespace="bo.edu.uto.plantillaproyectomaven.mapas.DocenteMapa">
 
 	<select id="getDocentes" resultType="Docente" parameterType="CriterioBusqueda" >
-		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion         
+		select	par.id_materia
+				, par.id_grupo
+				, par.id_gestion
+				, par.id_docente
+				, doc.titulo
+				, p.nombre
+				, p.dip
+				, m.sigla
+				, gr.grupo
+				, t.titularia 
+				, g.anio as anioGestion
+				, m.materia as nombreMateria
+				, g._gestion as gestion
+				, f.facultad as facultad_materia
             
     from	public.paralelos par
             join public.personas p on p.id_persona=par.id_docente
@@ -25,7 +38,7 @@
 	</select>
 	
 	<select id="getDocenteEncuesta" resultType="Docente" parameterType="Encuesta" >
-		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion        
+		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion, f.facultad as facultad_materia        
             
 		from	public.paralelos par
 				join public.personas p on p.id_persona=par.id_docente
@@ -48,7 +61,7 @@
 		limit 50;
 	</select>
 	<select id="getDocentesBusqueda" resultType="Docente" parameterType="String" >
-		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion
+		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion, f.facultad as facultad_materia
             
 		from	public.paralelos par
 				join public.personas p on p.id_persona=par.id_docente

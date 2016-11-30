@@ -36,6 +36,7 @@
 						<a data-action="collapse" href="#"><i class="ace-icon fa fa-chevron-up"></i></a>
 					</div>
 					<div class="widget-toolbar">
+						<button  id="btreporte" class="btn btn-minier btn-success btn-round"><i class="ace-icon fa fa-plus"></i>Reporte</button>
 						<button  id="btnew" class="btn btn-minier btn-primary btn-round"><i class="ace-icon fa fa-plus"></i>Añadir Encuestas</button>
 					</div>
 				</div>
@@ -50,8 +51,10 @@
 						<dd>${docente.sigla}</dd>						
 						<dt>paralelo:</dt>
 						<dd>${docente.grupo}</dd>
-						<dt>Gestion:</dt>
-						<dd>${docente.gestion}</dd>						
+						<dt>Gestión:</dt>
+						<dd>${docente.gestion}</dd>
+						<dt>Facultad:</dt>
+						<dd>${docente.facultad_materia}</dd>
 					</dl>
 					<div id="tlista" class="widget-main padding-6">
 						<table class="table table-striped table-bordered table-hover" id="flujoprocesos">
