@@ -36,7 +36,7 @@
 						<a data-action="collapse" href="#"><i class="ace-icon fa fa-chevron-up"></i></a>
 					</div>
 					<div class="widget-toolbar">
-						<button  id="btreporte" class="btn btn-minier btn-success btn-round"><i class="ace-icon fa fa-plus"></i>Reporte</button>
+						<a  id="btreporte" class="btn btn-minier btn-success btn-round" href="encuesta/reporte_general.html?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}&id_unidad=${docente.id_unidad}" target="_blank"><i class="ace-icon fa fa-print"></i>Reporte General</a>
 						<button  id="btnew" class="btn btn-minier btn-primary btn-round"><i class="ace-icon fa fa-plus"></i>Añadir Encuestas</button>
 					</div>
 				</div>
@@ -672,7 +672,7 @@
 		}
 	}
 
-	function getDatosEncuesta(id){
+	function editar(id){
 		$.ajax({
 			type: "POST",
 			url: 'encuesta/buscar.html?id_encuesta='+id,        
@@ -688,10 +688,6 @@
 			},
 			error: function(){alert('Ocurrio un error inesperado');}
 		});
-	}
-
-	function editar(id){
-		getDatosEncuesta(id);		
 	}
 	
 	function guardar_editar(id){
@@ -713,10 +709,6 @@
 		}
 	}
 
-	function goProcesar() {
-
-	}
-
 	function eliminar(id) {		
 		$('#confirmar').modal('show');
 		$( "#confirmar-eliminar-btn").unbind( "click" );
@@ -734,14 +726,23 @@
 		});
 	}
 	
+	function reporteGeneral(){
+		$.ajax({
+			type: "POST",
+			url: 'encuesta/reporte_general.html',        
+			success: function(response){
+				var win = window.open(response, '_blank');
+				win.focus();
+			},
+			error: function(){alert('Ocurrio un error inesperado');}
+		});
+	}
+	
 	function populate_form(datos){
 		//console.log(datos[0]);
 		$.each(datos, function(name, val){
 			var $el = $('[name="'+name+'"]'),
-				type = $el.attr('type');
-			console.log($el);
-			console.log(type);
-			console.log(val);
+				type = $el.attr('type');			
 			switch(type){
 				case 'checkbox':
 					$el.attr('checked', 'checked');

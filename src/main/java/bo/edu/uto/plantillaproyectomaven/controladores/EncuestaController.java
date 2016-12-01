@@ -3,9 +3,12 @@ package bo.edu.uto.plantillaproyectomaven.controladores;
 import bo.edu.uto.plantillaproyectomaven.dominios.Docente;
 import bo.edu.uto.plantillaproyectomaven.dominios.Encuesta;
 import bo.edu.uto.plantillaproyectomaven.dominios.RespuestasEncuesta;
+import bo.edu.uto.plantillaproyectomaven.dominios.Unidad;
 import bo.edu.uto.plantillaproyectomaven.mapas.DocenteMapa;
 import bo.edu.uto.plantillaproyectomaven.mapas.EncuestaMapa;
 import bo.edu.uto.plantillaproyectomaven.mapas.RespuestasEncuestaMapa;
+import bo.edu.uto.plantillaproyectomaven.mapas.UnidadMapa;
+import bo.edu.uto.plantillaproyectomaven.reportes.ReporteEncuestaGeneralPDF;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +37,8 @@ public class EncuestaController {
 	private DocenteMapa docenteMapa;	
 	@Autowired
 	private RespuestasEncuestaMapa respuestasEncuestaMapa;
+	@Autowired
+	private UnidadMapa unidadMapa;
 
 	@RequestMapping(value = "/index")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {
@@ -48,20 +53,7 @@ public class EncuestaController {
 		//			
 		return new ModelAndView("encuesta/index", modelo);
 	}
-	
-	@RequestMapping("/listar")
-	public ModelAndView listar(Encuesta datosEncuesta, HttpSession hs) {
-		Map modelo = new HashMap();
-		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
-		modelo.put("logout", id_usuario == null);
-		//
-		List lista = encuestaMapa.getListaEncuestas(datosEncuesta);
-		modelo.put("lista", lista);
-		//
-		return new ModelAndView("encuesta/listar", modelo);
-	}
-	
+			
 	@RequestMapping("/guardar")
 	@ResponseBody
 	public Map guardar(Encuesta datosEncuesta, RespuestasEncuesta respuestasEncuesta, HttpSession hs) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
@@ -129,5 +121,27 @@ public class EncuestaController {
 		HashMap respuesta = new HashMap();
 		respuesta.put("resultado", true);
 		return respuesta;
+	}
+	
+	@RequestMapping("/reporte_general")
+	public ModelAndView reporte_general(Docente docente, Encuesta encuesta, Unidad unidad, HttpSession hs) {
+		Map modelo = new HashMap();
+		// Verificando si el Usuario sigue autentificado.
+		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+		modelo.put("logout", id_usuario == null);
+		//
+		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);
+		//modelo.put("lista", lista);
+		//
+		docente = docenteMapa.getDocenteEncuesta(encuesta);
+		modelo.put("docente",docente);
+		
+		List<RespuestasEncuesta> listaRespuestasEncuestas = respuestasEncuestaMapa.getListaRespuestasEncuesta(docente);
+		modelo.put("listaRespuestasEncuestas",listaRespuestasEncuestas);
+		
+		unidad = unidadMapa.getUnidad(unidad);
+		modelo.put("unidad", unidad);
+		
+		return new ModelAndView(new ReporteEncuestaGeneralPDF(),modelo);
 	}
 }

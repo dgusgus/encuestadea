@@ -111,6 +111,17 @@
 			p30=#{p30},
 			p31=#{p31}
 		where id_encuesta = #{id_encuesta}
-	</update>
+	</update>	
 	
+	<select id="getListaRespuestasEncuesta" resultType="RespuestasEncuesta" parameterType="RespuestasEncuesta" >
+		select	*                        
+		from 
+			dea.respuesta_encuesta re
+			join dea.encuesta e using (id_encuesta)
+		where e.id_estado
+			and e.id_docente = #{id_docente}
+			and e.id_materia = #{id_materia}
+			and e.id_grupo = #{id_grupo}
+			and e.id_gestion = #{id_gestion}
+	</select>
 </mapper>

@@ -9,9 +9,10 @@
 		values	(#{id_materia}, #{id_grupo}, #{id_gestion}, #{id_docente}, #{id_usuario}, #{id_estado});
 	</insert>
 	
-	<select id="getEncuestas" resultType="Encuesta" parameterType="CriterioBusqueda" >
-		select	*                        
-		from dea.encuesta
+	<select id="getEncuesta" resultType="Encuesta" parameterType="Encuesta" >
+		select	e.*                        
+		from dea.encuesta e
+		where e.id_encuesta = ${id_encuesta}
 	</select>
 	
 	<select id="getListaEncuestas" resultType="Encuesta" parameterType="Encuesta" >

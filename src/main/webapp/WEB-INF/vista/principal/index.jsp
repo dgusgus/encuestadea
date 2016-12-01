@@ -27,8 +27,8 @@
 		<c:forEach items="${docentes}" var="docente" varStatus="contador">
 			<tr>
 				<td id="titulo" class="center hidden-480">${docente.titulo}</td>
-				<td id="facultad" class="right">${docente.facultad_materia}</td>
 				<td id="nombre" class="right">${docente.nombre}</td>
+				<td id="facultad" class="right">${docente.facultad_materia}</td>				
 				<td id="sigla" class="left">${docente.sigla}</td>
 				<td id="nombreMateria" class="right">${docente.nombreMateria}</td>
 				<td id="paralelo" class="center">${docente.grupo}</td>
