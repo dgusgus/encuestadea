@@ -49,7 +49,7 @@
 						<dd>${docente.nombreMateria}</dd>
 						<dt>Materia:</dt>
 						<dd>${docente.sigla}</dd>						
-						<dt>paralelo:</dt>
+						<dt>Paralelo:</dt>
 						<dd>${docente.grupo}</dd>
 						<dt>Gestión:</dt>
 						<dd>${docente.gestion}</dd>
@@ -90,7 +90,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 

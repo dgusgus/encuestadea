@@ -20,7 +20,7 @@
 	
 	<context:annotation-config />
 	
-	<context:component-scan base-package="bo.edu.uto.plantillaproyectomaven"/>	
+	<context:component-scan base-package="bo.edu.uto.encuestadea"/>	
 	
 	<mvc:resources mapping="/assets/**" location="/assets/" />
 	<mvc:annotation-driven  content-negotiation-manager="contentNegotiationManager" />

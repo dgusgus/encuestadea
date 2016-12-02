@@ -4,10 +4,35 @@
 <div class="col-xs-12">
 	<h2>Busqueda de Docentes</h2>
 	
-	<form action="principal/index.html">
-		<input type="text" name="busqueda"/>
-		<input type="submit" value="Buscar">
-	</form>
+	<div class="widget-box">
+		<div class="widget-header widget-header-small">
+			<h5 class="widget-title lighter">Criterios de búsqueda</h5>
+		</div>
+
+		<div class="widget-body">
+			<div class="widget-main">
+				<form class="form-search" action="principal/index.html">
+					<div class="row">
+						<div class="col-xs-12 col-sm-8">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="ace-icon fa fa-check"></i>
+								</span>
+
+								<input type="text" class="form-control search-query" placeholder="criterio de búsqueda" name="busqueda"/>
+								<span class="input-group-btn">
+									<button type="submit button" class="btn btn-blue btn-sm">
+										<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+										Buscar
+									</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
 	
 	<table class="table table-striped table-bordered table-hover" id="flujoProcesos">
 		<thead>

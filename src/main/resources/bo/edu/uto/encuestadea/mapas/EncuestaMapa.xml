@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bo.edu.uto.encuestadea.mapas.EncuestaMapa">
+
+	<insert id="getNuevaEncuesta" parameterType="Encuesta" useGeneratedKeys="true" keyProperty="id_encuesta" keyColumn="id_encuesta">
+		insert	into dea.encuesta(id_materia, id_grupo, id_gestion, id_docente,id_usuario,id_estado)
+		values	(#{id_materia}, #{id_grupo}, #{id_gestion}, #{id_docente}, #{id_usuario}, #{id_estado});
+	</insert>
+	
+	<select id="getEncuesta" resultType="Encuesta" parameterType="Encuesta" >
+		select	e.*                        
+		from dea.encuesta e
+		where e.id_encuesta = ${id_encuesta}
+	</select>
+	
+	<select id="getListaEncuestas" resultType="Encuesta" parameterType="Encuesta" >
+		select	e.*                        
+		from dea.encuesta e
+		where e.id_estado
+		and e.id_docente = #{id_docente}
+		and e.id_materia = #{id_materia}
+		and e.id_grupo = #{id_grupo}
+		and e.id_gestion = #{id_gestion}
+	</select>
+	
+	<update id="getEliminarEncuesta" parameterType="Encuesta" >
+		update dea.encuesta set
+			id_estado = #{id_estado},
+			ultimo_usuario_modificador = #{ultimo_usuario_modificador},
+			fecha_ultima_modificacion = now()
+		where id_encuesta = #{id_encuesta}
+	</update>
+	
+	<update id="getActualizarEncuesta" parameterType="Encuesta" >
+		update dea.encuesta set			
+			ultimo_usuario_modificador = #{ultimo_usuario_modificador},
+			fecha_ultima_modificacion = now()
+		where id_encuesta = #{id_encuesta}
+	</update>
+</mapper>

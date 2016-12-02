@@ -154,7 +154,7 @@ function getMenu(){
 					<ul class="nav ace-nav">
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<span class="user-info"><small>Rol</small><span id="x-rol">Administrador</span></span>
+								<span class="user-info"><small>Rol</small><span id="x-rol">Comisión</span></span>
 								<i class="ace-icon fa fa-caret-down"></i>
 							</a>
 							<ul id="x-roles" class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close"></ul>

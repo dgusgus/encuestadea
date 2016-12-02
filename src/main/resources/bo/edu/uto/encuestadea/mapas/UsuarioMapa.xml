@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bo.edu.uto.encuestadea.mapas.UsuarioMapa">
+
+	<update id="setEditarUsuarioClave" parameterType="Usuarios">
+		update _usuarios set clave=md5(#{clave}) where apodo=#{apodo}
+	</update>
+
+	<select id="getBuscarUsuarios" resultType="Usuarios" parameterType="Usuarios" >
+		 SELECT id_usuario,id_persona, nombre_completo,apodo
+		 FROM _usuarios
+			  join personas using (id_persona)
+		 where _usuarios.id_estado and nombre_completo ilike '%'||#{nombre_completo}||'%'
+		 ORDER BY nombres
+			limit 50;
+	</select>
+
+	 <select id="getUsuarios" resultType="Usuarios" >
+		 SELECT id_usuario as idUsuario
+		 FROM _usuarios
+		      join personas using (id_persona)
+                      join ( select id_rol,(SELECT id_usuario FROM _usr_roles where  _usr_roles.id_rol=_roles.id_rol limit 1) as id_usuario,rol
+                 from _roles)  a using (id_usuario)
+		 where _usuarios.id_estado
+		 ORDER BY nombres
+	</select>
+
+	<select id="getUsuario" resultType="Usuarios">
+		SELECT id_usuario,id_persona, nombre_completo
+		 FROM _usuarios
+			  join personas using (id_persona)
+		 where _usuarios.id_estado
+		 AND _usuarios.id_usuario = #{id_usuario}
+		 ORDER BY nombres
+
+	</select>
+
+	<insert id="setNuevoUsuario" parameterType="Usuarios">
+		INSERT INTO _usuarios(
+			 id_persona, id_estado, apodo, clave, recordatorio)
+		VALUES (#{id_persona},true,#{apodo},md5(#{clave}),#{recordatorio});
+	</insert>
+
+	<update id="setEditarUsuario" parameterType="Usuarios">
+		UPDATE _usuarios SET usuario=#{usuario}
+		WHERE id_usuario=#{id_usuario};
+	</update>
+
+	<delete id="setBorrarUsuario" parameterType="Usuarios">
+		UPDATE _usuarios SET id_estado=false
+		WHERE id_usuario=#{id_usuario};
+	</delete>
+
+	<insert id="setNuevoUsrRol" parameterType="Usuarios">
+		INSERT INTO _usr_roles(
+			 id_usuario, id_rol, id_estado, fec_expiracion)
+		VALUES (#{id_usuario},#{id_rol},#{id_estado},#{fec_expiracion}::date);
+	</insert>
+
+	 <update id="setEditarUsrRol" parameterType="Usuarios">
+		UPDATE _usr_roles
+		SET id_rol=#{id_rol},id_estado=#{id_estado},fec_expiracion=#{fec_expiracion}::date
+		WHERE id_usr_rol=#{id_usr_rol};
+	</update>
+	<select id="getDatosUsrRol" resultType="Usuarios" >
+		SELECT id_usr_rol, id_usuario, id_rol, id_estado, fec_expiracion
+		FROM _usr_roles
+		where id_usr_rol=#{id_usr_rol};
+	</select>
+
+	<delete id="setBorrarUsrRol" parameterType="Usuarios">
+		DELETE FROM _usr_roles
+		WHERE id_usr_rol=#{id_usr_rol};
+	</delete>
+
+	<insert id="setNuevoUsrFacultad" parameterType="Usuarios">
+		INSERT INTO _usr_facultades(
+			 id_usuario, id_facultad, id_estado, fec_expiracion)
+		VALUES (#{id_usuario},#{id_facultad},#{id_estado},#{fec_expiracion}::date);
+	</insert>
+
+	 <update id="setEditarUsrFacultad" parameterType="Usuarios">
+		UPDATE _usr_facultades
+		SET id_facultad=#{id_facultad},id_estado=#{id_estado},fec_expiracion=#{fec_expiracion}::date
+		WHERE id_usr_facultad=#{id_usr_facultad};
+	</update>
+	<select id="getDatosUsrFacultad" resultType="Usuarios" >
+		SELECT id_usr_facultad, id_usuario, id_facultad, id_estado, fec_expiracion
+		FROM _usr_facultades
+		where id_usr_facultad=#{id_usr_facultad};
+	</select>
+
+	<delete id="setBorrarUsrFacultad" parameterType="Usuarios">
+		DELETE FROM _usr_facultades
+		WHERE id_usr_facultad=#{id_usr_facultad};
+	</delete>
+
+<insert id="setNuevoUsrUnidad" parameterType="Usuarios">
+		INSERT INTO _usr_unidades(
+			 id_usuario, id_unidad, id_estado, fec_expiracion)
+		VALUES (#{id_usuario},#{id_unidad},#{id_estado},#{fec_expiracion}::date);
+	</insert>
+
+	 <update id="setEditarUsrUnidad" parameterType="Usuarios">
+		UPDATE _usr_unidades
+		SET id_unidad=#{id_unidad},id_estado=#{id_estado},fec_expiracion=#{fec_expiracion}::date
+		WHERE id_usr_unidad=#{id_usr_unidad};
+	</update>
+	<select id="getDatosUsrUnidad" resultType="Usuarios" >
+		SELECT id_usr_unidad, id_usuario, id_unidad, id_estado, fec_expiracion
+		FROM _usr_unidades
+		where id_usr_unidad=#{id_usr_unidad};
+	</select>
+
+	<delete id="setBorrarUsrUnidad" parameterType="Usuarios">
+		DELETE FROM _usr_unidades
+		WHERE id_usr_unidad=#{id_usr_unidad};
+	</delete>
+
+	<insert id="setNuevoUsrBecario_tipo" parameterType="Usuarios">
+		INSERT INTO _usr_becarios(
+			 id_usuario, id_becario_tipo, id_estado, fec_expiracion)
+		VALUES (#{id_usuario},#{id_becario_tipo},#{id_estado},#{fec_expiracion}::date);
+	</insert>
+
+	 <update id="setEditarUsrBecario_tipo" parameterType="Usuarios">
+		UPDATE _usr_becarios
+		SET id_becario_tipo=#{id_becario_tipo},id_estado=#{id_estado},fec_expiracion=#{fec_expiracion}::date
+		WHERE id_usr_becario=#{id_usr_becario};
+	</update>
+	<select id="getDatosUsrBecario_tipo" resultType="Usuarios" >
+		SELECT id_usr_becario, id_usuario, id_becario_tipo, id_estado, fec_expiracion
+		FROM _usr_becarios
+		where id_usr_becario=#{id_usr_becario};
+	</select>
+
+	<delete id="setBorrarUsrBecario_tipo" parameterType="Usuarios">
+		DELETE FROM _usr_becarios
+		WHERE id_usr_becario=#{id_usr_becario};
+	</delete>
+	<select id="getUsuariosRol" resultType="Usuarios" parameterType="Usuarios">
+		select	u.id_usuario, p.paterno, p.materno, p.nombres, p.dip, p.id_tipo_exp, te.tipo_exp, u.apodo, u.id_estado
+		from	_usr_roles ur
+				join _usuarios u using(id_usuario)
+				join personas p using(id_persona)
+				join tipos_exps te using(id_tipo_exp)
+		where	ur.id_estado and ur.id_rol=#{id_rol}
+		order by u.id_estado desc, p.paterno, p.materno, p.nombres;
+	</select>
+
+	<update id="setUsuarioAltaBaja" parameterType="Usuarios">
+		update _usuarios set id_estado=#{id_estado}
+		where id_usuario=#{id_usuario};
+	</update>
+</mapper>
