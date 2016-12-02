@@ -21,7 +21,7 @@
 
 								<input type="text" class="form-control search-query" placeholder="criterio de búsqueda" name="busqueda"/>
 								<span class="input-group-btn">
-									<button type="submit button" class="btn btn-blue btn-sm">
+									<button type="submit button" class="btn btn-info btn-sm">
 										<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
 										Buscar
 									</button>
