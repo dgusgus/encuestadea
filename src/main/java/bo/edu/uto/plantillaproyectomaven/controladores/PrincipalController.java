@@ -57,6 +57,8 @@ public class PrincipalController {
 		List<Docente> docentes;		
 		if(busqueda!=null){
 			busqueda = busqueda.trim();
+			busqueda = busqueda.replaceAll("\\s", "%");
+			busqueda = busqueda.toUpperCase();
 			busqueda = "%"+busqueda+"%";
 			docentes = docenteMapa.getDocentesBusqueda(busqueda);
 		}else{
