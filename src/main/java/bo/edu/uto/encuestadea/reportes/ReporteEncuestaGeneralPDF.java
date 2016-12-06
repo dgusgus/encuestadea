@@ -4,6 +4,9 @@
  */
 package bo.edu.uto.encuestadea.reportes;
 
+import bo.edu.uto.encuestadea.dominios.Docente;
+import bo.edu.uto.encuestadea.dominios.RespuestasEncuesta;
+import bo.edu.uto.encuestadea.dominios.Unidad;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -16,7 +19,6 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -37,24 +39,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 
-	private static final Font TITULO_FONT = new Font(FontFamily.COURIER, 12, Font.BOLD, BaseColor.BLACK);
-	private static final Font DATOS_FONT = new Font(FontFamily.HELVETICA, 9, Font.NORMAL, BaseColor.BLACK);
-	private static final Font DATOS_FONT10 = new Font(FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK);
-	private static final Font DATOS_FONTB = new Font(FontFamily.HELVETICA, 9, Font.BOLD, BaseColor.BLACK);
-	private static final Font DATOS_FONT10B = new Font(FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.BLACK);
-	private static final Font DATOS_FONT7 = new Font(FontFamily.COURIER, 7, Font.BOLD, BaseColor.BLACK);
-	private static final Font CABEZA_COLUMNA_FONT = new Font(FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.BLACK);
-	private static final Font DATON_FONT = new Font(FontFamily.COURIER, 6, Font.BOLD, BaseColor.BLACK);
-	private static final Font DATO_FONT8 = new Font(FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.BLACK);
-	private static final Font DATO_FONT9 = new Font(FontFamily.HELVETICA, 9, Font.NORMAL, BaseColor.BLACK);
-	private static final Font DATO_FONT10 = new Font(FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK);
-	private static final Font DATO_FONT13 = new Font(FontFamily.HELVETICA, 13, Font.BOLD, BaseColor.BLACK);
-	private static final Font DATO_FONT14 = new Font(FontFamily.HELVETICA, 14, Font.BOLD, BaseColor.BLACK);
-	private static final Font DATO_FONT_FECHA = new Font(FontFamily.HELVETICA, 8, Font.ITALIC, BaseColor.BLACK);
+	private static final Font DATO_CABECERA = new Font(FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.BLACK);
+	private static final Font TITULO_DATO_CABECERA = new Font(FontFamily.HELVETICA, 9, Font.BOLD, BaseColor.BLACK);
 
 	@Override
 	protected void buildPdfMetadata(Map<String, Object> model, Document document, HttpServletRequest request) {
-		document.setPageSize(PageSize.LETTER);
+		document.setPageSize(PageSize.LETTER.rotate());
 		document.setMargins(40f, 50f, 30f, 40f);
 	}
 
@@ -82,12 +72,9 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 		fec_reg.setDateFormatSymbols(dfs);
 		DecimalFormat df = new DecimalFormat("#,##0.00");
 
-		List datos = (List) map.get("lista");
-		String usuario = (String) map.get("usuario");
-		String tramite = (String) map.get("tramite");
-		String descripcion = (String) map.get("descripcion");
-		String duracion = (String) map.get("duracion");
-//        int gestion = (Integer) map.get("gestion");
+		List<RespuestasEncuesta> listaRespuestasEncuestas = (List<RespuestasEncuesta>) map.get("listaRespuestasEncuestas");
+		Docente docente = (Docente) map.get("docente");
+		Unidad unidad = (Unidad) map.get("unidad");		
 
 		ServletContext servletContext = hsr.getServletContext();
 		String realPath = servletContext.getRealPath("/");
@@ -99,7 +86,7 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 		dtic.scaleAbsolute(50, 45);
 
 		float[] ancho1 = new float[3];
-		//ancho1[0] = 0.06f;
+		
 		ancho1[0] = 0.06f;
 		ancho1[1] = 0.31f;
 		ancho1[2] = 0.06f;
@@ -118,33 +105,182 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 		table1.addCell(p);
 		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
-		PdfPCell logo2 = new PdfPCell(dea,true);
+		PdfPCell logo2 = new PdfPCell(dtic,true);
 		logo2.setBorder(PdfPCell.NO_BORDER);
 		table1.addCell(logo2);
 
 		dcmnt.add(table1);
 
-		Paragraph espacio = new Paragraph("En Construcción \n\n", DATO_FONT13);
-		espacio.setAlignment(Element.ALIGN_CENTER);
-		dcmnt.add(espacio);
+		float[] ancho2 = {0.3f,0.7f,0.3f,0.7f};
 		
-//		Paragraph espacio = new Paragraph("TRAMITE  " + tramite + "\n\n", DATO_FONT13);
-//		espacio.setAlignment(Element.ALIGN_CENTER);
-//		dcmnt.add(espacio);
-//
-//		Paragraph desc = new Paragraph();
-//		desc.add(new Phrase("DESCRIPCIÓN : ", DATOS_FONT10B));
-//		desc.add(new Phrase(descripcion, DATO_FONT10));
-//		dcmnt.add(desc);
-//
-//		Paragraph dura = new Paragraph();
-//		dura.add(new Phrase("DURACIÓN : ", DATOS_FONT10B));
-//		dura.add(new Phrase(duracion + "\n\n", DATO_FONT10));
-//		dcmnt.add(dura);
-//
-//		Paragraph espacio1 = new Paragraph("PASOS\n\n", DATO_FONT13);
-//		espacio1.setAlignment(Element.ALIGN_LEFT);
-//		dcmnt.add(espacio1);
+		PdfPTable tableDatosCabecera = new PdfPTable(4);
+		
+		tableDatosCabecera.setWidths(ancho2);
+		//tableDatosCabecera.setWidthPercentage(100);
+		tableDatosCabecera.getDefaultCell().setBorderWidth(0);
+		
+		p = new Paragraph("Facultad:", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		p = new Paragraph(docente.getFacultad_materia(), DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		
+		p = new Paragraph("Carrera:", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		p = new Paragraph(unidad.getUnidad(), DATO_CABECERA);
+		tableDatosCabecera.addCell(p);	
+		
+		p = new Paragraph("Docente:", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		p = new Paragraph(docente.getNombre(), DATO_CABECERA);
+		tableDatosCabecera.addCell(p);	
+		
+		p = new Paragraph("Sigla Materia:", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		p = new Paragraph(docente.getSigla(), DATO_CABECERA);
+		tableDatosCabecera.addCell(p);	
+		
+		p = new Paragraph("Materia:", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		p = new Paragraph(docente.getNombreMateria(), DATO_CABECERA);
+		tableDatosCabecera.addCell(p);	
+		
+		p = new Paragraph("Paralelo:", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		p = new Paragraph(docente.getGrupo(), DATO_CABECERA);
+		tableDatosCabecera.addCell(p);	
+		
+		p = new Paragraph("Gestión:", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		p = new Paragraph(docente.getGestion(), DATO_CABECERA);
+		tableDatosCabecera.addCell(p);	
+		
+		p = new Paragraph(" ", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);
+		p = new Paragraph(" ", TITULO_DATO_CABECERA);
+		tableDatosCabecera.addCell(p);	
+		dcmnt.add(tableDatosCabecera);
+		
+		if(listaRespuestasEncuestas != null){
+			
+			BaseColor fondoCelda = new BaseColor(222, 240, 245);
+			PdfPTable tablaDatos = new PdfPTable(32);
+			tablaDatos.setWidthPercentage(100);
+			PdfPCell celda = null;
+			celda = new PdfPCell(new Phrase("Nr",TITULO_DATO_CABECERA));
+			celda.setBackgroundColor(fondoCelda);
+			tablaDatos.addCell(celda);
+
+			for(int i = 1 ; i <= 31 ; i++){
+				celda = new PdfPCell(new Phrase("p"+i,TITULO_DATO_CABECERA));
+				celda.setBackgroundColor(fondoCelda);
+				//celda.setRotation(90);
+				tablaDatos.addCell(celda);
+			}
+			
+			int i = 1;
+			
+			for(RespuestasEncuesta respuestas:listaRespuestasEncuestas){
+				celda = new PdfPCell(new Phrase(i+"",TITULO_DATO_CABECERA));
+				celda.setBackgroundColor(fondoCelda);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP1().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP2().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP3().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP4().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP5().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP6().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP7().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP8().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP9().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP10().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP11().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP12().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP13().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP14().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP15().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP16().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP17().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP18().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP19().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP20().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP21().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP22().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP23().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP24().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP25().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP26().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP27().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP28().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP29().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP30().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				celda = new PdfPCell(new Phrase(respuestas.getP31().toString(),DATO_CABECERA));
+				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
+				tablaDatos.addCell(celda);
+				i++;
+			}		
+			
+			dcmnt.add(tablaDatos);
+		}
 	}
 		
 }

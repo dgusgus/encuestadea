@@ -119,7 +119,7 @@
 								<div class="input-group">
 									<input id="p1" name="p1"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -133,7 +133,7 @@
 								<div class="input-group">
 									<input id="p2" name="p2"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -147,7 +147,7 @@
 								<div class="input-group">
 									<input id="p3" name="p3"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -161,7 +161,7 @@
 								<div class="input-group">
 									<input id="p4" name="p4"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -175,7 +175,7 @@
 								<div class="input-group">
 									<input id="p5" name="p5"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -189,7 +189,7 @@
 								<div class="input-group">
 									<input id="p6" name="p6"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -203,7 +203,7 @@
 								<div class="input-group">
 									<input id="p7" name="p7"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -217,7 +217,7 @@
 								<div class="input-group">
 									<input id="p8" name="p8"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -231,7 +231,7 @@
 								<div class="input-group">
 									<input id="p9" name="p9"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -245,7 +245,7 @@
 								<div class="input-group">
 									<input id="p10" name="p10"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -259,7 +259,7 @@
 								<div class="input-group">
 									<input id="p11" name="p11"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -273,7 +273,7 @@
 								<div class="input-group">
 									<input id="p12" name="p12"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-2]{1}$"
+										   pattern="^[0-2]{1}$"
 										   data-error="Min:1 Max:2">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -287,7 +287,7 @@
 								<div class="input-group">
 									<input id="p13" name="p13"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-2]{1}$"
+										   pattern="^[0-2]{1}$"
 										   data-error="Min:1 Max:2">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -304,7 +304,7 @@
 								<div class="input-group">
 									<input id="p14" name="p14"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -318,7 +318,7 @@
 								<div class="input-group">
 									<input id="p15" name="p15"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -332,7 +332,7 @@
 								<div class="input-group">
 									<input id="p16" name="p16"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -346,7 +346,7 @@
 								<div class="input-group">
 									<input id="p17" name="p17"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -360,7 +360,7 @@
 								<div class="input-group">
 									<input id="p18" name="p18"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -374,7 +374,7 @@
 								<div class="input-group">
 									<input id="p19" name="p19"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -388,8 +388,8 @@
 								<div class="input-group">
 									<input id="p20" name="p20"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
-										   data-error="Min:1 Max:3">
+										   pattern="^[0-2]{1}$"
+										   data-error="Min:1 Max:2">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
@@ -402,7 +402,7 @@
 								<div class="input-group">
 									<input id="p21" name="p21"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -416,7 +416,7 @@
 								<div class="input-group">
 									<input id="p22" name="p22"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -430,7 +430,7 @@
 								<div class="input-group">
 									<input id="p23" name="p23"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -444,7 +444,7 @@
 								<div class="input-group">
 									<input id="p24" name="p24"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -458,7 +458,7 @@
 								<div class="input-group">
 									<input id="p25" name="p25"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -472,7 +472,7 @@
 								<div class="input-group">
 									<input id="p26" name="p26"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-4]{1}$"
+										   pattern="^[0-4]{1}$"
 										   data-error="Min:1 Max:4">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -486,7 +486,7 @@
 								<div class="input-group">
 									<input id="p27" name="p27"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -500,7 +500,7 @@
 								<div class="input-group">
 									<input id="p28" name="p28"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -517,7 +517,7 @@
 								<div class="input-group">
 									<input id="p29" name="p29"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -531,7 +531,7 @@
 								<div class="input-group">
 									<input id="p30" name="p30"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -545,7 +545,7 @@
 								<div class="input-group">
 									<input id="p31" name="p31"
 										   class="form-control input-md inputs" type="text"
-										   pattern="^[1-3]{1}$"
+										   pattern="^[0-3]{1}$"
 										   data-error="Min:1 Max:3">
 									<span class="glyphicon form-control-feedback"
 										  aria-hidden="true"></span>
@@ -610,7 +610,45 @@
 		  $(this).each (function() { this.reset(); });
 		};
 		
+	jQuery.fn.getSelectionStart = function(){
+    if(this.lengh == 0) return -1;
+    input = this[0];
+ 
+    var pos = input.value.length;
+ 
+    if (input.createTextRange) {
+      var r = document.selection.createRange().duplicate();
+      r.moveEnd('character', input.value.length);
+      if (r.text == '') 
+        pos = input.value.length;
+      pos = input.value.lastIndexOf(r.text);
+    } else if(typeof(input.selectionStart)!="undefined")
+      pos = input.selectionStart;
+ 
+    return pos;
+  };
+ 
+  jQuery.fn.getSelectionEnd = function(){
+    if(this.lengh == 0) return -1;
+    input = this[0];
+ 
+    var pos = input.value.length;
+ 
+    if (input.createTextRange) {
+      var r = document.selection.createRange().duplicate();
+      r.moveStart('character', -input.value.length);
+      if (r.text == '') 
+        pos = input.value.length;
+      pos = input.value.lastIndexOf(r.text);
+    } else if(typeof(input.selectionEnd)!="undefined")
+      pos = input.selectionEnd;
+ 
+    return pos;
+  };
+		
 		setKeypressFunction();
+		
+		
 	});
 
 	function setKeypressFunction(){
@@ -631,12 +669,17 @@
 			} else if (e.shiftKey || e.which <= 48 || e.which >= 58) {
 				return false;
 			}
-		}).keyup (function () {
-			if (this.value.length >= charLimit) {
-				var index = $(selector).index(this) + 1;
-				$(selector).eq(index).focus();
-				return false;
+		}).keyup (function (e) {
+			if(e.wich != 46){
+				if (this.value.length >= charLimit) {
+					var index = $(selector).index(this) + 1;
+					$(selector).eq(index).focus();
+					return false;
+				}
+			}else{
+				this.value = '';
 			}
+			
 		});
 	}
 	
