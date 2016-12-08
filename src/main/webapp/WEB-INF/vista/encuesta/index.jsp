@@ -659,25 +659,31 @@
 		$(selector).keydown(function(e) {			
 			var keys = [8, 9, /*16, 17, 18,*/ 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 144, 145, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105];			
 			if (e.which == 8 && this.value.length == 0) {
+                                console.log('1');
 				var index = $(selector).index(this) - 1;
 				$(selector).eq(index).focus();
 			} else if ($.inArray(e.which, keys) >= 0) {
+                            console.log('2');
 				return true;
 			} else if (this.value.length >= charLimit) {
+                            console.log('3');
 				var index = $(selector).index(this) + 1;
 				$(selector).eq(index).focus();
 				return false;
-			} else if (e.shiftKey || e.which <= 48 || e.which >= 58) {
+			} else if (e.shiftKey || e.which <= 47 || e.which >= 58) {
+                            console.log('4');
 				return false;
 			}
 		}).keyup (function (e) {
 			if(e.wich != 46){
 				if (this.value.length >= charLimit) {
+                                    console.log('5');
 					var index = $(selector).index(this) + 1;
 					$(selector).eq(index).focus();
 					return false;
 				}
 			}else{
+                            console.log('6');
 				this.value = '';
 			}
 			
