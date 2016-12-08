@@ -13,15 +13,15 @@
 		<fecha_baja_sistema dato=""/>
 	</Sistema>
 	<Produccion>
-		<direccion dato="/encuestadea/"/>
-		<titulo dato="encuestadea"/>
+		<direccion dato="/PlantillaProyectoMaven/"/>
+		<titulo dato="PlantillaProyectoMaven"/>
 	</Produccion>
 	<Desarrollo>
-		<direccion dato="/encuestadea/"/>
-		<titulo dato="encuestadea - Desarrollo"/>
+		<direccion dato="/PlantillaProyectoMaven/"/>
+		<titulo dato="PlantillaProyectoMaven - Desarrollo"/>
 	</Desarrollo>
 	<Local>
-		<direccion dato="/encuestadea/"/>
-		<titulo dato="encuestadea - Local"/>
+		<direccion dato="/PlantillaProyectoMaven/"/>
+		<titulo dato="PlantillaProyectoMaven - Local"/>
 	</Local>
 </Contenedor>

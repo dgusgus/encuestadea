@@ -87,6 +87,8 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
         double val3 = (double)map.get("val3");
 		val3 = Tools.redondear(val3, 2);
 
+                DecimalFormat decimalFormat = new DecimalFormat("#.00");
+                
 		ServletContext servletContext = hsr.getServletContext();
 		String realPath = servletContext.getRealPath("/");
 
@@ -236,8 +238,9 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(""+it1, TITULO_DATO_CABECERA);
+		p = new Paragraph(""+decimalFormat.format(it1)+"%", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
+                celda.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
@@ -256,8 +259,8 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(""+it2, TITULO_DATO_CABECERA);
-		celda = new PdfPCell();
+		p = new Paragraph(""+decimalFormat.format(it2)+"%", TITULO_DATO_CABECERA);
+		celda = new PdfPCell();celda.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
@@ -276,12 +279,12 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(""+it3, TITULO_DATO_CABECERA);
-		celda = new PdfPCell();
+		p = new Paragraph(""+decimalFormat.format(it3)+"%", TITULO_DATO_CABECERA);
+		celda = new PdfPCell();celda.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(val3+"", DATO_CABECERA);
+		p = new Paragraph(decimalFormat.format(val3)+"%", DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
@@ -296,7 +299,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(""+(it1+it2+it3), TITULO_DATO_CABECERA);
+		p = new Paragraph(""+decimalFormat.format(it1+it2+it3), TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
@@ -450,7 +453,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(""+it1, TITULO_DATO_CABECERA);
+		p = new Paragraph(""+it1+"%", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
@@ -470,7 +473,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(""+it2, TITULO_DATO_CABECERA);
+		p = new Paragraph(""+it2+"%", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
@@ -490,12 +493,12 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(""+it3, TITULO_DATO_CABECERA);
+		p = new Paragraph(it3+"%", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(val3+"", DATO_CABECERA);
+		p = new Paragraph(val3+"%", DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
@@ -510,7 +513,10 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.addElement(p);
 		tablaResultados.addCell(celda);
 		
-		p = new Paragraph(""+(it1+it2+it3), TITULO_DATO_CABECERA);
+                double result = it1+it2+it3;
+                result = Tools.redondear(result, 2);
+                
+		p = new Paragraph(""+result+"%", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.addElement(p);
 		tablaResultados.addCell(celda);

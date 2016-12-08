@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bo.edu.uto.encuestadea.mapas.IntegranteComisionMapa">
+
+    <select id="getIntegrantes" resultType="IntegranteComision" parameterType="Usuarios" >
+        select ic.id_integrante_comision, c.id_comision, u.id_usuario, p.nombre
+        from 
+            dea.integrantes_comision ic
+            join dea.comision c on (c.id_comision = ic.id_comision)
+            join dea.usuario u on (ic.id_usuario = u.id_usuario)
+            join public.personas p on (p.id_persona = u.id_persona)	
+        where c.id_comision in (
+            select c.id_comision from
+            dea.comision c
+            join dea.integrantes_comision ic on (c.id_comision = ic.id_comision)
+            where ic.id_usuario = #{id_usuario}
+        )
+    </select>
+	
+	
+</mapper>
