@@ -4,8 +4,10 @@ import bo.edu.uto.encuestadea.dominios.Docente;
 import bo.edu.uto.encuestadea.dominios.Encuesta;
 import bo.edu.uto.encuestadea.dominios.RespuestasEncuesta;
 import bo.edu.uto.encuestadea.dominios.Unidad;
+import bo.edu.uto.encuestadea.dominios.Usuarios;
 import bo.edu.uto.encuestadea.mapas.DocenteMapa;
 import bo.edu.uto.encuestadea.mapas.EncuestaMapa;
+import bo.edu.uto.encuestadea.mapas.IntegranteComisionMapa;
 import bo.edu.uto.encuestadea.mapas.RespuestasEncuestaMapa;
 import bo.edu.uto.encuestadea.mapas.UnidadMapa;
 import bo.edu.uto.encuestadea.reportes.ReporteEncuestaGeneralPDF;
@@ -40,6 +42,8 @@ public class EncuestaController {
 	private RespuestasEncuestaMapa respuestasEncuestaMapa;
 	@Autowired
 	private UnidadMapa unidadMapa;
+	@Autowired
+	private IntegranteComisionMapa integranteComisionMapa;			
 
 	@RequestMapping(value = "/index")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {
@@ -151,8 +155,15 @@ public class EncuestaController {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
 		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+				
 		modelo.put("logout", id_usuario == null);
-		//
+		
+		Usuarios usuario = new Usuarios();
+		usuario.setIdUsuario(id_usuario.intValue());
+		
+		List integrantesComision = integranteComisionMapa.getIntegrantes(usuario);
+		modelo.put("integrantesComision",integrantesComision);
+//
 		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);
 		//modelo.put("lista", lista);
 		//
@@ -160,7 +171,7 @@ public class EncuestaController {
 		modelo.put("docente",docente);
 		
 		List<RespuestasEncuesta> listaRespuestasEncuestas = respuestasEncuestaMapa.getListaRespuestasEncuesta(docente);
-				
+			
 		unidad = unidadMapa.getUnidad(unidad);
 		modelo.put("unidad", unidad);
 		
@@ -480,7 +491,7 @@ public class EncuestaController {
 		} else if (IT1 >= 36 && IT1 <= 40) {
 			val2 = "Excelente";
 		}
-        val3=(((double)IT3)/((double)NN))*100.0;
+        val3=(((double)IT3)/((double)20))*100.0;
         modelo.put("it1", IT1);
         modelo.put("val1", val1);
         modelo.put("it2", IT2);

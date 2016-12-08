@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Contenedor>
 	<Sistema>
-		<descripcion dato="Sistema de Gestión - Contrataciones"/>
-		<gestion dato="2015"/>
+		<descripcion dato="Sistema Encuestas DEA"/>
+		<gestion dato="2016"/>
 		<version dato="0.1.0"/>
 		<tamano_pagina dato="10"/>
 		<downsysExcept dato=""/>

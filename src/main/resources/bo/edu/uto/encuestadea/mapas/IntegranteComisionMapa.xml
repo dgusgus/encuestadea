@@ -15,7 +15,7 @@
             select c.id_comision from
             dea.comision c
             join dea.integrantes_comision ic on (c.id_comision = ic.id_comision)
-            where ic.id_usuario = #{id_usuario}
+            where ic.id_usuario = #{idUsuario}
         )
     </select>
 	
