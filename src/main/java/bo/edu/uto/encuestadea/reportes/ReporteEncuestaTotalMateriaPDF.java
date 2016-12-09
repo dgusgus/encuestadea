@@ -97,7 +97,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		Image uto = Image.getInstance(realPath + "/pdf/uto.png");
 		Image dtic = Image.getInstance(realPath + "/pdf/dtic.png");
 		Image dea = Image.getInstance(realPath + "/pdf/dea.jpg");
-		uto.scaleAbsolute(55, 55);
+		uto.scaleAbsolute(50, 50);
 		dtic.scaleAbsolute(50, 45);
 
 		float[] ancho1 = new float[3];
@@ -139,11 +139,13 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		p = new Paragraph("Facultad:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getFacultad_materia(), DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.setColspan(3);
 		celda.addElement(p);		
 		tableDatosCabecera.addCell(celda);
@@ -151,10 +153,12 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		p = new Paragraph("Carrera:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(unidad.getUnidad(), DATO_CABECERA);
 		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.setColspan(3);
 		celda.addElement(p);		
 		tableDatosCabecera.addCell(celda);
@@ -162,10 +166,12 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		p = new Paragraph("Asignatura:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getSigla()+" "+docente.getNombreMateria(), DATO_CABECERA);
 		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.setColspan(3);
 		celda.addElement(p);		
 		tableDatosCabecera.addCell(celda);
@@ -173,32 +179,38 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		p = new Paragraph("Docente:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getNombre(), DATO_CABECERA);
 		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.setColspan(3);
 		celda.addElement(p);		
 		tableDatosCabecera.addCell(celda);		
 		
 		p = new Paragraph("Gestión:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
+		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getGestion(), DATO_CABECERA);
 		celda = new PdfPCell();
+		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		
 		p = new Paragraph("Paralelo:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
+		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getGrupo(), DATO_CABECERA);
 		celda = new PdfPCell();
+		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
@@ -313,7 +325,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		
 		dcmnt.add(tablaResultados);
 		
-		PdfPTable tablaComision = new PdfPTable(2);
+		/*PdfPTable tablaComision = new PdfPTable(2);
 		tablaComision.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tablaComision.setWidthPercentage(100);
 		tablaComision.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
@@ -329,10 +341,17 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 			tablaComision.addCell(p);
 		}
 		
-		dcmnt.add(tablaComision);
+		dcmnt.add(tablaComision);*/
+		
+		
 		
 		/**************** Duplicar impresión de arriba *****************/
-		dcmnt.newPage();
+		//dcmnt.newPage();
+		
+		p = new Paragraph("\n\n\nCOMISIÓN EVALUADORA\n\n",DATO_CABECERA);
+		dcmnt.add(p);
+		dcmnt.add(p);		
+		/**/
 		
 		ancho1 = new float[3];
 		
@@ -373,11 +392,13 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		p = new Paragraph("Facultad:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getFacultad_materia(), DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.setColspan(3);
 		celda.addElement(p);		
 		tableDatosCabecera.addCell(celda);
@@ -385,10 +406,12 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		p = new Paragraph("Carrera:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(unidad.getUnidad(), DATO_CABECERA);
 		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.setColspan(3);
 		celda.addElement(p);		
 		tableDatosCabecera.addCell(celda);
@@ -396,10 +419,12 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		p = new Paragraph("Asignatura:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getSigla()+" "+docente.getNombreMateria(), DATO_CABECERA);
 		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.setColspan(3);
 		celda.addElement(p);		
 		tableDatosCabecera.addCell(celda);
@@ -407,32 +432,38 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		p = new Paragraph("Docente:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getNombre(), DATO_CABECERA);
 		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
+		celda.setPadding(-1f);
 		celda.setColspan(3);
 		celda.addElement(p);		
 		tableDatosCabecera.addCell(celda);		
 		
 		p = new Paragraph("Gestión:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
+		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getGestion(), DATO_CABECERA);
 		celda = new PdfPCell();
+		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		
 		p = new Paragraph("Paralelo:", TITULO_DATO_CABECERA);
 		celda = new PdfPCell();
+		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
 		p = new Paragraph(docente.getGrupo(), DATO_CABECERA);
 		celda = new PdfPCell();
+		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
@@ -547,7 +578,13 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		
 		dcmnt.add(tablaResultados);
 		
-		tablaComision = new PdfPTable(2);
+		/**/
+		
+		p = new Paragraph("\n\n\nCOMISIÓN EVALUADORA",DATO_CABECERA);
+		dcmnt.add(p);
+		dcmnt.add(p);
+		
+		/*tablaComision = new PdfPTable(2);
 		tablaComision.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tablaComision.setWidthPercentage(100);
 		tablaComision.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
@@ -563,7 +600,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 			tablaComision.addCell(p);
 		}
 		
-		dcmnt.add(tablaComision);
+		dcmnt.add(tablaComision);*/
 		
 //		ancho1 = new float[3];
 //		
