@@ -1,14 +1,14 @@
 package bo.edu.uto.encuestadea.controladores;
 
+import bo.edu.uto.encuestadea.dominios.AccesoUsuario;
 import bo.edu.uto.encuestadea.dominios.Docente;
-import bo.edu.uto.encuestadea.dominios.Enlaces;
-import bo.edu.uto.encuestadea.dominios.Roles;
 import bo.edu.uto.encuestadea.dominios.UsuarioAcceso;
+import bo.edu.uto.encuestadea.dominios.Usuarios;
 import bo.edu.uto.encuestadea.mapas.AccesoMapa;
+import bo.edu.uto.encuestadea.mapas.AccesoUsuarioMapa;
 import bo.edu.uto.encuestadea.mapas.DocenteMapa;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,9 +31,12 @@ public class PrincipalController {
 	
 	@Autowired
 	private DocenteMapa docenteMapa;
+	
+	@Autowired
+	private AccesoUsuarioMapa accesoUsuarioMapa;
 
 	@RequestMapping(value = "/index")
-	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, String busqueda) {
+	public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
 		String env = request.getServletContext().getInitParameter("entorno");
 
 		HashMap modelo = new HashMap();
@@ -52,57 +55,32 @@ public class PrincipalController {
 		ses.setAttribute("__descripcion", Tools.get_attr("Sistema", "descripcion", request));
 		ses.setAttribute("__gestion", Tools.get_attr("Sistema", "gestion", request));
 		ses.setAttribute("__version", Tools.get_attr("Sistema", "version", request));
-		//
+		// Datos de Acceso para la busqueda
+		List<AccesoUsuario> accesos = accesoUsuarioMapa.getAccesosUsuario(new Usuarios(datos.getId_usuario()));
+		ses.setAttribute("__accesos",accesos);		
 		
-		List<Docente> docentes;		
+		modelo.put("apodo", x.getName());
+		return new ModelAndView("redirect:/principal/buscar.html", modelo);
+	}	
+	
+	@RequestMapping(value = "/buscar")
+	public ModelAndView buscar(HttpServletRequest request, HttpServletResponse response, String busqueda) {
+
+		HashMap modelo = new HashMap();
+		HttpSession ses = request.getSession();
+		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
+		
+		List<Docente> docentes = null;		
 		if(busqueda!=null){
+			modelo.put("busqueda", busqueda);
 			busqueda = busqueda.trim();
 			busqueda = busqueda.replaceAll("\\s", "%");
 			busqueda = busqueda.toUpperCase();
 			busqueda = "%"+busqueda+"%";
 			docentes = docenteMapa.getDocentesBusqueda(busqueda);
-		}else{
-			docentes = docenteMapa.getDocentes(null);
 		}
 		
-		modelo.put("apodo", x.getName());
 		modelo.put("docentes", docentes);
-		return new ModelAndView("principal/index", modelo);
-	}
-
-	// TEST
-	@RequestMapping("/pagina2")
-	public ModelAndView pagina2() {
-		return new ModelAndView("principal/pagina2");
-	}
-
-	// TEST
-	@RequestMapping("/pagina")
-	public ModelAndView pagina() {
-		Map modelo = new HashMap();
-
-		List<Roles> roles = this.accesoMapa.getRolList(64);
-		modelo.put("roles", roles);
-		for (Roles rol : roles) {
-			System.err.println(rol.getRol());
-		}
-
-		List<Enlaces> menus = this.accesoMapa.getEnlacesMenu(22);
-		modelo.put("menus", menus);
-
-		return new ModelAndView("principal/pagina", modelo);
-	}
-
-	// TEST
-	@RequestMapping("/getmenurol")
-	public ModelAndView getMenuRol(Integer idRol) {
-		Map modelo = new HashMap();
-
-		List<Roles> roles = this.accesoMapa.getRolList(idRol);
-		modelo.put("roles", roles);
-		for (Roles rol : roles) {
-			System.err.println(rol.getRol());
-		}
-		return new ModelAndView("principal/pagina", modelo);
+		return new ModelAndView("principal/buscar", modelo);
 	}
 }

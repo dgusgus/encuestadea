@@ -25,6 +25,7 @@ public class Docente {
 	private int anioGestion;
 	private String gestion;
 	private String facultad_materia;
+	private String id_facultad;
 	private Long id_unidad;
 
 	public Long getId_materia() {
@@ -139,6 +140,14 @@ public class Docente {
 		this.facultad_materia = facultad_materia;
 	}
 
+	public String getId_facultad() {
+		return id_facultad;
+	}
+
+	public void setId_facultad(String id_facultad) {
+		this.id_facultad = id_facultad;
+	}
+	
 	public Long getId_unidad() {
 		return id_unidad;
 	}

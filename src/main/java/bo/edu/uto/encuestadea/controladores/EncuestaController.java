@@ -158,10 +158,12 @@ public class EncuestaController {
 				
 		modelo.put("logout", id_usuario == null);
 		
-		Usuarios usuario = new Usuarios();
-		usuario.setIdUsuario(id_usuario.intValue());
-		
-		List integrantesComision = integranteComisionMapa.getIntegrantes(usuario);
+//		Usuarios usuario = new Usuarios();
+//		usuario.setId_usuario(id_usuario);
+//		
+//		
+//		
+		List integrantesComision = integranteComisionMapa.getIntegrantesComision(unidad);
 		modelo.put("integrantesComision",integrantesComision);
 //
 		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);

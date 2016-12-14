@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author vhmartinezmendez
+ * @author Raúl Antonio Velásquez Muriel
  */
 public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 

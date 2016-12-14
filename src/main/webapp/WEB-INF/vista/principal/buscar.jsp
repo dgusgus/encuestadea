@@ -11,7 +11,7 @@
 
 		<div class="widget-body">
 			<div class="widget-main">
-				<form class="form-search" action="principal/index.html">
+				<form class="form-search" action="principal/buscar.html">
 					<div class="row">
 						<div class="col-xs-12 col-sm-8">
 							<div class="input-group">
@@ -19,7 +19,11 @@
 									<i class="ace-icon fa fa-check"></i>
 								</span>
 
-								<input type="text" class="form-control search-query" placeholder="criterio de búsqueda" name="busqueda"/>
+								<input type="text" class="form-control search-query" placeholder="criterio de búsqueda" name="busqueda" 
+									   <c:if test="${not empty busqueda}">
+										   value="${busqueda}"
+									   </c:if>
+								/>
 								<span class="input-group-btn">
 									<button type="submit button" class="btn btn-info btn-sm">
 										<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
@@ -32,8 +36,9 @@
 				</form>
 			</div>
 		</div>
-	</div>	
+	</div>
 	
+	<c:if test="${not empty docentes}">	
 	<table class="table table-striped table-bordered table-hover" id="flujoProcesos">
 		<thead>
 			<tr>
@@ -71,7 +76,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
-
+	</c:if>
 </div><!-- /.col -->
 <sec:authorize access="isAuthenticated()">
 <script type="text/javascript">

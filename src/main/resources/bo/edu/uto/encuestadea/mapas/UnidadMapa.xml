@@ -9,5 +9,6 @@
 		FROM public.unidades where id_estado
 		and id_unidad =#{id_unidad}
 	</select>
+
 		
 </mapper>

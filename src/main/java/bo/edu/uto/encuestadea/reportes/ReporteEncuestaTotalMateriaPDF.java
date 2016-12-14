@@ -37,7 +37,7 @@ import org.dtic.tools.Tools;
 
 /**
  *
- * @author vhmartinezmendez
+ * @author Raúl Antonio Velásquez Muriel
  */
 public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 
@@ -325,14 +325,14 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		
 		dcmnt.add(tablaResultados);
 		
-		/*PdfPTable tablaComision = new PdfPTable(2);
+		PdfPTable tablaComision = new PdfPTable(2);
 		tablaComision.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tablaComision.setWidthPercentage(100);
 		tablaComision.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 		tablaComision.getDefaultCell().setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
 		
 		for(IntegranteComision integrante:integrantesComision){
-			p = new Paragraph(" \n\n\n\n________________________\n\n"+integrante.getNombre().toUpperCase()+"\nCOMISIÓN EVALUADORA",DATO_CABECERA);
+			p = new Paragraph(" \n\n\n\n________________________\n"+integrante.getNombre().toUpperCase()+"\nCOMISIÓN EVALUADORA",DATO_CABECERA);
 			tablaComision.addCell(p);
 		}
 		
@@ -341,18 +341,14 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 			tablaComision.addCell(p);
 		}
 		
-		dcmnt.add(tablaComision);*/
+		dcmnt.add(tablaComision);
 		
-		
+		p = new Paragraph("\n", TITULO_DATO_CABECERA);
+		dcmnt.add(p);
 		
 		/**************** Duplicar impresión de arriba *****************/
 		//dcmnt.newPage();
-		
-		p = new Paragraph("\n\n\nCOMISIÓN EVALUADORA\n\n",DATO_CABECERA);
-		dcmnt.add(p);
-		dcmnt.add(p);		
-		/**/
-		
+						
 		ancho1 = new float[3];
 		
 		ancho1[0] = 0.06f;
@@ -577,21 +573,15 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		tablaResultados.addCell(celda);
 		
 		dcmnt.add(tablaResultados);
-		
-		/**/
-		
-		p = new Paragraph("\n\n\nCOMISIÓN EVALUADORA",DATO_CABECERA);
-		dcmnt.add(p);
-		dcmnt.add(p);
-		
-		/*tablaComision = new PdfPTable(2);
+				
+		tablaComision = new PdfPTable(2);
 		tablaComision.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tablaComision.setWidthPercentage(100);
 		tablaComision.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 		tablaComision.getDefaultCell().setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
 		
 		for(IntegranteComision integrante:integrantesComision){
-			p = new Paragraph(" \n\n\n\n________________________\n\n"+integrante.getNombre().toUpperCase()+"\nCOMISIÓN EVALUADORA",DATO_CABECERA);
+			p = new Paragraph(" \n\n\n\n________________________\n"+integrante.getNombre().toUpperCase()+"\nCOMISIÓN EVALUADORA",DATO_CABECERA);
 			tablaComision.addCell(p);
 		}
 		
@@ -600,223 +590,8 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 			tablaComision.addCell(p);
 		}
 		
-		dcmnt.add(tablaComision);*/
-		
-//		ancho1 = new float[3];
-//		
-//		ancho1[0] = 0.06f;
-//		ancho1[1] = 0.31f;
-//		ancho1[2] = 0.06f;
-//
-//		table1 = new PdfPTable(ancho1);
-//		table1.setWidthPercentage(100);
-//		table1.getDefaultCell().setBorderWidth(0);
-//		p = new Phrase();
-//
-//		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
-//		table1.addCell(new Phrase(new Chunk(uto, 0, -50)));
-//
-//		ck = new Chunk("\nUNIVERSIDAD TECNICA DE ORURO\nDIRECCIÓN DE EVALUACIÓN Y ACREDITACIÓN\nDIRECCIÓN DE TECNOLOGÍAS DE INFORMACIÓN Y COMUNICACIÓN", new Font(FontFamily.TIMES_ROMAN, 9, Font.BOLD, BaseColor.BLACK));
-//		p.add(ck);
-//
-//		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-//		table1.addCell(p);
-//		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
-//		logo2 = new PdfPCell(dea,true);
-//		logo2.setBorder(PdfPCell.NO_BORDER);
-//		table1.addCell(logo2);
-//		table1.setSpacingAfter(10);
-//		dcmnt.add(table1);
-//		//dcmnt.add(new Phrase("\n"));
-//		
-//		float[] ancho22 = {1f,4f,1f,1f};
-//		
-//		tableDatosCabecera = new PdfPTable(4);
-//		
-//		tableDatosCabecera.setWidths(ancho22);
-//		//tableDatosCabecera.setWidthPercentage(100);
-//		tableDatosCabecera.getDefaultCell().setBorderWidth(0);
-//		
-//		celda =null;
-//		p = new Paragraph("Facultad:", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.addElement(p);
-//		tableDatosCabecera.addCell(celda);
-//		p = new Paragraph(docente.getFacultad_materia(), DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.setColspan(3);
-//		celda.addElement(p);		
-//		tableDatosCabecera.addCell(celda);
-//		
-//		p = new Paragraph("Carrera:", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.addElement(p);
-//		tableDatosCabecera.addCell(celda);
-//		p = new Paragraph(unidad.getUnidad(), DATO_CABECERA);
-//		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.setColspan(3);
-//		celda.addElement(p);		
-//		tableDatosCabecera.addCell(celda);
-//		
-//		p = new Paragraph("Asignatura:", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.addElement(p);
-//		tableDatosCabecera.addCell(celda);
-//		p = new Paragraph(docente.getSigla()+" "+docente.getNombreMateria(), DATO_CABECERA);
-//		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.setColspan(3);
-//		celda.addElement(p);		
-//		tableDatosCabecera.addCell(celda);
-//		
-//		p = new Paragraph("Docente:", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.addElement(p);
-//		tableDatosCabecera.addCell(celda);
-//		p = new Paragraph(docente.getNombre(), DATO_CABECERA);
-//		celda = new PdfPCell();celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.setColspan(3);
-//		celda.addElement(p);		
-//		tableDatosCabecera.addCell(celda);		
-//		
-//		p = new Paragraph("Gestión:", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.addElement(p);
-//		tableDatosCabecera.addCell(celda);
-//		p = new Paragraph(docente.getGestion(), DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.addElement(p);
-//		tableDatosCabecera.addCell(celda);
-//		
-//		p = new Paragraph("Paralelo:", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.addElement(p);
-//		tableDatosCabecera.addCell(celda);
-//		p = new Paragraph(docente.getGrupo(), DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.setBorder(PdfPCell.NO_BORDER);
-//		celda.addElement(p);
-//		tableDatosCabecera.addCell(celda);
-//		tableDatosCabecera.setSpacingAfter(10);
-//		dcmnt.add(tableDatosCabecera);
-//		
-//		tablaResultados = new PdfPTable(4);
-//		tablaResultados.setWidthPercentage(100);
-//		float[] ancho33 = {5f,1f,2f,3f};
-//		tablaResultados.setWidths(ancho33);
-//		
-//		p = new Paragraph("DESCRIPCIÓN", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("SOBRE", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("CALIFICACIÓN", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("CALIFICACIÓN PARA ACTA DE EVALUACIÓN", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("CONOCIMIENTOS DE LA ASIGNATURA", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("40%", DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph(""+it1+"%", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph(val1, DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("CUALIDADES PEDAGÓGICAS", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("40%", DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph(""+it2+"%", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph(val2, DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("CUMPLIMIENTO", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("20%", DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph(it3+"%", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph(val3+"%", DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("CALIFICACIÓN FINAL", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph("100%", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//                double result = it1+it2+it3;
-//                result = Tools.redondear(result, 2);
-//                
-//		p = new Paragraph(""+result+"%", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		p = new Paragraph(" ", TITULO_DATO_CABECERA);
-//		celda = new PdfPCell();
-//		celda.addElement(p);
-//		tablaResultados.addCell(celda);
-//		
-//		dcmnt.add(tablaResultados);
-		
+		dcmnt.add(tablaComision);		
+
 	}
 		
 }

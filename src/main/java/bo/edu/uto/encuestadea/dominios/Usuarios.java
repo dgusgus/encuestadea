@@ -5,7 +5,7 @@ import org.apache.ibatis.type.Alias;
 @Alias("Usuarios")
 public class Usuarios  implements java.io.Serializable {
 
-    private int idUsuario;    
+    private Long id_usuario;    
     private Boolean idEstado;
     private String apodo;
     private String clave;
@@ -13,26 +13,30 @@ public class Usuarios  implements java.io.Serializable {
 
     public Usuarios() {
     }
+
+	public Usuarios(Long idUsuario) {
+		this.id_usuario = idUsuario;
+	}
 	
-    public Usuarios(int idUsuario, String apodo, String clave) {
-        this.idUsuario = idUsuario;
+    public Usuarios(Long idUsuario, String apodo, String clave) {
+        this.id_usuario = idUsuario;
         this.apodo = apodo;
         this.clave = clave;
     }
-    public Usuarios(int idUsuario, Boolean idEstado, String apodo, String clave, String recordatorio) {
-       this.idUsuario = idUsuario;
+    public Usuarios(Long idUsuario, Boolean idEstado, String apodo, String clave, String recordatorio) {
+       this.id_usuario = idUsuario;
        this.idEstado = idEstado;
        this.apodo = apodo;
        this.clave = clave;
        this.recordatorio = recordatorio;
     }
 
-	public int getIdUsuario() {
-		return idUsuario;
+	public Long getId_usuario() {
+		return id_usuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setId_usuario(Long id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 
 	public Boolean getIdEstado() {
