@@ -452,7 +452,7 @@ public class EncuestaController {
 
 			if (i==12)
 				{
-					IT1=((po+me-ne)/13)*.4;
+					IT1=((po+me-ne)/13.0)*.4;
 					po=0;
 					me=0;
 					ne=0;
@@ -460,7 +460,7 @@ public class EncuestaController {
 				}
 			if (i==27)
 				{
-					IT2=((po+me-ne)/15)*.4;
+					IT2=((po+me-ne)/15.0)*.4;
 					po=0;
 					me=0;
 					ne=0;
@@ -468,29 +468,29 @@ public class EncuestaController {
 
 			if (i==30)
 				{
-					IT3=((po+me-ne)/3)*.2;
+					IT3=((po+me-ne)/3.0)*.2;
 				}
 		}
 
-		if (IT1 < 20) {
+		if (IT1 < 20.0) {
 			val1 = "Insuficiente";
 
-		} else if (IT1 >= 20 && IT1 <= 27.99) {
+		} else if (IT1 >= 20.0 && IT1 < 28.0) {
 			val1 = "Regular";
-		} else if (IT1 >= 28 && IT1 <= 35.99) {
+		} else if (IT1 >= 28.0 && IT1 < 36.0) {
 			val1 = "Bueno";
-		} else if (IT1 >= 36 && IT1 <= 40) {
+		} else if (IT1 >= 36.0 && IT1 <= 40.0) {
 			val1 = "Excelente";
 		}
 
-		if (IT2 < 20) {
+		if (IT2 < 20.0) {
 			val2 = "Insuficiente";
 
-		} else if (IT2 >= 20 && IT2 <= 27.99) {
+		} else if (IT2 >= 20.0 && IT2 < 28.0) {
 			val2 = "Regular";
-		} else if (IT2 >= 28 && IT2 <= 35.99) {
+		} else if (IT2 >= 28.0 && IT2 < 36.0) {
 			val2 = "Bueno";
-		} else if (IT1 >= 36 && IT1 <= 40) {
+		} else if (IT2 >= 36.0 && IT2 <= 40.0) {
 			val2 = "Excelente";
 		}
         val3=(((double)IT3)/((double)20))*100.0;

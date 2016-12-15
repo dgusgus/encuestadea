@@ -9,6 +9,7 @@ import bo.edu.uto.encuestadea.mapas.AccesoUsuarioMapa;
 import bo.edu.uto.encuestadea.mapas.DocenteMapa;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -82,5 +83,28 @@ public class PrincipalController {
 		
 		modelo.put("docentes", docentes);
 		return new ModelAndView("principal/buscar", modelo);
+	}
+	
+	@RequestMapping("/reporte_total_materias")
+	public ModelAndView reporte_total_materias(Usuarios usuario, HttpSession hs) {
+		Map modelo = new HashMap();
+		// Verificando si el Usuario sigue autentificado.
+		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+		modelo.put("logout", id_usuario == null);
+		//
+		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);
+		//modelo.put("lista", lista);
+		//
+//		docente = docenteMapa.getDocenteEncuesta(encuesta);
+//		modelo.put("docente",docente);
+//		
+//		List<RespuestasEncuesta> listaRespuestasEncuestas = respuestasEncuestaMapa.getListaRespuestasEncuesta(docente);
+//		modelo.put("listaRespuestasEncuestas",listaRespuestasEncuestas);
+//		
+//		unidad = unidadMapa.getUnidad(unidad);
+//		modelo.put("unidad", unidad);
+		
+//		return new ModelAndView(new ReporteEncuestaGeneralPDF(),modelo);
+		return null;
 	}
 }
