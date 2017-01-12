@@ -1,6 +1,6 @@
 package bo.edu.uto.encuestadea.servicios;
 
-import bo.edu.uto.encuestadea.dominios.Roles;
+import bo.edu.uto.encuestadea.dominios.Rol;
 import bo.edu.uto.encuestadea.dominios.UsuarioAcceso;
 import bo.edu.uto.encuestadea.mapas.AccesoMapa;
 import java.util.ArrayList;
@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import bo.edu.uto.encuestadea.mapas.RolMapa;
 
 /**
  *
@@ -25,6 +26,8 @@ public class AccesoServicio implements UserDetailsService{
 
 	@Autowired
 	AccesoMapa accesoMapa;
+	@Autowired
+	RolMapa rolesMapa;
 	
 	@Override
 	public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
@@ -33,12 +36,15 @@ public class AccesoServicio implements UserDetailsService{
 		if (null == usuario) {
 			throw new UsernameNotFoundException("Usuario NO Registrado");
 		}
-		List<GrantedAuthority> rolesAuth = new ArrayList<GrantedAuthority>();
+		List<GrantedAuthority> rolesAuth = new ArrayList<>();
 
-		List<Roles> roles = new ArrayList<Roles>();
-		roles.add(new Roles(0, "0"));
-		for (Roles rol : roles) {
-			rolesAuth.add(new SimpleGrantedAuthority(String.valueOf(rol.getIdRol())));
+		List<Rol> roles = rolesMapa.getRoles(usuario);
+		if(roles == null) {
+			roles = new ArrayList<Rol>();			
+		}
+				
+		for (Rol rol : roles) {
+			rolesAuth.add(new SimpleGrantedAuthority(String.valueOf(rol.getId_rol())));
 		}
 
 		boolean enabled = (Boolean) true;

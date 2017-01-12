@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bo.edu.uto.encuestadea.mapas.RolMapa">
+	
+	<select id="getRoles" resultType="Rol" parameterType="UsuarioAcceso" >
+		select r.*
+		from dea.rol r
+		join dea.usuario_rol ur on (r.id_rol = ur.id_rol)
+		where ur.id_usuario = ${id_usuario}
+	</select>
+	
+</mapper>

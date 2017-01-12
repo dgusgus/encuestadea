@@ -1,7 +1,7 @@
 package bo.edu.uto.encuestadea.controladores;
 
 import bo.edu.uto.encuestadea.dominios.Enlaces;
-import bo.edu.uto.encuestadea.dominios.Roles;
+import bo.edu.uto.encuestadea.dominios.Rol;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +45,7 @@ public class ComunController {
 	@RequestMapping("/roles")
 	public ModelAndView roles(HttpSession hs) {
 		Map modelo = new HashMap();
-		List<Roles> roles = new ArrayList<>();
+		List<Rol> roles = new ArrayList<>();
 		
 		//Roles rol = new Roles(0, Boolean.TRUE, "Docente", "form-prueba", null, null);
 		//roles.add(rol);
