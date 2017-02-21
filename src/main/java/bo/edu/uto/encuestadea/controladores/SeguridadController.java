@@ -21,13 +21,8 @@ public class SeguridadController {
 	UsuarioServicio usuarioServicio;
 	
 	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest request) {
-
-		HashMap modelo = new HashMap();
-		modelo.put("prueba", "prueba");
-		List<Usuarios> usuarios = usuarioServicio.getUsuarios();
-		
-		return new ModelAndView("seguridad/login", modelo);
+	public ModelAndView login(HttpServletRequest request) {		
+		return new ModelAndView("seguridad/login");
 	}
 
 }

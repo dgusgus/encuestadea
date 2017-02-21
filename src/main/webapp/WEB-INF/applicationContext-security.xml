@@ -8,15 +8,17 @@
 				http://www.springframework.org/schema/security
 				http://www.springframework.org/schema/security/spring-security-4.1.xsd">
 
-	<global-method-security pre-post-annotations="enabled"/>
+	<!--<global-method-security secured-annotations="enabled" jsr250-annotations="enabled"  pre-post-annotations="enabled"/>-->
 
 	<http pattern="/seguridad/login.html" security="none"/>
 	<http pattern="/seguridad/denegado.html" security="none"/>
 	<http pattern="/assets/**" security="none"/>
 
 	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/administrador/*" access="hasAnyRole('ROLE_1')" />
 		<intercept-url pattern="/**" access="isAuthenticated()"/>
-		<access-denied-handler error-page="/comun/denegado.html" />
+		
+		<access-denied-handler error-page="/principal/denegado.html" />
 		<form-login
 			login-processing-url="/j_spring_security_check"
 			login-page="/seguridad/login.html"
@@ -42,6 +44,7 @@
 		</authentication-provider>
 	</authentication-manager>
 
+	<global-method-security secured-annotations="enabled" jsr250-annotations="enabled"  pre-post-annotations="enabled"/>
 <!--
 	<global-method-security secured-annotations="enabled" />
 	<global-method-security jsr250-annotations="enabled" />

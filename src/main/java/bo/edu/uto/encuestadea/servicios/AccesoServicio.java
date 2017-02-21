@@ -44,7 +44,7 @@ public class AccesoServicio implements UserDetailsService{
 		}
 				
 		for (Rol rol : roles) {
-			rolesAuth.add(new SimpleGrantedAuthority(String.valueOf(rol.getId_rol())));
+			rolesAuth.add(new SimpleGrantedAuthority(String.valueOf(rol.getRol())));
 		}
 
 		boolean enabled = (Boolean) true;
