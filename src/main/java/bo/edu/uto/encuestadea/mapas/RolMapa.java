@@ -4,6 +4,7 @@ import bo.edu.uto.encuestadea.dominios.Rol;
 import bo.edu.uto.encuestadea.dominios.UsuarioAcceso;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -56,7 +56,7 @@ public class Usuarios  implements java.io.Serializable {
 	}
 
 	public String getClave() {
-		return clave;
+		return clave==null?"sin clave":"*********";
 	}
 
 	public void setClave(String clave) {

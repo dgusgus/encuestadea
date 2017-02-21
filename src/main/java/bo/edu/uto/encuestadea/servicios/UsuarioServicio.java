@@ -18,8 +18,8 @@ public class UsuarioServicio{
 	@Autowired
 	UsuarioMapa usuarioMapa;
 
-	public List<Usuarios> getUsuarios() {
+	/*public List<Usuarios> getUsuarios() {
 		return this.usuarioMapa.getUsuarios();
-	}
+	}*/
 
 }

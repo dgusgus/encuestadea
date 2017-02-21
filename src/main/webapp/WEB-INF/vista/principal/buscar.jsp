@@ -69,7 +69,9 @@
 						<a data-position="auto" class="btn btn-xs btn-primary " href="encuesta/index.html?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}">
 							<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Encuestas</span>
 						</a>
-						
+						<a data-position="auto" class="btn btn-xs btn-success" href="memoria_docente/index.html?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}">
+							<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Memoria Docente</span>
+						</a>
 					</div>
 				</td>
 			</tr>
