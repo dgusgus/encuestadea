@@ -66,7 +66,7 @@
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">SG</span>
+									<span class="red">Encuesta DEA</span>
 									<span class="white" id="id-text2">${titulo}</span>
 								</h1>
 								<h4 class="blue" id="id-company-text">DTIC &copy; ${gestion}<br/><small>Dirección de Tecnologías de Información y Comunicación</small></h4>
