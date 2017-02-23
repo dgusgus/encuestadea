@@ -10,7 +10,7 @@
 
 <p>usuarios 
 
-<sec:authorize access="hasAnyRole('0','ROLE_1')">
+<sec:authorize access="hasAnyRole('0','ROLE_ADMINISTRADOR')">
 	administrador2
 </sec:authorize>
 <sec:authorize access="isAnonymous()">
@@ -22,7 +22,7 @@
 <sec:authorize access="isAuthenticated()">
     autenticado2
 </sec:authorize>
-<sec:authorize access="hasAnyAuthority('ROLE_1')">
+<sec:authorize access="hasAnyAuthority('ROLE_ADMINISTRADOR')">
     authority1
 </sec:authorize>
 </p>

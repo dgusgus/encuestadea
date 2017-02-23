@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UsuarioMapa {
-	@PreAuthorize("hasRole('ROLE_1')")
+	@PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
 	List<Usuarios> getUsuarios() throws DataAccessException;
 
 }
