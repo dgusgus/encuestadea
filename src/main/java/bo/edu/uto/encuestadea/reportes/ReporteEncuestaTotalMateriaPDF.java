@@ -336,9 +336,13 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 			tablaComision.addCell(p);
 		}
 		
-		if(integrantesComision.size()%2 != 0){
-			p = new Paragraph(" ",DATO_CABECERA);
+		if(integrantesComision.size()<4){
+			//if(integrantesComision.size()%2 != 0){
+			for(int i = integrantesComision.size(); i<=4 ;i++){
+			p = new Paragraph("\n\n\n\n",DATO_CABECERA);
 			tablaComision.addCell(p);
+			}
+			//}
 		}
 		
 		dcmnt.add(tablaComision);
@@ -584,12 +588,14 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 			p = new Paragraph(" \n\n\n\n________________________\n"+integrante.getNombre().toUpperCase()+"\nCOMISIÓN EVALUADORA",DATO_CABECERA);
 			tablaComision.addCell(p);
 		}
-		
-		if(integrantesComision.size()%2 != 0){
-			p = new Paragraph(" ",DATO_CABECERA);
+		if(integrantesComision.size()<4){
+			//if(integrantesComision.size()%2 != 0){
+			for(int i = integrantesComision.size(); i<=4 ;i++){
+			p = new Paragraph("\n\n\n\n",DATO_CABECERA);
 			tablaComision.addCell(p);
+			}
+			//}
 		}
-		
 		dcmnt.add(tablaComision);		
 
 	}
