@@ -18,5 +18,12 @@
         )
     </select>
 	
+	<select id="getIntegrantesComisionPorIdUsuario" resultType="IntegranteComision" parameterType="Long" >
+        select ic.id_integrante_comision, ic.id_comision, ic.nombre
+        from 
+            dea.integrantes_comision ic
+            	
+        where ic.id_usuario = #{id_usuario}
+    </select>
 	
 </mapper>

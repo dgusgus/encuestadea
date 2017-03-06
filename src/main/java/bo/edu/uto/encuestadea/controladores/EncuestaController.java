@@ -163,7 +163,7 @@ public class EncuestaController {
 //		
 //		
 //		
-		List integrantesComision = integranteComisionMapa.getIntegrantesComision(unidad);
+		List integrantesComision = integranteComisionMapa.getIntegrantesComisionPorIdUsuario(id_usuario);
 		modelo.put("integrantesComision",integrantesComision);
 //
 		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);

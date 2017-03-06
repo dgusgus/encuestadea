@@ -19,5 +19,5 @@ import org.springframework.stereotype.Repository;
 public interface IntegranteComisionMapa {
 
 	List<IntegranteComision> getIntegrantesComision(Unidad unidad) throws DataAccessException;
-	
+	List<IntegranteComision> getIntegrantesComisionPorIdUsuario(Long id_usuario) throws DataAccessException;
 }
