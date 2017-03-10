@@ -171,8 +171,8 @@ function getMenu(){
 							</a>
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 								<li>
-									<a href="principal/index.html" data-href="usuario/cambiarclaveinicio.html" ><i class="ace-icon fa fa-user"></i>
-										Cambiar Contraseña
+									<a href="comision/index.html" data-href="comision/index.html" ><i class="ace-icon fa fa-user"></i>
+										Cambiar Integrantes de Comisión
 									</a>
 								</li>
 								<li class="divider"></li>

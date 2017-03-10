@@ -19,5 +19,10 @@ import org.springframework.stereotype.Repository;
 public interface IntegranteComisionMapa {
 
 	List<IntegranteComision> getIntegrantesComision(Unidad unidad) throws DataAccessException;
+	IntegranteComision getIntegranteComision(IntegranteComision integranteComision)throws DataAccessException;
 	List<IntegranteComision> getIntegrantesComisionPorIdUsuario(Long id_usuario) throws DataAccessException;
+	Integer insertarIntegrante(IntegranteComision ic) throws DataAccessException;
+	int borrarIntegrante(IntegranteComision ic)throws DataAccessException;
+
+	int modificarInegranteComision(IntegranteComision integranteComision);
 }

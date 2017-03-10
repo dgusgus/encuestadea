@@ -18,12 +18,47 @@
         )
     </select>
 	
-	<select id="getIntegrantesComisionPorIdUsuario" resultType="IntegranteComision" parameterType="Long" >
-        select ic.id_integrante_comision, ic.id_comision, ic.nombre
+	<select id="getIntegranteComision" resultType="IntegranteComision" parameterType="IntegranteComision" >
+        select ic.*
         from 
             dea.integrantes_comision ic
-            	
-        where ic.id_usuario = #{id_usuario}
+        where ic.id_integrante_comision = #{id_integrante_comision}
     </select>
 	
+	<select id="getIntegrantesComisionPorIdUsuario" resultType="IntegranteComision" parameterType="Long" >
+        select ic.id_integrante_comision, ic.id_comision, ic.id_usuario, ic.nombre
+        from 
+            dea.integrantes_comision ic            	
+        where ic.id_usuario = #{id_usuario}
+		order by ic.id_integrante_comision
+    </select>
+	
+	<insert id="insertarIntegrante" parameterType="IntegranteComision" useGeneratedKeys="true" keyProperty="id_integrante_comision" keyColumn="id_integrante_comision">
+		INSERT INTO 
+		dea.integrantes_comision
+		  (
+			id_comision,
+			id_usuario,
+			nombre
+		  )
+		  VALUES (			
+			#{id_comision},
+			#{id_usuario},
+			#{nombre}
+		  );
+	</insert>
+	
+	<delete id = "borrarIntegrante" parameterType = "IntegranteComision">
+      DELETE FROM 
+		dea.integrantes_comision 
+	  WHERE 
+		id_integrante_comision = #{id_integrante_comision}
+	  ;
+	</delete>
+   
+	<update id="modificarInegranteComision" parameterType = "IntegranteComision">
+		update dea.integrantes_comision set
+			nombre = #{nombre}			
+		where id_integrante_comision = #{id_integrante_comision}
+	</update>
 </mapper>

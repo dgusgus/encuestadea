@@ -154,21 +154,12 @@ public class EncuestaController {
 	public ModelAndView reporte_total_materia(Docente docente, Encuesta encuesta, Unidad unidad, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
-				
-		modelo.put("logout", id_usuario == null);
-		
-//		Usuarios usuario = new Usuarios();
-//		usuario.setId_usuario(id_usuario);
-//		
-//		
-//		
+		Long id_usuario = (Long) hs.getAttribute("__id_usuario");				
+		modelo.put("logout", id_usuario == null);		
+	
 		List integrantesComision = integranteComisionMapa.getIntegrantesComisionPorIdUsuario(id_usuario);
 		modelo.put("integrantesComision",integrantesComision);
-//
-		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);
-		//modelo.put("lista", lista);
-		//
+
 		docente = docenteMapa.getDocenteEncuesta(encuesta);
 		modelo.put("docente",docente);
 		
