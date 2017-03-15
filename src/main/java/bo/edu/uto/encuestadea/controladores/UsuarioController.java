@@ -1,6 +1,7 @@
 package bo.edu.uto.encuestadea.controladores;
 
 import bo.edu.uto.encuestadea.dominios.Encuesta;
+import bo.edu.uto.encuestadea.dominios.Usuarios;
 import bo.edu.uto.encuestadea.mapas.UsuarioMapa;
 import java.util.HashMap;
 import java.util.List;
@@ -30,8 +31,10 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "/lista")
-	@ResponseBody
-	public List lista(HttpServletRequest request, HttpServletResponse response){
-		return usuarioMapa.getUsuarios();
+	public ModelAndView lista(HttpServletRequest request, HttpServletResponse response){
+		HashMap modelo = new HashMap();
+		List<Usuarios> lista = usuarioMapa.getUsuarios();
+		modelo.put("lista", lista);
+		return new ModelAndView("usuario/lista",modelo);
 	}			
 }

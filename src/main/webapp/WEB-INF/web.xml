@@ -43,7 +43,7 @@
     <welcome-file-list>
         <welcome-file>seguridad/login.html</welcome-file>
     </welcome-file-list>
-	<error-page>
+<!--	<error-page>
 		<error-code>500</error-code>
 		<location>/WEB-INF/vista/principal/denegado.jsp</location>
 	</error-page>
@@ -51,5 +51,5 @@
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/vista/principal/denegado.jsp</location>
-	</error-page>
+	</error-page>-->
 </web-app>
