@@ -53,12 +53,12 @@
 										</a>
 									</li>
 
-									<li>
+<!--									<li>
 										<a data-toggle="tab" href="#comisionados_tab">
 											<i class="blue ace-icon fa fa-users bigger-110"></i>
 											Comisiones
 										</a>
-									</li>											
+									</li>											-->
 								</ul>
 
 								<div class="tab-content">
@@ -67,10 +67,10 @@
 										</div>
 									</div>
 
-									<div id="comisionados_tab" class="tab-pane">
+<!--									<div id="comisionados_tab" class="tab-pane">
 										<div class="ventana" id="comisionados">
 										</div>
-									</div>											
+									</div>											-->
 								</div>
 							</div>
 							<!-- /section:elements.tab.position -->									

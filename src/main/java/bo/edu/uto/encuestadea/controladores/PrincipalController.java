@@ -91,20 +91,7 @@ public class PrincipalController {
 		// Verificando si el Usuario sigue autentificado.
 		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
-		//
-		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);
-		//modelo.put("lista", lista);
-		//
-//		docente = docenteMapa.getDocenteEncuesta(encuesta);
-//		modelo.put("docente",docente);
-//		
-//		List<RespuestasEncuesta> listaRespuestasEncuestas = respuestasEncuestaMapa.getListaRespuestasEncuesta(docente);
-//		modelo.put("listaRespuestasEncuestas",listaRespuestasEncuestas);
-//		
-//		unidad = unidadMapa.getUnidad(unidad);
-//		modelo.put("unidad", unidad);
 		
-//		return new ModelAndView(new ReporteEncuestaGeneralPDF(),modelo);
 		return null;
 	}
 }
