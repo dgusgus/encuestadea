@@ -9,7 +9,7 @@ public class Usuarios  implements java.io.Serializable {
     private Boolean id_estado;
     private String apodo;
     private String clave;
-    private String recordatorio;
+	private Long id_persona;
 
     public Usuarios() {
     }
@@ -23,12 +23,11 @@ public class Usuarios  implements java.io.Serializable {
         this.apodo = apodo;
         this.clave = clave;
     }
-    public Usuarios(Long idUsuario, Boolean idEstado, String apodo, String clave, String recordatorio) {
+    public Usuarios(Long idUsuario, Boolean idEstado, String apodo, String clave) {
        this.id_usuario = idUsuario;
        this.id_estado = idEstado;
        this.apodo = apodo;
        this.clave = clave;
-       this.recordatorio = recordatorio;
     }
 
 	public Long getId_usuario() {
@@ -56,20 +55,20 @@ public class Usuarios  implements java.io.Serializable {
 		this.clave = clave;
 	}
 
-	public String getRecordatorio() {
-		return recordatorio;
-	}
-
-	public void setRecordatorio(String recordatorio) {
-		this.recordatorio = recordatorio;
-	}
-
 	public Boolean getId_estado() {
 		return id_estado;
 	}
 
 	public void setId_estado(Boolean id_estado) {
 		this.id_estado = id_estado;
+	}
+
+	public Long getId_persona() {
+		return id_persona;
+	}
+
+	public void setId_persona(Long id_persona) {
+		this.id_persona = id_persona;
 	}
 }
 

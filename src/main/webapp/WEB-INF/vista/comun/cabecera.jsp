@@ -39,10 +39,11 @@
 		<spring:url value="/assets/css/bootstrap-dialog.min.css" var="bootstrapdialogmincss"/>
 		<link rel="stylesheet" href="${bootstrapdialogmincss}" />
 
+		<link rel="stylesheet" href="assets/css/jquery.dataTables.min.css" />
+		
 		<spring:url value="/assets/css/ace.min.css" var="acemincss"/>
 		<link rel="stylesheet" href="${acemincss}"/>
-		<spring:url value="/assets/css/estilos.css" var="estilos.css"/>
-		<link rel="stylesheet" href="${estilos.css}"/>
+		
 		<spring:url value="/assets/css/bootstrap-datetimepicker.min.css" var="bootstrapdatetimepickermincss"/>
 		<link rel="stylesheet" href="${bootstrapdatetimepickermincss}"/>
 
@@ -57,10 +58,9 @@
 		<script src="${jqueryuiminjs}" ></script>
 		<spring:url value="/assets/js/jquery.ui.touch-punch.min.js" var="jqueryuitouchpunchminjs"/>
 		<script src="${jqueryuitouchpunchminjs}" ></script>
-		<spring:url value="/assets/js/chosen.jquery.min.js" var="chosenjqueryjs"/>
-		<script src="${chosenjqueryjs}" ></script>
 		<spring:url value="/assets/js/validator.min.js" var="validatorjs"/>
 		<script src="${validatorjs}" ></script>
+		<script src="assets/js/bootstrap.min.js" ></script>		
 		
 		<script type="text/javascript">
 <c:set var="script">
@@ -175,6 +175,14 @@ function getMenu(){
 										Cambiar Integrantes de Comisión
 									</a>
 								</li>
+								<sec:authorize access="hasRole('ROLE_ADMINISTRADOR')" var="isAdmin">
+								<li>
+									<a href="administrador/index.html" data-href="administrador/index.html" ><i class="ace-icon fa fa-user"></i>
+										Administración del Sistema
+									</a>
+								</li>
+								</sec:authorize>
+								
 								<li class="divider"></li>
 								<li>
 									<a href="j_spring_logout"><i class="ace-icon fa fa-power-off"></i>

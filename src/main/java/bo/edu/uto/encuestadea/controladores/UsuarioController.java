@@ -36,5 +36,14 @@ public class UsuarioController {
 		List<Usuarios> lista = usuarioMapa.getUsuarios();
 		modelo.put("lista", lista);
 		return new ModelAndView("usuario/lista",modelo);
-	}			
+	}	
+	
+	@RequestMapping(value = "/listar")
+	@ResponseBody
+	public Object listar(HttpServletRequest request, HttpServletResponse response){
+		HashMap modelo = new HashMap();
+		List<Usuarios> lista = usuarioMapa.getUsuarios();
+		modelo.put("data", lista);
+		return modelo;
+	}	
 }

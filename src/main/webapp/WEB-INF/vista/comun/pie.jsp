@@ -52,7 +52,7 @@ if('ontouchstart' in document.documentElement)
 </c:set>
 <%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>
 </script>
-<script src="assets/js/bootstrap.min.js" ></script>
+
 <script src="assets/js/bootstrap-dialog.min.js" ></script>
 <script src="assets/js/bootbox.min.js" ></script>
 

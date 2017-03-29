@@ -9,22 +9,6 @@
 
 
 <p>usuarios 
-
-<sec:authorize access="hasAnyRole('0','ROLE_ADMINISTRADOR')">
-	administrador2
-</sec:authorize>
-<sec:authorize access="isAnonymous()">
-    anonimo
-</sec:authorize>
-<sec:authorize access="isAuthenticated()">
-    autenticado
-</sec:authorize>
-<sec:authorize access="isAuthenticated()">
-    autenticado2
-</sec:authorize>
-<sec:authorize access="hasAnyAuthority('ROLE_ADMINISTRADOR')">
-    authority1
-</sec:authorize>
 <div id="tlista"></div>
 </p>
 

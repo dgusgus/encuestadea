@@ -15,10 +15,10 @@ public interface RespuestasEncuestaMapa {
 
 	void insertarRespuestasEncuesta(RespuestasEncuesta criterio) throws DataAccessException;
 
-	public RespuestasEncuesta getBuscarRespuestasEncuesta(RespuestasEncuesta datosEncuesta);
+	public RespuestasEncuesta getBuscarRespuestasEncuesta(RespuestasEncuesta datosEncuesta)throws DataAccessException;
 
-	public void modificarRespuestasEncuesta(RespuestasEncuesta respuestasEncuesta);
+	public void modificarRespuestasEncuesta(RespuestasEncuesta respuestasEncuesta)throws DataAccessException;
 
-	public List<RespuestasEncuesta> getListaRespuestasEncuesta(Docente docente);
+	public List<RespuestasEncuesta> getListaRespuestasEncuesta(Docente docente)throws DataAccessException;
 	
 }

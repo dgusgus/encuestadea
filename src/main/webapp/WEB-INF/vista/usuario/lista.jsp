@@ -14,7 +14,9 @@
 			<th>ID</th>
 			<th class="hidden-480">Clave</th>
 			<th title="A=Activo I=Inactivo">Estado</th>
-			<th>Opciones</th>
+			<sec:authorize access="hasRole('ROLE_ADMINISTRADOR')">
+				<th>Opciones</th>	
+			</sec:authorize>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,6 +27,8 @@
 				<td>${r.id_usuario}</td>
 				<td class="center hidden-480">${r.clave}</td>
 				<td>${r.id_estado}</td>
+				<sec:authorize access="hasRole('ROLE_ADMINISTRADOR')">
+					
 				<td class="center" data-id="${r.id_usuario}">
 <div class="inline pos-rel">
 	<button data-position="auto" data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle">
@@ -46,6 +50,7 @@
 	</ul>
 </div>
 				</td>
+				</sec:authorize>
 			</tr>
 		</c:forEach>
 	</tbody>
