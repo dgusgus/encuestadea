@@ -5,6 +5,8 @@
  */
 package bo.edu.uto.encuestadea.dominios;
 
+import java.util.List;
+
 /**
  *
  * @author raul velasquez
@@ -27,6 +29,16 @@ public class Docente {
 	private String facultad_materia;
 	private String id_facultad;
 	private Long id_unidad;
+	private String unidad;
+	private Long id_usuario;
+	private List integrantes_comision;
+	private double IT1=0;//Resultad1
+	private	double IT2=0; //Resultad2
+	private	double IT3=0; //Resultad3
+
+	private	String val1="";//comentario1
+	private	String val2=""; //comentario1
+	private	double val3=0; //comentario1
 
 	public Long getId_materia() {
 		return id_materia;
@@ -154,5 +166,77 @@ public class Docente {
 
 	public void setId_unidad(Long id_unidad) {
 		this.id_unidad = id_unidad;
+	}	
+
+	public String getUnidad() {
+		return unidad;
+	}
+
+	public void setUnidad(String unidad) {
+		this.unidad = unidad;
+	}
+
+	public Long getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(Long id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
+	public List getIntegrantes_comision() {
+		return integrantes_comision;
+	}
+
+	public void setIntegrantes_comision(List integrantes_comision) {
+		this.integrantes_comision = integrantes_comision;
+	}
+
+	public double getIT1() {
+		return IT1;
+	}
+
+	public void setIT1(double IT1) {
+		this.IT1 = IT1;
+	}
+
+	public double getIT2() {
+		return IT2;
+	}
+
+	public void setIT2(double IT2) {
+		this.IT2 = IT2;
+	}
+
+	public double getIT3() {
+		return IT3;
+	}
+
+	public void setIT3(double IT3) {
+		this.IT3 = IT3;
+	}
+
+	public String getVal1() {
+		return val1;
+	}
+
+	public void setVal1(String val1) {
+		this.val1 = val1;
+	}
+
+	public String getVal2() {
+		return val2;
+	}
+
+	public void setVal2(String val2) {
+		this.val2 = val2;
+	}
+
+	public double getVal3() {
+		return val3;
+	}
+
+	public void setVal3(double val3) {
+		this.val3 = val3;
 	}
 }

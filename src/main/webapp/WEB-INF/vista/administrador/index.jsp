@@ -36,7 +36,7 @@
 						<a data-action="collapse" href="#"><i class="ace-icon fa fa-chevron-up"></i></a>
 					</div>
 					<div class="widget-toolbar">						
-						
+						<button  id="btnew" class="btn btn-minier btn-primary btn-round"><i class="ace-icon fa fa-plus"></i>Añadir Encuestas</button>
 					</div>
 				</div>
 
@@ -100,65 +100,7 @@
 	</div>
 </div><!-- /.page-content -->
 
-<div class="modal fade" id="nuevo" tabindex="-1" role="dialog"
-	 aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title" id="myModalLabel">Nuevo Usuario</h4>
-			</div>
-			<div class="modal-body">
-				<form id="form" class="form-horizontal">
-					<!-- Text input-->
-					<h3>Datos del Nuevo Usuario</h3>					
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="form-group has-feedback">								
-								<label class="control-label" for="apodo">Apodo o Nick del Usuario: (apellido.nombre)</label>
-								<div class="input-group">
-									<span class="input-group-addon">Apodo</span>
-									<input id="nombre" name="apodo"
-										   class="form-control" type="text"
-										   pattern="^[A-Za-z]+.[A-Za-z]+[0-9]*$"
-										   data-error="El formato normalmente es apellido.nombre en caso de repetirse puede usar un número al final"
-										   required>
-								</div>	
-								<span class="glyphicon form-control-feedback"
-								aria-hidden="true"></span>
-								<div class="help-block with-errors"></div>
-							</div>
-						</div>											
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="form-group has-feedback">								
-								<label class="control-label" for="persona">Dueño de la cuenta</label>
-								<div class="input-group">
-									<span class="input-group-addon">Persona</span>
-									<input id="persona" name="persona"
-										   class="form-control" type="text"										   										   
-										   required>
-								</div>	
-								<span class="glyphicon form-control-feedback"
-								aria-hidden="true"></span>
-								<div class="help-block with-errors"></div>																
-							</div>
-						</div>											
-					</div>
-					<input id="persona1" name="persona1" required/>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button id="guardar-btn" type="button" class="btn btn-primary">Guardar</button>
-				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-			</div>
-		</div>
-	</div>		
-</div>
+
 
 <div id="dformu" class="hide">
 	<div class="center">
@@ -356,16 +298,8 @@
 		} );
 	});
 		
-	function nuevo() {				
-		$('#form').resetear();
-		
-		$('#nuevo').modal('show');
-		
-		$( "#guardar-btn").unbind( "click" );
-		$( "#guardar-btn" ).bind( "click", function() {
-			guardar_nuevo();
-		});
-		
+	function nuevo() {						
+		$("#dformu").dialog("open");
 	}
 	
 	function guardar_nuevo(){

@@ -39,4 +39,26 @@
 			fecha_ultima_modificacion = now()
 		where id_encuesta = #{id_encuesta}
 	</update>
+	
+	<select id="getTodosDocumentos" resultType="Docente">
+		select DISTINCT ON (e.id_materia,e.id_grupo,e.id_gestion,e.id_docente) e.id_docente,e.id_materia,e.id_grupo,e.id_gestion,e.id_usuario
+			, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria 
+			, g._gestion as gestion, f.facultad as facultad_materia, par.id_unidad, f.id_facultad, u.unidad
+		from dea.encuesta e
+		inner join public.paralelos par on (e.id_docente = par.id_docente 
+											and e.id_materia = par .id_materia 
+											and e.id_grupo = par.id_grupo 
+											and e.id_gestion = par.id_gestion)
+		join public.personas p on p.id_persona=par.id_docente
+		join public.gestiones g on g.id_gestion=par.id_gestion
+			and g.id_facultad in ('F','G','H','I','J','K','L') and g.anio = 2016
+		join public.facultades f on f.id_facultad=par.id_facultad
+		join public.materias m on m.id_materia=par.id_materia
+		join public.grupos gr on gr.id_grupo=par.id_grupo
+		join public.unidades u on par.id_unidad = u.id_unidad
+		left outer join public.docentes doc on doc.id_persona=par.id_docente
+		left outer join public.titularias t on t.id_titularia=par.id_titularia
+		where
+			e.id_estado
+	</select>
 </mapper>
