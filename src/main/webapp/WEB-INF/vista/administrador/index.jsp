@@ -36,7 +36,7 @@
 						<a data-action="collapse" href="#"><i class="ace-icon fa fa-chevron-up"></i></a>
 					</div>
 					<div class="widget-toolbar">						
-						<button  id="btnew" class="btn btn-minier btn-primary btn-round"><i class="ace-icon fa fa-plus"></i>Añadir Encuestas</button>
+						<button  id="btnew" class="btn btn-minier btn-primary btn-round"><i class="ace-icon fa fa-plus"></i>Añadir Usuarios</button>
 					</div>
 				</div>
 
@@ -51,44 +51,14 @@
 											<i class="green ace-icon fa fa-user bigger-110"></i>
 											Usuarios
 										</a>
-									</li>
-
-									<li>
-										<a data-toggle="tab" href="#comisionados_tab">
-											<i class="blue ace-icon fa fa-users bigger-110"></i>
-											Comisiones
-										</a>
-									</li>											
+									</li>																				
 								</ul>
 
 								<div class="tab-content">
 									<div id="usuarios_tab" class="tab-pane in active">
 										<div class="ventana" id="usuarios">
 										</div>
-									</div>
-
-									<div id="comisionados_tab" class="tab-pane">
-										<div class="ventana" id="comisionados">
-											<div class="row">
-												<div class="col-xs-12">
-													<div>														
-														<table id="example" class="table table-striped table-bordered table-hover">
-															<thead>
-																<tr>
-																	<th>Id Usuario</th>
-																	<th>Apodo</th>
-																	<th>Clave</th>
-																	<th>Estado</th>
-																	<th>Id Persona</th>														
-																</tr>
-															</thead>
-														</table>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>	
-									
+									</div>									
 								</div>
 							</div>
 							<!-- /section:elements.tab.position -->									
@@ -174,105 +144,7 @@
 	var idPer=null, nom=null, dip=null, idUsr=null, apo=null;
 	var autp=false;
 	$(function () {
-		
-		$("#dformu").removeClass("hide").dialog({
-			autoOpen:false,
-			resizable:false,
-			width:"400",
-			modal:true,
-			title:"<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-plus'></i> Adicionar Usuario</h4></div>",
-			title_html:true,
-			buttons:[
-				{
-					html:"<i class='ace-icon fa fa-times'></i> Cancel",
-					"class":"btn btn-xs btn-danger btn-round",
-					click:function (){
-						$(this).dialog("close");
-					}
-				},
-				{
-					html:"<i class='ace-icon fa fa-check'></i> Aceptar",
-					"class":"btn btn-xs btn-primary btn-round",
-					click:guardar_nuevo()
-				}
-			]
-		});
-
-
-		//
-		$("#ibusc").on("keydown", function (e){
-			if(!autp){
-				$("#ibusc").autocomplete({disabled:true});
-				switch(e.which){
-					case 13:
-						$("#ibusc").removeClass("sres").autocomplete({disabled:false}).autocomplete("search", $("#ibusc").val());
-						break;
-					case 27:
-						idPer=nom=dip=idUsr=apo=null;
-						$("#ifoto").hide("slice");
-						$("#snom,#sdip,#fusr").text("");
-						setTimeout('$("#ibusc").val("");', 200);
-						break;
-				}
-			}
-		}).autocomplete({
-			disabled:true,
-			autoFocus:true,
-			minLength:2,
-			source:function (request, response){
-				$.ajax({
-					url:"personas/buscarPersonas.html",
-					data:request,
-					dataType:"json",
-					success:function (data){
-						if(data.length===0){
-							autp=false;
-							$("#ibusc").addClass("sres");
-						}
-						response(data);
-					},
-					error:function (){
-						autp=false;
-						$("#ibusc").addClass("sres");
-						response([]);
-					}
-				});
-			},
-			open:function (){
-				autp=true;
-			},
-			close:function (){
-				autp=false;
-			},
-			select:function (event, ui){
-				idPer=ui.item.id_persona;
-				nom=ui.item.nombre;
-				dip=ui.item.dip;
-				idUsr=ui.item.id_usuario;				
-				$("#snom").text(nom);
-				$("#sdip").text(dip);
-				var apodo = '';
-				var array2 = ui.item.nombres.split(/\s+/);
-				console.log(array2);
-				if(ui.item.paterno != '') apodo = ui.item.paterno;
-				else apodo = ui.item.materno;
-				console.log(apodo);
-				apodo = apodo + "." + array2[0];
-				console.log(apodo);
-				$("#fusr").val(apodo);
-				$("#ifoto").attr("src", "/digital/"+dip+".jpg?o_o="+(new Date().getTime())).hide();
-				//
-//				$("#inomci").val($("#ibusc").val());
-				//
-				$("#frol").select();
-				return false;
-			}
-		}).data("ui-autocomplete")._renderItem=function (ul, item){
-			return $("<li/>")
-				.append("<a><b>"+item.dip+"</b><br/>"+item.nombre+"</a>")
-				.appendTo(ul);
-		};
-		
+					
 		$.ajax({
 			url: "usuario/index.html",
 			success: function(result){
@@ -290,106 +162,10 @@
 		
 		jQuery.fn.resetear = function () {
 		  $(this).each (function() { this.reset(); });
-		};
+		};	
 		
-		$('#example tbody').on( 'click', '.eliminar', function () {
-			var data = table.row( $(this).parents('tr') ).data();
-			alert( data.id_usuario +"'s salary is: "+ data.apodo );
-		} );
 	});
 		
-	function nuevo() {						
-		$("#dformu").dialog("open");
-	}
-	
-	function guardar_nuevo(){
-//		$('#form').validator('validate');		
-		
-		if(!$('#form').find('.has-error').length) {
-			datos = $('#form').serializeArray();
-			datos.push({name: 'id_materia', value: "${docente.id_materia}"});
-			datos.push({name: 'id_grupo', value: "${docente.id_grupo}"});
-			datos.push({name: 'id_gestion', value: "${docente.id_gestion}"});
-			datos.push({name: 'id_docente', value: "${docente.id_docente}"});
-			
-			$.ajax({
-				type: "POST",
-				url: 'encuesta/guardar.html',
-				data: datos,
-				success: function(response){ $('#nuevo').modal('hide');location.reload();}
-			});
-		} 
-		else{
-			$('.has-error input').val('');
-		}
-	}
-
-	function editar(id){
-		$.ajax({
-			type: "POST",
-			url: 'encuesta/buscar.html?id_encuesta='+id,        
-			success: function(response){ 
-				$('#form').resetear();
-				populate_form(response);
-				$('#nuevo').modal('show');
-//				$('#form').validator('validate');
-				$( "#guardar-btn").unbind( "click" );
-				$( "#guardar-btn" ).bind( "click", function() {
-					  guardar_editar(id);
-				});
-			},
-			error: function(){alert('Ocurrio un error inesperado');}
-		});
-	}
-	
-	function guardar_editar(id){
-//		$('#form').validator('validate');		
-		
-		if(!$('#form').find('.has-error').length) {
-			datos = $('#form').serializeArray();
-			datos.push({name: 'id_encuesta', value: id});		
-			
-			$.ajax({
-				type: "POST",
-				url: 'encuesta/modificar.html',
-				data: datos,
-				success: function(response){ $('#nuevo').modal('hide');}
-			});
-		} 
-		else{
-			$('.has-error input').val('');
-		}
-	}
-
-	function eliminar(id) {		
-		$('#confirmar').modal('show');
-		$( "#confirmar-eliminar-btn").unbind( "click" );
-		$( "#confirmar-eliminar-btn" ).bind( "click", function() {
-			  guardar_eliminar(id);
-		});
-	}
-	
-	function guardar_eliminar(id){
-		$.ajax({
-			type: "POST",
-			url: 'encuesta/eliminar.html?id_encuesta='+id,        
-			success: function(response){ $('#confirmar').modal('hide');location.reload();},
-			error: function(){alert('Ocurrio un error inesperado');}
-		});
-	}
-	
-	function reporteGeneral(){
-		$.ajax({
-			type: "POST",
-			url: 'encuesta/reporte_general.html',        
-			success: function(response){
-				var win = window.open(response, '_blank');
-				win.focus();
-			},
-			error: function(){alert('Ocurrio un error inesperado');}
-		});
-	}
-	
 	function populate_form(datos){
 		//console.log(datos[0]);
 		$.each(datos, function(name, val){

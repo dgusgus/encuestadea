@@ -15,7 +15,6 @@
 		 where _usuarios.id_estado
 		 AND _usuarios.id_usuario = #{id_usuario}
 		 ORDER BY nombres
-
 	</select>
 
 	<insert id="insertarUsuario" parameterType="Usuarios">

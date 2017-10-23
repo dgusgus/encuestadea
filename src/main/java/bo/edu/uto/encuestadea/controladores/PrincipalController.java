@@ -94,4 +94,14 @@ public class PrincipalController {
 		
 		return null;
 	}
+	
+	@RequestMapping("/denegado")
+	public ModelAndView denegado(HttpSession hs) {
+		Map modelo = new HashMap();
+		// Verificando si el Usuario sigue autentificado.
+		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+		modelo.put("logout", id_usuario == null);
+		
+		return new ModelAndView("principal/denegado", modelo);
+	}
 }
