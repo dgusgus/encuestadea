@@ -15,7 +15,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
-
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
@@ -33,8 +32,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.dtic.tools.Tools;
-//import org.sib.modelo.dominios.Af_libros;
-
 /**
  *
  * @author Raúl Antonio Velásquez Muriel
@@ -80,16 +77,20 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		Unidad unidad = (Unidad) map.get("unidad");	
 		double it1 = (double)map.get("it1");
 		it1 = Tools.redondear(it1, 2);
+		it1 = it1>0?it1:0.0;
         String val1 = (String)map.get("val1");
         double it2 = (double)map.get("it2");
 		it2 = Tools.redondear(it2, 2);
+		it2 = it2>0?it2:0.0;
         String val2 = (String)map.get("val2");
         double it3 = (double)map.get("it3");
 		it3 = Tools.redondear(it3, 2);
+		it3 = it3>0?it3:0.0;
         double val3 = (double)map.get("val3");
 		val3 = Tools.redondear(val3, 2);
+		val3 = val3>0?val3:0.0;
 
-                DecimalFormat decimalFormat = new DecimalFormat("#.00");
+		DecimalFormat decimalFormat = new DecimalFormat("#.00");
                 
 		ServletContext servletContext = hsr.getServletContext();
 		String realPath = servletContext.getRealPath("/");

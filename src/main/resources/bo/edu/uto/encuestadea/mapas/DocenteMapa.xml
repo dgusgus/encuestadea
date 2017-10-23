@@ -25,7 +25,7 @@
     from	public.paralelos par
             join public.personas p on p.id_persona=par.id_docente
             join public.gestiones g on g.id_gestion=par.id_gestion
-                and g.id_facultad in ('F','G','H','I','J','K','L') and g.anio = 2016
+                and g.id_facultad in ('F','G','H','I','J','K','L') and g.anio = 2017
             join public.facultades f on f.id_facultad=par.id_facultad
             join public.materias m on m.id_materia=par.id_materia
             join public.grupos gr on gr.id_grupo=par.id_grupo
@@ -45,7 +45,7 @@
 		from	public.paralelos par
 				join public.personas p on p.id_persona=par.id_docente
 				join public.gestiones g on g.id_gestion=par.id_gestion
-					and g.id_facultad in ('F','G','H','I','J','K','L') and g.anio = 2016
+					and g.id_facultad in ('F','G','H','I','J','K','L') and g.anio = 2017
 				join public.facultades f on f.id_facultad=par.id_facultad
 				join public.materias m on m.id_materia=par.id_materia
 				join public.grupos gr on gr.id_grupo=par.id_grupo
@@ -68,7 +68,7 @@
 		from	public.paralelos par
 				join public.personas p on p.id_persona=par.id_docente
 				join public.gestiones g on g.id_gestion=par.id_gestion
-					and g.id_facultad in ('F','G','H','I','J','K','L') and g.anio = 2016
+					and g.id_facultad in ('F','G','H','I','J','K','L') and g.anio = 2017
 				join public.facultades f on f.id_facultad=par.id_facultad
 				join public.materias m on m.id_materia=par.id_materia
 				join public.grupos gr on gr.id_grupo=par.id_grupo
