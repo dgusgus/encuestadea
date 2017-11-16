@@ -74,7 +74,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		List<IntegranteComision> integrantesComision = (List<IntegranteComision>) map.get("integrantesComision");
 		List<RespuestasEncuesta> listaRespuestasEncuestas = (List<RespuestasEncuesta>) map.get("listaRespuestasEncuestas");
 		Docente docente = (Docente) map.get("docente");
-		Unidad unidad = (Unidad) map.get("unidad");	
+		Unidad unidad = (Unidad) map.get("unidad");
 		double it1 = (double)map.get("it1");
 		it1 = Tools.redondear(it1, 2);
 		it1 = it1>0?it1:0.0;

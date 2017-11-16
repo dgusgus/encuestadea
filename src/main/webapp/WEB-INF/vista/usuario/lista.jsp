@@ -31,23 +31,25 @@
 					
 				<td class="center" data-id="${r.id_usuario}">
 <div class="inline pos-rel">
+	<c:if test="${r.id_estado}">
 	<button data-position="auto" data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle">
 		<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Opciones</span>
 	</button>
 	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-		<li><a class="tooltip-info"  onclick="goResetPassw(${r.id_usuario});"><span class="orange">
+<!--		<li><a class="tooltip-info"  onclick="goResetPassw(${r.id_usuario});"><span class="orange">
 			<i class="ace-icon fa fa-refresh bigger-120"/> Resetear Contraseña
-		</span></a></li>
+		</span></a></li>-->
 <!--		<li><a class="tooltip-info" onclick="goAdmRoles(${r.id_usuario});"><span class="light-grey">
 			<i class="ace-icon fa fa-arrow-right bigger-120"/> Admin. Roles
 		</span></a></li>-->
 		<li><a class="tooltip-info" onclick="goBaja(${r.id_usuario});"><span class="light-red">
 			<i class="ace-icon fa fa-thumbs-o-down bigger-120"/> Dar de Baja
 		</span></a></li>
-		<li><a class="tooltip-info" onclick="goAlta(${r.id_usuario});"><span class="green">
+<!--		<li><a class="tooltip-info" onclick="goAlta(${r.id_usuario});"><span class="green">
 			<i class="ace-icon fa fa-thumbs-o-up bigger-120"/> Dar de Alta
-		</span></a></li>
+		</span></a></li>-->
 	</ul>
+	</c:if>
 </div>
 				</td>
 				</sec:authorize>

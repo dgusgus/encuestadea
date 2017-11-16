@@ -37,8 +37,8 @@
 					</div>
 					<div class="widget-toolbar">						
 						<button  id="btnew" class="btn btn-minier btn-primary btn-round"><i class="ace-icon fa fa-plus"></i>Añadir Encuestas</button>
-						<a  id="btreporte" class="btn btn-minier btn-success btn-round" href="encuesta/reporte_total_materia.html?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}&id_facultad=${docente.id_facultad}&id_unidad=${docente.id_unidad}" target="_blank"><i class="ace-icon fa fa-print"></i>Reporte Final de la Materia</a>
-						<a  id="btreporte" class="btn btn-minier btn-success btn-round" href="encuesta/reporte_general.html?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}&id_facultad=${docente.id_facultad}&id_unidad=${docente.id_unidad}" target="_blank"><i class="ace-icon fa fa-print"></i>Reporte General</a>
+						<a  id="btreporte" class="btn btn-minier btn-success btn-round" href="encuesta/reporte_total_materia.pdf?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}&id_facultad=${docente.id_facultad}&id_unidad=${docente.id_unidad}" target="_blank"><i class="ace-icon fa fa-print"></i>Reporte Final de la Materia</a>
+						<a  id="btreporte" class="btn btn-minier btn-success btn-round" href="encuesta/reporte_general.pdf?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}&id_facultad=${docente.id_facultad}&id_unidad=${docente.id_unidad}" target="_blank"><i class="ace-icon fa fa-print"></i>Reporte General</a>
 					</div>
 				</div>
 

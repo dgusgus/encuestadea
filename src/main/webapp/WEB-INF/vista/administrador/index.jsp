@@ -72,7 +72,7 @@
 
 
 
-<div id="dformu" class="hide">
+<div id="form-nuevo" class="hide">
 	<div class="center">
 		<span class="input-icon">
 			<input type="text" id="ibusc" class="input-xlarge" placeholder="Nombre ó C.I."/>
@@ -99,16 +99,16 @@
 				<div class="profile-info-name">Cuenta</div>
 				<div class="profile-info-value"><input id="fusr" type="text" class="form-control" ></div>
 			</div>
-			<div class="profile-info-row">
-				<div class="profile-info-name">Rol</div>
-				<div class="profile-info-value">
-					<div style="width: 100%">
-						<select id="frol" placeholder="Seleccione" class="form-control">
-							<option value=""></option>
-							<option value="1">ADMINISTRADOR</option>
-							<option value="2">JEFE CONTRATACIONES</option>
-							<option value="3" selected>TECNICO</option>
-						</select>
+			<div class="form-group">
+				<label for="inputPassword" class="control-label">Password</label>
+				<div class="form-inline row">
+					<div class="form-group col-sm-6">
+						<input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+						<div class="help-block">Minimo 6 Caracteres</div>
+					</div>
+					<div class="form-group col-sm-6">
+						<input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Las contraseñas deben ser iguales" placeholder="Confirmar" required>
+						<div class="help-block with-errors"></div>
 					</div>
 				</div>
 			</div>
@@ -139,10 +139,7 @@
 </div>
 <script src="assets/js/chosen.jquery.min.js" ></script>
 <script type="text/javascript">
-	var idFp;
-	var datos;
-	var idPer=null, nom=null, dip=null, idUsr=null, apo=null;
-	var autp=false;
+	
 	$(function () {
 					
 		$.ajax({
@@ -152,18 +149,14 @@
 			}
 		});
 		
-		$('#nuevo').on('shown.bs.modal', function (e) {
-			$('#form').validator();			
+		$('#form-nuevo').on('shown.bs.modal', function (e) {
+			$('#form-nuevo').validator();			
 		});
 
 		$("#btnew").click(function () {
-			nuevo();
+			abrirFormularioNuevo();
 		});
-		
-		jQuery.fn.resetear = function () {
-		  $(this).each (function() { this.reset(); });
-		};	
-		
+				
 	});
 		
 	function populate_form(datos){
@@ -181,6 +174,86 @@
 				default:
 					$el.val(val);
 			}
+		});
+	}
+	
+	function abrirFormularioNuevo(){
+		//$('#form-nuevo').resetear();
+		$('#form-nuevo').modal('show');
+		$( "#guardar-btn").unbind( "click" );
+		$( "#guardar-btn" ).bind( "click", function() {
+			guardar_nuevo();
+		});
+	}
+	
+	function guardar_nuevo(){
+		$('#form').validator('validate');		
+		
+		if(!$('#form').find('.has-error').length) {
+			datos = $('#form').serializeArray();			
+			$.ajax({
+				type: "POST",
+				url: 'encuesta/guardar.html',
+				data: datos,
+				success: function(response){ $('#nuevo').modal('hide');location.reload();}
+			});
+		} 
+		else{
+			$('.has-error input').val('');
+		}
+	}
+
+	function editar(id){
+		$.ajax({
+			type: "POST",
+			url: 'encuesta/buscar.html?id_encuesta='+id,        
+			success: function(response){ 
+				//$('#form').resetear();
+				populate_form(response);
+				$('#nuevo').modal('show');
+				$('#form').validator('validate');
+				$( "#guardar-btn").unbind( "click" );
+				$( "#guardar-btn" ).bind( "click", function() {
+					  guardar_editar(id);
+				});
+			},
+			error: function(){alert('Ocurrio un error inesperado');}
+		});
+	}
+	
+	function guardar_editar(id){
+		$('#form').validator('validate');		
+		
+		if(!$('#form').find('.has-error').length) {
+			datos = $('#form').serializeArray();
+			datos.push({name: 'id_encuesta', value: id});		
+			
+			$.ajax({
+				type: "POST",
+				url: 'encuesta/modificar.html',
+				data: datos,
+				success: function(response){ $('#nuevo').modal('hide');}
+			});
+		} 
+		else{
+			$('.has-error input').val('');
+		}
+	}
+
+	function eliminar(id) {		
+		$('#confirmar').modal('show');
+		$( "#confirmar-eliminar-btn").unbind( "click" );
+		$( "#confirmar-eliminar-btn" ).bind( "click", function() {
+			  guardar_eliminar(id);
+		});
+	}
+	
+	function guardar_eliminar(id){
+		$.ajax({
+			type: "POST",
+			url: 'encuesta/eliminar.html?id_encuesta='+id,        
+			success: function(response){ $('#confirmar').modal('hide');location.reload();},
+			error: function(){alert('Ocurrio un error inesperado');}
 		});
 	}
 </script>
