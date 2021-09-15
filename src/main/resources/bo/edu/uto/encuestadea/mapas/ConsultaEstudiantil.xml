@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bo.edu.uto.encuestadea.mapas.ConsultaEstudiantilMapa">
+
+	<insert id="insert" parameterType="ConsultaEstudiantil" useGeneratedKeys="true" keyProperty="id_consulta_encuesta" keyColumn="id_consulta_encuesta">
+		INSERT INTO dea.consulta_estudiantil
+			(id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado)
+		VALUES
+			(#{id_materia}, #{id_grupo}, #{id_gestion}, #{id_docente}, #{id_usuario}, #{ultimo_usuario_modificador}, #{fecha_ultima_modificacion}, #{fecha_creacion}, #{estado}, #{id_estado})
+		;
+	</insert>
+
+	<select id="get" resultType="ConsultaEstudiantil" parameterType="ConsultaEstudiantil" >
+		SELECT id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
+			FROM dea.consulta_estudiantil
+		WHERE id_consulta_estudiantil = #{ id_consulta_estudiantil }
+		;
+	</select>
+
+	<select id="getAll" resultType="ConsultaEstudiantil" parameterType="ConsultaEstudiantil" >
+		SELECT id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
+			FROM dea.consulta_estudiantil
+		;
+	</select>
+
+	<update id="delete" parameterType="ConsultaEstudiantil" >
+		UPDATE dea.consulta_estudiantil
+			SET id_estado=false
+		WHERE id_consulta_estudiantil = #{ id_consulta_estudiantil }
+		;
+	</update>
+
+	<update id="update" parameterType="ConsultaEstudiantil" >
+		UPDATE dea.consulta_estudiantil
+		SET
+			id_materia = #{ id_materia },
+			id_grupo = #{ id_grupo },
+			id_gestion = #{ id_gestion },
+			id_docente = #{ id_docente },
+			id_usuario = #{ id_usuario },
+			ultimo_usuario_modificador = #{ ultimo_usuario_modificador },
+			fecha_ultima_modificacion = #{ fecha_ultima_modificacion },
+			fecha_creacion = #{ fecha_creacion },
+			estado = #{ estado },
+			id_estado = #{ id_estado }
+		WHERE id_consulta_estudiantil = #{ id_consulta_estudiantil }
+
+	</update>
+
+	<select id="getByIdUsuario" resultType="ConsultaEstudiantil">
+		SELECT id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
+			FROM dea.consulta_estudiantil
+		WHERE id_usuario, = #{ id_usuario }
+	</select>
+</mapper>
