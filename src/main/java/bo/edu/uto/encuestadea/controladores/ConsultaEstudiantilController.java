@@ -21,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author dtic
  */
 @Controller
-@RequestMapping("/encuesta/**")
+@RequestMapping("/consultaestudiantil/**")
 public class ConsultaEstudiantilController {
 
 	@Autowired
