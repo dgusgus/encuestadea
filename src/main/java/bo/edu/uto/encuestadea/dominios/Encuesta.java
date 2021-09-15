@@ -12,6 +12,7 @@ import java.util.Date;
  * @author raul velasquez
  */
 public class Encuesta {
+
 	private Long id_encuesta;
 	private Long id_materia;
 	private Long id_grupo;
@@ -61,7 +62,7 @@ public class Encuesta {
 
 	public void setId_docente(Long id_docente) {
 		this.id_docente = id_docente;
-	}	
+	}
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -101,5 +102,6 @@ public class Encuesta {
 
 	public void setFecha_ultima_modificacion(Date fecha_ultima_modificacion) {
 		this.fecha_ultima_modificacion = fecha_ultima_modificacion;
-	}	
+	}
+
 }

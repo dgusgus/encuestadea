@@ -42,15 +42,15 @@
 </div>
 
 <script type="text/javascript">
-<c:set var="script">
-$(function (){
-	__crear_dialogos();
-});
+	<c:set var="script">
+	$(function () {
+		__crear_dialogos();
+	});
 
-if('ontouchstart' in document.documentElement)
-	document.write('<script src="assets/js/jquery.mobile.custom.min.js"><\/script>');
-</c:set>
-<%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>
+	if ('ontouchstart' in document.documentElement)
+		document.write('<script src="assets/js/jquery.mobile.custom.min.js"><\/script>');
+	</c:set>
+	<%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>
 </script>
 
 <script src="assets/js/bootstrap-dialog.min.js" ></script>

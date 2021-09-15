@@ -32,13 +32,13 @@ public class Docente {
 	private String unidad;
 	private Long id_usuario;
 	private List integrantes_comision;
-	private double IT1=0;//Resultad1
-	private	double IT2=0; //Resultad2
-	private	double IT3=0; //Resultad3
+	private double IT1 = 0;//Resultad1
+	private double IT2 = 0; //Resultad2
+	private double IT3 = 0; //Resultad3
 
-	private	String val1="";//comentario1
-	private	String val2=""; //comentario1
-	private	double val3=0; //comentario1
+	private String val1 = "";//comentario1
+	private String val2 = ""; //comentario1
+	private double val3 = 0; //comentario1
 
 	public Long getId_materia() {
 		return id_materia;
@@ -71,7 +71,7 @@ public class Docente {
 	public void setId_docente(Long id_docente) {
 		this.id_docente = id_docente;
 	}
-	
+
 	public String getDip() {
 		return dip;
 	}
@@ -142,7 +142,7 @@ public class Docente {
 
 	public void setGestion(String gestion) {
 		this.gestion = gestion;
-	}	
+	}
 
 	public String getFacultad_materia() {
 		return facultad_materia;
@@ -159,14 +159,14 @@ public class Docente {
 	public void setId_facultad(String id_facultad) {
 		this.id_facultad = id_facultad;
 	}
-	
+
 	public Long getId_unidad() {
 		return id_unidad;
 	}
 
 	public void setId_unidad(Long id_unidad) {
 		this.id_unidad = id_unidad;
-	}	
+	}
 
 	public String getUnidad() {
 		return unidad;

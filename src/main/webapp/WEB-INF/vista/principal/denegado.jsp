@@ -3,15 +3,14 @@
 <div class="page-content">
 	<div class="page-header">
 		<div class="alert alert-warning">
-		<h1>
-			Recurso no disponible 
-			<small class="hidden-xs">
-				<i class="ace-icon fa fa-angle-double-right"></i>
-				El recurso solicitado no puede ser encontrado.
-			</small>
-		</h1>
+			<h1>
+				Recurso no disponible
+				<small class="hidden-xs">
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					El recurso solicitado no puede ser encontrado.
+				</small>
+			</h1>
 		</div>
 	</div>
 </div><!-- /.page-content -->
 <jsp:include page="/comun/pie.html" />		
-		

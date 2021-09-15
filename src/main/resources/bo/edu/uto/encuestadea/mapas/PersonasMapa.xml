@@ -4,11 +4,12 @@
 
 <mapper namespace="bo.edu.uto.encuestadea.mapas.PersonasMapa">
 	<select id="buscarPersonas" parameterType="string" resultType="Personas">
-        select p.* 
-        from public.personas p
-        where  
-          p.dip ilike #{buscar}
-          or p.nombre ilike #{buscar}
-        limit 6
-    </select>	
+		select p.*
+		from public.personas p
+		where
+			p.dip ilike #{buscar}
+			or p.nombre ilike #{buscar}
+		limit 6
+	</select>
+
 </mapper>

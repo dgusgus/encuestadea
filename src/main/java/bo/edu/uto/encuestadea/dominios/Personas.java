@@ -2,9 +2,9 @@ package bo.edu.uto.encuestadea.dominios;
 
 import java.util.Date;
 
-public class Personas  implements java.io.Serializable {
+public class Personas implements java.io.Serializable {
 
-    private Long id_persona;
+	private Long id_persona;
 	private String nombres;
 	private String paterno;
 	private String materno;
@@ -103,8 +103,5 @@ public class Personas  implements java.io.Serializable {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	
-	
+
 }
-
-

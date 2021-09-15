@@ -18,15 +18,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/administrador/**")
 public class AdministradorController {
-					
+
 	@Autowired
 	UsuarioMapa usuarioMapa;
-	
-	@RequestMapping(value = "/index")	
-	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {			
-		HashMap modelo = new HashMap();		
+
+	@RequestMapping(value = "/index")
+
+	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {
+
+		HashMap modelo = new HashMap();
+
 		List usuarios = usuarioMapa.getUsuarios();
 		modelo.put("usuarios", usuarios);
 		return new ModelAndView("administrador/index", modelo);
-	}				
+	}
+
 }

@@ -46,10 +46,9 @@ public class ComunController {
 	public ModelAndView roles(HttpSession hs) {
 		Map modelo = new HashMap();
 		List<Rol> roles = new ArrayList<>();
-		
+
 		//Roles rol = new Roles(0, Boolean.TRUE, "Docente", "form-prueba", null, null);
 		//roles.add(rol);
-		
 		modelo.put("apodo", (String) hs.getAttribute("__apodo"));
 		modelo.put("roles", roles);
 		return new ModelAndView("comun/roles", modelo);

@@ -22,36 +22,29 @@ import bo.edu.uto.encuestadea.mapas.RolMapa;
  */
 @Service("accesoServicio")
 @Transactional(readOnly = true)
-public class AccesoServicio implements UserDetailsService{
+public class AccesoServicio implements UserDetailsService {
 
 	@Autowired
 	AccesoMapa accesoMapa;
 	@Autowired
 	RolMapa rolesMapa;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
-
 		UsuarioAcceso usuario = accesoMapa.getDatosUsuario(string);
 		if (null == usuario) {
 			throw new UsernameNotFoundException("Usuario NO Registrado");
 		}
 		List<GrantedAuthority> rolesAuth = new ArrayList<>();
-
-		List<Rol> roles = rolesMapa.getRoles(usuario);
-		if(roles == null) {
-			roles = new ArrayList<Rol>();			
-		}
-				
+		List<Rol> roles = new ArrayList<Rol>();
+		roles = rolesMapa.getRoles(usuario);
 		for (Rol rol : roles) {
 			rolesAuth.add(new SimpleGrantedAuthority(String.valueOf(rol.getRol())));
 		}
-
 		boolean enabled = (Boolean) true;
 		boolean accountNonExpired = true;
 		boolean credentialsNonExpired = true;
 		boolean accountNonLocked = true;
-
 		UserDetails user = new User(
 				usuario.getApodo(), usuario.getClave(),
 				enabled,

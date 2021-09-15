@@ -12,14 +12,14 @@ import org.apache.ibatis.type.Alias;
  * @author raul velasquez
  */
 @Alias("UsuarioAcceso")
-public class UsuarioAcceso implements java.io.Serializable{
+public class UsuarioAcceso implements java.io.Serializable {
 
 	private Long id_persona;
 	private Long id_usuario;
 	private String apodo;
 	private String clave;
 	private String nombre_completo;
-	private Long id_facultad;
+	private String id_facultad;
 	private Long id_departamento;
 
 	public Long getId_persona() {
@@ -62,11 +62,11 @@ public class UsuarioAcceso implements java.io.Serializable{
 		this.nombre_completo = nombre_completo;
 	}
 
-	public Long getId_facultad() {
+	public String getId_facultad() {
 		return id_facultad;
 	}
 
-	public void setId_facultad(Long id_facultad) {
+	public void setId_facultad(String id_facultad) {
 		this.id_facultad = id_facultad;
 	}
 
@@ -77,5 +77,5 @@ public class UsuarioAcceso implements java.io.Serializable{
 	public void setId_departamento(Long id_departamento) {
 		this.id_departamento = id_departamento;
 	}
-		
+
 }

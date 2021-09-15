@@ -1,6 +1,5 @@
 package bo.edu.uto.encuestadea.mapas;
 
-import bo.edu.uto.encuestadea.dominios.CriterioBusqueda;
 import bo.edu.uto.encuestadea.dominios.Docente;
 import bo.edu.uto.encuestadea.dominios.Encuesta;
 import java.util.List;

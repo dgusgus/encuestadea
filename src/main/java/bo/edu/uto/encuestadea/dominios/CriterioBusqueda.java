@@ -10,6 +10,7 @@ package bo.edu.uto.encuestadea.dominios;
  * @author raul velasquez
  */
 public class CriterioBusqueda {
+
 	private String tipoBusqueda;
 	private String cadenaBusqueda;
 	private String inicio;
@@ -100,5 +101,5 @@ public class CriterioBusqueda {
 	public void setCadena3(String cadena3) {
 		this.cadena3 = cadena3;
 	}
-	
+
 }

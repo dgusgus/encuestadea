@@ -1,37 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="bo.edu.uto.encuestadea.mapas.UsuarioMapa">
-	
 	 <select id="getUsuarios" resultType="Usuarios" >
 		 select * from dea.usuario
 	</select>
-
 	<select id="getUsuario" resultType="Usuarios">
 		SELECT id_usuario,id_persona, nombre_completo
-		 FROM _usuarios
-			  join personas using (id_persona)
-		 where _usuarios.id_estado
-		 AND _usuarios.id_usuario = #{id_usuario}
-		 ORDER BY nombres
+			FROM _usuarios
+				join personas using (id_persona)
+			where _usuarios.id_estado
+			AND _usuarios.id_usuario = #{id_usuario}
+			ORDER BY nombres
 	</select>
-
 	<insert id="insertarUsuario" parameterType="Usuarios">
 		INSERT INTO _usuarios(
-			 id_persona, id_estado, apodo, clave, recordatorio)
+			id_persona, id_estado, apodo, clave, recordatorio)
 		VALUES (#{id_persona},true,#{apodo},md5(#{clave}),#{recordatorio});
 	</insert>
-
 <!--	<update id="setEditarUsuario" parameterType="Usuarios">
 		UPDATE _usuarios SET usuario=#{usuario}
 		WHERE id_usuario=#{id_usuario};
 	</update>-->
-
 	<delete id="borrarUsuario" parameterType="Usuarios">
 		UPDATE _usuarios SET id_estado=false
-		WHERE id_usuario=#{id_usuario};
+			WHERE id_usuario=#{id_usuario};
 	</delete>
-
-	
 </mapper>

@@ -4,61 +4,60 @@
 
 <mapper namespace="bo.edu.uto.encuestadea.mapas.IntegranteComisionMapa">
 
-    <select id="getIntegrantesComision" resultType="IntegranteComision" parameterType="Unidad" >
-        select ic.id_integrante_comision, ic.id_comision, ic.nombre
-        from 
-            dea.integrantes_comision ic
-            	
-        where ic.id_comision in (
-            select c.id_comision from
-            dea.comision c            
-            where 
+	<select id="getIntegrantesComision" resultType="IntegranteComision" parameterType="Unidad" >
+		select ic.id_integrante_comision, ic.id_comision, ic.nombre
+		from
+			dea.integrantes_comision ic
+		where ic.id_comision in (
+			select c.id_comision from
+			dea.comision c
+			where
 				c.id_facultad = #{id_facultad}
 				and c.id_unidad = #{id_unidad}
-        )
-    </select>
-	
+		)
+	</select>
+
 	<select id="getIntegranteComision" resultType="IntegranteComision" parameterType="IntegranteComision" >
-        select ic.*
-        from 
-            dea.integrantes_comision ic
-        where ic.id_integrante_comision = #{id_integrante_comision}
-    </select>
-	
+		select ic.*
+		from
+			dea.integrantes_comision ic
+		where ic.id_integrante_comision = #{id_integrante_comision}
+	</select>
+
 	<select id="getIntegrantesComisionPorIdUsuario" resultType="IntegranteComision" parameterType="Long" >
-        select ic.id_integrante_comision, ic.id_comision, ic.id_usuario, ic.nombre
-        from 
-            dea.integrantes_comision ic            	
-        where ic.id_usuario = #{id_usuario}
+		select ic.id_integrante_comision, ic.id_comision, ic.id_usuario, ic.nombre
+		from
+			dea.integrantes_comision ic
+		where ic.id_usuario = #{id_usuario}
 		order by ic.id_integrante_comision
-    </select>
-	
+	</select>
+
 	<insert id="insertarIntegrante" parameterType="IntegranteComision" useGeneratedKeys="true" keyProperty="id_integrante_comision" keyColumn="id_integrante_comision">
-		INSERT INTO 
+		INSERT INTO
 		dea.integrantes_comision
 		  (
 			id_comision,
 			id_usuario,
 			nombre
 		  )
-		  VALUES (			
+		  VALUES (
 			#{id_comision},
 			#{id_usuario},
 			#{nombre}
 		  );
 	</insert>
-	
+
 	<delete id = "borrarIntegrante" parameterType = "IntegranteComision">
-      DELETE FROM 
-		dea.integrantes_comision 
-	  WHERE 
+	  DELETE FROM
+		dea.integrantes_comision
+	  WHERE
 		id_integrante_comision = #{id_integrante_comision}
 	  ;
 	</delete>
-   
+
 	<update id="modificarInegranteComision" parameterType = "IntegranteComision">
 		update dea.integrantes_comision set
-			nombre = #{nombre}			
+			nombre = #{nombre}
 		where id_integrante_comision = #{id_integrante_comision}
 	</update>
 </mapper>

@@ -74,7 +74,7 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 
 		List<RespuestasEncuesta> listaRespuestasEncuestas = (List<RespuestasEncuesta>) map.get("listaRespuestasEncuestas");
 		Docente docente = (Docente) map.get("docente");
-		Unidad unidad = (Unidad) map.get("unidad");		
+		Unidad unidad = (Unidad) map.get("unidad");
 
 		ServletContext servletContext = hsr.getServletContext();
 		String realPath = servletContext.getRealPath("/");
@@ -86,7 +86,7 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 		dtic.scaleAbsolute(50, 45);
 
 		float[] ancho1 = new float[3];
-		
+
 		ancho1[0] = 0.06f;
 		ancho1[1] = 0.31f;
 		ancho1[2] = 0.06f;
@@ -105,182 +105,183 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 		table1.addCell(p);
 		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
-		PdfPCell logo2 = new PdfPCell(dtic,true);
+		PdfPCell logo2 = new PdfPCell(dtic, true);
 		logo2.setBorder(PdfPCell.NO_BORDER);
 		table1.addCell(logo2);
 
 		dcmnt.add(table1);
 
-		float[] ancho2 = {0.3f,0.7f,0.3f,0.7f};
-		
+		float[] ancho2 = {0.3f, 0.7f, 0.3f, 0.7f};
+
 		PdfPTable tableDatosCabecera = new PdfPTable(4);
-		
+
 		tableDatosCabecera.setWidths(ancho2);
 		//tableDatosCabecera.setWidthPercentage(100);
 		tableDatosCabecera.getDefaultCell().setBorderWidth(0);
-		
+
 		p = new Paragraph("Facultad:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 		p = new Paragraph(docente.getFacultad_materia(), DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
-		
+
 		p = new Paragraph("Carrera:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 		p = new Paragraph(unidad.getUnidad(), DATO_CABECERA);
-		tableDatosCabecera.addCell(p);	
-		
+		tableDatosCabecera.addCell(p);
+
 		p = new Paragraph("Docente:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 		p = new Paragraph(docente.getNombre(), DATO_CABECERA);
-		tableDatosCabecera.addCell(p);	
-		
+		tableDatosCabecera.addCell(p);
+
 		p = new Paragraph("Sigla Materia:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 		p = new Paragraph(docente.getSigla(), DATO_CABECERA);
-		tableDatosCabecera.addCell(p);	
-		
+		tableDatosCabecera.addCell(p);
+
 		p = new Paragraph("Materia:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 		p = new Paragraph(docente.getNombreMateria(), DATO_CABECERA);
-		tableDatosCabecera.addCell(p);	
-		
+		tableDatosCabecera.addCell(p);
+
 		p = new Paragraph("Paralelo:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 		p = new Paragraph(docente.getGrupo(), DATO_CABECERA);
-		tableDatosCabecera.addCell(p);	
-		
+		tableDatosCabecera.addCell(p);
+
 		p = new Paragraph("Gestión:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 		p = new Paragraph(docente.getGestion(), DATO_CABECERA);
-		tableDatosCabecera.addCell(p);	
-		
+		tableDatosCabecera.addCell(p);
+
 		p = new Paragraph(" ", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 		p = new Paragraph(" ", TITULO_DATO_CABECERA);
-		tableDatosCabecera.addCell(p);	
+		tableDatosCabecera.addCell(p);
+
 		dcmnt.add(tableDatosCabecera);
-		
-		if(listaRespuestasEncuestas != null){
-			
+
+		if (listaRespuestasEncuestas != null) {
+
 			BaseColor fondoCelda = new BaseColor(222, 240, 245);
 			PdfPTable tablaDatos = new PdfPTable(32);
 			tablaDatos.setWidthPercentage(100);
 			PdfPCell celda = null;
-			celda = new PdfPCell(new Phrase("Nr",TITULO_DATO_CABECERA));
+			celda = new PdfPCell(new Phrase("Nr", TITULO_DATO_CABECERA));
 			celda.setBackgroundColor(fondoCelda);
 			tablaDatos.addCell(celda);
 
-			for(int i = 1 ; i <= 31 ; i++){
-				celda = new PdfPCell(new Phrase("p"+i,TITULO_DATO_CABECERA));
+			for (int i = 1; i <= 31; i++) {
+				celda = new PdfPCell(new Phrase("p" + i, TITULO_DATO_CABECERA));
 				celda.setBackgroundColor(fondoCelda);
 				//celda.setRotation(90);
 				tablaDatos.addCell(celda);
 			}
-			
+
 			int i = 1;
-			
-			for(RespuestasEncuesta respuestas:listaRespuestasEncuestas){
-				celda = new PdfPCell(new Phrase(i+"",TITULO_DATO_CABECERA));
+
+			for (RespuestasEncuesta respuestas : listaRespuestasEncuestas) {
+				celda = new PdfPCell(new Phrase(i + "", TITULO_DATO_CABECERA));
 				celda.setBackgroundColor(fondoCelda);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP1().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP1().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP2().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP2().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP3().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP3().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP4().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP4().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP5().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP5().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP6().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP6().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP7().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP7().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP8().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP8().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP9().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP9().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP10().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP10().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP11().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP11().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP12().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP12().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP13().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP13().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP14().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP14().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP15().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP15().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP16().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP16().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP17().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP17().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP18().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP18().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP19().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP19().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP20().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP20().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP21().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP21().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP22().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP22().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP23().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP23().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP24().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP24().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP25().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP25().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP26().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP26().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP27().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP27().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP28().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP28().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP29().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP29().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP30().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP30().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
-				celda = new PdfPCell(new Phrase(respuestas.getP31().toString(),DATO_CABECERA));
+				celda = new PdfPCell(new Phrase(respuestas.getP31().toString(), DATO_CABECERA));
 				celda.setHorizontalAlignment(Element.ALIGN_CENTER);
 				tablaDatos.addCell(celda);
 				i++;
-			}		
-			
+			}
+
 			dcmnt.add(tablaDatos);
 		}
 	}
-		
+
 }

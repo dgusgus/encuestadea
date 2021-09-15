@@ -8,15 +8,17 @@
 		insert	into dea.encuesta(id_materia, id_grupo, id_gestion, id_docente,id_usuario,id_estado)
 		values	(#{id_materia}, #{id_grupo}, #{id_gestion}, #{id_docente}, #{id_usuario}, #{id_estado});
 	</insert>
-	
+
 	<select id="getEncuesta" resultType="Encuesta" parameterType="Encuesta" >
-		select	e.*                        
+		select	e.*
+
 		from dea.encuesta e
 		where e.id_encuesta = ${id_encuesta}
 	</select>
-	
+
 	<select id="getListaEncuestas" resultType="Encuesta" parameterType="Encuesta" >
-		select	e.*                        
+		select	e.*
+
 		from dea.encuesta e
 		where e.id_estado
 		and e.id_docente = #{id_docente}
@@ -24,7 +26,7 @@
 		and e.id_grupo = #{id_grupo}
 		and e.id_gestion = #{id_gestion}
 	</select>
-	
+
 	<update id="getEliminarEncuesta" parameterType="Encuesta" >
 		update dea.encuesta set
 			id_estado = #{id_estado},
@@ -32,22 +34,27 @@
 			fecha_ultima_modificacion = now()
 		where id_encuesta = #{id_encuesta}
 	</update>
-	
+
 	<update id="getActualizarEncuesta" parameterType="Encuesta" >
-		update dea.encuesta set			
+		update dea.encuesta set
+
 			ultimo_usuario_modificador = #{ultimo_usuario_modificador},
 			fecha_ultima_modificacion = now()
 		where id_encuesta = #{id_encuesta}
 	</update>
-	
+
 	<select id="getTodosDocumentos" resultType="Docente">
 		select DISTINCT ON (e.id_materia,e.id_grupo,e.id_gestion,e.id_docente) e.id_docente,e.id_materia,e.id_grupo,e.id_gestion,e.id_usuario
-			, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria 
+			, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria
+
 			, g._gestion as gestion, f.facultad as facultad_materia, par.id_unidad, f.id_facultad, u.unidad
 		from dea.encuesta e
-		inner join public.paralelos par on (e.id_docente = par.id_docente 
-											and e.id_materia = par .id_materia 
-											and e.id_grupo = par.id_grupo 
+		inner join public.paralelos par on (e.id_docente = par.id_docente
+
+											and e.id_materia = par .id_materia
+
+											and e.id_grupo = par.id_grupo
+
 											and e.id_gestion = par.id_gestion)
 		join public.personas p on p.id_persona=par.id_docente
 		join public.gestiones g on g.id_gestion=par.id_gestion

@@ -20,30 +20,32 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/usuario/**")
 public class UsuarioController {
-	
+
 	@Autowired
 	private UsuarioMapa usuarioMapa;
 
 	@RequestMapping(value = "/index")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {
-		HashMap modelo = new HashMap();		
+		HashMap modelo = new HashMap();
+
 		return new ModelAndView("usuario/index", modelo);
 	}
-	
+
 	@RequestMapping(value = "/lista")
-	public ModelAndView lista(HttpServletRequest request, HttpServletResponse response){
+	public ModelAndView lista(HttpServletRequest request, HttpServletResponse response) {
 		HashMap modelo = new HashMap();
 		List<Usuarios> lista = usuarioMapa.getUsuarios();
 		modelo.put("lista", lista);
-		return new ModelAndView("usuario/lista",modelo);
-	}	
-	
+		return new ModelAndView("usuario/lista", modelo);
+	}
+
 	@RequestMapping(value = "/listar")
 	@ResponseBody
-	public Object listar(HttpServletRequest request, HttpServletResponse response){
+	public Object listar(HttpServletRequest request, HttpServletResponse response) {
 		HashMap modelo = new HashMap();
 		List<Usuarios> lista = usuarioMapa.getUsuarios();
 		modelo.put("data", lista);
 		return modelo;
-	}	
+	}
+
 }

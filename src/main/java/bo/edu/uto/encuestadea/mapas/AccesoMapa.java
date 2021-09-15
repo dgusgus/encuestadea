@@ -5,7 +5,6 @@ import bo.edu.uto.encuestadea.dominios.Rol;
 import bo.edu.uto.encuestadea.dominios.UsuarioAcceso;
 import java.util.List;
 
-
 /**
  *
  * @author dtic

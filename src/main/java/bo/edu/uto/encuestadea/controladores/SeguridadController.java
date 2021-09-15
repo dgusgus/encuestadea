@@ -17,11 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/seguridad/**")
 public class SeguridadController {
+
 	@Autowired
 	UsuarioServicio usuarioServicio;
-	
+
 	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest request) {		
+	public ModelAndView login(HttpServletRequest request) {
 		return new ModelAndView("seguridad/login");
 	}
 

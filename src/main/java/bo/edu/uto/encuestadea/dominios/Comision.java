@@ -11,42 +11,42 @@ package bo.edu.uto.encuestadea.dominios;
  */
 public class Comision {
 
-	private Long id_comision;	
+	private Long id_comision;
+
 	private String nombre;
-        private String id_facultad;
-        private Long id_unidad;
+	private String id_facultad;
+	private Long id_unidad;
 
-    public Long getId_comision() {
-        return id_comision;
-    }
+	public Long getId_comision() {
+		return id_comision;
+	}
 
-    public void setId_comision(Long id_comision) {
-        this.id_comision = id_comision;
-    }
+	public void setId_comision(Long id_comision) {
+		this.id_comision = id_comision;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getId_facultad() {
-        return id_facultad;
-    }
+	public String getId_facultad() {
+		return id_facultad;
+	}
 
-    public void setId_facultad(String id_facultad) {
-        this.id_facultad = id_facultad;
-    }
+	public void setId_facultad(String id_facultad) {
+		this.id_facultad = id_facultad;
+	}
 
-    public Long getId_unidad() {
-        return id_unidad;
-    }
+	public Long getId_unidad() {
+		return id_unidad;
+	}
 
-    public void setId_unidad(Long id_unidad) {
-        this.id_unidad = id_unidad;
-    }
+	public void setId_unidad(Long id_unidad) {
+		this.id_unidad = id_unidad;
+	}
 
-	
 }

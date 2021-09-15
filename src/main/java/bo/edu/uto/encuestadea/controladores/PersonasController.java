@@ -1,10 +1,6 @@
 package bo.edu.uto.encuestadea.controladores;
 
-import bo.edu.uto.encuestadea.dominios.Encuesta;
-import bo.edu.uto.encuestadea.dominios.UsuarioAcceso;
-import bo.edu.uto.encuestadea.dominios.Usuarios;
 import bo.edu.uto.encuestadea.mapas.PersonasMapa;
-import bo.edu.uto.encuestadea.mapas.UsuarioMapa;
 import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/personas/**")
 public class PersonasController {
-	
+
 	@Autowired
 	private PersonasMapa personasMapa;
-	
+
 	@RequestMapping
 	@ResponseBody
 	public List buscarPersonas(String term, HttpServletRequest hsr, HttpSession hs) {

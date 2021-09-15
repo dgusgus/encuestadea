@@ -10,7 +10,8 @@
 <fmt:setLocale value="es_BO" scope="session"/>
 <html lang="es">
 	<head>
-		<title>Plantilla :: Identificación</title>		
+		<title>Plantilla :: Identificación</title>
+
 		<meta name="description" content="User login page" />
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -26,19 +27,17 @@
 		<spring:url value="/assets/js/jquery.min.js" var="jqueryjs" />
 		<spring:url value="/assets/css/ace-rtl.min.css" var="acertlcss" />
 		<spring:url value="/assets/js/jquery.mobile.custom.min.js" var="jquerymobilecustomjs" />
-		
+
 <!--		<link href="${crunchifyCSS}" rel="stylesheet" />
 		<script src="${crunchifyJS}"></script>-->
 		<!-- Finish adding tags -->
-		
-		
+
 		<link rel="stylesheet" href="${bootstrapcss}"  />
 		<link rel="stylesheet" href="${fontawesomecss}" />
 		<link rel="stylesheet" href="${acefontscss}"  />
 		<link rel="stylesheet" href="${acecss}"  />
 
 		<script type="text/javascript" src="${jqueryjs}" ></script>
-
 
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="/assets/css/ace-part2.min.css"  />
@@ -114,10 +113,10 @@
 
 										<div class="toolbar clearfix">
 											<div>
-<!--												<a href="#" data-target="#forgot-box" class="forgot-password-link">
-													<i class="ace-icon fa fa-arrow-left"></i>
-													Olvidé mi contraseña
-												</a>-->
+												<!--												<a href="#" data-target="#forgot-box" class="forgot-password-link">
+																									<i class="ace-icon fa fa-arrow-left"></i>
+																									Olvidé mi contraseña
+																								</a>-->
 											</div>
 										</div>
 									</div><!-- /.widget-body -->
@@ -169,14 +168,14 @@
 		<script type="text/javascript">
 			<c:set var="script">
 
-			if('ontouchstart' in document.documentElement)
+			if ('ontouchstart' in document.documentElement)
 				document.write('<script type="text/javascript"  src="${jquerymobilecustomjs}"><\/script>');
 
-			$(function (){
+			$(function () {
 				$("#j_username").focus();
-				$(document).on('click', '.toolbar a[data-target]', function (e){
+				$(document).on('click', '.toolbar a[data-target]', function (e) {
 					e.preventDefault();
-					var target=$(this).data('target');
+					var target = $(this).data('target');
 					$('.widget-box.visible').removeClass('visible'); //hide others
 					$(target).addClass('visible'); //show target
 				});

@@ -8,25 +8,25 @@
 	</context-param>
 	<description>Plantilla de Proyectos DTIC</description>
 	<display-name>plantilla</display-name>
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml  /WEB-INF/applicationContext-security.xml</param-value>
-    </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    <servlet>
-        <servlet-name>dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>2</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.html</url-pattern>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml  /WEB-INF/applicationContext-security.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>*.html</url-pattern>
 		<url-pattern>*.pdf</url-pattern>
 		<url-pattern>*.xlsx</url-pattern>
 		<url-pattern>*.json</url-pattern>
-    </servlet-mapping>
+	</servlet-mapping>
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -35,14 +35,14 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-    <session-config>
-        <session-timeout>
-            10
-        </session-timeout>
-    </session-config>
-    <welcome-file-list>
-        <welcome-file>seguridad/login.html</welcome-file>
-    </welcome-file-list>
+	<session-config>
+		<session-timeout>
+			10
+		</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>seguridad/login.html</welcome-file>
+	</welcome-file-list>
 <!--	<error-page>
 		<error-code>500</error-code>
 		<location>/WEB-INF/vista/principal/denegado.jsp</location>

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="bo.edu.uto.encuestadea.mapas.RespuestasEncuestaMapa">
-
 	<insert id="insertarRespuestasEncuesta" parameterType="RespuestasEncuesta">
 		insert	into dea.respuesta_encuesta(id_encuesta,
 			p1,
@@ -70,15 +68,13 @@
 			#{p30},
 			#{p31});
 	</insert>
-	
 	<select id="getBuscarRespuestasEncuesta" resultType="RespuestasEncuesta" parameterType="RespuestasEncuesta" >
-		select	*                        
+		select	*
 		from dea.respuesta_encuesta re
 		where re.id_encuesta = #{id_encuesta}
 	</select>
-	
 	<update id="modificarRespuestasEncuesta" parameterType="RespuestasEncuesta" >
-		update dea.respuesta_encuesta set			
+		update dea.respuesta_encuesta set
 			p1=#{p1},
 			p2=#{p2},
 			p3=#{p3},
@@ -111,11 +107,10 @@
 			p30=#{p30},
 			p31=#{p31}
 		where id_encuesta = #{id_encuesta}
-	</update>	
-	
+	</update>
 	<select id="getListaRespuestasEncuesta" resultType="RespuestasEncuesta" parameterType="RespuestasEncuesta" >
-		select	*                        
-		from 
+		select	*
+		from
 			dea.respuesta_encuesta re
 			join dea.encuesta e using (id_encuesta)
 		where e.id_estado

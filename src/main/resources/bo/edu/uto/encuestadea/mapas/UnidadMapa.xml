@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="bo.edu.uto.encuestadea.mapas.UnidadMapa">
-
 	<select id="getUnidad" resultType="Unidad" parameterType="Unidad" >
 		SELECT id_unidad, unidad, id_facultad, codigo
 		FROM public.unidades where id_estado
 		and id_unidad =#{id_unidad}
 	</select>
-
-		
 </mapper>

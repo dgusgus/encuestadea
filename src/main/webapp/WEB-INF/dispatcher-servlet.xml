@@ -17,11 +17,11 @@
 			http://www.springframework.org/schema/context/spring-context-4.3.xsd
 			http://www.springframework.org/schema/mvc
 			http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
-	
+
 	<context:annotation-config />
-	
-	<context:component-scan base-package="bo.edu.uto.encuestadea"/>	
-	
+
+	<context:component-scan base-package="bo.edu.uto.encuestadea"/>
+
 	<mvc:resources mapping="/assets/**" location="/assets/" />
 	<mvc:annotation-driven  content-negotiation-manager="contentNegotiationManager" />
 	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
@@ -39,6 +39,5 @@
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		  p:prefix="/WEB-INF/vista/"
 		  p:suffix=".jsp" />
-	
-	
+
 </beans>

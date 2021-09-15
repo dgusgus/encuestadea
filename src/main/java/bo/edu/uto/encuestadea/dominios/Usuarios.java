@@ -3,32 +3,34 @@ package bo.edu.uto.encuestadea.dominios;
 import org.apache.ibatis.type.Alias;
 
 @Alias("Usuarios")
-public class Usuarios  implements java.io.Serializable {
+public class Usuarios implements java.io.Serializable {
 
-    private Long id_usuario;    
-    private Boolean id_estado;
-    private String apodo;
-    private String clave;
+	private Long id_usuario;
+
+	private Boolean id_estado;
+	private String apodo;
+	private String clave;
 	private Long id_persona;
 
-    public Usuarios() {
-    }
+	public Usuarios() {
+	}
 
 	public Usuarios(Long idUsuario) {
 		this.id_usuario = idUsuario;
 	}
-	
-    public Usuarios(Long idUsuario, String apodo, String clave) {
-        this.id_usuario = idUsuario;
-        this.apodo = apodo;
-        this.clave = clave;
-    }
-    public Usuarios(Long idUsuario, Boolean idEstado, String apodo, String clave) {
-       this.id_usuario = idUsuario;
-       this.id_estado = idEstado;
-       this.apodo = apodo;
-       this.clave = clave;
-    }
+
+	public Usuarios(Long idUsuario, String apodo, String clave) {
+		this.id_usuario = idUsuario;
+		this.apodo = apodo;
+		this.clave = clave;
+	}
+
+	public Usuarios(Long idUsuario, Boolean idEstado, String apodo, String clave) {
+		this.id_usuario = idUsuario;
+		this.id_estado = idEstado;
+		this.apodo = apodo;
+		this.clave = clave;
+	}
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -38,7 +40,6 @@ public class Usuarios  implements java.io.Serializable {
 		this.id_usuario = id_usuario;
 	}
 
-	
 	public String getApodo() {
 		return apodo;
 	}
@@ -48,7 +49,7 @@ public class Usuarios  implements java.io.Serializable {
 	}
 
 	public String getClave() {
-		return clave==null?"sin clave":"*********";
+		return clave == null ? "sin clave" : "*********";
 	}
 
 	public void setClave(String clave) {
@@ -71,5 +72,3 @@ public class Usuarios  implements java.io.Serializable {
 		this.id_persona = id_persona;
 	}
 }
-
-

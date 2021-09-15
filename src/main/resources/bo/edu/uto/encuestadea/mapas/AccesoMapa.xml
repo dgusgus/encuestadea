@@ -3,14 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="bo.edu.uto.encuestadea.mapas.AccesoMapa">
-
 	<select id="getDatosUsuario" resultType="UsuarioAcceso">
-		 SELECT u.id_persona,u.id_usuario,u.apodo,u.clave,p.nombre_completo,
-			'-1'::text as id_facultad, '-1'::integer as id_departamento
-		  FROM personas p JOIN dea.usuario u USING(id_persona)
-		  WHERE u.id_estado
-			AND p.id_estado
-			AND u.apodo = #{apodo};
+select 
+	u.id_persona
+	,u.id_usuario
+	,u.apodo
+	,u.clave
+	,p.nombre_completo
+	,coalesce(uu.id_facultad,'-1') as id_facultad
+	,coalesce(uu.id_unidad,'-1'::integer) as id_departamento
+from dea.usuario u
+	join dea.unidad_usuario uu on (uu.id_usuario = u.id_usuario)
+	left join public.personas p on (u.id_persona = p.id_persona)
+where u.id_estado
+and u.id_estado
+and u.apodo = #{apodo};
 	</select>
-	
 </mapper>

@@ -1,6 +1,6 @@
 package bo.edu.uto.encuestadea.dominios;
 
-public class AccesoUsuario  implements java.io.Serializable {
+public class AccesoUsuario implements java.io.Serializable {
 
 	private Long id_unidad_usuario;
 	private Long id_usuario;
@@ -14,7 +14,7 @@ public class AccesoUsuario  implements java.io.Serializable {
 	public void setId_unidad_usuario(Long id_unidad_usuario) {
 		this.id_unidad_usuario = id_unidad_usuario;
 	}
-	
+
 	public Long getId_usuario() {
 		return id_usuario;
 	}
@@ -38,7 +38,5 @@ public class AccesoUsuario  implements java.io.Serializable {
 	public void setId_unidad(Long id_unidad) {
 		this.id_unidad = id_unidad;
 	}
-    
+
 }
-
-

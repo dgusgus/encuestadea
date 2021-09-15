@@ -29,10 +29,10 @@ public class PrincipalController {
 
 	@Autowired
 	private AccesoMapa accesoMapa;
-	
+
 	@Autowired
 	private DocenteMapa docenteMapa;
-	
+
 	@Autowired
 	private AccesoUsuarioMapa accesoUsuarioMapa;
 
@@ -58,50 +58,51 @@ public class PrincipalController {
 		ses.setAttribute("__version", Tools.get_attr("Sistema", "version", request));
 		// Datos de Acceso para la busqueda
 		List<AccesoUsuario> accesos = accesoUsuarioMapa.getAccesosUsuario(new Usuarios(datos.getId_usuario()));
-		ses.setAttribute("__accesos",accesos);		
-		
+		ses.setAttribute("__accesos", accesos);
+
 		modelo.put("apodo", x.getName());
 		return new ModelAndView("redirect:/principal/buscar.html", modelo);
-	}	
-	
+	}
+
 	@RequestMapping(value = "/buscar")
 	public ModelAndView buscar(HttpServletRequest request, HttpServletResponse response, String busqueda) {
 
 		HashMap modelo = new HashMap();
 		HttpSession ses = request.getSession();
 		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
-		
-		List<Docente> docentes = null;		
-		if(busqueda!=null){
+
+		List<Docente> docentes = null;
+
+		if (busqueda != null) {
 			modelo.put("busqueda", busqueda);
 			busqueda = busqueda.trim();
 			busqueda = busqueda.replaceAll("\\s", "%");
 			busqueda = busqueda.toUpperCase();
-			busqueda = "%"+busqueda+"%";
+			busqueda = "%" + busqueda + "%";
 			docentes = docenteMapa.getDocentesBusqueda(busqueda);
 		}
-		
+
 		modelo.put("docentes", docentes);
 		return new ModelAndView("principal/buscar", modelo);
 	}
-	
+
 	@RequestMapping("/reporte_total_materias")
 	public ModelAndView reporte_total_materias(Usuarios usuario, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
 		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
-		
+
 		return null;
 	}
-	
+
 	@RequestMapping("/denegado")
 	public ModelAndView denegado(HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
 		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
-		
+
 		return new ModelAndView("principal/denegado", modelo);
 	}
 }
