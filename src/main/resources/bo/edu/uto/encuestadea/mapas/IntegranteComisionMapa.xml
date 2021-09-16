@@ -24,7 +24,7 @@
 		where ic.id_integrante_comision = #{id_integrante_comision}
 	</select>
 
-	<select id="getIntegrantesComisionPorIdUsuario" resultType="IntegranteComision" parameterType="Long" >
+	<select id="getIntegrantesComisionPorIdUsuario" resultType="IntegranteComision" parameterType="Integer" >
 		select ic.id_integrante_comision, ic.id_comision, ic.id_usuario, ic.nombre
 		from
 			dea.integrantes_comision ic

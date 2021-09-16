@@ -66,7 +66,7 @@ public class EncuestaController {
 	public Map guardar(Encuesta datosEncuesta, RespuestasEncuesta respuestasEncuesta, HttpSession hs) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 		//
 		datosEncuesta.setId_usuario(id_usuario);
@@ -88,7 +88,7 @@ public class EncuestaController {
 	public Map eliminar(Encuesta datosEncuesta, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 		//
 		datosEncuesta.setUltimo_usuario_modificador(id_usuario);
@@ -105,7 +105,7 @@ public class EncuestaController {
 	@ResponseBody
 	public RespuestasEncuesta buscar(RespuestasEncuesta datosEncuesta, HttpSession hs) {
 
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 
 		datosEncuesta = respuestasEncuestaMapa.getBuscarRespuestasEncuesta(datosEncuesta);
 
@@ -117,7 +117,7 @@ public class EncuestaController {
 	public Map modificar(Encuesta datosEncuesta, RespuestasEncuesta respuestasEncuesta, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 		//
 		datosEncuesta.setUltimo_usuario_modificador(id_usuario);
@@ -136,7 +136,7 @@ public class EncuestaController {
 	public ModelAndView reporte_general(Docente docente, Encuesta encuesta, Unidad unidad, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 		//
 		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);
@@ -158,7 +158,7 @@ public class EncuestaController {
 	public ModelAndView reporte_total_materia(Docente docente, Encuesta encuesta, Unidad unidad, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 
 		modelo.put("logout", id_usuario == null);
 
@@ -811,7 +811,7 @@ public class EncuestaController {
 	public Object reporte_total_materia_todos(HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 
 		modelo.put("logout", id_usuario == null);
 

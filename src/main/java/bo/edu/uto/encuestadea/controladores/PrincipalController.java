@@ -90,7 +90,7 @@ public class PrincipalController {
 	public ModelAndView reporte_total_materias(Usuarios usuario, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 
 		return null;
@@ -100,7 +100,7 @@ public class PrincipalController {
 	public ModelAndView denegado(HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 
 		return new ModelAndView("principal/denegado", modelo);
