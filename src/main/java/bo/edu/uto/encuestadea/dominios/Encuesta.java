@@ -13,62 +13,62 @@ import java.util.Date;
  */
 public class Encuesta {
 
-	private Long id_encuesta;
-	private Long id_materia;
-	private Long id_grupo;
-	private Long id_gestion;
-	private Long id_docente;
-	private Long id_usuario;
+	private Integer id_encuesta;
+	private Integer id_materia;
+	private Integer id_grupo;
+	private Integer id_gestion;
+	private Integer id_docente;
+	private Integer id_usuario;
 	private boolean id_estado;
 	private Date fecha_creacion;
-	private Long ultimo_usuario_modificador;
+	private Integer ultimo_usuario_modificador;
 	private Date fecha_ultima_modificacion;
 
-	public Long getId_encuesta() {
+	public Integer getId_encuesta() {
 		return id_encuesta;
 	}
 
-	public void setId_encuesta(Long id_encuesta) {
+	public void setId_encuesta(Integer id_encuesta) {
 		this.id_encuesta = id_encuesta;
 	}
 
-	public Long getId_materia() {
+	public Integer getId_materia() {
 		return id_materia;
 	}
 
-	public void setId_materia(Long id_materia) {
+	public void setId_materia(Integer id_materia) {
 		this.id_materia = id_materia;
 	}
 
-	public Long getId_grupo() {
+	public Integer getId_grupo() {
 		return id_grupo;
 	}
 
-	public void setId_grupo(Long id_grupo) {
+	public void setId_grupo(Integer id_grupo) {
 		this.id_grupo = id_grupo;
 	}
 
-	public Long getId_gestion() {
+	public Integer getId_gestion() {
 		return id_gestion;
 	}
 
-	public void setId_gestion(Long id_gestion) {
+	public void setId_gestion(Integer id_gestion) {
 		this.id_gestion = id_gestion;
 	}
 
-	public Long getId_docente() {
+	public Integer getId_docente() {
 		return id_docente;
 	}
 
-	public void setId_docente(Long id_docente) {
+	public void setId_docente(Integer id_docente) {
 		this.id_docente = id_docente;
 	}
 
-	public Long getId_usuario() {
+	public Integer getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(Long id_usuario) {
+	public void setId_usuario(Integer id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 
@@ -88,11 +88,11 @@ public class Encuesta {
 		this.fecha_creacion = fecha_creacion;
 	}
 
-	public Long getUltimo_usuario_modificador() {
+	public Integer getUltimo_usuario_modificador() {
 		return ultimo_usuario_modificador;
 	}
 
-	public void setUltimo_usuario_modificador(Long ultimo_usuario_modificador) {
+	public void setUltimo_usuario_modificador(Integer ultimo_usuario_modificador) {
 		this.ultimo_usuario_modificador = ultimo_usuario_modificador;
 	}
 

@@ -11,32 +11,32 @@ package bo.edu.uto.encuestadea.dominios;
  */
 public class IntegranteComision {
 
-	private Long id_integrante_comision;
-	private Long id_comision;
-	private Long id_usuario;
+	private Integer id_integrante_comision;
+	private Integer id_comision;
+	private Integer id_usuario;
 	private String nombre;
 
-	public Long getId_integrante_comision() {
+	public Integer getId_integrante_comision() {
 		return id_integrante_comision;
 	}
 
-	public void setId_integrante_comision(Long id_integrante_comision) {
+	public void setId_integrante_comision(Integer id_integrante_comision) {
 		this.id_integrante_comision = id_integrante_comision;
 	}
 
-	public Long getId_comision() {
+	public Integer getId_comision() {
 		return id_comision;
 	}
 
-	public void setId_comision(Long id_comision) {
+	public void setId_comision(Integer id_comision) {
 		this.id_comision = id_comision;
 	}
 
-	public Long getId_usuario() {
+	public Integer getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(Long id_usuario) {
+	public void setId_usuario(Integer id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 

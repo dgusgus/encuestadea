@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EncuestaMapa {
 
-	Long getNuevaEncuesta(Encuesta criterio) throws DataAccessException;
+	Integer getNuevaEncuesta(Encuesta criterio) throws DataAccessException;
 	Encuesta getEncuesta(Encuesta encuesta) throws DataAccessException;
 	List<Encuesta> getListaEncuestas(Encuesta criterio) throws DataAccessException;
 	public void getEliminarEncuesta(Encuesta datosEncuesta);

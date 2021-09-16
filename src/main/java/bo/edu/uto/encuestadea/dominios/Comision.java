@@ -11,17 +11,17 @@ package bo.edu.uto.encuestadea.dominios;
  */
 public class Comision {
 
-	private Long id_comision;
+	private Integer id_comision;
 
 	private String nombre;
 	private String id_facultad;
-	private Long id_unidad;
+	private Integer id_unidad;
 
-	public Long getId_comision() {
+	public Integer getId_comision() {
 		return id_comision;
 	}
 
-	public void setId_comision(Long id_comision) {
+	public void setId_comision(Integer id_comision) {
 		this.id_comision = id_comision;
 	}
 
@@ -41,11 +41,11 @@ public class Comision {
 		this.id_facultad = id_facultad;
 	}
 
-	public Long getId_unidad() {
+	public Integer getId_unidad() {
 		return id_unidad;
 	}
 
-	public void setId_unidad(Long id_unidad) {
+	public void setId_unidad(Integer id_unidad) {
 		this.id_unidad = id_unidad;
 	}
 

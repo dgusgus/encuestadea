@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Personas implements java.io.Serializable {
 
-	private Long id_persona;
+	private Integer id_persona;
 	private String nombres;
 	private String paterno;
 	private String materno;
@@ -16,11 +16,11 @@ public class Personas implements java.io.Serializable {
 	private String telefono;
 	private String celular;
 
-	public Long getId_persona() {
+	public Integer getId_persona() {
 		return id_persona;
 	}
 
-	public void setId_persona(Long id_persona) {
+	public void setId_persona(Integer id_persona) {
 		this.id_persona = id_persona;
 	}
 

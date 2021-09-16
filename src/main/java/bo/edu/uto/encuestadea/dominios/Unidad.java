@@ -11,16 +11,16 @@ package bo.edu.uto.encuestadea.dominios;
  */
 public class Unidad {
 
-	private Long id_unidad;
+	private Integer id_unidad;
 	private String unidad;
 	private String id_facultad;
 	private String codigo;
 
-	public Long getId_unidad() {
+	public Integer getId_unidad() {
 		return id_unidad;
 	}
 
-	public void setId_unidad(Long id_unidad) {
+	public void setId_unidad(Integer id_unidad) {
 		this.id_unidad = id_unidad;
 	}
 

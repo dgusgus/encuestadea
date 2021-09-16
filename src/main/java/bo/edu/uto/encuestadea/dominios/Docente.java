@@ -13,10 +13,10 @@ import java.util.List;
  */
 public class Docente {
 
-	private Long id_materia;
-	private Long id_grupo;
-	private Long id_gestion;
-	private Long id_docente;
+	private Integer id_materia;
+	private Integer id_grupo;
+	private Integer id_gestion;
+	private Integer id_docente;
 	private String dip;
 	private String titulo;
 	private String nombre;
@@ -28,9 +28,9 @@ public class Docente {
 	private String gestion;
 	private String facultad_materia;
 	private String id_facultad;
-	private Long id_unidad;
+	private Integer id_unidad;
 	private String unidad;
-	private Long id_usuario;
+	private Integer id_usuario;
 	private List integrantes_comision;
 	private double IT1 = 0;//Resultad1
 	private double IT2 = 0; //Resultad2
@@ -40,35 +40,35 @@ public class Docente {
 	private String val2 = ""; //comentario1
 	private double val3 = 0; //comentario1
 
-	public Long getId_materia() {
+	public Integer getId_materia() {
 		return id_materia;
 	}
 
-	public void setId_materia(Long id_materia) {
+	public void setId_materia(Integer id_materia) {
 		this.id_materia = id_materia;
 	}
 
-	public Long getId_grupo() {
+	public Integer getId_grupo() {
 		return id_grupo;
 	}
 
-	public void setId_grupo(Long id_grupo) {
+	public void setId_grupo(Integer id_grupo) {
 		this.id_grupo = id_grupo;
 	}
 
-	public Long getId_gestion() {
+	public Integer getId_gestion() {
 		return id_gestion;
 	}
 
-	public void setId_gestion(Long id_gestion) {
+	public void setId_gestion(Integer id_gestion) {
 		this.id_gestion = id_gestion;
 	}
 
-	public Long getId_docente() {
+	public Integer getId_docente() {
 		return id_docente;
 	}
 
-	public void setId_docente(Long id_docente) {
+	public void setId_docente(Integer id_docente) {
 		this.id_docente = id_docente;
 	}
 
@@ -160,11 +160,11 @@ public class Docente {
 		this.id_facultad = id_facultad;
 	}
 
-	public Long getId_unidad() {
+	public Integer getId_unidad() {
 		return id_unidad;
 	}
 
-	public void setId_unidad(Long id_unidad) {
+	public void setId_unidad(Integer id_unidad) {
 		this.id_unidad = id_unidad;
 	}
 
@@ -176,11 +176,11 @@ public class Docente {
 		this.unidad = unidad;
 	}
 
-	public Long getId_usuario() {
+	public Integer getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(Long id_usuario) {
+	public void setId_usuario(Integer id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 

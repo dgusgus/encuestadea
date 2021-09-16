@@ -36,7 +36,7 @@ public class ComisionController {
 
 		HashMap modelo = new HashMap();
 
-		Long id_usuario = (Long) session.getAttribute("__id_usuario");
+		Integer id_usuario = (Long) session.getAttribute("__id_usuario");
 		String apodo = (String) session.getAttribute("__apodo");
 		modelo.put("logout", id_usuario == null);
 
@@ -51,7 +51,7 @@ public class ComisionController {
 	@ResponseBody
 	public Map guardar(HttpSession hs, IntegranteComision integrante) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
 		Map modelo = new HashMap();
-		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
 		integrante.setId_usuario(id_usuario);
 		integrante.setId_comision(0L);
 		integranteComisionMapa.insertarIntegrante(integrante);
@@ -83,7 +83,7 @@ public class ComisionController {
 	public boolean modificar(IntegranteComision integranteComision, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 
 		integranteComision.setId_usuario(id_usuario);

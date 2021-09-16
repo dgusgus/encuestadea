@@ -11,14 +11,14 @@ package bo.edu.uto.encuestadea.dominios;
  */
 public class RespuestasEncuesta {
 
-	private Long id_respuesta_encuesta;
-	private Long id_pregunta;
-	private Long id_respuesta;
-	private Long id_encuesta;
-	private Long id_materia;
-	private Long id_grupo;
-	private Long id_gestion;
-	private Long id_docente;
+	private Integer id_respuesta_encuesta;
+	private Integer id_pregunta;
+	private Integer id_respuesta;
+	private Integer id_encuesta;
+	private Integer id_materia;
+	private Integer id_grupo;
+	private Integer id_gestion;
+	private Integer id_docente;
 	private Integer p1 = 0;
 	private Integer p2 = 0;
 	private Integer p3 = 0;
@@ -51,67 +51,67 @@ public class RespuestasEncuesta {
 	private Integer p30 = 0;
 	private Integer p31 = 0;
 
-	public Long getId_respuesta_encuesta() {
+	public Integer getId_respuesta_encuesta() {
 		return id_respuesta_encuesta;
 	}
 
-	public void setId_respuesta_encuesta(Long id_respuesta_encuesta) {
+	public void setId_respuesta_encuesta(Integer id_respuesta_encuesta) {
 		this.id_respuesta_encuesta = id_respuesta_encuesta;
 	}
 
-	public Long getId_pregunta() {
+	public Integer getId_pregunta() {
 		return id_pregunta;
 	}
 
-	public void setId_pregunta(Long id_pregunta) {
+	public void setId_pregunta(Integer id_pregunta) {
 		this.id_pregunta = id_pregunta;
 	}
 
-	public Long getId_respuesta() {
+	public Integer getId_respuesta() {
 		return id_respuesta;
 	}
 
-	public void setId_respuesta(Long id_respuesta) {
+	public void setId_respuesta(Integer id_respuesta) {
 		this.id_respuesta = id_respuesta;
 	}
 
-	public Long getId_encuesta() {
+	public Integer getId_encuesta() {
 		return id_encuesta;
 	}
 
-	public void setId_encuesta(Long id_encuesta) {
+	public void setId_encuesta(Integer id_encuesta) {
 		this.id_encuesta = id_encuesta;
 	}
 
-	public Long getId_materia() {
+	public Integer getId_materia() {
 		return id_materia;
 	}
 
-	public void setId_materia(Long id_materia) {
+	public void setId_materia(Integer id_materia) {
 		this.id_materia = id_materia;
 	}
 
-	public Long getId_grupo() {
+	public Integer getId_grupo() {
 		return id_grupo;
 	}
 
-	public void setId_grupo(Long id_grupo) {
+	public void setId_grupo(Integer id_grupo) {
 		this.id_grupo = id_grupo;
 	}
 
-	public Long getId_gestion() {
+	public Integer getId_gestion() {
 		return id_gestion;
 	}
 
-	public void setId_gestion(Long id_gestion) {
+	public void setId_gestion(Integer id_gestion) {
 		this.id_gestion = id_gestion;
 	}
 
-	public Long getId_docente() {
+	public Integer getId_docente() {
 		return id_docente;
 	}
 
-	public void setId_docente(Long id_docente) {
+	public void setId_docente(Integer id_docente) {
 		this.id_docente = id_docente;
 	}
 

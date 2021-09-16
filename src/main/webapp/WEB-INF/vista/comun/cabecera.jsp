@@ -38,9 +38,6 @@
 		<link rel="stylesheet" href="${fullcalendarmincss}" />		
 		<spring:url value="/assets/css/bootstrap-dialog.min.css" var="bootstrapdialogmincss"/>
 		<link rel="stylesheet" href="${bootstrapdialogmincss}" />
-
-		<link rel="stylesheet" href="assets/css/jquery.dataTables.min.css" />
-
 		<spring:url value="/assets/css/ace.min.css" var="acemincss"/>
 		<link rel="stylesheet" href="${acemincss}"/>
 
@@ -60,7 +57,11 @@
 		<script src="${jqueryuitouchpunchminjs}" ></script>
 		<spring:url value="/assets/js/validator.min.js" var="validatorjs"/>
 		<script src="${validatorjs}" ></script>
-		<script src="assets/js/bootstrap.min.js" ></script>		
+		<script src="assets/js/bootstrap.min.js" ></script>
+		<script src="assets/js/dataTables/jquery.dataTables.min.js" ></script>
+		<script src="assets/js/dataTables/jquery.dataTables.bootstrap.min.js" ></script>
+		<script src="assets/js/dataTables/extensions/TableTools/js/dataTables.tableTools.min.js" ></script>
+		<script src="assets/js/dataTables/extensions/ColVis/js/dataTables.colVis.min.js" ></script>
 
 		<script type="text/javascript">
 			<c:set var="script">

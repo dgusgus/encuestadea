@@ -26,7 +26,7 @@ public class PersonasController {
 	public List buscarPersonas(String term, HttpServletRequest hsr, HttpSession hs) {
 		HashMap modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
-		Long id_usuario = (Long) hs.getAttribute("__id_usuario");
+		Integer id_usuario = (Long) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 		//
 		term = "%" + term.trim().replaceAll("\\s+", "%") + "%";
