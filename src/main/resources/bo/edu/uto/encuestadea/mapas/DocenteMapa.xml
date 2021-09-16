@@ -15,15 +15,13 @@
 				, m.sigla
 				, gr.grupo
 				, t.titularia
-
 				, g.anio as anioGestion
 				, m.materia as nombreMateria
 				, g._gestion as gestion
 				, f.facultad as facultad_materia
 				, par.id_unidad
 				, f.id_facultad
-
-	from	public.paralelos par
+		from	public.paralelos par
 			join public.personas p on p.id_persona=par.id_docente
 			join public.gestiones g on g.id_gestion=par.id_gestion
 				and g.id_facultad in ('F','G','H','I','J','K','L') and g.anio = extract(year from current_date)
@@ -36,13 +34,14 @@
 				and par.id_nombramiento != 0
 				and par.id_estado in ('P')
 				and par.id_titularia in ('T','C')
+				and g.estado = 'A'
+				and g.id_estado
 		order by p.nombre,m.sigla,gr.grupo
 		limit 50;
 	</select>
 
 	<select id="getDocenteEncuesta" resultType="Docente" parameterType="Encuesta" >
 		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion, f.facultad as facultad_materia, par.id_unidad, f.id_facultad
-
 		from	public.paralelos par
 				join public.personas p on p.id_persona=par.id_docente
 				join public.gestiones g on g.id_gestion=par.id_gestion
@@ -65,7 +64,6 @@
 	</select>
 	<select id="getDocentesBusqueda" resultType="Docente" parameterType="String" >
 		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion, f.facultad as facultad_materia, par.id_unidad, f.id_facultad
-
 		from	public.paralelos par
 				join public.personas p on p.id_persona=par.id_docente
 				join public.gestiones g on g.id_gestion=par.id_gestion
@@ -84,6 +82,8 @@
 					or m.materia ilike #{criterio}
 				)
 				and par.id_titularia in ('T','C')
+				and g.estado = 'A'
+				and g.id_estado
 		order by p.nombre,m.sigla,gr.grupo
 		limit 50;
 	</select>

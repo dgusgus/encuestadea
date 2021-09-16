@@ -36,7 +36,7 @@ public class ConsultaEstudiantilController {
 		List<ConsultaEstudiantil> consultasEstudiantiles = consultaEstudiantilMapa.getByIdUsuario(id_usuario);
 		modelo.put("consultasEstudiantiles", consultasEstudiantiles);
 
-		return new ModelAndView("encuesta/index", modelo);
+		return new ModelAndView("consultaestudiantil/index", modelo);
 	}
 
 	@RequestMapping(value = "/listarByIdUsuario")

@@ -11,11 +11,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ConsultaEstudiantilMapa {
-	Long insert(ConsultaEstudiantil criterio) throws DataAccessException;
-	ConsultaEstudiantil get(ConsultaEstudiantil consultaEstudiantil) throws DataAccessException;
-	List<ConsultaEstudiantil> getAll() throws DataAccessException;
+	public Long insert(ConsultaEstudiantil criterio) throws DataAccessException;
+	public ConsultaEstudiantil get(ConsultaEstudiantil consultaEstudiantil) throws DataAccessException;
+	public List<ConsultaEstudiantil> getAll() throws DataAccessException;
 	public void delete(ConsultaEstudiantil datosConsultaEstudiantil) throws DataAccessException;
 	public void update(ConsultaEstudiantil datosConsultaEstudiantil) throws DataAccessException;
 
-	List<ConsultaEstudiantil> getByIdUsuario(Integer id_usuario) throws DataAccessException;
+	public List<ConsultaEstudiantil> getByIdUsuario(Integer id_usuario) throws DataAccessException;
 }

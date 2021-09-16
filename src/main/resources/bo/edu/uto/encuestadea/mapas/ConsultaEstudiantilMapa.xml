@@ -49,9 +49,9 @@
 
 	</update>
 
-	<select id="getByIdUsuario" resultType="ConsultaEstudiantil">
+	<select id="getByIdUsuario" resultType="ConsultaEstudiantil" >
 		SELECT id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
 			FROM dea.consulta_estudiantil
-		WHERE id_usuario, = #{ id_usuario }
+		WHERE id_usuario = #{ id_usuario }
 	</select>
 </mapper>
