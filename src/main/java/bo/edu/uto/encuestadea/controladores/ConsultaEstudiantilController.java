@@ -49,7 +49,7 @@ public class ConsultaEstudiantilController {
 		List<ConsultaEstudiantil> datos;
 		try {
 			datos = consultaEstudiantilMapa.getByIdUsuario(id_usuario);
-			response.put("consultasEstudiantiles", datos);
+			response.put("data", datos);
 
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
@@ -70,7 +70,7 @@ public class ConsultaEstudiantilController {
 		List<ConsultaEstudiantil> datos;
 		try {
 			datos = consultaEstudiantilMapa.getAll();
-			response.put("consultasEstudiantiles", datos);
+			response.put("data", datos);
 
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
@@ -91,7 +91,7 @@ public class ConsultaEstudiantilController {
 		ConsultaEstudiantil dato;
 		try {
 			dato = consultaEstudiantilMapa.get(datosConsultaEstudiantil);
-			response.put("consultaEstudiantil", dato);
+			response.put("data", dato);
 
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
@@ -124,7 +124,7 @@ public class ConsultaEstudiantilController {
 		}
 
 		response.put("mensaje", "El registro ha sido creado con exito");
-		response.put("consultaEstudiantil", nuevoDato);
+		response.put("data", nuevoDato);
 		return new ResponseEntity(response, HttpStatus.CREATED);
 	}
 
@@ -155,7 +155,7 @@ public class ConsultaEstudiantilController {
 		}
 
 		response.put("mensaje", "El registro ha sido actualizado con exito");
-		response.put("seguimiento", dato);
+		response.put("data", dato);
 		return new ResponseEntity(response, HttpStatus.OK);
 	}
 
@@ -186,7 +186,7 @@ public class ConsultaEstudiantilController {
 		}
 
 		response.put("mensaje", "El registro ha sido actualizado con exito");
-		response.put("seguimiento", dato);
+		response.put("data", dato);
 		return new ResponseEntity(response, HttpStatus.OK);
 	}
 }
