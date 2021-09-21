@@ -61,6 +61,19 @@ public class EncuestaController {
 		return new ModelAndView("encuesta/index", modelo);
 	}
 
+	@RequestMapping(value = "/llenarencuesta")
+	public ModelAndView llenarencuesta(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {
+		HashMap modelo = new HashMap();
+
+//		List<Encuesta> encuestasDocente = encuestaMapa.getListaEncuestas(datosEncuesta);
+//		Docente docente = docenteMapa.getDocenteEncuesta(datosEncuesta);
+//		modelo.put("docente", docente);
+//		modelo.put("datosEncuesta", datosEncuesta);
+//		modelo.put("encuestas", encuestasDocente);
+
+		return new ModelAndView("encuesta/llenarencuesta", modelo);
+	}
+
 	@RequestMapping("/guardar")
 	@ResponseBody
 	public Map guardar(Encuesta datosEncuesta, RespuestasEncuesta respuestasEncuesta, HttpSession hs) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {

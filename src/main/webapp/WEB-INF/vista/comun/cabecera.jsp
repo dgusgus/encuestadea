@@ -62,6 +62,10 @@
 		<script src="assets/js/dataTables/jquery.dataTables.bootstrap.min.js" ></script>
 		<script src="assets/js/dataTables/extensions/TableTools/js/dataTables.tableTools.min.js" ></script>
 		<script src="assets/js/dataTables/extensions/ColVis/js/dataTables.colVis.min.js" ></script>
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="assets/css/select2.css" />
+		<script src="assets/js/fuelux/fuelux.wizard.min.js"></script>
+		<script src="assets/js/ace/elements.wizard.js"></script>
 
 		<script type="text/javascript">
 			<c:set var="script">
