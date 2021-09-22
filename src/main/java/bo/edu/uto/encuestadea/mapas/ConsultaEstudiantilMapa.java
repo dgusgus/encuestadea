@@ -5,10 +5,6 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author dtic
- */
 @Repository
 public interface ConsultaEstudiantilMapa {
 	public Integer insert(ConsultaEstudiantil criterio) throws DataAccessException;

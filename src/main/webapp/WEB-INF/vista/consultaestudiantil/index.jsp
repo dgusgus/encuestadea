@@ -7,13 +7,15 @@
 	<div id="contenedor-tabla">
 		<div class="row">
 			<div class="col-xs-12">
-				<h3 class="header smaller lighter blue">jQuery dataTables</h3>
+				<h3 class="header smaller lighter blue">Encuestas Administración</h3>
 
 				<div class="clearfix">
 					<div class="pull-right tableTools-container"></div>
 				</div>
+				<button class="btn btn-primary"><i class="ace-icon glyphicon glyphicon-plus"></i>Nueva Consulta Estudiantil</button>
+				<hr />
 				<div class="table-header">
-					Results for "Latest Registered Domains"
+					Encuentas generadas
 				</div>
 
 				<!-- div.table-responsive -->
@@ -54,11 +56,10 @@
 					var table = $("#tabla tbody");
 					$.each(response.data, function(idx, elem){
 						console.log(elem);
-						table.append("<tr><td>"+elem.id_materia+" "+elem.id_grupo+" "+elem.id_docente+"</td><td>"+elem.estado+"</td><td>opcion("+elem.id_consulta_estudiantil+")</td></tr>");
+						table.append("<tr><td>"+elem.nombre_docente+" "+elem.nombre_materia+" "+elem.sigla_materia+" "+elem.paralelo+" "+elem.gestion+"</td><td>"+elem.estado+"</td><td>opcion("+elem.id_consulta_estudiantil+")</td></tr>");
 					});
 				}
 			}).always(function(){
-				console.log('final ajax');
 				var oTable1 =
 				$('#tabla')
 				.dataTable({

@@ -29,4 +29,11 @@ public class ConsultaEstudiantil {
 	private Date fecha_creacion;
 	private String estado;
 	private Boolean id_estado;
+
+	private String nombre_docente;
+	private String nombre_materia;
+	private String sigla_materia;
+	private String paralelo;
+	private String gestion;
+	private String facultad;
 }
