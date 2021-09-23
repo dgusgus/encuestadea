@@ -65,7 +65,7 @@
 			, m.sigla as sigla_materia
 			, p.nombre as nombre_docente
 			, g.grupo as paralelo
-			, g2."_gestion" as id_gestion
+			, g2."_gestion" as gestion
 			, f.facultad
 		FROM dea.consulta_estudiantil e
 			left join public.materias m on (e.id_materia = m.id_materia)

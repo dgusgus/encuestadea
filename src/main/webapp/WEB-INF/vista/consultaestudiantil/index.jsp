@@ -45,6 +45,22 @@
 			listar();
 		});
 
+		function formatoEstadoConsultaEstudiantil(estado){
+			switch(estado) {
+				case 'N':
+					return '<span class=\"label label-sm label-info arrowed arrowed-righ\">NUEVO</span>';
+					break;
+				case 'A':
+					return '<span class=\"label label-sm label-success\">ABIERTO</span>';
+					break;
+				case 'C':
+					return '<span class=\"label label-sm label-warning\">CERRADO</span>';
+					break;
+				default:
+					return '<span class=\"label label-sm label-inverse arrowed-in\">ESTADO INCORRECTO</span>';
+			}
+		}
+
 		function listar(){
 			$.ajax({
 				url:'consultaestudiantil/listarByIdUsuario.html',
@@ -56,7 +72,7 @@
 					var table = $("#tabla tbody");
 					$.each(response.data, function(idx, elem){
 						console.log(elem);
-						table.append("<tr><td>"+elem.nombre_docente+" "+elem.nombre_materia+" "+elem.sigla_materia+" "+elem.paralelo+" "+elem.gestion+"</td><td>"+elem.estado+"</td><td>opcion("+elem.id_consulta_estudiantil+")</td></tr>");
+						table.append("<tr><td><b class=\"text-success\">"+elem.nombre_docente+"</b><br> "+elem.nombre_materia+" "+elem.sigla_materia+" "+elem.paralelo+" "+elem.gestion+"</td><td>"+formatoEstadoConsultaEstudiantil(elem.estado)+"</td><td>opcion("+elem.id_consulta_estudiantil+")</td></tr>");
 					});
 				}
 			}).always(function(){
@@ -65,7 +81,7 @@
 				.dataTable({
 					bAutoWidth: false,
 					"aoColumns": [
-						null, null, null
+						null, null, { "bSortable": false }
 					],
 					"aaSorting": [],
 					"language": {
