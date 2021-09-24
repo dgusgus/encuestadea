@@ -45,19 +45,42 @@
 			listar();
 		});
 
-		function formatoEstadoConsultaEstudiantil(estado){
+		function formatoEstado(estado){
 			switch(estado) {
 				case 'N':
-					return '<span class=\"label label-sm label-info arrowed arrowed-righ\">NUEVO</span>';
+					return '<span class="label label-sm label-info arrowed arrowed-righ">NUEVO</span>';
 					break;
 				case 'A':
-					return '<span class=\"label label-sm label-success\">ABIERTO</span>';
+					return '<span class="label label-sm label-success">ABIERTO</span>';
 					break;
 				case 'C':
-					return '<span class=\"label label-sm label-warning\">CERRADO</span>';
+					return '<span class="label label-sm label-warning">CERRADO</span>';
 					break;
 				default:
-					return '<span class=\"label label-sm label-inverse arrowed-in\">ESTADO INCORRECTO</span>';
+					return '<span class="label label-sm label-inverse arrowed-in">ESTADO INCORRECTO</span>';
+			}
+		}
+
+		function formatoOpcion(estado, id){
+			switch(estado) {
+				case 'N':
+					return '<button class="btn btn-xs btn-info">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Abrir Encuesta '
+							+ id
+							+'</button>';
+					break;
+				case 'A':
+					return '<button class="btn btn-xs btn-success">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>'
+							+'</button>';
+					break;
+				case 'C':
+					return '<button class="btn btn-xs btn-success">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>'
+							+'</button>';
+					break;
+				default:
+					return '';
 			}
 		}
 
@@ -72,7 +95,24 @@
 					var table = $("#tabla tbody");
 					$.each(response.data, function(idx, elem){
 						console.log(elem);
-						table.append("<tr><td><b class=\"text-success\">"+elem.nombre_docente+"</b><br> "+elem.nombre_materia+" "+elem.sigla_materia+" "+elem.paralelo+" "+elem.gestion+"</td><td>"+formatoEstadoConsultaEstudiantil(elem.estado)+"</td><td>opcion("+elem.id_consulta_estudiantil+")</td></tr>");
+						table.append(
+								'<tr><td><b class="text-success">'
+									+elem.nombre_docente
+								+'</b><br> '
+									+elem.nombre_materia
+								+' <span class="label label-sm label-info">'
+									+elem.sigla_materia
+								+'</span> '
+								+'<span class="label label-sm label-success">'
+									+elem.paralelo
+								+'</span> '+'<span class="label label-sm label-warning">'
+									+elem.gestion
+								+'</span> '+"</td><td>"
+									+formatoEstado(elem.estado)
+								+"</td><td>"
+									+formatoOpcion(elem.estado, elem.id_consulta_estudiantil)
+								+"</td></tr>"
+						);
 					});
 				}
 			}).always(function(){
