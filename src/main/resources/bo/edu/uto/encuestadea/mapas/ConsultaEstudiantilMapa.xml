@@ -16,6 +16,7 @@
 		select id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
 			from dea.consulta_estudiantil
 		where id_consulta_estudiantil = #{ id_consulta_estudiantil }
+			and id_estado
 		order by 1
 		;
 	</select>
@@ -76,6 +77,7 @@
 			left join public.personas p on (p.id_persona = e.id_docente)
 			left join public.facultades f on (f.id_facultad = m.id_facultad)
 		where id_usuario = #{ id_usuario }
+			and e.id_estado
 		order by 1
 		;
 	</select>

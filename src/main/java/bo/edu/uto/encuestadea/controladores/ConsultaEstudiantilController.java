@@ -144,17 +144,17 @@ public class ConsultaEstudiantilController {
 		}
 
 		try {
-			dato.setUltimo_usuario_modificador(id_usuario);
-			dato.setFecha_ultima_modificacion(new Date());
-			dato.setId_estado(false);
-			consultaEstudiantilMapa.update(dato);
+			datoActual.setUltimo_usuario_modificador(id_usuario);
+			datoActual.setFecha_ultima_modificacion(new Date());
+			datoActual.setId_estado(false);
+			consultaEstudiantilMapa.update(datoActual);
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
 		response.put("mensaje", "El registro ha sido actualizado con exito");
-		response.put("data", dato);
+		response.put("data", datoActual);
 		return new ResponseEntity(response, HttpStatus.OK);
 	}
 

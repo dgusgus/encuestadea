@@ -25,9 +25,25 @@
 					<table id="tabla" class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
-								<th>Materia</th>
+								<th>
+									<b class="text-success">
+									</span> <span class="label label-sm label-gray">
+										id
+									</span>
+										Docente
+									</b><br>
+										Materia
+									<span class="label label-sm label-info">
+										sigla
+									</span>
+									<span class="label label-sm label-success">
+										paralelo
+									</span><span class="label label-sm label-warning">
+										gestión
+									</span>
+								</th>
 								<th>Estado</th>
-								<th></th>
+								<th>Opciones</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -40,6 +56,19 @@
 </div><!-- /.col -->
 <sec:authorize access="isAuthenticated()">
 	<script type="text/javascript">
+		var oTable1;
+
+		const Toast = Swal.mixin({
+			toast: true,
+			position: 'top',
+			showConfirmButton: false,
+			timer: 3000,
+			timerProgressBar: true,
+			didOpen: (toast) => {
+				toast.addEventListener('mouseleave', Swal.resumeTimer)
+			}
+		});
+
 		$(function () {
 			//initiate dataTables plugin
 			listar();
@@ -66,8 +95,8 @@
 				case 'N':
 					return '<button onclick="abrir('+id+')" class="btn btn-xs btn-info">'
 							+'<i class="ace-icon fa fa-check bigger-120"></i>Abrir Encuesta</button> '
-							+'<button onclick="borrar('+id+')" class="btn btn-xs btn-danger">'
-							+'<i class="ace-icon fa fa-check bigger-120"></i>borrar</button>'
+							+'<button onclick="confirmar_borrar('+id+')" class="btn btn-xs btn-danger">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Borrar</button>'
 					;
 					break;
 				case 'A':
@@ -78,7 +107,8 @@
 							+'<i class="ace-icon fa fa-check bigger-120"></i>Cerrar</button>';
 					break;
 				case 'C':
-					return '';
+					return '<button onclick="abrir('+id+')" class="btn btn-xs btn-info">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Abrir Encuesta</button> ';
 					break;
 				default:
 					return '';
@@ -86,72 +116,63 @@
 		}
 
 		function listar(){
-			$.ajax({
-				url:'consultaestudiantil/listarByIdUsuario.html',
-				method: "GET",
-				dataType: "json",
-				contentType: "application/json; charset=utf-8",
-				success: function (response) {
-					console.log(response);
-					var table = $("#tabla tbody");
-					table.html("");
-					$.each(response.data, function(idx, elem){
-						console.log(elem);
-						table.append(
-								'<tr><td><b class="text-success">'
-								+'</span> '+'<span class="label label-sm label-gray">'
-									+elem.id_consulta_estudiantil
-								+'</span> '
-									+elem.nombre_docente
-								+'</b><br> '
-									+elem.nombre_materia
-								+' <span class="label label-sm label-info">'
-									+elem.sigla_materia
-								+'</span> '
-								+'<span class="label label-sm label-success">'
-									+elem.paralelo
-								+'</span> '+'<span class="label label-sm label-warning">'
-									+elem.gestion
-								+'</span> '+"</td><td>"
-									+formatoEstado(elem.estado)
-								+"</td><td>"
-									+formatoOpcion(elem.estado, elem.id_consulta_estudiantil)
-								+"</td></tr>"
-						);
-					});
-				}
-			}).always(function(){
-				var oTable1 =
-				$('#tabla')
-				.dataTable({
-					destroy:true,
-					bAutoWidth: false,
-					"aoColumns": [
-						null, null, { "bSortable": false }
-					],
-					"aaSorting": [],
-					"language": {
-						"url": "assets/js/dataTables/Spanish.json"
-					},
-				});
-			}
-			);
-		}
-
-		function listar2(){
-			var oTable1 =
+			oTable1 =
 			$('#tabla')
 			.dataTable({
+				ajax: {
+					url: 'consultaestudiantil/listarByIdUsuario.html',
+					method: "GET",
+					xhrFields: {
+						withCredentials: true
+					}
+				},
+				columns:[
+					{
+						data:"nombre_docente",
+						render: function(data, type, row){
+							return '<b class="text-success">'
+								+'</span> '+'<span class="label label-sm label-gray">'
+									+row.id_consulta_estudiantil
+								+'</span> '
+									+row.nombre_docente
+								+'</b><br> '
+									+row.nombre_materia
+								+' <span class="label label-sm label-info">'
+									+row.sigla_materia
+								+'</span> '
+								+'<span class="label label-sm label-success">'
+									+row.paralelo
+								+'</span> '+'<span class="label label-sm label-warning">'
+									+row.gestion
+								+'</span> '
+							;
+						}
+					},
+					{
+						data:"estado",
+						render: function(data, type, row){
+							return formatoEstado(row.estado);
+						},
+					},
+					{
+						data:"id_consulta_estudiantil",
+						orderable: false,
+						render: function(data, type, row){
+							return formatoOpcion(row.estado, row.id_consulta_estudiantil);
+						}
+					}
+				],
 				destroy:true,
 				bAutoWidth: false,
-				"aoColumns": [
-					null, null, { "bSortable": false }
-				],
 				"aaSorting": [],
 				"language": {
 					"url": "assets/js/dataTables/Spanish.json"
 				},
 			});
+		}
+
+		function recargar(){
+			oTable1.api().ajax.reload();
 		}
 
 		function abrir(id){
@@ -164,7 +185,11 @@
 				contentType: "application/json; charset=utf-8",
 				success: function (response) {
 					console.log(response);
-					listar();
+					recargar();
+					Toast.fire({
+						icon: 'success',
+						title: 'Consulta Estudiantil Abierta'
+					});
 				}
 			});
 		}
@@ -179,9 +204,49 @@
 				contentType: "application/json; charset=utf-8",
 				success: function (response) {
 					console.log(response);
-					listar();
+					Toast.fire({
+						icon: 'success',
+						title: 'Consulta Estudiantil Cerrada'
+					});
+					recargar();
 				}
 			});
+		}
+
+		function confirmar_borrar(id){
+			Swal.fire({
+				title: '¿Está seguro de borrar el elemento?',
+				text: "El dato será borrado!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Si, borrar',
+				cancelButtonText: 'Cancelar'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$.ajax({
+						url:'consultaestudiantil/eliminar.html',
+						data: {id_consulta_estudiantil:id},
+						method: "GET",
+						dataType: "json",
+						contentType: "application/json; charset=utf-8",
+						success: function (response) {
+							console.log(response);
+							Swal.fire(
+								'Elemento Borrado',
+								'El elemento '+id+' ha sido borrado',
+								'success'
+							);
+							Toast.fire({
+								icon: 'success',
+								title: 'Consulta Estudiantil Borrada'
+							});
+							recargar();
+						}
+					});
+				}
+			})
 		}
 	</script>
 </sec:authorize>
