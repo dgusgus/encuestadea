@@ -147,7 +147,6 @@ public class ConsultaEstudiantilController {
 			dato.setUltimo_usuario_modificador(id_usuario);
 			dato.setFecha_ultima_modificacion(new Date());
 			dato.setId_estado(false);
-			consultaEstudiantilMapa.delete(dato);
 			consultaEstudiantilMapa.update(dato);
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
@@ -175,18 +174,77 @@ public class ConsultaEstudiantilController {
 		}
 
 		try {
-			dato.setUltimo_usuario_modificador(id_usuario);
-			dato.setFecha_ultima_modificacion(new Date());
-			dato.setId_estado(false);
-			consultaEstudiantilMapa.delete(dato);
-			consultaEstudiantilMapa.update(dato);
+			datoActual.setUltimo_usuario_modificador(id_usuario);
+			datoActual.setFecha_ultima_modificacion(new Date());
+			datoActual.setId_estado(false);
+			consultaEstudiantilMapa.update(datoActual);
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
 		response.put("mensaje", "El registro ha sido actualizado con exito");
-		response.put("data", dato);
+		response.put("data", datoActual);
+		return new ResponseEntity(response, HttpStatus.OK);
+	}
+
+	@RequestMapping("/abrir")
+	@ResponseBody
+	public ResponseEntity<?> abrir(ConsultaEstudiantil dato, HttpSession hs) {
+		HashMap modelo = new HashMap();
+		Map<String, Object> response = new HashMap<String, Object>();
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
+		modelo.put("logout", id_usuario == null);
+
+		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato);
+
+		if (datoActual == null || id_usuario == null) {
+			response.put("mensaje", "No existe ningun dato para el id: " + dato.getId_consulta_estudiantil());
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NO_CONTENT);
+		}
+
+		try {
+			datoActual.setUltimo_usuario_modificador(id_usuario);
+			datoActual.setFecha_ultima_modificacion(new Date());
+			datoActual.setEstado("A");
+			consultaEstudiantilMapa.update(datoActual);
+		} catch (Exception e) {
+			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		response.put("mensaje", "El registro ha sido actualizado con exito");
+		response.put("data", datoActual);
+		return new ResponseEntity(response, HttpStatus.OK);
+	}
+
+	@RequestMapping("/cerrar")
+	@ResponseBody
+	public ResponseEntity<?> cerrar(ConsultaEstudiantil dato, HttpSession hs) {
+		HashMap modelo = new HashMap();
+		Map<String, Object> response = new HashMap<String, Object>();
+		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
+		modelo.put("logout", id_usuario == null);
+
+		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato);
+
+		if (datoActual == null || id_usuario == null) {
+			response.put("mensaje", "No existe ningun dato para el id: " + dato.getId_consulta_estudiantil());
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NO_CONTENT);
+		}
+
+		try {
+			datoActual.setUltimo_usuario_modificador(id_usuario);
+			datoActual.setFecha_ultima_modificacion(new Date());
+			datoActual.setEstado("C");
+			consultaEstudiantilMapa.update(datoActual);
+		} catch (Exception e) {
+			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		response.put("mensaje", "El registro ha sido actualizado con exito");
+		response.put("data", datoActual);
 		return new ResponseEntity(response, HttpStatus.OK);
 	}
 }

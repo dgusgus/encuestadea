@@ -64,20 +64,21 @@
 		function formatoOpcion(estado, id){
 			switch(estado) {
 				case 'N':
-					return '<button class="btn btn-xs btn-info">'
-							+'<i class="ace-icon fa fa-check bigger-120"></i>Abrir Encuesta '
-							+ id
-							+'</button>';
+					return '<button onclick="abrir('+id+')" class="btn btn-xs btn-info">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Abrir Encuesta</button> '
+							+'<button onclick="borrar('+id+')" class="btn btn-xs btn-danger">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>borrar</button>'
+					;
 					break;
 				case 'A':
-					return '<button class="btn btn-xs btn-success">'
-							+'<i class="ace-icon fa fa-check bigger-120"></i>'
-							+'</button>';
+					return '<button onclick="obtenerEnlace('+id+')" class="btn btn-xs btn-success">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Obtener Enlace Encuesta'
+							+'</button> '
+							+'<button onclick="cerrar('+id+')" class="btn btn-xs btn-warning">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Cerrar</button>';
 					break;
 				case 'C':
-					return '<button class="btn btn-xs btn-success">'
-							+'<i class="ace-icon fa fa-check bigger-120"></i>'
-							+'</button>';
+					return '';
 					break;
 				default:
 					return '';
@@ -93,10 +94,14 @@
 				success: function (response) {
 					console.log(response);
 					var table = $("#tabla tbody");
+					table.html("");
 					$.each(response.data, function(idx, elem){
 						console.log(elem);
 						table.append(
 								'<tr><td><b class="text-success">'
+								+'</span> '+'<span class="label label-sm label-gray">'
+									+elem.id_consulta_estudiantil
+								+'</span> '
 									+elem.nombre_docente
 								+'</b><br> '
 									+elem.nombre_materia
@@ -119,6 +124,7 @@
 				var oTable1 =
 				$('#tabla')
 				.dataTable({
+					destroy:true,
 					bAutoWidth: false,
 					"aoColumns": [
 						null, null, { "bSortable": false }
@@ -130,6 +136,52 @@
 				});
 			}
 			);
+		}
+
+		function listar2(){
+			var oTable1 =
+			$('#tabla')
+			.dataTable({
+				destroy:true,
+				bAutoWidth: false,
+				"aoColumns": [
+					null, null, { "bSortable": false }
+				],
+				"aaSorting": [],
+				"language": {
+					"url": "assets/js/dataTables/Spanish.json"
+				},
+			});
+		}
+
+		function abrir(id){
+			console.log("abriendo consulta: ",id);
+			$.ajax({
+				url:'consultaestudiantil/abrir.html',
+				data: {id_consulta_estudiantil:id},
+				method: "GET",
+				dataType: "json",
+				contentType: "application/json; charset=utf-8",
+				success: function (response) {
+					console.log(response);
+					listar();
+				}
+			});
+		}
+
+		function cerrar(id){
+			console.log("cerrando consulta: ",id);
+			$.ajax({
+				url:'consultaestudiantil/cerrar.html',
+				data: {id_consulta_estudiantil:id},
+				method: "GET",
+				dataType: "json",
+				contentType: "application/json; charset=utf-8",
+				success: function (response) {
+					console.log(response);
+					listar();
+				}
+			});
 		}
 	</script>
 </sec:authorize>

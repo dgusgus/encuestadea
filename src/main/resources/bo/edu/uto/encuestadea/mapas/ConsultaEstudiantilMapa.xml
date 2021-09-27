@@ -13,15 +13,17 @@
 	</insert>
 
 	<select id="get" resultType="ConsultaEstudiantil" parameterType="ConsultaEstudiantil" >
-		SELECT id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
-			FROM dea.consulta_estudiantil
-		WHERE id_consulta_estudiantil = #{ id_consulta_estudiantil }
+		select id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
+			from dea.consulta_estudiantil
+		where id_consulta_estudiantil = #{ id_consulta_estudiantil }
+		order by 1
 		;
 	</select>
 
 	<select id="getAll" resultType="ConsultaEstudiantil" parameterType="ConsultaEstudiantil" >
-		SELECT id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
-			FROM dea.consulta_estudiantil
+		select id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
+			from dea.consulta_estudiantil
+		order by 1
 		;
 	</select>
 
@@ -50,7 +52,7 @@
 	</update>
 
 	<select id="getByIdUsuario" resultType="ConsultaEstudiantil" >
-		SELECT e.id_consulta_estudiantil
+		select e.id_consulta_estudiantil
 			, e.id_materia
 			, e.id_grupo
 			, e.id_gestion
@@ -67,13 +69,14 @@
 			, g.grupo as paralelo
 			, g2."_gestion" as gestion
 			, f.facultad
-		FROM dea.consulta_estudiantil e
+		from dea.consulta_estudiantil e
 			left join public.materias m on (e.id_materia = m.id_materia)
 			left join public.grupos g on (g.id_grupo = e.id_grupo)
 			left join public.gestiones g2 on (g2.id_gestion = e.id_gestion)
 			left join public.personas p on (p.id_persona = e.id_docente)
 			left join public.facultades f on (f.id_facultad = m.id_facultad)
-		WHERE id_usuario = #{ id_usuario }
+		where id_usuario = #{ id_usuario }
+		order by 1
 		;
 	</select>
 </mapper>
