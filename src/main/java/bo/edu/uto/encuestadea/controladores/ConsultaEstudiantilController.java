@@ -102,9 +102,9 @@ public class ConsultaEstudiantilController {
 		return new ResponseEntity(response, HttpStatus.OK);
 	}
 
-	@RequestMapping("/guardar")
+	@RequestMapping("/nuevo")
 	@ResponseBody
-	public ResponseEntity<?> guardar(ConsultaEstudiantil nuevoDato, HttpSession hs) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
+	public ResponseEntity<?> nuevo(ConsultaEstudiantil nuevoDato, HttpSession hs) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
 		HashMap modelo = new HashMap();
 		Map<String, Object> response = new HashMap<String, Object>();
 		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
@@ -113,6 +113,7 @@ public class ConsultaEstudiantilController {
 		try {
 			if(id_usuario != null){
 				nuevoDato.setId_usuario(id_usuario);
+				nuevoDato.setEstado("N");
 				nuevoDato.setFecha_creacion(new Date());
 				nuevoDato.setId_estado(true);
 				consultaEstudiantilMapa.insert(nuevoDato);

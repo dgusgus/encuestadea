@@ -66,6 +66,7 @@
 		<!-- page specific plugin styles -->
 		<script src="assets/js/fuelux/fuelux.wizard.min.js"></script>
 		<script src="assets/js/ace/elements.wizard.js"></script>
+		<script src="assets/js/chosen.jquery.min.js"></script>
 
 		<script type="text/javascript">
 			<c:set var="script">

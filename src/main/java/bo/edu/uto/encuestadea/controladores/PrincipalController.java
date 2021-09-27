@@ -86,6 +86,50 @@ public class PrincipalController {
 		return new ModelAndView("principal/buscar", modelo);
 	}
 
+	@RequestMapping(value = "/nuevo")
+	public ModelAndView nuevo(HttpServletRequest request, HttpServletResponse response, String busqueda) {
+
+		HashMap modelo = new HashMap();
+		HttpSession ses = request.getSession();
+		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
+
+		List<Docente> docentes = null;
+
+		if (busqueda != null) {
+			modelo.put("busqueda", busqueda);
+			busqueda = busqueda.trim();
+			busqueda = busqueda.replaceAll("\\s", "%");
+			busqueda = busqueda.toUpperCase();
+			busqueda = "%" + busqueda + "%";
+			docentes = docenteMapa.getDocentesBusqueda(busqueda);
+		}
+
+		modelo.put("docentes", docentes);
+		return new ModelAndView("principal/nuevo", modelo);
+	}
+
+	@RequestMapping(value = "/listar")
+	public ModelAndView listar(HttpServletRequest request, HttpServletResponse response, String busqueda) {
+
+		HashMap modelo = new HashMap();
+		HttpSession ses = request.getSession();
+		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
+
+		List<Docente> docentes = null;
+
+		if (busqueda != null) {
+			modelo.put("busqueda", busqueda);
+			busqueda = busqueda.trim();
+			busqueda = busqueda.replaceAll("\\s", "%");
+			busqueda = busqueda.toUpperCase();
+			busqueda = "%" + busqueda + "%";
+			docentes = docenteMapa.getDocentesBusqueda(busqueda);
+		}
+
+		modelo.put("docentes", docentes);
+		return new ModelAndView("principal/lista", modelo);
+	}
+
 	@RequestMapping("/reporte_total_materias")
 	public ModelAndView reporte_total_materias(Usuarios usuario, HttpSession hs) {
 		Map modelo = new HashMap();

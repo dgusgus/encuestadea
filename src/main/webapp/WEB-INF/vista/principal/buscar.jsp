@@ -20,11 +20,10 @@
 								</span>
 
 								<input type="text" class="form-control search-query" placeholder="criterio de búsqueda" name="busqueda"
-
-									   <c:if test="${not empty busqueda}">
-										   value="${busqueda}"
-									   </c:if>
-									   />
+									<c:if test="${not empty busqueda}">
+										value="${busqueda}"
+									</c:if>
+								/>
 								<span class="input-group-btn">
 									<button type="submit button" class="btn btn-info btn-sm">
 										<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>

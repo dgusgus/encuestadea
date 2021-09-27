@@ -4,7 +4,7 @@
 
 <mapper namespace="bo.edu.uto.encuestadea.mapas.ConsultaEstudiantilMapa">
 
-	<insert id="insert" parameterType="ConsultaEstudiantil" useGeneratedKeys="true" keyProperty="id_consulta_encuesta" keyColumn="id_consulta_encuesta">
+	<insert id="insert" parameterType="ConsultaEstudiantil" useGeneratedKeys="true" keyProperty="id_consulta_estudiantil" keyColumn="id_consulta_estudiantil">
 		INSERT INTO dea.consulta_estudiantil
 			(id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado)
 		VALUES
@@ -17,7 +17,7 @@
 			from dea.consulta_estudiantil
 		where id_consulta_estudiantil = #{ id_consulta_estudiantil }
 			and id_estado
-		order by 1
+		order by id_consulta_estudiantil desc
 		;
 	</select>
 
@@ -78,7 +78,7 @@
 			left join public.facultades f on (f.id_facultad = m.id_facultad)
 		where id_usuario = #{ id_usuario }
 			and e.id_estado
-		order by 1
+		order by e.id_consulta_estudiantil desc
 		;
 	</select>
 </mapper>
