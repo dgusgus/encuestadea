@@ -68,6 +68,12 @@
 		<script src="assets/js/ace/elements.wizard.js"></script>
 		<script src="assets/js/chosen.jquery.min.js"></script>
 
+		<style>
+			.swal2-popup {
+				font-size: 1.6rem !important;
+			}
+		</style>
+
 		<script type="text/javascript">
 			<c:set var="script">
 			$(function () {

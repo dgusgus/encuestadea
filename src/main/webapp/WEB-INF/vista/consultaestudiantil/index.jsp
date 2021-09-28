@@ -157,6 +157,57 @@
 </div>
 <!-- /.FINAL MODAL -->
 
+<!-- /.INICIO MODAL -->
+<div id="modal-enlace" class="modal" tabindex="-1">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="blue bigger">Enlace para entrar a la encuesta</h4>
+			</div>
+
+			<div class="modal-body">
+				<div class="row">
+					<div class="widget-box">
+						<div class="widget-header widget-header-small">
+							<h5 class="widget-title lighter">Enlace</h5>
+						</div>
+
+						<div class="widget-body">
+							<div class="widget-main">
+								<div class="row">
+									<div class="col-xs-12 col-sm-12">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<i class="ace-icon fa fa-copy"></i>
+											</span>
+
+											<input id="enlace" type="text" class="form-control search-query" placeholder="enlace" name="enlace" readonly/>
+											<span class="input-group-btn">
+												<button type="submit button" class="btn btn-info btn-sm" onclick="copiarEnlace()">
+													<span class="ace-icon fa fa-copy icon-on-right bigger-110"></span>
+													Copiar Enlace
+												</button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button class="btn btn-sm" data-dismiss="modal">
+					<i class="ace-icon fa fa-times"></i>
+					Cerrar
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.FINAL MODAL -->
 <sec:authorize access="isAuthenticated()">
 	<script type="text/javascript">
 		var oTable1;
@@ -359,6 +410,21 @@
 		function ventanaNuevo(){
 			console.log('Nuevo');
 			$('#modal-form').modal('show');
+		}
+
+		function obtenerEnlace(id){
+			$('#enlace').val(window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta='+btoa(id));
+			$('#modal-enlace').modal('show');
+		}
+
+		function copiarEnlace(){
+			$('#enlace').select();
+			document.execCommand("copy");
+			Swal.fire(
+				'Enlace Copiado',
+				'El enlace fue copiado al porta papeles puedes pegarlo con Ctrl + V',
+				'success'
+			);
 		}
 	</script>
 </sec:authorize>

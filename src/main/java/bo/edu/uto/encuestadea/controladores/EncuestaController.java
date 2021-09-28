@@ -62,7 +62,7 @@ public class EncuestaController {
 	}
 
 	@RequestMapping(value = "/llenarencuesta")
-	public ModelAndView llenarencuesta(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {
+	public ModelAndView llenarencuesta(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta, String consulta) {
 		HashMap modelo = new HashMap();
 
 //		List<Encuesta> encuestasDocente = encuestaMapa.getListaEncuestas(datosEncuesta);
@@ -70,7 +70,7 @@ public class EncuestaController {
 //		modelo.put("docente", docente);
 //		modelo.put("datosEncuesta", datosEncuesta);
 //		modelo.put("encuestas", encuestasDocente);
-
+		modelo.put("consulta", consulta);
 		return new ModelAndView("encuesta/llenarencuesta", modelo);
 	}
 

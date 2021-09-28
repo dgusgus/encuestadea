@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,8 +34,12 @@ public class ConsultaEstudiantilController {
 		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 
+		ServletContext servletContext = hs.getServletContext();
+		String realPath = servletContext.getRealPath("/");
+
 		List<ConsultaEstudiantil> consultasEstudiantiles = consultaEstudiantilMapa.getByIdUsuario(id_usuario);
 		modelo.put("consultasEstudiantiles", consultasEstudiantiles);
+		modelo.put("realpath", realPath);
 
 		return new ModelAndView("consultaestudiantil/index", modelo);
 	}

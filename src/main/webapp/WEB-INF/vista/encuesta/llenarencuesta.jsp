@@ -32,7 +32,7 @@
 		<div class="col-sm-12 widget-container-col ui-sortable">
 			<div class="widget-box ui-sortable-handle">
 				<div class="widget-header widget-header-small">
-					<h4 class="widget-title">Encuesta</h4>
+					<h4 class="widget-title">Encuesta <small>consulta: ${consulta}</small></h4>
 					<div class="widget-toolbar">
 						<a class="orange2" data-action="fullscreen" href="#"><i class="ace-icon fa fa-expand"></i></a>
 						<a data-action="collapse" href="#"><i class="ace-icon fa fa-chevron-up"></i></a>

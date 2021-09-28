@@ -11,6 +11,8 @@
 	<!--<global-method-security secured-annotations="enabled" jsr250-annotations="enabled"  pre-post-annotations="enabled"/>-->
 
 	<http pattern="/seguridad/login.html" security="none"/>
+	<http pattern="/seguridad/loginestudiante.html" security="none"/>
+	<http pattern="/seguridad/verficarestudiante.html" security="none"/>
 	<http pattern="/seguridad/denegado.html" security="none"/>
 	<http pattern="/assets/**" security="none"/>
 

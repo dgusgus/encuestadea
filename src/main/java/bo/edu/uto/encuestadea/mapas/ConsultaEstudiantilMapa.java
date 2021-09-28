@@ -1,6 +1,7 @@
 package bo.edu.uto.encuestadea.mapas;
 
 import bo.edu.uto.encuestadea.dominios.ConsultaEstudiantil;
+import bo.edu.uto.encuestadea.dominios.DatosVerificar;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -14,4 +15,5 @@ public interface ConsultaEstudiantilMapa {
 	public void update(ConsultaEstudiantil datosConsultaEstudiantil) throws DataAccessException;
 
 	public List<ConsultaEstudiantil> getByIdUsuario(Integer id_usuario) throws DataAccessException;
+	public DatosVerificar verificar(DatosVerificar datos) throws DataAccessException;
 }
