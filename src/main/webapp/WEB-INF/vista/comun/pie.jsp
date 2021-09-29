@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn"		uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt"		uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec"		uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring"	uri="http://www.springframework.org/tags" %>
 
 </div> <!-- /.main-content-inner -->
 </div><!-- /.main-content -->
@@ -53,13 +54,15 @@
 	<%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>
 </script>
 
-<script src="assets/js/bootstrap-dialog.min.js" ></script>
-<script src="assets/js/bootbox.min.js" ></script>
-
-<script src="assets/js/ace-elements.min.js" ></script>
-<script src="assets/js/ace.min.js" ></script>
-
-<script type="text/javascript" charset="utf-8" src="assets/js/tools.js" ></script>
-
+<spring:url value="/assets/js/bootstrap-dialog.min.js" var="bootstrapdialog"/>
+<script src="${bootstrapdialog}" ></script>
+<spring:url value="/assets/js/bootbox.min.js" var="bootbox"/>
+<script src="${bootbox}" ></script>
+<spring:url value="/assets/js/ace-elements.min.js" var="aceelements"/>
+<script src="${aceelements}" ></script>
+<spring:url value="/assets/js/ace.min.js" var="acemin"/>
+<script src="${acemin}" ></script>
+<spring:url value="/assets/js/tools.js" var="tools"/>
+<script type="text/javascript" charset="utf-8" src="${tools}" ></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bo.edu.uto.encuestadea.mapas.EstudianteMateriaMapa">
+
+	<insert id="insert" parameterType="EstudianteMateria" useGeneratedKeys="true" keyProperty="id_estudiante_materia" keyColumn="id_estudiante_materia">
+		INSERT INTO dea.estudiante_materia
+			(id_persona, sigla_materia, paralelo, anio, estado, id_estado, fecha_modificacion)
+		VALUES
+			(#{id_persona}, #{sigla_materia}, #{paralelo}, #{anio}, #{estado}, #{id_estado}, now())
+		;
+	</insert>
+
+	<select id="getById" resultType="EstudianteMateria" >
+		select id_estudiante_materia, id_persona, sigla_materia, paralelo, anio, estado, id_estado, fecha_modificacion
+			from dea.estudiante_materia
+		where id_estudiante_materia = #{id_estudiante_materia}
+		;
+	</select>
+
+	<select id="getAll" resultType="EstudianteMateria" parameterType="EstudianteMateria" >
+		select id_estudiante_materia, id_persona, sigla_materia, paralelo, anio, estado, id_estado, fecha_modificacion
+		from dea.estudiante_materia
+		;
+	</select>
+
+	<update id="delete" parameterType="EstudianteMateria" >
+		update dea.estudiante_materia
+		set
+			id_estado = false,
+			fecha_modificacion = now()
+		where
+			id_estudiante_materia = #{ id_estudiante_materia }
+		;
+	</update>
+
+	<update id="update" parameterType="EstudianteMateria" >
+		update dea.estudiante_materia
+		set
+			id_persona = #{ id_persona },
+			sigla_materia = #{ sigla_materia },
+			paralelo = #{ paralelo },
+			anio = #{ anio },
+			estado = #{ estado },
+			id_estado = #{ id_estado },
+			fecha_modificacion = now()
+		where
+			id_estudiante_materia=#{id_estudiante_materia}
+		;
+	</update>
+</mapper>

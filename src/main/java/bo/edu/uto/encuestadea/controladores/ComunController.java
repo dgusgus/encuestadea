@@ -14,10 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import bo.edu.uto.encuestadea.mapas.AccesoMapa;
 import java.util.ArrayList;
 
-/**
- *
- * @author dtic
- */
 @Controller
 @RequestMapping("/comun/**")
 public class ComunController {
@@ -33,11 +29,16 @@ public class ComunController {
 		return new ModelAndView("comun/cabecera", modelo);
 	}
 
+	@RequestMapping("/cabecera_2")
+	public ModelAndView cabecera_2(HttpSession hs) {
+		Map modelo = new HashMap();
+		return new ModelAndView("comun/cabecera_2", modelo);
+	}
+
 	@RequestMapping("/menu")
 	public ModelAndView menu(Integer idRol) {
 		Map modelo = new HashMap();
-		List<Enlaces> menus = new ArrayList<>();//this.accesoMapa.getEnlacesMenu(idRol);
-		//menus.add(new Enlaces(0, 0, true, 0, 0, "Formulario", "formulario"));
+		List<Enlaces> menus = new ArrayList<>();
 		modelo.put("menus", menus);
 		return new ModelAndView("comun/menu", modelo);
 	}
@@ -46,9 +47,6 @@ public class ComunController {
 	public ModelAndView roles(HttpSession hs) {
 		Map modelo = new HashMap();
 		List<Rol> roles = new ArrayList<>();
-
-		//Roles rol = new Roles(0, Boolean.TRUE, "Docente", "form-prueba", null, null);
-		//roles.add(rol);
 		modelo.put("apodo", (String) hs.getAttribute("__apodo"));
 		modelo.put("roles", roles);
 		return new ModelAndView("comun/roles", modelo);
@@ -59,7 +57,6 @@ public class ComunController {
 		return new ModelAndView("comun/pie");
 	}
 
-	// REVISAR
 	@RequestMapping("/denegado")
 	public ModelAndView denegado(HttpServletResponse hsr) {
 		return new ModelAndView("comun/denegado");

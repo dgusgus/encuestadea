@@ -1,11 +1,14 @@
 package bo.edu.uto.encuestadea.controladores;
 
+import bo.edu.uto.encuestadea.dominios.DatosVerificar;
 import bo.edu.uto.encuestadea.dominios.Docente;
 import bo.edu.uto.encuestadea.dominios.Encuesta;
+import bo.edu.uto.encuestadea.dominios.EstudianteMateria;
 import bo.edu.uto.encuestadea.dominios.RespuestasEncuesta;
 import bo.edu.uto.encuestadea.dominios.Unidad;
 import bo.edu.uto.encuestadea.mapas.DocenteMapa;
 import bo.edu.uto.encuestadea.mapas.EncuestaMapa;
+import bo.edu.uto.encuestadea.mapas.EstudianteMateriaMapa;
 import bo.edu.uto.encuestadea.mapas.IntegranteComisionMapa;
 import bo.edu.uto.encuestadea.mapas.RespuestasEncuestaMapa;
 import bo.edu.uto.encuestadea.mapas.UnidadMapa;
@@ -20,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,13 +42,14 @@ public class EncuestaController {
 	private EncuestaMapa encuestaMapa;
 	@Autowired
 	private DocenteMapa docenteMapa;
-
 	@Autowired
 	private RespuestasEncuestaMapa respuestasEncuestaMapa;
 	@Autowired
 	private UnidadMapa unidadMapa;
 	@Autowired
 	private IntegranteComisionMapa integranteComisionMapa;
+	@Autowired
+	private EstudianteMateriaMapa estudianteMateriaMapa;
 
 	@RequestMapping(value = "/index")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {
@@ -94,6 +100,36 @@ public class EncuestaController {
 		HashMap respuesta = new HashMap();
 		respuesta.put("resultado", true);
 		return respuesta;
+	}
+
+	@RequestMapping("/guardarencuestaestudiante")
+	@ResponseBody
+	public ResponseEntity<?> guardarencuestaestudiante(DatosVerificar datosVerificar, Encuesta datosEncuesta, RespuestasEncuesta respuestasEncuesta, HttpSession hs) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
+		Map modelo = new HashMap();
+		Map<String, Object> response = new HashMap<String, Object>();
+
+		EstudianteMateria estudianteMateria = estudianteMateriaMapa.getById(datosVerificar.getId_estudiante_materia());
+
+		if(estudianteMateria == null || estudianteMateria.getEstado().equals("E")){
+			response.put("mensaje", "error al verificar estudiante");
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		try
+		{
+		estudianteMateria.setEstado("E");
+		estudianteMateriaMapa.update(estudianteMateria);
+
+		datosEncuesta.setId_estado(true);
+		encuestaMapa.getNuevaEncuesta(datosEncuesta);
+
+		respuestasEncuesta.setId_encuesta(datosEncuesta.getId_encuesta());
+		respuestasEncuestaMapa.insertarRespuestasEncuesta(respuestasEncuesta);
+		}catch (Exception e) {
+			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		response.put("resultado", true);
+		return new ResponseEntity(response, HttpStatus.OK);
 	}
 
 	@RequestMapping("/eliminar")

@@ -17,6 +17,7 @@ public class DatosVerificar{
 	private Integer id_grupo;
 	private Integer id_gestion;
 	private Integer id_consulta_estudiantil;
+	private Integer id_docente;
 
 	private String dip;
 	private Date fec_nacimiento;

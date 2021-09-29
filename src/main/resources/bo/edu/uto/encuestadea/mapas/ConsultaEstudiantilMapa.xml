@@ -81,4 +81,21 @@
 		order by e.id_consulta_estudiantil desc
 		;
 	</select>
+
+	<select id="verificar" resultType="DatosVerificar" >
+		select em.id_estudiante_materia, p.id_persona , m.id_materia , g.id_grupo , g2.id_gestion , ce.id_consulta_estudiantil, ce.id_docente
+			from public.personas p
+				left join dea.estudiante_materia em on (p.id_persona = em.id_persona)
+				left join public.materias m on (em.sigla_materia = m.sigla)
+				left join public.grupos g on (em.paralelo = g.grupo)
+				left join public.gestiones g2 on (g2.anio = em.anio and g2.id_estado)
+				left join dea.consulta_estudiantil ce on (m.id_materia = ce.id_materia and g.id_grupo=ce.id_grupo and g2.id_gestion = ce.id_gestion)
+			where p.id_estado
+				and p.dip = #{ dip }
+				and p.fec_nacimiento = #{ fec_nacimiento }
+				and ce.id_consulta_estudiantil = #{ id_consulta_estudiantil }
+				and ce.estado = 'A'
+				and em.estado = 'N'
+		;
+	</select>
 </mapper>
