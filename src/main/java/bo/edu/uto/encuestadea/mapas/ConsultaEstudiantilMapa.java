@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ConsultaEstudiantilMapa {
 	public Integer insert(ConsultaEstudiantil criterio) throws DataAccessException;
-	public ConsultaEstudiantil get(ConsultaEstudiantil consultaEstudiantil) throws DataAccessException;
+	public ConsultaEstudiantil get(Integer id_consulta_estudiantil) throws DataAccessException;
 	public List<ConsultaEstudiantil> getAll() throws DataAccessException;
 	public void delete(ConsultaEstudiantil datosConsultaEstudiantil) throws DataAccessException;
 	public void update(ConsultaEstudiantil datosConsultaEstudiantil) throws DataAccessException;

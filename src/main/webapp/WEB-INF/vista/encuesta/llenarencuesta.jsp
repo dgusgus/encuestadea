@@ -927,7 +927,6 @@
 		.on('finished.fu.wizard', function(e) {
 			guardar_nuevo();
 		}).on('stepclick.fu.wizard', function(e){
-			//e.preventDefault();//this will prevent clicking and selecting steps
 		}).on('actionclicked.fu.wizard' , function(e, info){
 			$('html, body').animate({scrollTop:0}, '300');
 		});
@@ -947,6 +946,39 @@
 			data: datos,
 			success: function (response) {
 				console.log('datos guardados exitosamente');
+				Swal.fire({
+					title: '¡Gracias por participar en la encuesta!',
+					html: 'Sus respuestas fueron guardadas exitosamente, su participación ya fue registrada.',
+					timer: 8000,
+					timerProgressBar: true,
+					didOpen: () => {
+						Swal.showLoading()
+					},
+					willClose: () => {
+					}
+				}).then((result) => {
+					if (result.dismiss === Swal.DismissReason.timer) {
+						console.log('I was closed by the timer')
+					}
+				})
+			},
+			error: function(response){
+				Swal.fire({
+					icon: 'error',
+					title: '¡Error al verificar sus datos!',
+					html: 'Error al guardar sus datos, la encuesta ya esta cerrada o el estudiante ya emitió su encuesta.',
+					timer: 8000,
+					timerProgressBar: true,
+					didOpen: () => {
+						Swal.showLoading()
+					},
+					willClose: () => {
+					}
+				}).then((result) => {
+					if (result.dismiss === Swal.DismissReason.timer) {
+						console.log('I was closed by the timer')
+					}
+				})
 			}
 		});
 	}

@@ -81,7 +81,7 @@
 											</h4>
 											<div class="space-6"></div>
 											<h5 class="header blue lighter bigger">
-												Error al ingresar, por datos incorrectos o la encuesta ya esta cerrada o el estudiante ya emitió su encuesta
+												Error al ingresar, por datos incorrectos o la encuesta ya esta cerrada o el estudiante ya emitió su encuesta.
 											</h5>
 										</div><!-- /.widget-main -->
 

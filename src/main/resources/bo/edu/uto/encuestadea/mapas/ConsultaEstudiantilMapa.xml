@@ -12,7 +12,7 @@
 		;
 	</insert>
 
-	<select id="get" resultType="ConsultaEstudiantil" parameterType="ConsultaEstudiantil" >
+	<select id="get" resultType="ConsultaEstudiantil">
 		select id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
 			from dea.consulta_estudiantil
 		where id_consulta_estudiantil = #{ id_consulta_estudiantil }
