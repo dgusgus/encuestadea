@@ -948,7 +948,7 @@
 				console.log('datos guardados exitosamente');
 				Swal.fire({
 					title: '¡Gracias por participar en la encuesta!',
-					html: 'Sus respuestas fueron guardadas exitosamente, su participación ya fue registrada.',
+					html: 'Sus respuestas fueron guardadas exitosamente, su participación ya fue registrada. '+'<br>Redirigiendo a <small>'+ window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}</small>',
 					timer: 8000,
 					timerProgressBar: true,
 					didOpen: () => {
@@ -958,15 +958,18 @@
 					}
 				}).then((result) => {
 					if (result.dismiss === Swal.DismissReason.timer) {
-						console.log('I was closed by the timer')
+						console.log('I was closed by the timer');
+						window.location.replace(window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}');
 					}
-				})
+				});
 			},
 			error: function(response){
 				Swal.fire({
 					icon: 'error',
 					title: '¡Error al verificar sus datos!',
-					html: 'Error al guardar sus datos, la encuesta ya esta cerrada o el estudiante ya emitió su encuesta.',
+					html: 'Error al guardar sus datos, la encuesta ya esta cerrada o el estudiante ya emitió su encuesta.'
+							+'Redirigiendo a '
+							+ window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}',
 					timer: 8000,
 					timerProgressBar: true,
 					didOpen: () => {
@@ -979,6 +982,25 @@
 						console.log('I was closed by the timer')
 					}
 				})
+			}
+		});
+	}
+
+	function probaranuncio(){
+		Swal.fire({
+			title: '¡Gracias por participar en la encuesta!',
+			html: 'Sus respuestas fueron guardadas exitosamente, su participación ya fue registrada. '+'<br>Redirigiendo a <small>'+ window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}</small>',
+			timer: 8000,
+			timerProgressBar: true,
+			didOpen: () => {
+				Swal.showLoading()
+			},
+			willClose: () => {
+			}
+		}).then((result) => {
+			if (result.dismiss === Swal.DismissReason.timer) {
+				console.log('I was closed by the timer');
+				window.location.replace(window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}');
 			}
 		});
 	}
