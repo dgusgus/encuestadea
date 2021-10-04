@@ -55,7 +55,6 @@ public class ConsultaEstudiantilController {
 		try {
 			datos = consultaEstudiantilMapa.getByIdUsuario(id_usuario);
 			response.put("data", datos);
-
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
 			e.printStackTrace();
@@ -76,7 +75,6 @@ public class ConsultaEstudiantilController {
 		try {
 			datos = consultaEstudiantilMapa.getAll();
 			response.put("data", datos);
-
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
 			e.printStackTrace();
@@ -95,9 +93,8 @@ public class ConsultaEstudiantilController {
 
 		ConsultaEstudiantil dato;
 		try {
-			dato = consultaEstudiantilMapa.get(datosConsultaEstudiantil);
+			dato = consultaEstudiantilMapa.get(datosConsultaEstudiantil.getId_consulta_estudiantil());
 			response.put("data", dato);
-
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
 			e.printStackTrace();
@@ -142,7 +139,7 @@ public class ConsultaEstudiantilController {
 		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 
-		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato);
+		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato.getId_consulta_estudiantil());
 
 		if (datoActual == null || id_usuario == null) {
 			response.put("mensaje", "No existe ningun dato para el id: " + dato.getId_consulta_estudiantil());
@@ -172,7 +169,7 @@ public class ConsultaEstudiantilController {
 		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 
-		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato);
+		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato.getId_consulta_estudiantil());
 
 		if (datoActual == null || id_usuario == null) {
 			response.put("mensaje", "No existe ningun dato para el id: " + dato.getId_consulta_estudiantil());
@@ -202,7 +199,7 @@ public class ConsultaEstudiantilController {
 		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 
-		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato);
+		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato.getId_consulta_estudiantil());
 
 		if (datoActual == null || id_usuario == null) {
 			response.put("mensaje", "No existe ningun dato para el id: " + dato.getId_consulta_estudiantil());
@@ -232,7 +229,7 @@ public class ConsultaEstudiantilController {
 		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 		modelo.put("logout", id_usuario == null);
 
-		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato);
+		ConsultaEstudiantil datoActual = consultaEstudiantilMapa.get(dato.getId_consulta_estudiantil());
 
 		if (datoActual == null || id_usuario == null) {
 			response.put("mensaje", "No existe ningun dato para el id: " + dato.getId_consulta_estudiantil());

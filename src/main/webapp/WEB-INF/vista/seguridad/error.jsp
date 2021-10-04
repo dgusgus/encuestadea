@@ -81,57 +81,17 @@
 											</h4>
 											<div class="space-6"></div>
 											<h5 class="header blue lighter bigger">
-												Error al ingresar, por datos incorrectos o la encuesta ya esta cerrada o el estudiante ya emitió su encuesta.
+												Datos ingresados incorrectos o la encuesta ya esta cerrada o el estudiante ya emitió su encuesta.
 											</h5>
 										</div><!-- /.widget-main -->
 
 										<div class="toolbar clearfix">
-											<div>
-												<!--												<a href="#" data-target="#forgot-box" class="forgot-password-link">
-																									<i class="ace-icon fa fa-arrow-left"></i>
-																									Olvidé mi contraseña
-																								</a>-->
+											<div class="col-sm-12 center">
+												<button class="btn btn-danger" onclick="regresarInicio()"><i class="ace-icon fa fa-arrow-left"></i> Regresar al inicio</button>
 											</div>
 										</div>
 									</div><!-- /.widget-body -->
 								</div><!-- /.login-box -->
-
-								<div id="forgot-box" class="forgot-box widget-box no-border">
-									<div class="widget-body">
-										<div class="widget-main">
-											<h4 class="header red lighter bigger">
-												<i class="ace-icon fa fa-key"></i>
-												Recuperar Contraseña
-											</h4>
-											<div class="space-6"></div>
-											<p>Ingrese su correo electrónico y para recibir instrucciones.</p>
-											<form>
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Correo" />
-															<i class="ace-icon fa fa-envelope"></i>
-														</span>
-													</label>
-
-													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
-															<i class="ace-icon fa fa-lightbulb-o"></i>
-															<span class="bigger-110">¡Envíame!</span>
-														</button>
-													</div>
-												</fieldset>
-											</form>
-										</div><!-- /.widget-main -->
-
-										<div class="toolbar center">
-											<a href="#" data-target="#login-box" class="back-to-login-link">
-												Volver a identificarse
-												<i class="ace-icon fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div><!-- /.widget-body -->
-								</div><!-- /.forgot-box -->
 							</div><!-- /.position-relative -->
 						</div>
 					</div><!-- /.col -->
@@ -139,24 +99,27 @@
 			</div><!-- /.main-content -->
 		</div><!-- /.main-container -->
 
-		<script type="text/javascript">
-			<c:set var="script">
+<script type="text/javascript">
+	<c:set var="script">
 
-			if ('ontouchstart' in document.documentElement)
-				document.write('<script type="text/javascript"  src="${jquerymobilecustomjs}"><\/script>');
+	if ('ontouchstart' in document.documentElement)
+		document.write('<script type="text/javascript"  src="${jquerymobilecustomjs}"><\/script>');
 
-			$(function () {
-				$("#j_username").focus();
-				$(document).on('click', '.toolbar a[data-target]', function (e) {
-					e.preventDefault();
-					var target = $(this).data('target');
-					$('.widget-box.visible').removeClass('visible'); //hide others
-					$(target).addClass('visible'); //show target
-				});
-			});
+	$(function () {
+		$("#j_username").focus();
+		$(document).on('click', '.toolbar a[data-target]', function (e) {
+			e.preventDefault();
+			var target = $(this).data('target');
+			$('.widget-box.visible').removeClass('visible'); //hide others
+			$(target).addClass('visible'); //show target
+		});
+	});
 
-			</c:set>
-			<%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>
-		</script>
+	function regresarInicio(){
+		window.location.replace(window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}');
+	}
+	</c:set>
+	<%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>
+</script>
 	</body>
 </html>

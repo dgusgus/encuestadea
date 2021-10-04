@@ -1,7 +1,7 @@
 package bo.edu.uto.encuestadea.controladores;
 
+import bo.edu.uto.encuestadea.dominios.ConsultaEstudiantil;
 import bo.edu.uto.encuestadea.dominios.DatosVerificar;
-import bo.edu.uto.encuestadea.dominios.Usuarios;
 import bo.edu.uto.encuestadea.dominios.Docente;
 import bo.edu.uto.encuestadea.dominios.Encuesta;
 import bo.edu.uto.encuestadea.mapas.ConsultaEstudiantilMapa;
@@ -54,6 +54,22 @@ public class SeguridadController {
 	public ModelAndView loginestudiante(HttpServletRequest request, String consulta, String dip, Date fec_nacimiento) {
 		HashMap modelo = new HashMap();
 		modelo.put("consulta", consulta);
+		Integer id_consulta = null;
+		Docente docente;
+		try{
+			id_consulta = Integer.parseInt(new String(Base64.getDecoder().decode(consulta)));
+		} catch(Exception e){
+		}
+		ConsultaEstudiantil consultaEstudiantil = consultaEstudiantilMapa.get(id_consulta);
+		if(consultaEstudiantil != null){
+			Encuesta datosEncuesta = new Encuesta();
+			datosEncuesta.setId_docente(consultaEstudiantil.getId_docente());
+			datosEncuesta.setId_materia(consultaEstudiantil.getId_materia());
+			datosEncuesta.setId_grupo(consultaEstudiantil.getId_grupo());
+			datosEncuesta.setId_gestion(consultaEstudiantil.getId_gestion());
+			docente = docenteMapa.getDocenteEncuesta(datosEncuesta);
+			modelo.put("docente", docente);
+		}
 		return new ModelAndView("seguridad/loginestudiante", modelo);
 	}
 
@@ -63,15 +79,19 @@ public class SeguridadController {
 		modelo.put("consulta", consulta);
 		DatosVerificar datos = new DatosVerificar();
 		Integer id_consulta = Integer.parseInt(new String(Base64.getDecoder().decode(consulta)));
-		Date fec_nacimiento_aux=new SimpleDateFormat("yyyy-MM-dd").parse(fec_nacimiento);
+		Date fec_nacimiento_aux;
+		try{
+			fec_nacimiento_aux=new SimpleDateFormat("yyyy-MM-dd").parse(fec_nacimiento);
+		} catch(Exception e){
+			return new ModelAndView("seguridad/error", modelo);
+		}
 		datos.setId_consulta_estudiantil(id_consulta);
 		datos.setFec_nacimiento(fec_nacimiento_aux);
 		datos.setDip(dip);
 		DatosVerificar resultado = consultaEstudiantilMapa.verificar(datos);
 		modelo.put("datos", resultado);
-		System.out.println(resultado);
 		if(resultado == null || resultado.getId_estudiante_materia() == null || resultado.getId_consulta_estudiantil() == null){
-			return new ModelAndView("seguridad/error");
+			return new ModelAndView("seguridad/error", modelo);
 		}
 
 		Encuesta datosEncuesta = new Encuesta();
@@ -80,11 +100,9 @@ public class SeguridadController {
 		datosEncuesta.setId_grupo(resultado.getId_grupo());
 		datosEncuesta.setId_gestion(resultado.getId_gestion());
 
-		List<Encuesta> encuestasDocente = encuestaMapa.getListaEncuestas(datosEncuesta);
 		Docente docente = docenteMapa.getDocenteEncuesta(datosEncuesta);
 		modelo.put("docente", docente);
 		modelo.put("datosEncuesta", datosEncuesta);
-		modelo.put("encuestas", encuestasDocente);
 		return new ModelAndView("encuesta/llenarencuesta", modelo);
 	}
 

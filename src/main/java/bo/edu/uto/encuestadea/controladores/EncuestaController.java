@@ -114,16 +114,15 @@ public class EncuestaController {
 			response.put("mensaje", "error al verificar estudiante");
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		try
-		{
-		estudianteMateria.setEstado("E");
-		estudianteMateriaMapa.update(estudianteMateria);
+		try{
+			estudianteMateria.setEstado("E");
+			estudianteMateriaMapa.update(estudianteMateria);
 
-		datosEncuesta.setId_estado(true);
-		encuestaMapa.getNuevaEncuesta(datosEncuesta);
+			datosEncuesta.setId_estado(true);
+			encuestaMapa.getNuevaEncuesta(datosEncuesta);
 
-		respuestasEncuesta.setId_encuesta(datosEncuesta.getId_encuesta());
-		respuestasEncuestaMapa.insertarRespuestasEncuesta(respuestasEncuesta);
+			respuestasEncuesta.setId_encuesta(datosEncuesta.getId_encuesta());
+			respuestasEncuestaMapa.insertarRespuestasEncuesta(respuestasEncuesta);
 		}catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);

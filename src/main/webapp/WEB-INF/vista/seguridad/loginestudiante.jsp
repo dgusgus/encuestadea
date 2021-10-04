@@ -54,6 +54,11 @@
 		<script type="text/javascript" src="/assets/js/html5shiv.min.js" ></script>
 		<script type="text/javascript" src="/assets/js/respond.min.js" ></script>
 		<![endif]-->
+		<style>
+			.infodocente{
+				background-color: white;
+			}
+		</style>
 	</head>
 
 	<body class="login-layout">
@@ -113,54 +118,30 @@
 												</fieldset>
 											</form>
 										</div><!-- /.widget-main -->
-
 										<div class="toolbar clearfix">
 											<div>
-												<!--												<a href="#" data-target="#forgot-box" class="forgot-password-link">
-																									<i class="ace-icon fa fa-arrow-left"></i>
-																									Olvidé mi contraseña
-																								</a>-->
 											</div>
 										</div>
 									</div><!-- /.widget-body -->
 								</div><!-- /.login-box -->
+								<div class="infodocente">
+									<div class="center"><h3>Información de la Encuesta</h3></div>
+									<dl id="dt-list-1" class="dl-horizontal">
+										<dt>Docente:</dt>
+										<dd>${docente.nombre}</dd>
+										<dt>Nombre Materia:</dt>
+										<dd>${docente.nombreMateria}</dd>
+										<dt>Materia:</dt>
+										<dd>${docente.sigla}</dd>
 
-								<div id="forgot-box" class="forgot-box widget-box no-border">
-									<div class="widget-body">
-										<div class="widget-main">
-											<h4 class="header red lighter bigger">
-												<i class="ace-icon fa fa-key"></i>
-												Recuperar Contraseña
-											</h4>
-											<div class="space-6"></div>
-											<p>Ingrese su correo electrónico y para recibir instrucciones.</p>
-											<form>
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Correo" />
-															<i class="ace-icon fa fa-envelope"></i>
-														</span>
-													</label>
-
-													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
-															<i class="ace-icon fa fa-lightbulb-o"></i>
-															<span class="bigger-110">¡Envíame!</span>
-														</button>
-													</div>
-												</fieldset>
-											</form>
-										</div><!-- /.widget-main -->
-
-										<div class="toolbar center">
-											<a href="#" data-target="#login-box" class="back-to-login-link">
-												Volver a identificarse
-												<i class="ace-icon fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div><!-- /.widget-body -->
-								</div><!-- /.forgot-box -->
+										<dt>Paralelo:</dt>
+										<dd>${docente.grupo}</dd>
+										<dt>Gestión:</dt>
+										<dd>${docente.gestion}</dd>
+										<dt>Facultad:</dt>
+										<dd>${docente.facultad_materia}</dd>
+									</dl>
+								</div>
 							</div><!-- /.position-relative -->
 						</div>
 					</div><!-- /.col -->

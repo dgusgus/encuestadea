@@ -25,7 +25,7 @@
 		<div class="col-sm-12 widget-container-col ui-sortable">
 			<div class="widget-box ui-sortable-handle">
 				<div class="widget-header widget-header-small">
-					<h4 class="widget-title">Encuesta <small>consulta: ${consulta}</small></h4>
+					<h4 class="widget-title">Encuesta</h4>
 					<div class="widget-toolbar">
 						<a class="orange2" data-action="fullscreen" href="#"><i class="ace-icon fa fa-expand"></i></a>
 						<a data-action="collapse" href="#"><i class="ace-icon fa fa-chevron-up"></i></a>
@@ -945,7 +945,6 @@
 			url: window.location.origin+'/encuestadea/encuesta/guardarencuestaestudiante.html',
 			data: datos,
 			success: function (response) {
-				console.log('datos guardados exitosamente');
 				Swal.fire({
 					title: '¡Gracias por participar en la encuesta!',
 					html: 'Sus respuestas fueron guardadas exitosamente, su participación ya fue registrada. '+'<br>Redirigiendo a <small>'+ window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}</small>',
@@ -958,7 +957,6 @@
 					}
 				}).then((result) => {
 					if (result.dismiss === Swal.DismissReason.timer) {
-						console.log('I was closed by the timer');
 						window.location.replace(window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}');
 					}
 				});
@@ -979,28 +977,9 @@
 					}
 				}).then((result) => {
 					if (result.dismiss === Swal.DismissReason.timer) {
-						console.log('I was closed by the timer')
+						window.location.replace(window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}');
 					}
 				})
-			}
-		});
-	}
-
-	function probaranuncio(){
-		Swal.fire({
-			title: '¡Gracias por participar en la encuesta!',
-			html: 'Sus respuestas fueron guardadas exitosamente, su participación ya fue registrada. '+'<br>Redirigiendo a <small>'+ window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}</small>',
-			timer: 8000,
-			timerProgressBar: true,
-			didOpen: () => {
-				Swal.showLoading()
-			},
-			willClose: () => {
-			}
-		}).then((result) => {
-			if (result.dismiss === Swal.DismissReason.timer) {
-				console.log('I was closed by the timer');
-				window.location.replace(window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}');
 			}
 		});
 	}
