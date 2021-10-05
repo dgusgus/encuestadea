@@ -248,7 +248,7 @@
 			}
 		}
 
-		function formatoOpcion(estado, id){
+		function formatoOpcion(estado, id, id_materia, id_grupo, id_gestion, id_docente){
 			switch(estado) {
 				case 'N':
 					return '<button onclick="abrir('+id+')" class="btn btn-xs btn-info">'
@@ -262,11 +262,17 @@
 							+'<i class="ace-icon fa fa-check bigger-120"></i>Obtener Enlace Encuesta'
 							+'</button> '
 							+'<button onclick="cerrar('+id+')" class="btn btn-xs btn-warning">'
-							+'<i class="ace-icon fa fa-check bigger-120"></i>Cerrar</button>';
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Cerrar</button>'
+							+' <button onclick="verencuestas('+id_materia+',' +id_grupo+',' +id_gestion+',' +id_docente+')" class="btn btn-xs btn-info">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Encuestas</button>'
+					;
 					break;
 				case 'C':
 					return '<button onclick="abrir('+id+')" class="btn btn-xs btn-info">'
-							+'<i class="ace-icon fa fa-check bigger-120"></i>Abrir Encuesta</button> ';
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Abrir Encuesta</button> '
+							+' <button onclick="verencuestas('+id_materia+',' +id_grupo+',' +id_gestion+',' +id_docente+')" class="btn btn-xs btn-info">'
+							+'<i class="ace-icon fa fa-check bigger-120"></i>Encuestas</button>'
+					;
 					break;
 				default:
 					return '';
@@ -316,7 +322,7 @@
 						data:"id_consulta_estudiantil",
 						orderable: false,
 						render: function(data, type, row){
-							return formatoOpcion(row.estado, row.id_consulta_estudiantil);
+							return formatoOpcion(row.estado, row.id_consulta_estudiantil, row.id_materia, row.id_grupo, row.id_gestion, row.id_docente);
 						}
 					}
 				],
@@ -425,6 +431,10 @@
 				'El enlace fue copiado al porta papeles puedes pegarlo con Ctrl + V',
 				'success'
 			);
+		}
+
+		function verencuestas(id_materia, id_grupo, id_gestion, id_docente){
+			window.location.replace(window.location.origin+'/encuestadea/encuesta/index.html?id_materia='+id_materia+'&id_grupo='+id_grupo+'&id_gestion='+id_gestion+'&id_docente='+id_docente+'');
 		}
 	</script>
 </sec:authorize>

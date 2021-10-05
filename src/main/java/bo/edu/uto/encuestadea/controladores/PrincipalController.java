@@ -61,7 +61,7 @@ public class PrincipalController {
 		ses.setAttribute("__accesos", accesos);
 
 		modelo.put("apodo", x.getName());
-		return new ModelAndView("redirect:/principal/buscar.html", modelo);
+		return new ModelAndView("redirect:/consultaestudiantil/index.html", modelo);
 	}
 
 	@RequestMapping(value = "/buscar")
