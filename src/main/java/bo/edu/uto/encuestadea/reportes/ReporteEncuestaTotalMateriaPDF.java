@@ -336,6 +336,28 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 
 		dcmnt.add(tablaResultados);
 
+		ancho1 = new float[3];
+
+		ancho1[0] = 0.06f;
+		ancho1[1] = 0.31f;
+		ancho1[2] = 0.06f;
+		table1 = new PdfPTable(ancho1);
+		table1.setWidthPercentage(100);
+		table1.getDefaultCell().setBorderWidth(0);
+		p = new Phrase();
+		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+		table1.addCell(new Phrase());
+
+		ck = new Chunk("\n***Información Confidencial***  POTENCIADO POR LA DIRECCIÓN DE TECNOLOGÍAS DE INFORMACIÓN Y COMUNICACIÓN", new Font(FontFamily.TIMES_ROMAN, 6, Font.BOLD, BaseColor.BLACK));
+		p.add(ck);
+		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+		table1.addCell(p);
+		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+		dtic.scaleAbsolute(30, 24);
+		table1.addCell(new Phrase(new Chunk(dtic, 0, -25)));
+
+		dcmnt.add(table1);
+
 		PdfPTable tablaComision = new PdfPTable(2);
 		tablaComision.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tablaComision.setWidthPercentage(100);
@@ -357,6 +379,8 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		}
 
 		dcmnt.add(tablaComision);
+
+		dcmnt.newPage();
 
 		p = new Paragraph("\n", TITULO_DATO_CABECERA);
 		dcmnt.add(p);
@@ -598,6 +622,28 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		tablaResultados.addCell(celda);
 
 		dcmnt.add(tablaResultados);
+
+		ancho1 = new float[3];
+
+		ancho1[0] = 0.06f;
+		ancho1[1] = 0.31f;
+		ancho1[2] = 0.06f;
+		table1 = new PdfPTable(ancho1);
+		table1.setWidthPercentage(100);
+		table1.getDefaultCell().setBorderWidth(0);
+		p = new Phrase();
+		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+		table1.addCell(new Phrase());
+
+		ck = new Chunk("\n***Información Confidencial***  POTENCIADO POR LA DIRECCIÓN DE TECNOLOGÍAS DE INFORMACIÓN Y COMUNICACIÓN", new Font(FontFamily.TIMES_ROMAN, 6, Font.BOLD, BaseColor.BLACK));
+		p.add(ck);
+		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+		table1.addCell(p);
+		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+		dtic.scaleAbsolute(30, 24);
+		table1.addCell(new Phrase(new Chunk(dtic, 0, -25)));
+
+		dcmnt.add(table1);
 
 		tablaComision = new PdfPTable(2);
 		tablaComision.setHorizontalAlignment(Element.ALIGN_CENTER);

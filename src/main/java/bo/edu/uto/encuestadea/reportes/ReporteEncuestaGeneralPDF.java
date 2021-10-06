@@ -83,7 +83,6 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 		Image dtic = Image.getInstance(realPath + "/pdf/dtic.png");
 		Image dea = Image.getInstance(realPath + "/pdf/dea.jpg");
 		uto.scaleAbsolute(55, 50);
-		dtic.scaleAbsolute(50, 45);
 
 		float[] ancho1 = new float[3];
 
@@ -105,7 +104,7 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 		table1.addCell(p);
 		table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
-		PdfPCell logo2 = new PdfPCell(dtic, true);
+		PdfPCell logo2 = new PdfPCell(dea, true);
 		logo2.setBorder(PdfPCell.NO_BORDER);
 		table1.addCell(logo2);
 
@@ -281,6 +280,28 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 			}
 
 			dcmnt.add(tablaDatos);
+
+			ancho1 = new float[3];
+
+			ancho1[0] = 0.06f;
+			ancho1[1] = 0.31f;
+			ancho1[2] = 0.06f;
+			table1 = new PdfPTable(ancho1);
+			table1.setWidthPercentage(100);
+			table1.getDefaultCell().setBorderWidth(0);
+			p = new Phrase();
+			table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+			table1.addCell(new Phrase());
+
+			ck = new Chunk("\nPOTENCIADO POR LA DIRECCIÓN DE TECNOLOGÍAS DE INFORMACIÓN Y COMUNICACIÓN", new Font(FontFamily.TIMES_ROMAN, 6, Font.BOLD, BaseColor.BLACK));
+			p.add(ck);
+			table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+			table1.addCell(p);
+			table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+			dtic.scaleAbsolute(40, 32);
+			table1.addCell(new Phrase(new Chunk(dtic, 0, -33)));
+
+			dcmnt.add(table1);
 		}
 	}
 
