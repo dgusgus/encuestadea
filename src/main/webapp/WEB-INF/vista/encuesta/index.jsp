@@ -4,31 +4,27 @@
 	Created on : Nov 22, 2016, 5:11:01 pM
 	Author	 : raul velasquez
 --%>
-
 <%@page import="org.dtic.tools.Tools"%>
 <%@ taglib prefix="c"		uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn"		uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt"	uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags" %>
-
 <fmt:setLocale value="es_BO" scope="session"/>
-
 <jsp:include page="/comun/cabecera.html"/>
-
 <div class="page-content">
 	<div class="page-header">
 		<h1>
 			Encuestas
-
 			<small class="hidden-xs">
 				<i class="ace-icon fa fa-angle-double-right"></i>
 				Encuestas creadas para la opinión estudiantil.
 			</small>
 		</h1>
 	</div>
-
 	<div class="row">
-
+		<a id="consultas" class="btn btn-primary btn-round" href="consultaestudiantil/index.html"><i class="ace-icon fa fa-undo"></i>Ir a Consultas Estudiantiles</a>
+	</div>
+	<div class="row">
 		<div class="col-sm-12 widget-container-col ui-sortable">
 			<div class="widget-box ui-sortable-handle">
 				<div class="widget-header widget-header-small">
@@ -38,13 +34,11 @@
 						<a data-action="collapse" href="#"><i class="ace-icon fa fa-chevron-up"></i></a>
 					</div>
 					<div class="widget-toolbar">
-
 						<button  id="btnew" class="btn btn-minier btn-primary btn-round"><i class="ace-icon fa fa-plus"></i>Añadir Encuestas</button>
 						<a  id="btreporte" class="btn btn-minier btn-success btn-round" href="encuesta/reporte_total_materia.pdf?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}&id_facultad=${docente.id_facultad}&id_unidad=${docente.id_unidad}" target="_blank"><i class="ace-icon fa fa-print"></i>Reporte Final de la Materia</a>
 						<a  id="btreporte" class="btn btn-minier btn-success btn-round" href="encuesta/reporte_general.pdf?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}&id_facultad=${docente.id_facultad}&id_unidad=${docente.id_unidad}" target="_blank"><i class="ace-icon fa fa-print"></i>Reporte General</a>
 					</div>
 				</div>
-
 				<div class="widget-body">
 					<dl id="dt-list-1" class="dl-horizontal">
 						<dt>Docente:</dt>
@@ -53,7 +47,6 @@
 						<dd>${docente.nombreMateria}</dd>
 						<dt>Materia:</dt>
 						<dd>${docente.sigla}</dd>
-
 						<dt>Paralelo:</dt>
 						<dd>${docente.grupo}</dd>
 						<dt>Gestión:</dt>
@@ -68,7 +61,6 @@
 									<th class="hidden-480">Nro.</th>
 									<th>Encuesta </th>
 									<th>Fecha Creación</th>
-
 									<th>Opciones</th>
 								</tr>
 							</thead>
@@ -78,7 +70,6 @@
 										<td id="titulo" class="center hidden-480">${contador.count}</td>
 										<td id="nombre" class="right">Encuesta</td>
 										<td id="sigla" class="left"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${encuesta.fecha_creacion}" /></td>
-
 										<td id="opciones" class="center">
 											<div class="inline pos-rel">
 												<button data-position="auto" class="btn btn-xs btn-primary " onclick="editar(${encuesta.id_encuesta});">
@@ -93,15 +84,12 @@
 								</c:forEach>
 							</tbody>
 						</table>
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div><!-- /.page-content -->
-
 <div class="modal fade" id="nuevo" tabindex="-1" role="dialog"
 	 aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
@@ -114,14 +102,12 @@
 				<h4 class="modal-title" id="myModalLabel">Nueva Encuesta</h4>
 			</div>
 			<div class="modal-body">
-
 				<form id="form" class="form-horizontal">
 					<!-- Text input-->
 					<h3>Conocimiento en la asignatura</h3>
 					<div class="row">
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p1">p1</label>
 								<div class="input-group">
 									<input id="p1" name="p1"
@@ -132,12 +118,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p2">p2</label>
 								<div class="input-group">
 									<input id="p2" name="p2"
@@ -148,12 +132,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p3">p3</label>
 								<div class="input-group">
 									<input id="p3" name="p3"
@@ -164,12 +146,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p4">p4</label>
 								<div class="input-group">
 									<input id="p4" name="p4"
@@ -180,12 +160,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p5">p5</label>
 								<div class="input-group">
 									<input id="p5" name="p5"
@@ -196,12 +174,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p6">p6</label>
 								<div class="input-group">
 									<input id="p6" name="p6"
@@ -212,12 +188,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p7">p7</label>
 								<div class="input-group">
 									<input id="p7" name="p7"
@@ -228,12 +202,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p8">p8</label>
 								<div class="input-group">
 									<input id="p8" name="p8"
@@ -244,12 +216,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p9">p9</label>
 								<div class="input-group">
 									<input id="p9" name="p9"
@@ -260,12 +230,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p10">p10</label>
 								<div class="input-group">
 									<input id="p10" name="p10"
@@ -276,12 +244,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p11">p11</label>
 								<div class="input-group">
 									<input id="p11" name="p11"
@@ -292,12 +258,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p12">p12</label>
 								<div class="input-group">
 									<input id="p12" name="p12"
@@ -308,12 +272,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p13">p13</label>
 								<div class="input-group">
 									<input id="p13" name="p13"
@@ -324,16 +286,13 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 					</div>
-
 					<h3>Cualidades Pedagógicas</h3>
 					<div class="row">
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p14">p14</label>
 								<div class="input-group">
 									<input id="p14" name="p14"
@@ -344,12 +303,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p15">p15</label>
 								<div class="input-group">
 									<input id="p15" name="p15"
@@ -360,12 +317,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p16">p16</label>
 								<div class="input-group">
 									<input id="p16" name="p16"
@@ -376,12 +331,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p17">p17</label>
 								<div class="input-group">
 									<input id="p17" name="p17"
@@ -392,12 +345,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p18">p18</label>
 								<div class="input-group">
 									<input id="p18" name="p18"
@@ -408,12 +359,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p19">p19</label>
 								<div class="input-group">
 									<input id="p19" name="p19"
@@ -424,12 +373,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p20">p20</label>
 								<div class="input-group">
 									<input id="p20" name="p20"
@@ -440,12 +387,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p21">p21</label>
 								<div class="input-group">
 									<input id="p21" name="p21"
@@ -456,12 +401,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p22">p22</label>
 								<div class="input-group">
 									<input id="p22" name="p22"
@@ -472,12 +415,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p23">p23</label>
 								<div class="input-group">
 									<input id="p23" name="p23"
@@ -488,12 +429,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p24">p24</label>
 								<div class="input-group">
 									<input id="p24" name="p24"
@@ -504,12 +443,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p25">p25</label>
 								<div class="input-group">
 									<input id="p25" name="p25"
@@ -520,12 +457,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p26">p26</label>
 								<div class="input-group">
 									<input id="p26" name="p26"
@@ -536,12 +471,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p27">p27</label>
 								<div class="input-group">
 									<input id="p27" name="p27"
@@ -552,12 +485,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p28">p28</label>
 								<div class="input-group">
 									<input id="p28" name="p28"
@@ -568,7 +499,6 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 					</div>
@@ -576,7 +506,6 @@
 					<div class="row">
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p29">p29</label>
 								<div class="input-group">
 									<input id="p29" name="p29"
@@ -587,12 +516,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p30">p30</label>
 								<div class="input-group">
 									<input id="p30" name="p30"
@@ -603,12 +530,10 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-4 col-xs-6">
 							<div class="form-group has-feedback">
-
 								<label class="control-label" for="p31">p31</label>
 								<div class="input-group">
 									<input id="p31" name="p31"
@@ -619,10 +544,8 @@
 										  aria-hidden="true"></span>
 									<div class="help-block with-errors"></div>
 								</div>
-
 							</div>
 						</div>
-
 					</div>
 				</form>
 			</div>
@@ -632,9 +555,7 @@
 			</div>
 		</div>
 	</div>
-
 </div>
-
 <div class="modal fade" id="confirmar" tabindex="-1" role="dialog"
 	 aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -648,7 +569,6 @@
 			</div>
 			<div class="modal-body">
 				¿Está seguro de Borrar La Encuesta?
-
 			</div>
 			<div class="modal-footer">
 				<button id="confirmar-eliminar-btn" type="button" class="btn btn-primary" >Si</button>
@@ -657,7 +577,6 @@
 		</div>
 	</div>
 </div>
-
 <script type="text/javascript">
 	<c:set var="script">
 	var idFp;
@@ -903,7 +822,6 @@
 	</c:set>
 	<%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>
 </script>
-
 <style type="text/css">
 	.ui-dialog, .ui-dialog-content{ overflow:visible !important; }
 	input[type=number]::-webkit-outer-spin-button,
@@ -916,7 +834,5 @@
 	input[type=number] {
 		-moz-appearance:textfield;
 	}
-
 </style>
-
 <jsp:include page="/comun/pie.html"/>
