@@ -17,5 +17,5 @@ public class UsuarioAcceso implements java.io.Serializable {
 	private String clave;
 	private String nombre_completo;
 	private String id_facultad;
-	private Integer id_departamento;
+	private Integer id_unidad;
 }

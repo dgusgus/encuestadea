@@ -158,7 +158,7 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="#" class="navbar-brand">
+					<a href="consultaestudiantil/index.html" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
 							SG - <%= session.getAttribute("__titulo").toString()%>
@@ -227,7 +227,24 @@
 					} catch (e) {
 					}
 				</script>
-				<div id="x-menus"></div>
+				<div id="x-menus">
+					<ul class="nav nav-list">
+						<li class="">
+							<a href="consultaestudiantil/index.html">
+								<i class="menu-icon fa fa-file"></i>
+								<span class="menu-text"> Consultas </span>
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href="principal/buscar.html">
+								<i class="menu-icon fa fa-search"></i>
+								<span class="menu-text"> Buscar Docente </span>
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</div>
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 					<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 				</div>

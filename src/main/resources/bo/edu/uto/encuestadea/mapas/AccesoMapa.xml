@@ -4,19 +4,22 @@
 
 <mapper namespace="bo.edu.uto.encuestadea.mapas.AccesoMapa">
 	<select id="getDatosUsuario" resultType="UsuarioAcceso">
-select 
-	u.id_persona
-	,u.id_usuario
-	,u.apodo
-	,u.clave
-	,p.nombre_completo
-	,coalesce(uu.id_facultad,'-1') as id_facultad
-	,coalesce(uu.id_unidad,'-1'::integer) as id_departamento
-from dea.usuario u
-	join dea.unidad_usuario uu on (uu.id_usuario = u.id_usuario)
-	left join public.personas p on (u.id_persona = p.id_persona)
-where u.id_estado
-and u.id_estado
-and u.apodo = #{apodo};
+		select
+			u2.id_persona
+			,u.id_usuario
+			,u2.apodo
+			,u2.clave
+			,p.nombre_completo
+			,c.id_facultad
+			,c.id_unidad
+		from
+			public."_usuarios" u2
+			left join dea.usuario u on (u.id_usuario_saga = u2.id_usuario and u.id_estado)
+			left join public.personas p on (u2.id_persona = p.id_persona)
+			left join dea.comision c on (u.id_comision = c.id_comision)
+		where u.id_estado
+		and u.id_estado
+		and u2.apodo = 'raulv'
+		;
 	</select>
 </mapper>

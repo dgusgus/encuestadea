@@ -62,7 +62,7 @@
 		order by p.nombre,m.sigla,gr.grupo
 		limit 50;
 	</select>
-	<select id="getDocentesBusqueda" resultType="Docente" parameterType="String" >
+	<select id="getDocentesBusqueda" resultType="Docente" parameterType="CriterioBusqueda" >
 		select	par.id_materia, par.id_grupo, par.id_gestion, par.id_docente, doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo , t.titularia , g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion, f.facultad as facultad_materia, par.id_unidad, f.id_facultad
 		from	public.paralelos par
 				join public.personas p on p.id_persona=par.id_docente
@@ -77,13 +77,14 @@
 				and par.id_nombramiento != 0
 				and par.id_estado in ('P')
 				and (
-					p.nombre ilike #{criterio}
-					or m.sigla ilike #{criterio}
-					or m.materia ilike #{criterio}
+					p.nombre ilike #{ cadenaBusqueda }
+					or m.sigla ilike #{ cadenaBusqueda }
+					or m.materia ilike #{ cadenaBusqueda }
 				)
 				and par.id_titularia in ('T','C')
 				and g.estado = 'A'
 				and g.id_estado
+				and par.id_unidad = #{ id_unidad }
 		order by p.nombre,m.sigla,gr.grupo
 		limit 50;
 	</select>

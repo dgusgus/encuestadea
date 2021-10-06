@@ -1,6 +1,7 @@
 package bo.edu.uto.encuestadea.controladores;
 
 import bo.edu.uto.encuestadea.dominios.AccesoUsuario;
+import bo.edu.uto.encuestadea.dominios.CriterioBusqueda;
 import bo.edu.uto.encuestadea.dominios.Docente;
 import bo.edu.uto.encuestadea.dominios.UsuarioAcceso;
 import bo.edu.uto.encuestadea.dominios.Usuarios;
@@ -49,7 +50,7 @@ public class PrincipalController {
 		ses.setAttribute("__id_usuario", datos.getId_usuario());
 		ses.setAttribute("__nombre_completo", datos.getNombre_completo());
 		ses.setAttribute("__id_facultad", datos.getId_facultad());
-		ses.setAttribute("__id_unidad", datos.getId_facultad());
+		ses.setAttribute("__id_unidad", datos.getId_unidad());
 		// Datos del Sistema
 		ses.setAttribute("__titulo", Tools.get_attr(env, "titulo", request));
 		ses.setAttribute("__direccion", Tools.get_attr(env, "direccion", request));
@@ -70,6 +71,7 @@ public class PrincipalController {
 		HashMap modelo = new HashMap();
 		HttpSession ses = request.getSession();
 		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
+		Integer id_unidad_usuario = Integer.parseInt(ses.getAttribute("__id_unidad").toString());
 
 		List<Docente> docentes = null;
 
@@ -79,7 +81,10 @@ public class PrincipalController {
 			busqueda = busqueda.replaceAll("\\s", "%");
 			busqueda = busqueda.toUpperCase();
 			busqueda = "%" + busqueda + "%";
-			docentes = docenteMapa.getDocentesBusqueda(busqueda);
+			CriterioBusqueda criterio = new CriterioBusqueda();
+			criterio.setCadenaBusqueda(busqueda);
+			criterio.setId_unidad(id_unidad_usuario);
+			docentes = docenteMapa.getDocentesBusqueda(criterio);
 		}
 
 		modelo.put("docentes", docentes);
@@ -92,6 +97,7 @@ public class PrincipalController {
 		HashMap modelo = new HashMap();
 		HttpSession ses = request.getSession();
 		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
+		Integer id_unidad_usuario = Integer.parseInt(ses.getAttribute("__id_unidad").toString());
 
 		List<Docente> docentes = null;
 
@@ -101,7 +107,10 @@ public class PrincipalController {
 			busqueda = busqueda.replaceAll("\\s", "%");
 			busqueda = busqueda.toUpperCase();
 			busqueda = "%" + busqueda + "%";
-			docentes = docenteMapa.getDocentesBusqueda(busqueda);
+			CriterioBusqueda criterio = new CriterioBusqueda();
+			criterio.setCadenaBusqueda(busqueda);
+			criterio.setId_unidad(id_unidad_usuario);
+			docentes = docenteMapa.getDocentesBusqueda(criterio);
 		}
 
 		modelo.put("docentes", docentes);
@@ -114,6 +123,7 @@ public class PrincipalController {
 		HashMap modelo = new HashMap();
 		HttpSession ses = request.getSession();
 		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
+		Integer id_unidad_usuario = Integer.parseInt(ses.getAttribute("__id_unidad").toString());
 
 		List<Docente> docentes = null;
 
@@ -123,7 +133,10 @@ public class PrincipalController {
 			busqueda = busqueda.replaceAll("\\s", "%");
 			busqueda = busqueda.toUpperCase();
 			busqueda = "%" + busqueda + "%";
-			docentes = docenteMapa.getDocentesBusqueda(busqueda);
+			CriterioBusqueda criterio = new CriterioBusqueda();
+			criterio.setCadenaBusqueda(busqueda);
+			criterio.setId_unidad(id_unidad_usuario);
+			docentes = docenteMapa.getDocentesBusqueda(criterio);
 		}
 
 		modelo.put("docentes", docentes);
