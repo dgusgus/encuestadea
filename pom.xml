@@ -4,7 +4,7 @@
 
 	<groupId>bo.edu.uto</groupId>
 	<artifactId>encuestadea</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>war</packaging>
 
 	<name>encuestadea</name>
@@ -12,6 +12,7 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<skipTests>true</skipTests>
 	</properties>
 
 	<dependencies>
