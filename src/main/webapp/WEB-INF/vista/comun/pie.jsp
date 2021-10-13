@@ -13,8 +13,7 @@
 	<div class="footer-inner">
 		<div class="footer-content">
 			<span class="bigger-120">
-				<span class="blue bolder">D.T.I.C.</span> &copy; 2021
-				<br/>
+				<span class="blue bolder">D.T.I.C.</span> &copy; 2021 
 				<small>Dirección de Tecnologías de Información y Comunicación</small>
 			</span>
 		</div>

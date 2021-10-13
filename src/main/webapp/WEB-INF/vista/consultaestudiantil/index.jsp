@@ -15,7 +15,7 @@
 				<a class="button btn btn-primary" href="principal/nuevo.html"><i class="ace-icon glyphicon glyphicon-plus"></i>Nueva Consulta Estudiantil</a>
 				<hr />
 				<div class="table-header">
-					Encuentas generadas
+					Consultas Estudiantiles
 				</div>
 
 				<!-- div.table-responsive -->
@@ -27,7 +27,7 @@
 							<tr>
 								<th>
 									<b class="text-success">
-									</span> <span class="label label-sm label-gray">
+									<span class="label label-sm label-gray">
 										id
 									</span>
 										Docente
