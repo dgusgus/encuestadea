@@ -46,6 +46,7 @@
 				buscar();
 			}
 		});
+		buscar();
 	})
 
 	function buscar(){

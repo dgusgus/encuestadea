@@ -107,12 +107,14 @@ public class PrincipalController {
 			busqueda = busqueda.replaceAll("\\s", "%");
 			busqueda = busqueda.toUpperCase();
 			busqueda = "%" + busqueda + "%";
-			CriterioBusqueda criterio = new CriterioBusqueda();
-			criterio.setCadenaBusqueda(busqueda);
-			criterio.setId_unidad(id_unidad_usuario);
-			docentes = docenteMapa.getDocentesBusqueda(criterio);
 		}
-
+		else{
+			busqueda = "%";
+		}
+		CriterioBusqueda criterio = new CriterioBusqueda();
+		criterio.setCadenaBusqueda(busqueda);
+		criterio.setId_unidad(id_unidad_usuario);
+		docentes = docenteMapa.getDocentesBusqueda(criterio);
 		modelo.put("docentes", docentes);
 		return new ModelAndView("principal/nuevo", modelo);
 	}

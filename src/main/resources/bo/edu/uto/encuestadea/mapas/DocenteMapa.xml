@@ -86,6 +86,6 @@
 				and g.id_estado
 				and par.id_unidad = #{ id_unidad }
 		order by p.nombre,m.sigla,gr.grupo
-		limit 50;
+		;
 	</select>
 </mapper>
