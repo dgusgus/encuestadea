@@ -31,13 +31,14 @@ public class AccesoServicio implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
-		UsuarioAcceso usuario = accesoMapa.getDatosUsuario(string);
+		UsuarioAcceso usuario = accesoMapa.getUsuario(string);
+		List datosUsusario = accesoMapa.getDatosUsuario(string);
 		if (null == usuario) {
 			throw new UsernameNotFoundException("Usuario NO Registrado");
 		}
 		List<GrantedAuthority> rolesAuth = new ArrayList<>();
 		List<Rol> roles = new ArrayList<Rol>();
-		roles = rolesMapa.getRoles(usuario);
+		roles = rolesMapa.getRoles((UsuarioAcceso)datosUsusario.get(0));
 		for (Rol rol : roles) {
 			rolesAuth.add(new SimpleGrantedAuthority(String.valueOf(rol.getRol())));
 		}

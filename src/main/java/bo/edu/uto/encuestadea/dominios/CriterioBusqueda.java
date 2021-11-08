@@ -25,4 +25,5 @@ public class CriterioBusqueda {
 	private String cadena3;
 	private Integer id_unidad;
 	private String facultad;
+	private Integer id_persona;
 }

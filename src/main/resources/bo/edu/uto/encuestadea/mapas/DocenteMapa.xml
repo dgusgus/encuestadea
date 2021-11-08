@@ -84,8 +84,14 @@
 				and par.id_titularia in ('T','C')
 				and g.estado = 'A'
 				and g.id_estado
-				and par.id_unidad = #{ id_unidad }
-		order by p.nombre,m.sigla,gr.grupo
+				and par.id_unidad in (
+					select id_unidad
+						from dea.usuario u
+							left join dea.comision c on (u.id_comision = c.id_comision)
+						where u.id_estado
+							and u.id_persona = #{ id_persona }
+				)
+		order by par.id_unidad ,p.nombre,m.sigla,gr.grupo
 		;
 	</select>
 </mapper>

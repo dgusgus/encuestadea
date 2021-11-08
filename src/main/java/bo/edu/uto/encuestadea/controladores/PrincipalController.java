@@ -43,7 +43,7 @@ public class PrincipalController {
 
 		HashMap modelo = new HashMap();
 		java.security.Principal x = request.getUserPrincipal();
-		UsuarioAcceso datos = accesoMapa.getDatosUsuario(x.getName());
+		UsuarioAcceso datos = (UsuarioAcceso) accesoMapa.getDatosUsuario(x.getName()).get(0);
 		HttpSession ses = request.getSession();
 		ses.setAttribute("__apodo", x.getName());
 		ses.setAttribute("__id_persona", datos.getId_persona());
@@ -71,7 +71,7 @@ public class PrincipalController {
 		HashMap modelo = new HashMap();
 		HttpSession ses = request.getSession();
 		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
-		Integer id_unidad_usuario = Integer.parseInt(ses.getAttribute("__id_unidad").toString());
+		Integer id_persona = Integer.parseInt(ses.getAttribute("__id_persona").toString());
 
 		List<Docente> docentes = null;
 
@@ -83,7 +83,7 @@ public class PrincipalController {
 			busqueda = "%" + busqueda + "%";
 			CriterioBusqueda criterio = new CriterioBusqueda();
 			criterio.setCadenaBusqueda(busqueda);
-			criterio.setId_unidad(id_unidad_usuario);
+			criterio.setId_persona(id_persona);
 			docentes = docenteMapa.getDocentesBusqueda(criterio);
 		}
 
@@ -97,7 +97,7 @@ public class PrincipalController {
 		HashMap modelo = new HashMap();
 		HttpSession ses = request.getSession();
 		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
-		Integer id_unidad_usuario = Integer.parseInt(ses.getAttribute("__id_unidad").toString());
+		Integer id_persona = Integer.parseInt(ses.getAttribute("__id_persona").toString());
 
 		List<Docente> docentes = null;
 
@@ -113,7 +113,7 @@ public class PrincipalController {
 		}
 		CriterioBusqueda criterio = new CriterioBusqueda();
 		criterio.setCadenaBusqueda(busqueda);
-		criterio.setId_unidad(id_unidad_usuario);
+		criterio.setId_persona(id_persona);
 		docentes = docenteMapa.getDocentesBusqueda(criterio);
 		modelo.put("docentes", docentes);
 		return new ModelAndView("principal/nuevo", modelo);
@@ -125,7 +125,7 @@ public class PrincipalController {
 		HashMap modelo = new HashMap();
 		HttpSession ses = request.getSession();
 		List<AccesoUsuario> accesos = (List<AccesoUsuario>) ses.getAttribute("__accesos");
-		Integer id_unidad_usuario = Integer.parseInt(ses.getAttribute("__id_unidad").toString());
+		Integer id_persona = Integer.parseInt(ses.getAttribute("__id_persona").toString());
 
 		List<Docente> docentes = null;
 
@@ -137,7 +137,7 @@ public class PrincipalController {
 			busqueda = "%" + busqueda + "%";
 			CriterioBusqueda criterio = new CriterioBusqueda();
 			criterio.setCadenaBusqueda(busqueda);
-			criterio.setId_unidad(id_unidad_usuario);
+			criterio.setId_persona(id_persona);
 			docentes = docenteMapa.getDocentesBusqueda(criterio);
 		}
 

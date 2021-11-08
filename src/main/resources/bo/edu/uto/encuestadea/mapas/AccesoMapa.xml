@@ -22,4 +22,26 @@
 		and u2.apodo = #{ apodo }
 		;
 	</select>
+
+	<select id="getUsuario" resultType="UsuarioAcceso">
+		select
+			u2.id_persona
+			,u2.apodo
+			,u2.clave
+			,p.nombre_completo
+		from
+			public."_usuarios" u2
+			left join dea.usuario u on (u.id_persona = u2.id_persona and u.id_estado)
+			left join public.personas p on (u2.id_persona = p.id_persona)
+			left join dea.comision c on (u.id_comision = c.id_comision)
+		where u.id_estado
+			and u2.id_estado
+			and u2.apodo = #{ apodo }
+		group by u2.id_persona
+			,u2.apodo
+			,u2.clave
+			,p.nombre_completo
+		;
+		;
+	</select>
 </mapper>
