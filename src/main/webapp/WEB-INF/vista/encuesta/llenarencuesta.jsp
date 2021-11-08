@@ -23,18 +23,17 @@
 	<div class="row">
 
 		<div class="col-sm-12 widget-container-col ui-sortable">
-			<div class="widget-box ui-sortable-handle">
-				<div class="widget-header widget-header-small">
-					<h4 class="widget-title">Encuesta</h4>
-					<div class="widget-toolbar">
-						<a class="orange2" data-action="fullscreen" href="#"><i class="ace-icon fa fa-expand"></i></a>
-						<a data-action="collapse" href="#"><i class="ace-icon fa fa-chevron-up"></i></a>
-					</div>
+			<div class="widget-box">
+				<div class="widget-header widget-header-blue widget-header-flat">
+					<h4 class="widget-title lighter">Encuesta</h4>
+
 					<div class="widget-toolbar">
 					</div>
 				</div>
+
 				<div class="widget-body">
-					<dl id="dt-list-1" class="dl-horizontal">
+					<div class="widget-main">
+						<dl id="dt-list-1" class="dl-horizontal">
 						<dt>Docente:</dt>
 						<dd>${docente.nombre}</dd>
 						<dt>Nombre Materia:</dt>
@@ -49,9 +48,7 @@
 						<dt>Facultad:</dt>
 						<dd>${docente.facultad_materia}</dd>
 					</dl>
-					
-					<div id="tlista" class="widget-main padding-6">
-						<div class="row">
+					<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 								<div class="hr hr-18 hr-double dotted"></div>
@@ -885,8 +882,8 @@
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
 						</div><!-- /.row -->
-					</div>
-				</div>
+					</div><!-- /.widget-main -->
+				</div><!-- /.widget-body -->
 			</div>
 		</div>
 	</div>
@@ -950,6 +947,7 @@
 					html: 'Sus respuestas fueron guardadas exitosamente, su participación ya fue registrada. '+'<br>Redirigiendo a <small>'+ window.location.origin+'/encuestadea/seguridad/loginestudiante.html?consulta=${consulta}</small>',
 					timer: 8000,
 					timerProgressBar: true,
+					allowOutsideClick: false,
 					didOpen: () => {
 						Swal.showLoading()
 					},
