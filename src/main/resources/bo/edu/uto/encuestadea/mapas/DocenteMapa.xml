@@ -41,7 +41,7 @@
 	</select>
 
 	<select id="getDocenteEncuesta" resultType="Docente" parameterType="Encuesta" >
-		select m.id_materia, gr.id_grupo, g.id_gestion, p.id_persona , doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo, g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion, f.facultad as facultad_materia, f.id_facultad
+		select m.id_materia, gr.id_grupo, g.id_gestion, p.id_persona, p.id_persona as id_docente , doc.titulo, p.nombre, p.dip,m.sigla,gr.grupo, g.anio as anioGestion, m.materia as nombreMateria , g._gestion as gestion, f.facultad as facultad_materia, f.id_facultad, m.id_unidad
 		from public.personas p 
 			join public.gestiones g on (g.id_gestion =#{id_gestion})
 			join public.materias m on (m.id_materia=#{id_materia})
