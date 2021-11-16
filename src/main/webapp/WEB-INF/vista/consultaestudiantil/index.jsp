@@ -43,6 +43,10 @@
 										<span class="label label-sm label-warning">
 										gestión
 									</span>
+									</span>
+										<span class="label label-sm label-danger">
+										laboratorio
+									</span>
 								</th>
 								<th>Estado</th>
 								<th>Opciones</th>
@@ -263,14 +267,14 @@
 							+'</button> '
 							+'<button onclick="cerrar('+id+')" class="btn btn-xs btn-warning">'
 							+'<i class="ace-icon fa fa-check bigger-120"></i>Cerrar</button>'
-							+' <button onclick="verencuestas('+id_materia+',' +id_grupo+',' +id_gestion+',' +id_docente+')" class="btn btn-xs btn-info">'
+							+' <button onclick="verencuestas('+id_materia+',' +id_grupo+',' +id_gestion+',' +id_docente+',' +id+')" class="btn btn-xs btn-info">'
 							+'<i class="ace-icon fa fa-check bigger-120"></i>Encuestas</button>'
 					;
 					break;
 				case 'C':
 					return '<button onclick="abrir('+id+')" class="btn btn-xs btn-info">'
 							+'<i class="ace-icon fa fa-check bigger-120"></i>Abrir Encuesta</button> '
-							+' <button onclick="verencuestas('+id_materia+',' +id_grupo+',' +id_gestion+',' +id_docente+')" class="btn btn-xs btn-info">'
+							+' <button onclick="verencuestas('+id_materia+',' +id_grupo+',' +id_gestion+',' +id_docente+',' +id+')" class="btn btn-xs btn-info">'
 							+'<i class="ace-icon fa fa-check bigger-120"></i>Encuestas</button>'
 					;
 					break;
@@ -306,9 +310,11 @@
 								+'</span> '
 								+'<span class="label label-sm label-success">'
 									+row.paralelo
-								+'</span> '+'<span class="label label-sm label-warning">'
+								+'</span> '
+								+'<span class="label label-sm label-warning">'
 									+row.gestion
 								+'</span> '
+								+(row.sigla_paralelo_teoria?('<span class="label label-sm label-danger">'+row.sigla_paralelo_teoria+'</span> '):'')
 							;
 						}
 					},
@@ -433,8 +439,8 @@
 			);
 		}
 
-		function verencuestas(id_materia, id_grupo, id_gestion, id_docente){
-			window.location.replace(window.location.origin+'/encuestadea/encuesta/index.html?id_materia='+id_materia+'&id_grupo='+id_grupo+'&id_gestion='+id_gestion+'&id_docente='+id_docente+'');
+		function verencuestas(id_materia, id_grupo, id_gestion, id_docente, id_consulta_estudiantil){
+			window.location.replace(window.location.origin+'/encuestadea/encuesta/index.html?id_materia='+id_materia+'&id_grupo='+id_grupo+'&id_gestion='+id_gestion+'&id_docente='+id_docente+'&id_consulta_estudiantil='+id_consulta_estudiantil);
 		}
 	</script>
 </sec:authorize>

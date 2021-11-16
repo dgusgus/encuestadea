@@ -1,11 +1,13 @@
 package bo.edu.uto.encuestadea.controladores;
 
+import bo.edu.uto.encuestadea.dominios.ConsultaEstudiantil;
 import bo.edu.uto.encuestadea.dominios.DatosVerificar;
 import bo.edu.uto.encuestadea.dominios.Docente;
 import bo.edu.uto.encuestadea.dominios.Encuesta;
 import bo.edu.uto.encuestadea.dominios.EstudianteMateria;
 import bo.edu.uto.encuestadea.dominios.RespuestasEncuesta;
 import bo.edu.uto.encuestadea.dominios.Unidad;
+import bo.edu.uto.encuestadea.mapas.ConsultaEstudiantilMapa;
 import bo.edu.uto.encuestadea.mapas.DocenteMapa;
 import bo.edu.uto.encuestadea.mapas.EncuestaMapa;
 import bo.edu.uto.encuestadea.mapas.EstudianteMateriaMapa;
@@ -50,18 +52,22 @@ public class EncuestaController {
 	private IntegranteComisionMapa integranteComisionMapa;
 	@Autowired
 	private EstudianteMateriaMapa estudianteMateriaMapa;
+	@Autowired
+	private ConsultaEstudiantilMapa consultaEstudiantilMapa;
 
 	@RequestMapping(value = "/index")
-	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta) {
+	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta, ConsultaEstudiantil consulta) {
 		String env = request.getServletContext().getInitParameter("entorno");
 
 		HashMap modelo = new HashMap();
 
 		List<Encuesta> encuestasDocente = encuestaMapa.getListaEncuestas(datosEncuesta);
 		Docente docente = docenteMapa.getDocenteEncuesta(datosEncuesta);
+		consulta = consultaEstudiantilMapa.get(consulta.getId_consulta_estudiantil());
 		modelo.put("docente", docente);
 		modelo.put("datosEncuesta", datosEncuesta);
 		modelo.put("encuestas", encuestasDocente);
+		modelo.put("consulta", consulta);
 		//
 
 		return new ModelAndView("encuesta/index", modelo);

@@ -132,10 +132,14 @@
 										<dt>Nombre Materia:</dt>
 										<dd>${docente.nombreMateria}</dd>
 										<dt>Materia:</dt>
-										<dd>${docente.sigla}</dd>
-
+										<dd>
+											<c:if test="${consulta.sigla_paralelo_teoria != null}">${docente.sigla} (${consulta.sigla_paralelo_teoria})</c:if>
+											<c:if test="${consulta.sigla_paralelo_teoria == null}">${docente.sigla}</c:if>
+										</dd>
 										<dt>Paralelo:</dt>
-										<dd>${docente.grupo}</dd>
+										<dd>
+											<c:if test="${consulta.sigla_paralelo_teoria == null}">${docente.grupo}</c:if>
+										</dd>
 										<dt>Gestión:</dt>
 										<dd>${docente.gestion}</dd>
 										<dt>Facultad:</dt>

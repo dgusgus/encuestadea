@@ -13,7 +13,7 @@
 	</insert>
 
 	<select id="get" resultType="ConsultaEstudiantil">
-		select id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
+		select id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado, sigla_paralelo_teoria
 			from dea.consulta_estudiantil
 		where id_consulta_estudiantil = #{ id_consulta_estudiantil }
 			and id_estado
@@ -22,7 +22,7 @@
 	</select>
 
 	<select id="getAll" resultType="ConsultaEstudiantil" parameterType="ConsultaEstudiantil" >
-		select id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado
+		select id_consulta_estudiantil, id_materia, id_grupo, id_gestion, id_docente, id_usuario, ultimo_usuario_modificador, fecha_ultima_modificacion, fecha_creacion, estado, id_estado, sigla_paralelo_teoria
 			from dea.consulta_estudiantil
 		order by 1
 		;
@@ -47,7 +47,8 @@
 			fecha_ultima_modificacion = #{ fecha_ultima_modificacion },
 			fecha_creacion = #{ fecha_creacion },
 			estado = #{ estado },
-			id_estado = #{ id_estado }
+			id_estado = #{ id_estado },
+			sigla_paralelo_teoria = #{ sigla_paralelo_teoria }
 		WHERE id_consulta_estudiantil = #{ id_consulta_estudiantil }
 		;
 	</update>
@@ -64,6 +65,7 @@
 			, e.fecha_creacion
 			, e.estado
 			, e.id_estado
+			, e.sigla_paralelo_teoria
 			, m.materia as nombre_materia
 			, m.sigla as sigla_materia
 			, p.nombre as nombre_docente

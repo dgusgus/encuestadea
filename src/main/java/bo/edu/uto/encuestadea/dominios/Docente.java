@@ -32,6 +32,7 @@ public class Docente {
 	private String unidad;
 	private Integer id_usuario;
 	private List integrantes_comision;
+	private String sigla_paralelo_teoria;
 	private double IT1 = 0;//Resultad1
 	private double IT2 = 0; //Resultad2
 	private double IT3 = 0; //Resultad3
