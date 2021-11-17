@@ -4,6 +4,7 @@
  */
 package bo.edu.uto.encuestadea.reportes;
 
+import bo.edu.uto.encuestadea.dominios.ConsultaEstudiantil;
 import bo.edu.uto.encuestadea.dominios.Docente;
 import bo.edu.uto.encuestadea.dominios.RespuestasEncuesta;
 import bo.edu.uto.encuestadea.dominios.Unidad;
@@ -72,10 +73,19 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 		fec_reg.setDateFormatSymbols(dfs);
 		DecimalFormat df = new DecimalFormat("#,##0.00");
 
+		ConsultaEstudiantil consultaEstudiantil = (ConsultaEstudiantil) map.get("consulta_estudiantil");
 		List<RespuestasEncuesta> listaRespuestasEncuestas = (List<RespuestasEncuesta>) map.get("listaRespuestasEncuestas");
 		Docente docente = (Docente) map.get("docente");
 		Unidad unidad = (Unidad) map.get("unidad");
 
+		String sigla="";
+		String paralelo ="";
+		if(consultaEstudiantil.getSigla_paralelo_teoria()!= null){
+			sigla=docente.getSigla()+" ("+consultaEstudiantil.getSigla_paralelo_teoria()+")";
+		}else{
+			sigla=docente.getSigla();
+			paralelo=docente.getGrupo();
+		}
 		ServletContext servletContext = hsr.getServletContext();
 		String realPath = servletContext.getRealPath("/");
 
@@ -135,7 +145,7 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 
 		p = new Paragraph("Sigla Materia:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
-		p = new Paragraph(docente.getSigla(), DATO_CABECERA);
+		p = new Paragraph(sigla, DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 
 		p = new Paragraph("Materia:", TITULO_DATO_CABECERA);
@@ -145,7 +155,7 @@ public class ReporteEncuestaGeneralPDF extends AbstractITextPdfView {
 
 		p = new Paragraph("Paralelo:", TITULO_DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
-		p = new Paragraph(docente.getGrupo(), DATO_CABECERA);
+		p = new Paragraph(paralelo, DATO_CABECERA);
 		tableDatosCabecera.addCell(p);
 
 		p = new Paragraph("Gestión:", TITULO_DATO_CABECERA);

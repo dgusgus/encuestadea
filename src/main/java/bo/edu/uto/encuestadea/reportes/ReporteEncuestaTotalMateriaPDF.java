@@ -4,6 +4,7 @@
  */
 package bo.edu.uto.encuestadea.reportes;
 
+import bo.edu.uto.encuestadea.dominios.ConsultaEstudiantil;
 import bo.edu.uto.encuestadea.dominios.Docente;
 import bo.edu.uto.encuestadea.dominios.IntegranteComision;
 import bo.edu.uto.encuestadea.dominios.RespuestasEncuesta;
@@ -72,6 +73,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		fec_reg.setDateFormatSymbols(dfs);
 		DecimalFormat df = new DecimalFormat("#,##0.00");
 
+		ConsultaEstudiantil consultaEstudiantil = (ConsultaEstudiantil) map.get("consulta_estudiantil");
 		List<IntegranteComision> integrantesComision = (List<IntegranteComision>) map.get("integrantesComision");
 		List<RespuestasEncuesta> listaRespuestasEncuestas = (List<RespuestasEncuesta>) map.get("listaRespuestasEncuestas");
 		Docente docente = (Docente) map.get("docente");
@@ -174,7 +176,15 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.setPadding(-1f);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
-		p = new Paragraph(docente.getSigla() + " " + docente.getNombreMateria(), DATO_CABECERA);
+		String sigla="";
+		String paralelo ="";
+		if(consultaEstudiantil.getSigla_paralelo_teoria()!= null){
+			sigla=docente.getSigla()+" ("+consultaEstudiantil.getSigla_paralelo_teoria()+")";
+		}else{
+			sigla=docente.getSigla();
+			paralelo=docente.getGrupo();
+		}
+		p = new Paragraph(sigla + " " + docente.getNombreMateria(), DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.setPadding(-1f);
@@ -217,7 +227,7 @@ public class ReporteEncuestaTotalMateriaPDF extends AbstractITextPdfView {
 		celda.setBorder(PdfPCell.NO_BORDER);
 		celda.addElement(p);
 		tableDatosCabecera.addCell(celda);
-		p = new Paragraph(docente.getGrupo(), DATO_CABECERA);
+		p = new Paragraph(paralelo, DATO_CABECERA);
 		celda = new PdfPCell();
 		celda.setPadding(-1f);
 		celda.setBorder(PdfPCell.NO_BORDER);

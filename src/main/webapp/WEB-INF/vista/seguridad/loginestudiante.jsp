@@ -107,6 +107,7 @@
 														</span>
 													</label>
 													<input type="hidden" name="consulta" value="${consulta}"/>
+													<input type="hidden" name="id_consulta_estudiantil" value="${consulta_estudiantil.id_consulta_estudiantil}"/>
 													<div class="space"></div>
 													<div class="clearfix">
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">

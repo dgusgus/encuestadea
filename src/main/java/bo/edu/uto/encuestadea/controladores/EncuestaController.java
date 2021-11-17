@@ -56,18 +56,18 @@ public class EncuestaController {
 	private ConsultaEstudiantilMapa consultaEstudiantilMapa;
 
 	@RequestMapping(value = "/index")
-	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta, ConsultaEstudiantil consulta) {
+	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, Encuesta datosEncuesta, ConsultaEstudiantil consulta_estudiantil) {
 		String env = request.getServletContext().getInitParameter("entorno");
 
 		HashMap modelo = new HashMap();
 
 		List<Encuesta> encuestasDocente = encuestaMapa.getListaEncuestas(datosEncuesta);
 		Docente docente = docenteMapa.getDocenteEncuesta(datosEncuesta);
-		consulta = consultaEstudiantilMapa.get(consulta.getId_consulta_estudiantil());
+		consulta_estudiantil = consultaEstudiantilMapa.get(consulta_estudiantil.getId_consulta_estudiantil());
 		modelo.put("docente", docente);
 		modelo.put("datosEncuesta", datosEncuesta);
 		modelo.put("encuestas", encuestasDocente);
-		modelo.put("consulta", consulta);
+		modelo.put("consulta_estudiantil", consulta_estudiantil);
 		//
 
 		return new ModelAndView("encuesta/index", modelo);
@@ -187,7 +187,7 @@ public class EncuestaController {
 	}
 
 	@RequestMapping("/reporte_general")
-	public ModelAndView reporte_general(Docente docente, Encuesta encuesta, Unidad unidad, HttpSession hs) {
+	public ModelAndView reporte_general(Docente docente, Encuesta encuesta, Unidad unidad, ConsultaEstudiantil consultaEstudiantil, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
 		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
@@ -196,6 +196,10 @@ public class EncuestaController {
 		//List lista = encuestaMapa.getListaEncuestas(datosEncuesta);
 		//modelo.put("lista", lista);
 		//
+
+		consultaEstudiantil = consultaEstudiantilMapa.get(consultaEstudiantil.getId_consulta_estudiantil());
+		modelo.put("consulta_estudiantil", consultaEstudiantil);
+
 		docente = docenteMapa.getDocenteEncuesta(encuesta);
 		modelo.put("docente", docente);
 
@@ -209,12 +213,15 @@ public class EncuestaController {
 	}
 
 	@RequestMapping("/reporte_total_materia")
-	public ModelAndView reporte_total_materia(Docente docente, Encuesta encuesta, Unidad unidad, HttpSession hs) {
+	public ModelAndView reporte_total_materia(Docente docente, Encuesta encuesta, Unidad unidad, ConsultaEstudiantil consultaEstudiantil, HttpSession hs) {
 		Map modelo = new HashMap();
 		// Verificando si el Usuario sigue autentificado.
 		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
 
 		modelo.put("logout", id_usuario == null);
+
+		consultaEstudiantil = consultaEstudiantilMapa.get(consultaEstudiantil.getId_consulta_estudiantil());
+		modelo.put("consulta_estudiantil", consultaEstudiantil);
 
 		List integrantesComision = integranteComisionMapa.getIntegrantesComisionPorIdUsuario(id_usuario);
 		modelo.put("integrantesComision", integrantesComision);

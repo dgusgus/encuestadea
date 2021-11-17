@@ -80,6 +80,7 @@ public class SeguridadController {
 		modelo.put("consulta", consulta);
 		DatosVerificar datos = new DatosVerificar();
 		Integer id_consulta = Integer.parseInt(new String(Base64.getDecoder().decode(consulta)));
+		ConsultaEstudiantil consultaEstudiantil = consultaEstudiantilMapa.get(id_consulta);
 		Date fec_nacimiento_aux;
 		try{
 			fec_nacimiento_aux=new SimpleDateFormat("yyyy-MM-dd").parse(fec_nacimiento);
@@ -104,6 +105,7 @@ public class SeguridadController {
 		Docente docente = docenteMapa.getDocenteEncuesta(datosEncuesta);
 		modelo.put("docente", docente);
 		modelo.put("datosEncuesta", datosEncuesta);
+		modelo.put("consulta_estudiantil", consultaEstudiantil);
 		return new ModelAndView("encuesta/llenarencuesta", modelo);
 	}
 
