@@ -69,7 +69,7 @@ public class SeguridadController {
 			datosEncuesta.setId_gestion(consultaEstudiantil.getId_gestion());
 			docente = docenteMapa.getDocenteEncuesta(datosEncuesta);
 			modelo.put("docente", docente);
-			modelo.put("consulta", consultaEstudiantil);
+			modelo.put("consulta_estudiantil", consultaEstudiantil);
 		}
 		return new ModelAndView("seguridad/loginestudiante", modelo);
 	}
