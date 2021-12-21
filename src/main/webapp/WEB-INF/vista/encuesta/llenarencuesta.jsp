@@ -818,7 +818,7 @@
 														</div>
 														<div class="col-lg-12 col-md-12 col-xs-12">
 															<div class="form-group has-feedback">
-																<label class="control-label" for="p30">El docente devuelve los exámenes oportunamente.</label>
+																<label class="control-label" for="p30">El docente comunica los resultados de los exámenes oportunamente.</label>
 																<div class="input-group row">
 																	<div class="radio">
 																		<label>
