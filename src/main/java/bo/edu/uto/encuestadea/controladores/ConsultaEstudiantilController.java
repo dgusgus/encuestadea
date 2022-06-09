@@ -1,8 +1,16 @@
 package bo.edu.uto.encuestadea.controladores;
 
+import bo.edu.uto.encuestadea.dominios.AccesoUsuario;
 import bo.edu.uto.encuestadea.dominios.ConsultaEstudiantil;
+import bo.edu.uto.encuestadea.dominios.Rol;
+import bo.edu.uto.encuestadea.dominios.UsuarioAcceso;
+import bo.edu.uto.encuestadea.mapas.AccesoMapa;
 import bo.edu.uto.encuestadea.mapas.ConsultaEstudiantilMapa;
+import bo.edu.uto.encuestadea.mapas.RolMapa;
+import bo.edu.uto.encuestadea.mapas.UsuarioMapa;
 import java.lang.reflect.InvocationTargetException;
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +20,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,20 +37,35 @@ public class ConsultaEstudiantilController {
 
 	@Autowired
 	private ConsultaEstudiantilMapa consultaEstudiantilMapa;
+	@Autowired
+	AccesoMapa accesoMapa;
+	@Autowired
+	RolMapa rolesMapa;
 
 	@RequestMapping(value = "/index")
-	public ModelAndView index(ConsultaEstudiantil datosConsultaEstudiantil, HttpSession hs) {
+	public ModelAndView index(ConsultaEstudiantil datosConsultaEstudiantil, HttpSession hs, Principal principal) {
 		HashMap modelo = new HashMap();
-		Integer id_usuario = (Integer) hs.getAttribute("__id_usuario");
-		modelo.put("logout", id_usuario == null);
+		UsuarioAcceso usuario = accesoMapa.getUsuario(principal.getName());
+		List datosUsusario = accesoMapa.getDatosUsuario(principal.getName());
+		if (null == usuario) {
+			throw new UsernameNotFoundException("Usuario NO Registrado");
+		}
+		modelo.put("logout", usuario == null);
 
-		ServletContext servletContext = hs.getServletContext();
-		String realPath = servletContext.getRealPath("/");
+		if(usuario != null){
+			ServletContext servletContext = hs.getServletContext();
+			String realPath = servletContext.getRealPath("/");
 
-		List<ConsultaEstudiantil> consultasEstudiantiles = consultaEstudiantilMapa.getByIdUsuario(id_usuario);
-		modelo.put("consultasEstudiantiles", consultasEstudiantiles);
-		modelo.put("realpath", realPath);
-
+			UsuarioAcceso primero = (UsuarioAcceso)datosUsusario.get(0);
+			List<ConsultaEstudiantil> consultasEstudiantiles = consultaEstudiantilMapa.getByIdUsuario(primero.getId_usuario());
+			modelo.put("consultasEstudiantiles", consultasEstudiantiles);
+			modelo.put("realpath", realPath);
+			List<Rol> roles = new ArrayList<Rol>();
+			roles = rolesMapa.getRoles(primero.getId_usuario());
+			usuario.setRoles(roles);
+			hs.setAttribute("__sess_cliente", usuario);
+			modelo.put("usuario", usuario);
+		}
 		return new ModelAndView("consultaestudiantil/index", modelo);
 	}
 

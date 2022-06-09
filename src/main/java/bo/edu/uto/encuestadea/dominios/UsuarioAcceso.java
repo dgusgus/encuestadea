@@ -1,5 +1,6 @@
 package bo.edu.uto.encuestadea.dominios;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,6 @@ public class UsuarioAcceso implements java.io.Serializable {
 	private String nombre_completo;
 	private String id_facultad;
 	private Integer id_unidad;
+
+	private List<Rol> roles;
 }

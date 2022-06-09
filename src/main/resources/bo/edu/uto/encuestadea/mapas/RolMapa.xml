@@ -2,10 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.edu.uto.encuestadea.mapas.RolMapa">
-	<select id="getRoles" resultType="Rol" parameterType="UsuarioAcceso" >
-		select r.*
-		from dea.rol r
-		join dea.usuario_rol ur on (r.id_rol = ur.id_rol)
-		where ur.id_usuario = ${id_usuario}
+	<select id="getRoles" resultType="Rol">
+		select distinct (r.*)
+			from dea.usuario u
+				join dea.usuario u2 on (u.id_persona = u2.id_persona and u2.id_estado)
+				join dea.usuario_rol ur on (u2.id_usuario = ur.id_usuario and ur.id_estado and ur.fecha_expira &gt; current_date)
+				join dea.rol r on (ur.id_rol = r.id_rol)
+			where u.id_usuario = #{id_persona}
+				and u.id_estado
+				and u2.id_estado
 	</select>
 </mapper>

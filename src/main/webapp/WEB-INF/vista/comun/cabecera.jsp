@@ -173,7 +173,16 @@
 								<span class="user-info"><small>Rol</small><span id="x-rol">Comisión</span></span>
 								<i class="ace-icon fa fa-caret-down"></i>
 							</a>
-							<ul id="x-roles" class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close"></ul>
+							<ul id="x-roles" class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<c:forEach items="${usuario.roles}" var="rol" varStatus="contador">
+									<li class="light-blue">
+										<a data-toggle="dropdown" href="consultaestudiantil/index.html?apodo=${apodo}" class="dropdown-toggle">
+											<span class="user-info"><small>${rol.rol}::${rol.id_rol}</small><span id="x-rol">Comisión</span></span>
+											<i class="ace-icon fa fa-caret-down"></i>
+										</a>
+									</li>
+								</c:forEach>
+							</ul>
 							<script type="text/javascript">
 								getMenu();
 							</script>
@@ -191,7 +200,7 @@
 										Cambiar Integrantes de Comisión
 									</a>
 								</li>
-								<sec:authorize access="hasRole('ROLE_ADMINISTRADOR')" var="isAdmin">
+								<sec:authorize access="hasRole('ADMINISTRADOR')">
 									<li>
 										<a href="administrador/index.html" data-href="administrador/index.html" ><i class="ace-icon fa fa-user"></i>
 											Administración del Sistema

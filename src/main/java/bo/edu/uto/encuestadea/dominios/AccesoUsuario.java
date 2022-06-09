@@ -17,4 +17,5 @@ public class AccesoUsuario implements java.io.Serializable {
 	private String id_facultad;
 	private Integer id_unidad;
 
+	private List<Rol> roles;
 }

@@ -36,12 +36,17 @@ public class AccesoServicio implements UserDetailsService {
 		if (null == usuario) {
 			throw new UsernameNotFoundException("Usuario NO Registrado");
 		}
+		UsuarioAcceso primero = (UsuarioAcceso)datosUsusario.get(0);
 		List<GrantedAuthority> rolesAuth = new ArrayList<>();
 		List<Rol> roles = new ArrayList<Rol>();
-		roles = rolesMapa.getRoles((UsuarioAcceso)datosUsusario.get(0));
+		roles = rolesMapa.getRoles(primero.getId_usuario());
+		usuario.setRoles(roles);
 		for (Rol rol : roles) {
-			rolesAuth.add(new SimpleGrantedAuthority(String.valueOf(rol.getRol())));
+			rolesAuth.add(new SimpleGrantedAuthority("ROLE_"+rol.getRol().toUpperCase()));
 		}
+		System.out.println("auths");
+		for(GrantedAuthority auth:rolesAuth)
+			System.out.println(auth.getAuthority());
 		boolean enabled = (Boolean) true;
 		boolean accountNonExpired = true;
 		boolean credentialsNonExpired = true;

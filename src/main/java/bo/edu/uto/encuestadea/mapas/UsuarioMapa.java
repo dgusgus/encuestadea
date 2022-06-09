@@ -14,10 +14,11 @@ import org.springframework.stereotype.Repository;
 public interface UsuarioMapa {
 	@PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
 	List<Usuarios> getUsuarios() throws DataAccessException;
-//	@PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
+
 	Usuarios getUsuario(Usuarios usuario)throws DataAccessException;
-//	@PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
+
+	@PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
 	Usuarios insertarUsuario(Usuarios usuario)throws DataAccessException;
-//	@PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
+	@PreAuthorize("hasRole('ROLE_ADMINISTRADOR')")
 	int borrarUsuario(Usuarios usuario)throws DataAccessException;
 }

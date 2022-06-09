@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RolMapa {
 
-	List<Rol> getRoles(UsuarioAcceso usuario) throws DataAccessException;
+	List<Rol> getRoles(Integer id_usuario) throws DataAccessException;
 
 }
