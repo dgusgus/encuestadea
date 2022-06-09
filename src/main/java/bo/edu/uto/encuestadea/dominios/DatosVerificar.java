@@ -1,14 +1,15 @@
 package bo.edu.uto.encuestadea.dominios;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.ibatis.type.Alias;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DatosVerificar{
 
 	private Integer id_estudiante_materia;

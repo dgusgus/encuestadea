@@ -1,16 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bo.edu.uto.encuestadea.dominios;
 
-/**
- *
- * @author raul velasquez
- */
-public class RespuestasEncuesta {
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class RespuestasEncuesta {
 	private Integer id_respuesta_encuesta;
 	private Integer id_pregunta;
 	private Integer id_respuesta;
@@ -19,116 +21,74 @@ public class RespuestasEncuesta {
 	private Integer id_grupo;
 	private Integer id_gestion;
 	private Integer id_docente;
+	@Setter(AccessLevel.NONE)
 	private Integer p1 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p2 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p3 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p4 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p5 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p6 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p7 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p8 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p9 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p10 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p11 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p12 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p13 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p14 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p15 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p16 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p17 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p18 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p19 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p20 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p21 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p22 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p23 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p24 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p25 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p26 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p27 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p28 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p29 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p30 = 0;
+	@Setter(AccessLevel.NONE)
 	private Integer p31 = 0;
 
-	public Integer getId_respuesta_encuesta() {
-		return id_respuesta_encuesta;
-	}
-
-	public void setId_respuesta_encuesta(Integer id_respuesta_encuesta) {
-		this.id_respuesta_encuesta = id_respuesta_encuesta;
-	}
-
-	public Integer getId_pregunta() {
-		return id_pregunta;
-	}
-
-	public void setId_pregunta(Integer id_pregunta) {
-		this.id_pregunta = id_pregunta;
-	}
-
-	public Integer getId_respuesta() {
-		return id_respuesta;
-	}
-
-	public void setId_respuesta(Integer id_respuesta) {
-		this.id_respuesta = id_respuesta;
-	}
-
-	public Integer getId_encuesta() {
-		return id_encuesta;
-	}
-
-	public void setId_encuesta(Integer id_encuesta) {
-		this.id_encuesta = id_encuesta;
-	}
-
-	public Integer getId_materia() {
-		return id_materia;
-	}
-
-	public void setId_materia(Integer id_materia) {
-		this.id_materia = id_materia;
-	}
-
-	public Integer getId_grupo() {
-		return id_grupo;
-	}
-
-	public void setId_grupo(Integer id_grupo) {
-		this.id_grupo = id_grupo;
-	}
-
-	public Integer getId_gestion() {
-		return id_gestion;
-	}
-
-	public void setId_gestion(Integer id_gestion) {
-		this.id_gestion = id_gestion;
-	}
-
-	public Integer getId_docente() {
-		return id_docente;
-	}
-
-	public void setId_docente(Integer id_docente) {
-		this.id_docente = id_docente;
-	}
-
-	public Integer getP1() {
-		return p1;
-	}
-
 	public void setP1(Integer p1) {
-
 		this.p1 = p1;
 		if (p1 == null) {
 			this.p1 = 0;
 		}
-	}
-
-	public Integer getP2() {
-		return p2;
 	}
 
 	public void setP2(Integer p2) {
@@ -138,19 +98,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP3() {
-		return p3;
-	}
-
 	public void setP3(Integer p3) {
 		this.p3 = p3;
 		if (p3 == null) {
 			this.p3 = 0;
 		}
-	}
-
-	public Integer getP4() {
-		return p4;
 	}
 
 	public void setP4(Integer p4) {
@@ -160,19 +112,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP5() {
-		return p5;
-	}
-
 	public void setP5(Integer p5) {
 		this.p5 = p5;
 		if (p5 == null) {
 			this.p5 = 0;
 		}
-	}
-
-	public Integer getP6() {
-		return p6;
 	}
 
 	public void setP6(Integer p6) {
@@ -182,19 +126,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP7() {
-		return p7;
-	}
-
 	public void setP7(Integer p7) {
 		this.p7 = p7;
 		if (p7 == null) {
 			this.p7 = 0;
 		}
-	}
-
-	public Integer getP8() {
-		return p8;
 	}
 
 	public void setP8(Integer p8) {
@@ -204,19 +140,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP9() {
-		return p9;
-	}
-
 	public void setP9(Integer p9) {
 		this.p9 = p9;
 		if (p9 == null) {
 			this.p9 = 0;
 		}
-	}
-
-	public Integer getP10() {
-		return p10;
 	}
 
 	public void setP10(Integer p10) {
@@ -226,19 +154,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP11() {
-		return p11;
-	}
-
 	public void setP11(Integer p11) {
 		this.p11 = p11;
 		if (p11 == null) {
 			this.p11 = 0;
 		}
-	}
-
-	public Integer getP12() {
-		return p12;
 	}
 
 	public void setP12(Integer p12) {
@@ -248,19 +168,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP13() {
-		return p13;
-	}
-
 	public void setP13(Integer p13) {
 		this.p13 = p13;
 		if (p13 == null) {
 			this.p13 = 0;
 		}
-	}
-
-	public Integer getP14() {
-		return p14;
 	}
 
 	public void setP14(Integer p14) {
@@ -270,19 +182,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP15() {
-		return p15;
-	}
-
 	public void setP15(Integer p15) {
 		this.p15 = p15;
 		if (p15 == null) {
 			this.p15 = 0;
 		}
-	}
-
-	public Integer getP16() {
-		return p16;
 	}
 
 	public void setP16(Integer p16) {
@@ -292,19 +196,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP17() {
-		return p17;
-	}
-
 	public void setP17(Integer p17) {
 		this.p17 = p17;
 		if (p17 == null) {
 			this.p17 = 0;
 		}
-	}
-
-	public Integer getP18() {
-		return p18;
 	}
 
 	public void setP18(Integer p18) {
@@ -314,19 +210,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP19() {
-		return p19;
-	}
-
 	public void setP19(Integer p19) {
 		this.p19 = p19;
 		if (p19 == null) {
 			this.p19 = 0;
 		}
-	}
-
-	public Integer getP20() {
-		return p20;
 	}
 
 	public void setP20(Integer p20) {
@@ -336,19 +224,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP21() {
-		return p21;
-	}
-
 	public void setP21(Integer p21) {
 		this.p21 = p21;
 		if (p21 == null) {
 			this.p21 = 0;
 		}
-	}
-
-	public Integer getP22() {
-		return p22;
 	}
 
 	public void setP22(Integer p22) {
@@ -358,19 +238,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP23() {
-		return p23;
-	}
-
 	public void setP23(Integer p23) {
 		this.p23 = p23;
 		if (p23 == null) {
 			this.p23 = 0;
 		}
-	}
-
-	public Integer getP24() {
-		return p24;
 	}
 
 	public void setP24(Integer p24) {
@@ -380,19 +252,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP25() {
-		return p25;
-	}
-
 	public void setP25(Integer p25) {
 		this.p25 = p25;
 		if (p25 == null) {
 			this.p25 = 0;
 		}
-	}
-
-	public Integer getP26() {
-		return p26;
 	}
 
 	public void setP26(Integer p26) {
@@ -402,19 +266,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP27() {
-		return p27;
-	}
-
 	public void setP27(Integer p27) {
 		this.p27 = p27;
 		if (p27 == null) {
 			this.p27 = 0;
 		}
-	}
-
-	public Integer getP28() {
-		return p28;
 	}
 
 	public void setP28(Integer p28) {
@@ -424,10 +280,6 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP29() {
-		return p29;
-	}
-
 	public void setP29(Integer p29) {
 		this.p29 = p29;
 		if (p29 == null) {
@@ -435,19 +287,11 @@ public class RespuestasEncuesta {
 		}
 	}
 
-	public Integer getP30() {
-		return p30;
-	}
-
 	public void setP30(Integer p30) {
 		this.p30 = p30;
 		if (p30 == null) {
 			this.p30 = 0;
 		}
-	}
-
-	public Integer getP31() {
-		return p31;
 	}
 
 	public void setP31(Integer p31) {
