@@ -13,6 +13,18 @@
 			AND _usuarios.id_usuario = #{id_usuario}
 			ORDER BY nombres
 	</select>
+
+	<select id="getUsuariosDetalle" resultType="Usuarios">
+		select u.*, p.nombre, f.abrev, u2.unidad
+			from dea.usuario u
+				left join public.personas p on (u.id_persona = p.id_persona)
+				left join dea.comision c on (u.id_comision = c.id_comision)
+				left join public.unidades u2 on (u2.id_unidad = c.id_unidad)
+				left join public.facultades f on (f.id_facultad = c.id_facultad)
+		order by u.id_estado desc, u.id_persona, u.id_comision
+		;
+	</select>
+
 	<insert id="insertarUsuario" parameterType="Usuarios">
 		INSERT INTO _usuarios(
 			id_persona, id_estado, apodo, clave, recordatorio)

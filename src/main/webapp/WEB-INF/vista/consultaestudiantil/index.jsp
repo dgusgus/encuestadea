@@ -60,106 +60,6 @@
 		</div>
 	</div>
 </div><!-- /.col -->
-<!-- /.INICIO MODAL -->
-<div id="modal-form" class="modal" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="blue bigger">Please fill the following form fields</h4>
-			</div>
-
-			<div class="modal-body">
-				<div class="row">
-					<div class="widget-box">
-						<div class="widget-header widget-header-small">
-							<h5 class="widget-title lighter">Criterios de búsqueda</h5>
-						</div>
-
-						<div class="widget-body">
-							<div class="widget-main">
-								<form class="form-search" action="principal/buscar.html">
-									<div class="row">
-										<div class="col-xs-12 col-sm-12">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="ace-icon fa fa-check"></i>
-												</span>
-
-												<input type="text" class="form-control search-query" placeholder="criterio de búsqueda" name="busqueda"
-													<c:if test="${not empty busqueda}">
-														value="${busqueda}"
-													</c:if>
-												/>
-												<span class="input-group-btn">
-													<button type="submit button" class="btn btn-info btn-sm">
-														<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-														Buscar
-													</button>
-												</span>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-12">
-						<div class="form-group">
-							<table class="table table-striped table-bordered table-hover" id="flujoProcesos">
-								<thead>
-									<tr>
-										<th>Nombre</th>
-										<th>Facultad</th>
-										<th>Sigla</th>
-										<th>Nombre Materia</th>
-										<th>Paralelo</th>
-										<th>Gestión</th>
-										<th>Titularía</th>
-										<th>Opciones</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${docentes}" var="docente" varStatus="contador">
-										<tr>
-											<td id="nombre" class="right">${docente.nombre}</td>
-											<td id="facultad" class="right">${docente.facultad_materia}</td>
-											<td id="sigla" class="left">${docente.sigla}</td>
-											<td id="nombreMateria" class="right">${docente.nombreMateria}</td>
-											<td id="paralelo" class="center">${docente.grupo}</td>
-											<td id="gestion" class="center">${docente.gestion}</td>
-											<td id="titularia" class="center">${docente.titularia}</td>
-											<td id="opciones" class="center">
-												<div class="inline pos-rel">
-													<a data-position="auto" class="btn btn-xs btn-primary " href="encuesta/index.html?id_materia=${docente.id_materia}&id_grupo=${docente.id_grupo}&id_gestion=${docente.id_gestion}&id_docente=${docente.id_docente}">
-														<i class="ace-icon fa fa-th-list bigger-140"></i> <span class="hidden-sm hidden-xs">Encuestas</span>
-													</a>
-												</div>
-											</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="modal-footer">
-				<button class="btn btn-sm" data-dismiss="modal">
-					<i class="ace-icon fa fa-times"></i>
-					Cancel
-				</button>
-
-				<button class="btn btn-sm btn-primary">
-					<i class="ace-icon fa fa-check"></i>
-					Save
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- /.FINAL MODAL -->
 
 <!-- /.INICIO MODAL -->
 <div id="modal-enlace" class="modal" tabindex="-1">
@@ -228,12 +128,7 @@
 		});
 
 		$(function () {
-			//initiate dataTables plugin
 			listar();
-
-			$('#modal-form').on('shown.bs.modal', function () {
-				$('.chosen-select', this).chosen('destroy').chosen();
-			});
 		});
 
 		function formatoEstado(estado){
@@ -417,11 +312,6 @@
 					});
 				}
 			})
-		}
-
-		function ventanaNuevo(){
-			console.log('Nuevo');
-			$('#modal-form').modal('show');
 		}
 
 		function obtenerEnlace(id){
