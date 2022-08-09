@@ -58,3 +58,82 @@
 		</c:forEach>
 	</tbody>
 </table>
+<sec:authorize access="isAuthenticated()">
+	<script type="text/javascript">
+		var oTable1;
+
+		const Toast = Swal.mixin({
+			toast: true,
+			position: 'top',
+			showConfirmButton: false,
+			timer: 3000,
+			timerProgressBar: true,
+			didOpen: (toast) => {
+				toast.addEventListener('mouseleave', Swal.resumeTimer)
+			}
+		});
+
+		$(function () {
+			listar();
+		});
+
+		function listar(){
+			oTable1 =
+			$('#tabla')
+			.dataTable({
+				ajax: {
+					url: 'consultaestudiantil/listarByIdUsuario.html',
+					method: "GET",
+					xhrFields: {
+						withCredentials: true
+					}
+				},
+				columns:[
+					{
+						data:"nombre_docente",
+						render: function(data, type, row){
+							return '<b class="text-success">'
+								+'</span> '+'<span class="label label-sm label-gray">'
+									+row.id_consulta_estudiantil
+								+'</span> '
+									+row.nombre_docente
+								+'</b><br> '
+									+row.nombre_materia
+								+' <span class="label label-sm label-info">'
+									+row.sigla_materia
+								+'</span> '
+								+'<span class="label label-sm label-success">'
+									+row.paralelo
+								+'</span> '
+								+'<span class="label label-sm label-warning">'
+									+row.gestion
+								+'</span> '
+								+(row.sigla_paralelo_teoria?('<span class="label label-sm label-danger">'+row.sigla_paralelo_teoria+'</span> '):'')
+							;
+						}
+					},
+					{
+						data:"estado",
+						render: function(data, type, row){
+							return formatoEstado(row.estado);
+						},
+					},
+					{
+						data:"id_consulta_estudiantil",
+						orderable: false,
+						render: function(data, type, row){
+							return formatoOpcion(row.estado, row.id_consulta_estudiantil, row.id_materia, row.id_grupo, row.id_gestion, row.id_docente);
+						}
+					}
+				],
+				destroy:true,
+				bAutoWidth: false,
+				"aaSorting": [],
+				"language": {
+					"url": "assets/js/dataTables/Spanish.json"
+				},
+			});
+		}
+
+	</script>
+</sec:authorize>

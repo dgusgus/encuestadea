@@ -2,9 +2,9 @@
 <jsp:include page="/comun/cabecera.html" />
 <div class="page-content">
 	<div class="page-header">
-		<div class="alert alert-warning">
+		<div class="alert alert-danger">
 			<h1>
-				Recurso no disponible
+				No tiene permisos para ingresar al recurso solicitado
 				<small class="hidden-xs">
 					<i class="ace-icon fa fa-angle-double-right"></i>
 					El recurso solicitado no puede ser encontrado.
