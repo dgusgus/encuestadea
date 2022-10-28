@@ -7,7 +7,6 @@ package bo.edu.uto.encuestadea.dominios;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.Date;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,16 +19,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Persona {
-	private Integer id_persona;
-	private String nombre;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private Date fecha_nacimiento;
+public class PlanillaAvanceDetalle {
+	private Integer id_planilla_avance_detalle;
 	@JsonFormat(pattern="yyyy-MM-dd")
-	private Date fecha_modificacion;
+	private Date fecha_planificacion;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date fecha_ejecucion;
+	private String actividad;
+	private String observacion;
 	private Boolean id_estado;
-	private String estado;
+	private Integer id_usuario_mod;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date fecha_mod;
+	private Integer id_tipo_actividad;
+	private Integer id_planilla_avance;
 
-
+	/*
 	private List<UsuarioAcceso> usuarios;
+	*/
 }

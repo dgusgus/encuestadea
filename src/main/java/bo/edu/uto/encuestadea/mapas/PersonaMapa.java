@@ -14,9 +14,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonaMapa {
 
-	
+
 	List getAll()throws DataAccessException;
 	Persona getById(Integer id)throws DataAccessException;
-	
-	
+
+	void insert(Persona persona)throws DataAccessException;
+
+	public void update(Persona persona)throws DataAccessException;
 }

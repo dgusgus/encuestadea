@@ -4,13 +4,27 @@
 
 <mapper namespace="bo.edu.uto.encuestadea.mapas.PersonaMapa">
 	<select id="getAll" resultType="Persona">
-		select * from dea.persona p 
+		select * from dea.persona p
+		order by p.id_persona
 		;
 	</select>
 
 	<select id="getById" resultType="Persona">
-		select * from dea.persona p 
+		select * from dea.persona p
 			where p.id_persona = #{id}
+		order by p.id_persona
 		;
 	</select>
+
+	<insert id="insert" parameterType="Persona" useGeneratedKeys="true" keyProperty="id_persona" keyColumn="id_persona">
+		INSERT INTO dea.persona
+		(nombre, fecha_nacimiento, fecha_modificacion, id_estado, estado)
+		VALUES(#{nombre}, #{fecha_nacimiento}, #{fecha_modificacion}, #{id_estado}, #{estado});
+	</insert>
+
+	<update id="update" parameterType="Persona" >
+		UPDATE dea.persona
+	SET nombre=#{nombre}, fecha_nacimiento=#{fecha_nacimiento}, fecha_modificacion=#{fecha_modificacion}, id_estado=#{id_estado}, estado=#{estado}
+	WHERE id_persona=#{id_persona};
+	</update>
 </mapper>

@@ -35,7 +35,7 @@
 		<link rel="stylesheet" href="${uijqgridmincss}"/>
 
 		<spring:url value="/assets/css/fullcalendar.min.css" var="fullcalendarmincss"/>
-		<link rel="stylesheet" href="${fullcalendarmincss}" />		
+		<link rel="stylesheet" href="${fullcalendarmincss}" />
 		<spring:url value="/assets/css/bootstrap-dialog.min.css" var="bootstrapdialogmincss"/>
 		<link rel="stylesheet" href="${bootstrapdialogmincss}" />
 		<spring:url value="/assets/css/ace.min.css" var="acemincss"/>
@@ -173,20 +173,21 @@
 								<span class="user-info"><small>Rol</small><span id="x-rol">Comisión</span></span>
 								<i class="ace-icon fa fa-caret-down"></i>
 							</a>
+							<!-- /.ROLES DE LA COMISON POR EL ID -->
 							<ul id="x-roles" class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 								<c:forEach items="${usuario.roles}" var="rol" varStatus="contador">
 									<li class="light-blue">
 										<a data-toggle="dropdown" href="consultaestudiantil/index.html?apodo=${apodo}" class="dropdown-toggle">
-											<span class="user-info"><small>${rol.rol}::${rol.id_rol}</small><span id="x-rol">Comisión</span></span>
-											<i class="ace-icon fa fa-caret-down"></i>
+											<span onclick="GuardaRol(${rol.id_rol})" class="user-info">
+											<small>${rol.rol}::${rol.id_rol}</small>
+											<span id="x-rol">Comisión</span></span>
+											<i class="ace-i  con fa fa-caret-down"></i>
 										</a>
 									</li>
 								</c:forEach>
 							</ul>
-							<script type="text/javascript">
-								getMenu();
-							</script>
 						</li>
+
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<spring:url value="/assets/avatars/avatar2.png" var="avatar2"/>
@@ -239,18 +240,59 @@
 				<div id="x-menus">
 					<ul class="nav nav-list">
 						<li class="">
-							<a href="consultaestudiantil/index.html">
-								<i class="menu-icon fa fa-file"></i>
-								<span class="menu-text"> Consultas </span>
+							<a href="plandetrabajo/index.html">
+								<i class="menu-icon fa fa-folder "></i>
+								<span class="menu-text">Plan de trabajo</span>
 							</a>
 							<b class="arrow"></b>
 						</li>
+						<sec:authorize access="hasRole('ADMINISTRADOR')">
+							<h1>Hola</h1>
+						</sec:authorize>
+					</ul>
+					<ul class="nav nav-list">
 						<li class="">
-							<a href="principal/buscar.html">
-								<i class="menu-icon fa fa-search"></i>
-								<span class="menu-text"> Buscar Docente </span>
+							<a href="planillaavance/index.html">
+								<i class="menu-icon fa fa-folder-open"></i>
+								<span class="menu-text">Planilla de avance</span>
 							</a>
 							<b class="arrow"></b>
+						</li>
+					</ul>
+					<ul class="nav nav-list">
+						<li class="">
+							<a href="informememoria/index.html">
+								<i class="menu-icon fa fa-users"></i>
+								<span class="menu-text"> Informe Memoria D. </span>
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+					<ul class="nav nav-list">
+						<li class="">
+							<a href="personanuevo/index.html">
+								<i class="menu-icon fa fa-adjust"></i>
+								<span class="menu-text"> Personas </span>
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+					<ul class="nav nav-list">
+						<li class="">
+							<a href="#" class="dropdown-toggle">
+								<i class="menu-icon fa fa-book "></i>
+								<span class="menu-text">REGLAMENTO	</span>
+								<b class="arrow fa fa-angle-down"></b>
+							</a>
+							<b class="arrow"></b>
+							<ul class="submenu">
+								<li class="">
+									<a href="#" class="dropdown-toggle">
+										<i class="menu-icon fa fa-caret-right"></i>Informe memoria docente<b class="arrow fa fa-angle-down"></b>
+									</a>
+									<b class="arrow"></b>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</div>

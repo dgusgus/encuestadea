@@ -1,0 +1,27 @@
+	<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bo.edu.uto.encuestadea.mapas.PlanillaAvanceDetalleMapa">
+	<select id="getAll" resultType="PlanillaAvanceDetalle">
+		select * from dea.planilla_avance_detalle p
+
+		;
+	</select>
+
+	<select id="getById" resultType="PlanillaAvanceDetalle">
+		select * From dea.planilla_avance_detalle p
+			where p.id_planilla_avance_detalle = #{id}
+		order by p.id_planilla_avance_detalle
+		;
+	</select>
+	<insert id="insert" parameterType="PlanillaAvanceDetalle" useGeneratedKeys="true" keyProperty="id_planilla_avance_detalle" keyColumn="id_planilla_avance_detalle">
+		INSERT INTO dea.planilla_avance_detalle
+		(fecha_planificacion, fecha_ejecucion, actividad, observacion, id_estado, id_usuario_mod, fecha_mod, id_tipo_actividad, id_planilla_avance)
+		VALUES(#{fecha_planificacion}, #{fecha_ejecucion}, #{actividad}, #{observacion}, #{id_estado}, #{id_usuario_mod}, #{fecha_mod}, #{id_tipo_actividad}, #{id_planilla_avance});
+	</insert>
+
+	<update id="update" parameterType="PlanillaAvanceDetalle">
+		select 1;
+	</update>
+</mapper>

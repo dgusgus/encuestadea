@@ -13,7 +13,7 @@
 	<div class="footer-inner">
 		<div class="footer-content">
 			<span class="bigger-120">
-				<span class="blue bolder">D.T.I.C.</span> &copy; 2021 
+				<span class="blue bolder">D.T.I.C.</span> &copy; 2021
 				<small>Dirección de Tecnologías de Información y Comunicación</small>
 			</span>
 		</div>
@@ -45,11 +45,84 @@
 	<c:set var="script">
 	$(function () {
 		__crear_dialogos();
+		///limpiarMenu();
+		mostarDocente();
 	});
 
 	if ('ontouchstart' in document.documentElement)
 		document.write('<script src="assets/js/jquery.mobile.custom.min.js"><\/script>');
 	</c:set>
+
+	function limpiarMenu(){
+		$("#x-menus").html('');
+		var GuardarIdRol = localStorage.getItem('numero_rol');
+		//console.log(id);
+		$.ajax({
+			type: "POST",
+			url: 'menus/menu_rol.html?id_rol=' + GuardarIdRol,
+			success: function (response) {
+				console.log(response);
+				$("#x-menus").html(generarMenu(response.enlaces[0]));
+			},
+			error: function () {
+				Toast.fire({
+					icon: 'error',
+					title: 'Error'
+				});
+			}
+		});
+	}
+	function mostarDocente(){
+		$("#info_docente").empty();
+		$.ajax({
+			type: "POST",
+			url: 'informaciondocente/informacion.html',
+			success: function (response) {
+				$("#info_docente").html(response);
+			},
+			error: function () {
+				Toast.fire({
+					icon: 'error',
+					title: 'Error'
+				});
+			}
+		});
+	}
+	function GuardaRol(id_rol){
+		localStorage.setItem('numero_rol', id_rol);
+		limpiarMenu();
+	}
+	//menu y subs menus dinamicos para la
+	function generarMenu(enlace){
+		//console.log(enlace.enlaces);
+		var menu = '<ul class="nav nav-list">';
+			menu = menu +'<li>';
+			menu = menu +'<a href="'+enlace.ruta+'" class="dropdown-toggle">';
+			menu = menu +'<i class="menu-icon fa fa-desktop"></i>';
+			menu = menu +'<span class="menu-text">'+enlace.enlace+'</span>';
+			menu = menu +'<b class="arrow fa fa-angle-down"></b>';
+			menu = menu +'</a>';
+			menu = menu +'<b class="arrow"></b>';
+			for (var i = 0; i < enlace.enlaces.length; i++) {
+				menu = menu + generarSubMenu(enlace.enlaces[i]);
+			};
+			menu = menu +'</li>';
+//			if(enlace.enlaces.length > 0) {menu = menu + generarMenu(enlace.enlaces[i]);}
+		return menu;
+	}
+	function generarSubMenu(enlace){
+		var menu = '<ul class="submenu">';
+			menu = menu +'<li>';
+			menu = menu +'<a href="'+enlace.ruta+'">';
+			menu = menu +'<i class="menu-icon fa fa-caret-right"></i>';
+			menu = menu +'<span class="menu-text">'+enlace.enlace+'</span>';
+			menu = menu +'<b class="arrow fa fa-angle-down"></b>';
+			menu = menu +'</a>';
+			menu = menu +'<b class="arrow"></b>';
+			menu = menu +'</li>';
+			menu = menu +'</ul>';
+		return menu;
+	}
 	<%= Tools.ofuscarJavaScript(pageContext.getAttribute("script").toString())%>
 </script>
 

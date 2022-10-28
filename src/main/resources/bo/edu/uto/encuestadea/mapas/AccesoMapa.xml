@@ -23,6 +23,16 @@
 		;
 	</select>
 
+	<select id="getDatosUsuarioPublic" resultType="UsuarioAcceso">
+		select
+			u.id_usuario , u.id_persona , u."id_estado" , u.apodo
+		from
+			public."_usuarios" u
+		where u.id_estado
+		and u.apodo = #{ apodo }
+		;
+	</select>
+
 	<select id="getUsuario" resultType="UsuarioAcceso">
 		select
 			u2.id_persona

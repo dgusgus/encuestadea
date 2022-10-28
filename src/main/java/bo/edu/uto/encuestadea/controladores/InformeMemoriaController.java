@@ -22,8 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@RequestMapping("/personanuevo/**")
-public class PersonasnuevoController {
+@RequestMapping("/informememoria/**")
+public class InformeMemoriaController {
 
 	@Autowired
 	PersonaMapa personaMapa;
@@ -36,8 +36,35 @@ public class PersonasnuevoController {
 		List personas = personaMapa.getAll();
 		modelo.put("personas", personas);
 
-		return new ModelAndView("persona/index", modelo);
+		return new ModelAndView("informeMemoria/index", modelo);
 	}
+
+	@RequestMapping(value = "/administracion")
+	@ResponseBody
+	public ModelAndView Mostar1() throws ParseException {
+		return new ModelAndView("informeMemoria/Administracion");
+	}
+	@RequestMapping(value = "/actualizacion")
+	@ResponseBody
+	public ModelAndView Mostar2() throws ParseException {
+		return new ModelAndView("informeMemoria/Actualizacion");
+	}
+	@RequestMapping(value = "/investigacion")
+	@ResponseBody
+	public ModelAndView Mostar3() throws ParseException {
+		return new ModelAndView("informeMemoria/Investigacion");
+	}
+	@RequestMapping(value = "/produccion")
+	@ResponseBody
+	public ModelAndView Mostar4() throws ParseException {
+		return new ModelAndView("informeMemoria/Produccion");
+	}
+	@RequestMapping(value = "/modalAgregar")
+	@ResponseBody
+	public ModelAndView Mostar5() throws ParseException {
+		return new ModelAndView("informeMemoria/ModalAgregar");
+	}
+
 
 	@RequestMapping(value = "/listar")
 	@ResponseBody
@@ -46,11 +73,6 @@ public class PersonasnuevoController {
 		List personas = personaMapa.getAll();
 		modelo.put("personas", personas);
 		return new ModelAndView("persona/listar", modelo);
-	}
-	@RequestMapping(value = "/modal")
-	@ResponseBody
-	public ModelAndView listarr() throws ParseException {
-		return new ModelAndView("persona/Modal");
 	}
 
 	@RequestMapping(value = "/getById")
@@ -66,13 +88,13 @@ public class PersonasnuevoController {
 	@ResponseBody
 	public Object nuevo(Persona persona,String fecha_nacimiento_aux,String fecha_modificacion_aux) throws ParseException {
 		HashMap modelo = new HashMap();
-		//System.out.println(""+persona);
-		//System.out.println(""+fecha_nacimiento_aux);
+		System.out.println(""+persona);
+		System.out.println(""+fecha_nacimiento_aux);
 		persona.setEstado("H");
 		persona.setFecha_nacimiento(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_nacimiento_aux));
 		persona.setFecha_modificacion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_modificacion_aux));
 		personaMapa.insert(persona);
-		//System.out.println("id nuevo:"+persona.getId_persona());
+		System.out.println("id nuevo:"+persona.getId_persona());
 		modelo.put("personas", persona);
 		return modelo;
 	}
@@ -91,7 +113,6 @@ public class PersonasnuevoController {
 	}
 
 	@RequestMapping(value = "/eliminar")
-
 	@ResponseBody
 	public Object eliminar(Persona persona) throws ParseException {
 		HashMap modelo = new HashMap();

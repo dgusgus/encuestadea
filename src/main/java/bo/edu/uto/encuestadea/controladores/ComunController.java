@@ -61,5 +61,5 @@ public class ComunController {
 	public ModelAndView denegado(HttpServletResponse hsr) {
 		return new ModelAndView("comun/denegado");
 	}
-
+	
 }

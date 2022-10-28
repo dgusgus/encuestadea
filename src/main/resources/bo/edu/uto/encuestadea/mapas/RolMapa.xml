@@ -4,12 +4,13 @@
 <mapper namespace="bo.edu.uto.encuestadea.mapas.RolMapa">
 	<select id="getRoles" resultType="Rol">
 		select distinct (r.*)
-			from dea.usuario u
-				join dea.usuario u2 on (u.id_persona = u2.id_persona and u2.id_estado)
-				join dea.usuario_rol ur on (u2.id_usuario = ur.id_usuario and ur.id_estado and ur.fecha_expira &gt; current_date)
-				join dea.rol r on (ur.id_rol = r.id_rol)
+			from public._usuarios u
+				join public._usuarios u2 on (u.id_persona = u2.id_persona and u2.id_estado)
+				join public._usr_roles ur on (u2.id_usuario = ur.id_usuario and ur.id_estado and ur.fec_expiracion > current_date)
+				join public._roles r on (ur.id_rol = r.id_rol)
 			where u.id_usuario = #{id_persona}
 				and u.id_estado
 				and u2.id_estado
+				and r.id_sistema = 5
 	</select>
 </mapper>

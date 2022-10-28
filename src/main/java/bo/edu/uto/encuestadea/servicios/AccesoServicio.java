@@ -39,10 +39,10 @@ public class AccesoServicio implements UserDetailsService {
 		UsuarioAcceso primero = (UsuarioAcceso)datosUsusario.get(0);
 		List<GrantedAuthority> rolesAuth = new ArrayList<>();
 		List<Rol> roles = new ArrayList<Rol>();
-		roles = rolesMapa.getRoles(primero.getId_usuario());
+		roles = rolesMapa.getRoles(primero.getId_persona());
 		usuario.setRoles(roles);
 		for (Rol rol : roles) {
-			rolesAuth.add(new SimpleGrantedAuthority("ROLE_"+rol.getRol().toUpperCase()));
+			rolesAuth.add(new SimpleGrantedAuthority("ROLE_"+rol.getId_rol()));
 		}
 		System.out.println("auths");
 		for(GrantedAuthority auth:rolesAuth)

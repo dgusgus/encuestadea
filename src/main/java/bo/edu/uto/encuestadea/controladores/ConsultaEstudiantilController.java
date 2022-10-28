@@ -47,6 +47,8 @@ public class ConsultaEstudiantilController {
 		HashMap modelo = new HashMap();
 		UsuarioAcceso usuario = accesoMapa.getUsuario(principal.getName());
 		List datosUsusario = accesoMapa.getDatosUsuario(principal.getName());
+		UsuarioAcceso datosUsuarioPublic = accesoMapa.getDatosUsuarioPublic(principal.getName());
+		System.out.println("usuario public:"+datosUsuarioPublic.toString());
 		if (null == usuario) {
 			throw new UsernameNotFoundException("Usuario NO Registrado");
 		}
@@ -61,7 +63,7 @@ public class ConsultaEstudiantilController {
 			modelo.put("consultasEstudiantiles", consultasEstudiantiles);
 			modelo.put("realpath", realPath);
 			List<Rol> roles = new ArrayList<Rol>();
-			roles = rolesMapa.getRoles(primero.getId_usuario());
+			roles = rolesMapa.getRoles(datosUsuarioPublic.getId_usuario());
 			usuario.setRoles(roles);
 			hs.setAttribute("__sess_cliente", usuario);
 			modelo.put("usuario", usuario);

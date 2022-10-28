@@ -70,9 +70,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${encuestas}" var="encuesta" varStatus="contador">
+								<c:forEach items="${personas}" var="persona" varStatus="persona">
 									<tr>
-										<td id="titulo" class="center hidden-480">${contador.count}</td>
+										<td id="titulo" class="center hidden-480">${persona.count}</td>
 										<td id="nombre" class="right">Encuesta</td>
 										<td id="sigla" class="left"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${encuesta.fecha_creacion}" /></td>
 										<td id="opciones" class="center">
@@ -753,6 +753,7 @@
 		if (!$('#form').find('.has-error').length) {
 			datos = $('#form').serializeArray();
 			datos.push({name: 'id_encuesta', value: id});
+
 
 			$.ajax({
 				type: "POST",

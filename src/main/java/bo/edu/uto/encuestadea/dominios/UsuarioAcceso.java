@@ -19,6 +19,9 @@ public class UsuarioAcceso implements java.io.Serializable {
 	private String nombre_completo;
 	private String id_facultad;
 	private Integer id_unidad;
+	private Boolean id_estado;
+
+	private Persona persona;
 
 	private List<Rol> roles;
 }

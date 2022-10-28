@@ -11,6 +11,7 @@ import java.util.List;
  */
 public interface AccesoMapa {
 	public List getDatosUsuario(String apodo);
+	public UsuarioAcceso getDatosUsuarioPublic(String apodo);
 	public UsuarioAcceso getUsuario(String apodo);
 	public UsuarioAcceso getUsuarioByIdUsuario(Integer id_usuario);
 	public List<Rol> getRolList(Integer id_usuario);

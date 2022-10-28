@@ -22,8 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@RequestMapping("/personanuevo/**")
-public class PersonasnuevoController {
+@RequestMapping("/informaciondocente/**")
+public class InformacionDocenteController {
 
 	@Autowired
 	PersonaMapa personaMapa;
@@ -39,18 +39,13 @@ public class PersonasnuevoController {
 		return new ModelAndView("persona/index", modelo);
 	}
 
-	@RequestMapping(value = "/listar")
+	@RequestMapping(value = "/informacion")
 	@ResponseBody
 	public ModelAndView listar() throws ParseException {
 		HashMap modelo = new HashMap();
 		List personas = personaMapa.getAll();
-		modelo.put("personas", personas);
-		return new ModelAndView("persona/listar", modelo);
-	}
-	@RequestMapping(value = "/modal")
-	@ResponseBody
-	public ModelAndView listarr() throws ParseException {
-		return new ModelAndView("persona/Modal");
+		modelo.put("persona", personas);
+		return new ModelAndView("InformacionDocente/index", modelo);
 	}
 
 	@RequestMapping(value = "/getById")
@@ -66,13 +61,13 @@ public class PersonasnuevoController {
 	@ResponseBody
 	public Object nuevo(Persona persona,String fecha_nacimiento_aux,String fecha_modificacion_aux) throws ParseException {
 		HashMap modelo = new HashMap();
-		//System.out.println(""+persona);
-		//System.out.println(""+fecha_nacimiento_aux);
+		System.out.println(""+persona);
+		System.out.println(""+fecha_nacimiento_aux);
 		persona.setEstado("H");
 		persona.setFecha_nacimiento(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_nacimiento_aux));
 		persona.setFecha_modificacion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_modificacion_aux));
 		personaMapa.insert(persona);
-		//System.out.println("id nuevo:"+persona.getId_persona());
+		System.out.println("id nuevo:"+persona.getId_persona());
 		modelo.put("personas", persona);
 		return modelo;
 	}
@@ -91,7 +86,6 @@ public class PersonasnuevoController {
 	}
 
 	@RequestMapping(value = "/eliminar")
-
 	@ResponseBody
 	public Object eliminar(Persona persona) throws ParseException {
 		HashMap modelo = new HashMap();
