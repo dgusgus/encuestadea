@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package bo.edu.uto.encuestadea.controladores;
-import bo.edu.uto.encuestadea.dominios.Persona;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -30,8 +29,7 @@ public class PlanillaAvanceController {
 	@Autowired
 	PlanillaAvanceDetalleMapa planillaavancedetalleMapa;
 
-	@RequestMapping(value = "/index"
-			+ "")
+	@RequestMapping(value = "/index")
 	@ResponseBody
 	public Object index()
 	{
@@ -101,8 +99,8 @@ public class PlanillaAvanceController {
 		Planilladeavancedetalle.setId_tipo_actividad(1);
 		Planilladeavancedetalle.setId_planilla_avance(1);
 		System.out.println(Planilladeavancedetalle);
-		//planillaavancedetalleMapa.update(Planilladeavancedetalle);
-		//modelo.put("Planilladeavancedetalle", Planilladeavancedetalle);
+		planillaavancedetalleMapa.update(Planilladeavancedetalle);
+		modelo.put("Planilladeavancedetalle", Planilladeavancedetalle);
 		return modelo;
 		}
 

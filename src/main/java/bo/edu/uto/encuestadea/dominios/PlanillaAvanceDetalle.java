@@ -11,10 +11,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- *
- * @author raul
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,8 +29,4 @@ public class PlanillaAvanceDetalle {
 	private Date fecha_mod;
 	private Integer id_tipo_actividad;
 	private Integer id_planilla_avance;
-
-	/*
-	private List<UsuarioAcceso> usuarios;
-	*/
 }

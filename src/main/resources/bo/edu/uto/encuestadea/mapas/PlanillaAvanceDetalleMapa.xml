@@ -1,4 +1,4 @@
-	<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
@@ -16,12 +16,41 @@
 		;
 	</select>
 	<insert id="insert" parameterType="PlanillaAvanceDetalle" useGeneratedKeys="true" keyProperty="id_planilla_avance_detalle" keyColumn="id_planilla_avance_detalle">
-		INSERT INTO dea.planilla_avance_detalle
-		(fecha_planificacion, fecha_ejecucion, actividad, observacion, id_estado, id_usuario_mod, fecha_mod, id_tipo_actividad, id_planilla_avance)
-		VALUES(#{fecha_planificacion}, #{fecha_ejecucion}, #{actividad}, #{observacion}, #{id_estado}, #{id_usuario_mod}, #{fecha_mod}, #{id_tipo_actividad}, #{id_planilla_avance});
+		insert into dea.planilla_avance_detalle
+		(
+			fecha_planificacion
+			, fecha_ejecucion
+			, actividad, observacion
+			, id_estado
+			, id_usuario_mod
+			, fecha_mod
+			, id_tipo_actividad
+			, id_planilla_avance)
+		values(
+			#{fecha_planificacion}
+			, #{fecha_ejecucion}
+			, #{actividad}
+			, #{observacion}
+			, #{id_estado}
+			, #{id_usuario_mod}
+			, #{fecha_mod}
+			, #{id_tipo_actividad}
+			, #{id_planilla_avance}
+		);
 	</insert>
-
 	<update id="update" parameterType="PlanillaAvanceDetalle">
-		select 1;
+	update dea.planilla_avance_detalle
+	set
+		fecha_planificacion=#{fecha_planificacion}
+		, fecha_ejecucion=#{fecha_ejecucion}
+		, actividad=#{actividad}
+		, observacion=#{observacion}
+		, id_estado=#{id_estado}
+		, id_usuario_mod=#{id_usuario_mod}
+		, fecha_mod=#{fecha_mod}
+		, id_tipo_actividad=#{id_tipo_actividad}
+		, id_planilla_avance=#{id_planilla_avance}
+	where
+		id_planilla_avance_detalle=#{id_planilla_avance_detalle};
 	</update>
 </mapper>
