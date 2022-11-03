@@ -41,7 +41,7 @@
 							<td>
 								<a id="add" class="add" title="Add" data-toggle="tooltip"><i class="ace-icon fa fa-trash-o bigger-120"></i></a>
 								<a class="edit" title="Edit" data-toggle="tooltip"><i class="ace-icon fa fa-trash-o bigger-120" onclick="abrirEditar(${actividades.id_planilla_avance_detalle});"></i></a>
-								<a class="delete" title="Delete" data-toggle="tooltip"><i class="ace-icon fa fa-trash-o bigger-120"></i></a>
+								<a class="delete" title="Delete" data-toggle="tooltip"><i class="ace-icon fa fa-trash-o bigger-120" onclick="eliminar(${actividades.id_planilla_avance_detalle});"></i></a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -107,7 +107,7 @@
 		});
 		// Delete row on delete button click
 		$(document).on("click", ".delete", function () {
-			$(this).parents("tr").remove();
+			//$(this).parents("tr").remove();
 			$(".add-new").removeAttr("disabled");
 		});
 	});
@@ -126,7 +126,7 @@
 					'<td><input name="fecha_ejecucion1" class="form-control" value="' +response.planillaAD.fecha_ejecucion + '"></td>'+
 					'<td><input name="actividad" class="form-control" value="' +response.planillaAD.actividad + '"></td>'+
 					'<td><input name="observacion" type="text" class="form-control" value="' +response.planillaAD.observacion + '"></td>'+
-					'<td><input name="id_estado" type="text" class="form-control" value="' +response.planillaAD.id_estado + '"></td>'+
+					'<td><input name="id_estado" type="text" class="form-control" value="' +response.planillaAD.id_estado + '" checked></td>'+
 					'<td><input name="id_usuario_mod" type="number" class="form-control" value="' +response.planillaAD.id_usuario_mod + '"></td>'+
 					'<td><input name="fecha_mod1" type="date" class="form-control" value="' +response.planillaAD.fecha_mod + '"></td>'+
 					'<td><input name="id_tipo_actividad" type="number" class="form-control" value="' +response.planillaAD.id_tipo_actividad + '"></td>'+
@@ -135,6 +135,11 @@
 					'</tr>';
 			$("#fila"+id).replaceWith(row2);
 			},
+			/**
+			 * if(response.planillaAD.id_estado) row2 = row2 +'<td><input name="id_estado" type="checkbox" class="form-control" value="' +response.planillaAD.id_estado + '" checked></td>'+;
+					else row2 = row2 +'<td><input name="id_estado" type="checkbox" class="form-control" value="' +response.planillaAD.id_estado + '"></td>'+;
+					row2 = row2 +
+			 * **/
 			error: function () {
 				Toast.fire({
 					icon: 'error',
@@ -157,6 +162,7 @@
 					icon: 'success',
 					title: 'Edicion realizada con exito'
 				});
+				mostrarTablaAvance();
 			},
 			error: function () {
 				Toast.fire({
@@ -180,13 +186,34 @@
 			title: 'Llamada realizada con exito'
 			});
 			mostrarTablaAvance();
-			},
+		},
 		error: function () {
 		Toast.fire({
 			icon: 'error',
 			title: 'Error'
 				});
 				}
+		});
+	}
+
+	function eliminar(id)
+	{
+		$.ajax({
+			type: "POST",
+			url: 'planillaavance/eliminar.html?Id_planilla_avance_detalle=' + id,
+			success: function (response) {
+				Toast.fire({
+					icon: 'success',
+					title: 'Registro eliminado con exito'
+				});
+				mostrarTablaAvance();
+			},
+			error: function () {
+				Toast.fire({
+					icon: 'error',
+					title: 'Error'
+				});
+			}
 		});
 	}
 </script>

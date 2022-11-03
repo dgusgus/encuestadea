@@ -104,4 +104,18 @@ public class PlanillaAvanceController {
 		return modelo;
 		}
 
+	@RequestMapping(value = "/eliminar")
+	@ResponseBody
+	public Object eliminar(PlanillaAvanceDetalle Planilladeavancedetalle,HttpSession hs,String fecha_mod1) throws ParseException {
+		HashMap modelo = new HashMap();
+		Integer id_usuarioModificar = (Integer) hs.getAttribute("__id_usuario");
+		Planilladeavancedetalle = planillaavancedetalleMapa.getById(Planilladeavancedetalle.getId_planilla_avance_detalle());
+		Planilladeavancedetalle.setId_estado(false);
+		Planilladeavancedetalle.setId_usuario_mod(id_usuarioModificar);
+		Planilladeavancedetalle.setFecha_mod(new Date());
+		System.out.println(""+Planilladeavancedetalle);
+		planillaavancedetalleMapa.update(Planilladeavancedetalle);
+		modelo.put("Planilladeavancedetalle", Planilladeavancedetalle);
+		return modelo;
+		}
 }

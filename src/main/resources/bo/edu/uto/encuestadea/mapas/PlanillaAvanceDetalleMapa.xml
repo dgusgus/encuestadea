@@ -5,7 +5,7 @@
 <mapper namespace="bo.edu.uto.encuestadea.mapas.PlanillaAvanceDetalleMapa">
 	<select id="getAll" resultType="PlanillaAvanceDetalle">
 		select * from dea.planilla_avance_detalle p
-
+		order by p.id_planilla_avance_detalle
 		;
 	</select>
 
