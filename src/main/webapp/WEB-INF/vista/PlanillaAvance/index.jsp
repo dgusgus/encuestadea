@@ -28,24 +28,8 @@
 </div>
 <div class="row">
 	<div class="col-xs-12">
-
-
 		<div class="hr hr-18 hr-double dotted"></div>
-
-		<div class="widget-box">
-			<div class="widget-header widget-header-blue widget-header-flat">
-				<h4 class="widget-title lighter">PLANILLA DE AVANCE DE ACTIVIDADES ACADEMICAS DEL DOCENTE</h4>
-
-				<div class="widget-toolbar">
-					<div class="col-sm-4">
-						<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Añadir</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="tablaPlanillaAvance">
-
-		</div>
+		<div id="tablaPlanillaAvance"></div>
 	</div>
 </div>
 <div class="modal fade" id="ModalAgregarAvance" aria-hidden="true">

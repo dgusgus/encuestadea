@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt"	uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags" %>
 
-
+holas
 <div id="x-menus">
 	<ul class="nav nav-list">
 		<li class="active">

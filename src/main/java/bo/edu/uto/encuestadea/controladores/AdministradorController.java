@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author dtic
  */
 @Controller
-@RequestMapping("/administrador/**")
+	@RequestMapping("/administrador/**")
 public class AdministradorController {
 
 	@Autowired

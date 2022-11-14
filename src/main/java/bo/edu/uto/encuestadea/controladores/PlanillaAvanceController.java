@@ -33,8 +33,9 @@ public class PlanillaAvanceController {
 	@ResponseBody
 	public Object index()
 	{
+		List<PlanillaAvanceDetalle> actividades;
 		HashMap modelo = new HashMap();
-		List actividades = planillaavancedetalleMapa.getAll();
+		actividades = planillaavancedetalleMapa.getAll();
 		//System.out.println(actividades);
 		modelo.put("actividades", actividades);
 		return new ModelAndView("PlanillaAvance/index", modelo);
@@ -61,13 +62,12 @@ public class PlanillaAvanceController {
 	public Object nuevo(PlanillaAvanceDetalle Planilladeavancedetalle, HttpSession hs, String fecha_planificacion1,String fecha_ejecucion1,String fecha_mod1)
 		throws ParseException {
 		HashMap modelo = new HashMap();
-		//System.out.println(""+Planilladeavancedetalle);
 		Integer id_usuarioModificar = (Integer) hs.getAttribute("__id_usuario");
 		Planilladeavancedetalle.setFecha_planificacion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_planificacion1));
 		Planilladeavancedetalle.setFecha_ejecucion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_ejecucion1));
 		Planilladeavancedetalle.setId_usuario_mod(id_usuarioModificar);
+		Planilladeavancedetalle.setId_estado(true);
 		Planilladeavancedetalle.setFecha_mod(new Date());
-		Planilladeavancedetalle.setId_tipo_actividad(1);
 		Planilladeavancedetalle.setId_planilla_avance(1);
 		//System.out.println(Planilladeavancedetalle);
 		planillaavancedetalleMapa.insert(Planilladeavancedetalle);
@@ -96,7 +96,6 @@ public class PlanillaAvanceController {
 		Planilladeavancedetalle.setFecha_ejecucion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_ejecucion1));
 		Planilladeavancedetalle.setId_usuario_mod(id_usuarioModificar);
 		Planilladeavancedetalle.setFecha_mod(new Date());
-		Planilladeavancedetalle.setId_tipo_actividad(1);
 		Planilladeavancedetalle.setId_planilla_avance(1);
 		System.out.println(Planilladeavancedetalle);
 		planillaavancedetalleMapa.update(Planilladeavancedetalle);
