@@ -80,7 +80,7 @@ public class ConsultaEstudiantilController {
 
 		List<ConsultaEstudiantil> datos;
 		try {
-			datos = consultaEstudiantilMapa.getByIdUsuario(id_usuario);
+			datos = consultaEstudiantilMapa.getByIdUsuario(41);
 			response.put("data", datos);
 		} catch (Exception e) {
 			response.put("mensaje", "Error al realizar la consulta: " + e.toString());

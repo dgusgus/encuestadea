@@ -4,10 +4,28 @@
 
 <mapper namespace="bo.edu.uto.encuestadea.mapas.PlanillaAvanceDetalleMapa">
 	<select id="getAll" resultType="PlanillaAvanceDetalle">
-		select * from dea.planilla_avance_detalle p
-		order by p.id_planilla_avance_detalle
+		SELECT p.id_planilla_avance_detalle,
+		p.fecha_planificacion,
+		p.fecha_ejecucion,
+		p.actividad,
+		p.observacion,
+		p.id_tipo_actividad,
+		t.nombre_tipo
+		FROM dea.planilla_avance_detalle AS p
+		JOIN dea.tipo_actividad AS t
+		ON p.id_tipo_actividad = t.id_tipo_actividad
+		ORDER BY p.id_planilla_avance_detalle
 		;
 	</select>
+
+	<insert id="ActulizarInsert" parameterType="PlanillaAvanceDetalle" useGeneratedKeys="true" keyProperty="id_planilla_avance_detalle" keyColumn="id_planilla_avance_detalle">
+	INSERT INTO dea.planilla_avance_detalle(id_actividad_academica_docente,actividad,id_tipo_actividad,id_usuario_mod,id_estado,fecha_mod)
+	SELECT id_actividad_academica_docente,actividad_academica,tipo_de_actividad,#{id_usuario_mod},#{id_estado},#{fecha_mod}
+	FROM dea.actividades_academicas_docente
+	WHERE id_actividad_academica_docente NOT IN(SELECT id_actividad_academica_docente FROM  dea.planilla_avance_detalle)
+	ORDER BY id_actividad_academica_docente
+	;
+	</insert>
 
 	<select id="getById" resultType="PlanillaAvanceDetalle">
 		select * From dea.planilla_avance_detalle p
@@ -15,6 +33,7 @@
 		order by p.id_planilla_avance_detalle
 		;
 	</select>
+
 	<insert id="insert" parameterType="PlanillaAvanceDetalle" useGeneratedKeys="true" keyProperty="id_planilla_avance_detalle" keyColumn="id_planilla_avance_detalle">
 		insert into dea.planilla_avance_detalle
 		(

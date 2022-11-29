@@ -16,6 +16,10 @@ import bo.edu.uto.encuestadea.dominios.PlanillaAvanceDetalle;
 import bo.edu.uto.encuestadea.mapas.PlanillaAvanceDetalleMapa;
 import java.util.Date;
 import javax.servlet.http.HttpSession;
+//librerias nuevas
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import java.util.Map;
 
 /**
  *
@@ -28,17 +32,38 @@ public class PlanillaAvanceController {
 
 	@Autowired
 	PlanillaAvanceDetalleMapa planillaavancedetalleMapa;
+	//ActividadesAcademicasDocenteMapa actividadesacademicasdocenteMapa;
 
 	@RequestMapping(value = "/index")
 	@ResponseBody
 	public Object index()
 	{
 		List<PlanillaAvanceDetalle> actividades;
+		//List<PlanillaAvanceDetalle> prueba;
 		HashMap modelo = new HashMap();
 		actividades = planillaavancedetalleMapa.getAll();
+		//planillaavancedetalleMapa.actualizar();
+		//prueba = planillaavancedetalleMapa.getAll2();
+		//prueba = actividadesacademicasdocenteMapa.getAll();
+		//System.out.println(prueba);
 		//System.out.println(actividades);
 		modelo.put("actividades", actividades);
 		return new ModelAndView("PlanillaAvance/index", modelo);
+	}
+
+	@RequestMapping(value = "/actualizar")
+	@ResponseBody
+	public Object actualizar(PlanillaAvanceDetalle Planilladeavancedetalle, HttpSession hs)
+		throws ParseException {
+		HashMap modelo = new HashMap();
+		Integer id_usuarioModificar = (Integer) hs.getAttribute("__id_usuario");
+		Planilladeavancedetalle.setId_usuario_mod(id_usuarioModificar);
+		Planilladeavancedetalle.setId_estado(true);
+		Planilladeavancedetalle.setFecha_mod(new Date());
+		//System.out.println(Planilladeavancedetalle);
+		planillaavancedetalleMapa.ActulizarInsert(Planilladeavancedetalle);
+		modelo.put("Planilladeavancedetalle", Planilladeavancedetalle);
+		return modelo;
 	}
 
 	@RequestMapping(value = "/modalAvance")

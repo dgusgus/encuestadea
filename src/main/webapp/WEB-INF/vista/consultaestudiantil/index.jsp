@@ -40,11 +40,10 @@
 									<span class="label label-sm label-success">
 										paralelo
 									</span>
-										<span class="label label-sm label-warning">
+									<span class="label label-sm label-warning">
 										gestión
 									</span>
-									</span>
-										<span class="label label-sm label-danger">
+									<span class="label label-sm label-danger">
 										laboratorio
 									</span>
 								</th>

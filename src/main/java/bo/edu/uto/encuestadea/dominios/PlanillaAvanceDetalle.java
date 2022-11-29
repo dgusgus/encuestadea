@@ -29,4 +29,18 @@ public class PlanillaAvanceDetalle {
 	private Date fecha_mod;
 	private Integer id_tipo_actividad;
 	private Integer id_planilla_avance;
+
+	//datos de la TABLA actividades_academicas_docente"
+	private Integer id_actividad_academica_docente;
+	private Integer nivel_actividad_academica_padre;
+	private String actividad_academica;
+	private Boolean estado;
+	private Integer usuario_mod;
+	private Integer nivel_actividad_academica_hijo;
+	private Integer nivel_actividad_academica_subhijo;
+	private Integer tipo_de_actividad;
+
+	//datos de la TABLA tipo_actividad"
+	private String nombre_tipo;
+
 }
