@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bo.edu.uto.encuestadea.mapas.InformeMemoriaMapa">
+	<select id="getAllplanilla" resultType="InformeMemoria">
+		SELECT *,t.nombre_tipo
+		FROM dea.planilla_avance_detalle AS p
+		JOIN dea.tipo_actividad AS t
+		ON p.id_tipo_actividad = t.id_tipo_actividad
+		ORDER BY p.fecha_planificacion
+		;
+	</select>
+	<select id="getAll" resultType="InformeMemoria">
+		select * from dea.actividad_docente a
+		order by a.id_actividad_docente
+		;
+	</select>
+</mapper>

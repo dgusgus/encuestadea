@@ -32,23 +32,17 @@ public class PlanillaAvanceController {
 
 	@Autowired
 	PlanillaAvanceDetalleMapa planillaavancedetalleMapa;
-	//ActividadesAcademicasDocenteMapa actividadesacademicasdocenteMapa;
 
 	@RequestMapping(value = "/index")
 	@ResponseBody
-	public Object index()
+	public ModelAndView index()
 	{
-		List<PlanillaAvanceDetalle> actividades;
-		//List<PlanillaAvanceDetalle> prueba;
-		HashMap modelo = new HashMap();
-		actividades = planillaavancedetalleMapa.getAll();
-		//planillaavancedetalleMapa.actualizar();
-		//prueba = planillaavancedetalleMapa.getAll2();
-		//prueba = actividadesacademicasdocenteMapa.getAll();
-		//System.out.println(prueba);
+		//List<PlanillaAvanceDetalle> actividades;
+		//HashMap modelo = new HashMap();
+		//actividades = planillaavancedetalleMapa.getAll();
 		//System.out.println(actividades);
-		modelo.put("actividades", actividades);
-		return new ModelAndView("PlanillaAvance/index", modelo);
+		//modelo.put("actividades", actividades);
+		return new ModelAndView("PlanillaAvance/index");
 	}
 
 	@RequestMapping(value = "/actualizar")

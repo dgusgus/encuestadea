@@ -75,22 +75,22 @@
 							<div class="modal-body step-content">
 								<div class="step-pane active" data-step="1">
 									<div class="" id="data_step_1">
-										-<!-- Formulario 1 -->
+										-<!-- Formulario Administracion -->
 									</div>
 								</div>
 								<div class="step-pane" data-step="2">
 									<div class="" id="data_step_2">
-										-<!-- Formulario 2-->
+										-<!-- Formulario Investigacion-->
 									</div>
 								</div>
 								<div class="step-pane" data-step="3">
 									<div class="" id="data_step_3">
-										-<!-- Formulario 3-->
+										-<!-- Formulario Produccion-->
 									</div>
 								</div>
 								<div class="step-pane" data-step="4">
 									<div class="" id="data_step_4">
-										-<!-- Formulario 4-->
+										-<!-- Formulario Actualizacion-->
 									</div>
 								</div>
 							</div>
@@ -140,8 +140,8 @@
 		mostrarInvestigacion();
 		mostrarActualizacion();
 		mostrarProduccion();
-		mostrarModalAgregar1();
-		mostrarModalAgregar2();
+		//mostrarModalAgregar1();
+		//mostrarModalAgregar2();
 	});
 	function mostrarAdminstracion(){
 		$("#data_step_1").empty();
@@ -207,6 +207,7 @@
 			}
 		});
 	}
+	/**
 	function mostrarModalAgregar1(){
 		$("#ModalAgregar1").empty();
 		$.ajax({
@@ -242,21 +243,5 @@
 
 	function abrirModal() {
 		$("#ModalAgregar1").modal('show');
-
-	}
-	jQuery(function ($) {
-	window.prettyPrint && prettyPrint();
-	$('#id-check-horizontal').removeAttr('checked').on('click', function () {
-	$('#dt-list-1').toggleClass('dl-horizontal').prev().html(this.checked ? '&lt;dl class="dl-horizontal"&gt;' : '&lt;dl&gt;');
-	});
-	})
-			<--<!-- activar el calendario -->
-		$('.date-picker').datepicker({
-			autoclose: true,
-			todayHighlight: true
-			})
-			//show datepicker when clicking on the icon
-			.next().on(ace.click_event, function(){
-			$(this).prev().focus();
-					});
+	}**/
 </script>

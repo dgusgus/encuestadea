@@ -14,13 +14,13 @@
 		FROM dea.planilla_avance_detalle AS p
 		JOIN dea.tipo_actividad AS t
 		ON p.id_tipo_actividad = t.id_tipo_actividad
-		ORDER BY p.id_planilla_avance_detalle
+		ORDER BY p.fecha_planificacion
 		;
 	</select>
 
 	<insert id="ActulizarInsert" parameterType="PlanillaAvanceDetalle" useGeneratedKeys="true" keyProperty="id_planilla_avance_detalle" keyColumn="id_planilla_avance_detalle">
-	INSERT INTO dea.planilla_avance_detalle(id_actividad_academica_docente,actividad,id_tipo_actividad,id_usuario_mod,id_estado,fecha_mod)
-	SELECT id_actividad_academica_docente,actividad_academica,tipo_de_actividad,#{id_usuario_mod},#{id_estado},#{fecha_mod}
+	INSERT INTO dea.planilla_avance_detalle(id_actividad_academica_docente,actividad,id_tipo_actividad,id_usuario_mod,id_estado,fecha_mod,observacion)
+	SELECT id_actividad_academica_docente,actividad_academica,tipo_de_actividad,#{id_usuario_mod},#{id_estado},#{fecha_mod},''
 	FROM dea.actividades_academicas_docente
 	WHERE id_actividad_academica_docente NOT IN(SELECT id_actividad_academica_docente FROM  dea.planilla_avance_detalle)
 	ORDER BY id_actividad_academica_docente

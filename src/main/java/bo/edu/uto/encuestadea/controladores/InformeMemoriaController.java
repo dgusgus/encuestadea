@@ -4,13 +4,19 @@
  */
 package bo.edu.uto.encuestadea.controladores;
 
-import bo.edu.uto.encuestadea.dominios.Persona;
-import bo.edu.uto.encuestadea.mapas.PersonaMapa;
+import bo.edu.uto.encuestadea.dominios.InformeMemoria;
+import bo.edu.uto.encuestadea.mapas.InformeMemoriaMapa;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,101 +32,70 @@ import org.springframework.web.servlet.ModelAndView;
 public class InformeMemoriaController {
 
 	@Autowired
-	PersonaMapa personaMapa;
+	InformeMemoriaMapa informememoriaMapa;
 
 	@RequestMapping(value = "/index")
 	@ResponseBody
-	public Object index()
+	public ModelAndView index()
 	{
-		HashMap modelo = new HashMap();
-		List personas = personaMapa.getAll();
-		modelo.put("personas", personas);
-
-		return new ModelAndView("informeMemoria/index", modelo);
+		return new ModelAndView("informeMemoria/index");
 	}
 
 	@RequestMapping(value = "/administracion")
 	@ResponseBody
-	public ModelAndView Mostar1() throws ParseException {
-		return new ModelAndView("informeMemoria/Administracion");
+	public ModelAndView administracion() throws ParseException {
+		List<InformeMemoria> planilladetalle;
+		HashMap modelo = new HashMap();
+		planilladetalle = informememoriaMapa.getAllplanilla();
+		//System.out.println(planilladetalle);
+		modelo.put("planilladetalle", planilladetalle);
+		return new ModelAndView("informeMemoria/Administracion", modelo);
 	}
+
 	@RequestMapping(value = "/actualizacion")
 	@ResponseBody
-	public ModelAndView Mostar2() throws ParseException {
+	public ModelAndView actualizacion() throws ParseException {
 		return new ModelAndView("informeMemoria/Actualizacion");
 	}
+
 	@RequestMapping(value = "/investigacion")
 	@ResponseBody
-	public ModelAndView Mostar3() throws ParseException {
+	public ModelAndView investigacion() throws ParseException {
 		return new ModelAndView("informeMemoria/Investigacion");
 	}
+
 	@RequestMapping(value = "/produccion")
 	@ResponseBody
-	public ModelAndView Mostar4() throws ParseException {
+	public ModelAndView produccion() throws ParseException {
 		return new ModelAndView("informeMemoria/Produccion");
 	}
-	@RequestMapping(value = "/modalAgregar")
-	@ResponseBody
-	public ModelAndView Mostar5() throws ParseException {
-		return new ModelAndView("informeMemoria/ModalAgregar");
-	}
-
 
 	@RequestMapping(value = "/listar")
-	@ResponseBody
-	public ModelAndView listar() throws ParseException {
+	public ResponseEntity<?> listar() {
 		HashMap modelo = new HashMap();
-		List personas = personaMapa.getAll();
-		modelo.put("personas", personas);
-		return new ModelAndView("persona/listar", modelo);
-	}
-
-	@RequestMapping(value = "/getById")
-	@ResponseBody
-	public Object getById(Integer id) {
-		HashMap modelo = new HashMap();
-		Persona persona = personaMapa.getById(id);
-		modelo.put("personas", persona);
-		return modelo;
+		Map<String, Object> response = new HashMap<String, Object>();
+		List<InformeMemoria> datos;
+		datos = informememoriaMapa.getAll();
+		//System.out.println(datos);
+		response.put("data", datos);
+		return new ResponseEntity(response, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/nuevo")
 	@ResponseBody
-	public Object nuevo(Persona persona,String fecha_nacimiento_aux,String fecha_modificacion_aux) throws ParseException {
+	public Object nuevo(InformeMemoria InformeMemoria, HttpSession hs, String fecha_ini1)
+		throws ParseException {
 		HashMap modelo = new HashMap();
-		System.out.println(""+persona);
-		System.out.println(""+fecha_nacimiento_aux);
-		persona.setEstado("H");
-		persona.setFecha_nacimiento(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_nacimiento_aux));
-		persona.setFecha_modificacion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_modificacion_aux));
-		personaMapa.insert(persona);
-		System.out.println("id nuevo:"+persona.getId_persona());
-		modelo.put("personas", persona);
-		return modelo;
-	}
-
-	@RequestMapping(value = "/editar")
-	@ResponseBody
-	public Object editar(Persona persona,String fecha_nacimiento_aux,String fecha_modificacion_aux) throws ParseException {
-		HashMap modelo = new HashMap();
-		persona.setFecha_nacimiento(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_nacimiento_aux));
-		persona.setFecha_modificacion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_modificacion_aux));
-		if(persona.getId_estado() == null) persona.setId_estado(false);
-		personaMapa.update(persona);
-		System.out.println("id nuevo:"+persona.getId_persona());
-		modelo.put("personas", persona);
-		return modelo;
-	}
-
-	@RequestMapping(value = "/eliminar")
-	@ResponseBody
-	public Object eliminar(Persona persona) throws ParseException {
-		HashMap modelo = new HashMap();
-		persona = personaMapa.getById(persona.getId_persona());
-		persona.setId_estado(false);
-		personaMapa.update(persona);
-		System.out.println("id nuevo:"+persona.getId_persona());
-		modelo.put("personas", persona);
+		Integer id_usuarioModificar = (Integer) hs.getAttribute("__id_usuario");
+		InformeMemoria.setFecha_ini(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_ini1));
+		InformeMemoria.setId_estado(true);
+		InformeMemoria.setId_usuario_mod(id_usuarioModificar);
+		InformeMemoria.setFecha_mod(new Date());
+		InformeMemoria.setId_informe(1);
+		InformeMemoria.setId_planilla_avance(1);
+		System.out.println(InformeMemoria);
+		//planillaavancedetalleMapa.insert(Planilladeavancedetalle);
+		//modelo.put("Planilladeavancedetalle", Planilladeavancedetalle);
 		return modelo;
 	}
 }

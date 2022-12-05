@@ -10,7 +10,6 @@
 	<form>
 		<div class="row">
 			<div class="col-sm-12">
-
 				<!-- #section:elements.accordion -->
 				<div id="accordion" class="accordion-style1 panel-group">
 					<div class="panel panel-default">
@@ -26,482 +25,356 @@
 						<div class="panel-collapse collapse in" id="collapseOne">
 							<div class="panel-body">
 								<div class="col-xs-12">
-
-									<!-- #section:elements.form -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label " for="form-field-1"> Text Fielddddddddddddddddd </label>
-										<div class="col-sm-9">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-3 control-label " for="form-field-1"> Fecha de Presentacion </label>
-										<div class="col-sm-9">
-											<div class="input-group col-sm-6">
-												<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" />
-												<span class="input-group-addon">
-													<i class="fa fa-calendar bigger-110"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-3 control-label " for="form-field-1"> Fecha de inicio de actividades</label>
-										<div class="col-sm-9">
-											<div class="input-group col-sm-6">
-												<input class="form-control date-picker" id="id-date-picker-2" type="text" data-date-format="dd-mm-yyyy" />
-												<span class="input-group-addon">
-													<i class="fa fa-calendar bigger-110"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-3 control-label " for="form-field-1">Fecha de inicio de conclusiones</label>
-										<div class="col-sm-9">
-											<div class="input-group col-sm-6">
-												<input class="form-control date-picker" id="id-date-picker-3" type="text" data-date-format="dd-mm-yyyy" />
-												<span class="input-group-addon">
-													<i class="fa fa-calendar bigger-110"></i>
-												</span>
-											</div>
-										</div>
-									</div>
 									<h1>Avance materia</h1>
-									<div class="col-xs-10">
-										<div class="widget-box widget-color-green">
-											<div class="widget-header">
-												<h5 class="widget-title">Temas avanzados</h5>
-											</div>
-										</div>
+								<div>
+									<div class="table-header">
+										TEMAS AVANZADOS
 									</div>
-									<div class="col-xs-2 ">
-										<a onclick="abrirModal()" class="btn btn-block btn-success">
-											<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-											<span>Agregar</span>
-										</a>
-									</div>
-									<div>
-										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th class="center" style="width: 5%">
+									<form id="frm_Admin_1">
+										<table id="simple-table" class="table table-striped table-bordered table-hover">
+											<thead>
+												<tr>
+													<th class="center">
 															<label class="pos-rel">
 																Numero
 															</label>
-														</th>
-														<th class="center">Temas</th>
-														<th class="center"style="width: 2	0%">Estado</th>
-														<th class="center">Justificacion</th>
-														<th class="center" style="width: 10%">Botones</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="center">
-															<label class="pos-rel">1</label>
-														</td>
-														<td class="center">
-															<a>Primer Parcial</a>
-														</td>
-														<td class="center">
-															<a>Primer Parcial</a>
-														</td>
-														<td class="center">
-															<a>Primer Parcial</a>
-														</td>
-														<td class="center">
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<hr>
-
-									<div class="col-xs-10">
-										<div class="widget-box widget-color-blue">
-											<div class="widget-header">
-												<h5 class="widget-title">Examenes(Parciales, final, revalida)</h5>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-2 ">
-										<a onclick="abrirModal()" class="btn btn-block btn-primary">
-											<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-											<span>Agregar</span>
-										</a>
-									</div>
-									<div>
-										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th class="center">
+													</th>
+													<th class="center">
 															<label class="pos-rel">
-																Numero
+																Actividad
 															</label>
-														</th>
-														<th class="center">Asunto</th>
-														<th class="center">
+													</th>
+													<th class="center">
 															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-															Fecha Establecida
-														</th>
-														<th class="center">
+															Fecha Planificada
+													</th>
+													<th class="center">
 															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
 															Fecha Ejecutada
-														</th>
-														<th class="center">
-															Estado
-														</th>
-														<th class="center">Botones</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
+													</th>
+													<th> Tipo
+														<span class="label label-sm label-info">
+															Tema
+														</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${planilladetalle}" var="planilladetalle" varStatus="contador">
+													<c:if test="${planilladetalle.id_tipo_actividad < 3}">
+													<tr id="fila-planilla${planilladetalle.id_planilla_avance_detalle}">
+														<td class="center hidden-480">${planilladetalle.id_planilla_avance_detalle}</td>
+														<td class="right">${planilladetalle.actividad}</td>
 														<td class="center">
-															<label class="pos-rel">1</label>
+															<span class="label label-default">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_planificacion}"/>
+															</span>
 														</td>
 														<td class="center">
-															<a>Primer Parcial</a>
+															<span class="label label-warning">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_ejecucion}"/>
+															</span>
 														</td>
-														<td class="center">enero 1</td>
-														<td class="center">junio 12</td>
-														<td class="center">No Cumplio</td>
 														<td class="center">
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
-
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
+															<span class="label label-sm info">${planilladetalle.nombre_tipo}</span>
 														</td>
 													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
+													</c:if>
+												</c:forEach>
+											</tbody>
+										</table>
+									</form>
 									<hr>
-
-									<div class="col-xs-10">
-										<div class="widget-box widget-color-blue">
-											<div class="widget-header">
-												<h5 class="widget-title">Practicas</h5>
-											</div>
-										</div>
+									<div class="table-header">
+										EXAMENES
 									</div>
-									<div class="col-xs-2 ">
-										<a href="#" class="btn btn-block btn-primary">
-											<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-											<span>Agregar</span>
-										</a>
-									</div>
-									<div>
-										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th class="center">
+									<form id="frm_Admin_1">
+										<table id="simple-table" class="table table-striped table-bordered table-hover">
+											<thead>
+												<tr>
+													<th class="center">
 															<label class="pos-rel">
 																Numero
 															</label>
-														</th>
-														<th class="center">Asunto</th>
-														<th class="center">
+													</th>
+													<th class="center">
+															<label class="pos-rel">
+																Actividad
+															</label>
+													</th>
+													<th class="center">
 															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-															Fecha Establecida
-														</th>
-														<th class="center">
+															Fecha Planificada
+													</th>
+													<th class="center">
 															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
 															Fecha Ejecutada
-														</th>
-														<th class="center">
-															Estado
-														</th>
-														<th class="center">Botones</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
+													</th>
+													<th> Tipo
+														<span class="label label-sm label-danger">
+															Examen
+														</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${planilladetalle}" var="planilladetalle" varStatus="contador">
+													<c:if test="${planilladetalle.id_tipo_actividad == 4}">
+													<tr id="fila-planilla${planilladetalle.id_planilla_avance_detalle}">
+														<td class="center hidden-480">${planilladetalle.id_planilla_avance_detalle}</td>
+														<td class="right">${planilladetalle.actividad}</td>
 														<td class="center">
-															<label class="pos-rel">1</label>
+															<span class="label label-default">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_planificacion}"/>
+															</span>
 														</td>
 														<td class="center">
-															<a>Primer Parcial</a>
+															<span class="label label-warning">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_ejecucion}"/>
+															</span>
 														</td>
-														<td class="center">enero 1</td>
-														<td class="center">junio 12</td>
-														<td class="center">No Cumplio</td>
 														<td class="center">
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
-
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
+															<span class="label label-sm info">${planilladetalle.nombre_tipo}</span>
 														</td>
 													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
+													</c:if>
+												</c:forEach>
+											</tbody>
+										</table>
+									</form>
 									<hr>
-
-									<div class="col-xs-10">
-										<div class="widget-box widget-color-blue">
-											<div class="widget-header">
-												<h5 class="widget-title">Proyectos, trabajos de campo, etc.</h5>
-											</div>
-										</div>
+									<div class="table-header">
+										PRACTICAS
 									</div>
-									<div class="col-xs-2 ">
-										<a href="#" class="btn btn-block btn-primary">
-											<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-											<span>Agregar</span>
-										</a>
-									</div>
-									<div>
-										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th class="center">
+									<form id="frm_Admin_1">
+										<table id="simple-table" class="table table-striped table-bordered table-hover">
+											<thead>
+												<tr>
+													<th class="center">
 															<label class="pos-rel">
 																Numero
 															</label>
-														</th>
-														<th class="center">Asunto</th>
-														<th class="center">
+													</th>
+													<th class="center">
+															<label class="pos-rel">
+																Actividad
+															</label>
+													</th>
+													<th class="center">
 															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-															Fecha Establecida
-														</th>
-														<th class="center">
+															Fecha Planificada
+													</th>
+													<th class="center">
 															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
 															Fecha Ejecutada
-														</th>
-														<th class="center">
-															Estado
-														</th>
-														<th class="center">Botones</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
+													</th>
+													<th> Tipo
+														<span class="label label-sm label-success">
+															Practica
+														</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${planilladetalle}" var="planilladetalle" varStatus="contador">
+													<c:if test="${planilladetalle.id_tipo_actividad == 5}">
+													<tr id="fila-planilla${planilladetalle.id_planilla_avance_detalle}">
+														<td class="center hidden-480">${planilladetalle.id_planilla_avance_detalle}</td>
+														<td class="right">${planilladetalle.actividad}</td>
 														<td class="center">
-															<label class="pos-rel">1</label>
+															<span class="label label-default">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_planificacion}"/>
+															</span>
 														</td>
 														<td class="center">
-															<a>Primer Parcial</a>
+															<span class="label label-warning">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_ejecucion}"/>
+															</span>
 														</td>
-														<td class="center">enero 1</td>
-														<td class="center">junio 12</td>
-														<td class="center">No Cumplio</td>
 														<td class="center">
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
-
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
+															<span class="label label-sm info">${planilladetalle.nombre_tipo}</span>
 														</td>
 													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
+													</c:if>
+												</c:forEach>
+											</tbody>
+										</table>
+									</form>
 									<hr>
-									<h3>OTRAS ACTIVIDADES DOCENTES</h3>
-									<div class="col-xs-10">
-										<div class="widget-box widget-color-purple">
-											<div class="widget-header">
-												<h5 class="widget-title">Examen de competecia</h5>
-											</div>
-										</div>
+									<div class="table-header">
+										PROYECTOS
 									</div>
-									<div class="col-xs-2 ">
-										<a href="#" class="btn btn-block btn-purple">
-											<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-											<span>Agregar</span>
-										</a>
-									</div>
-									<div>
-										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th class="center">
+									<form id="frm_Admin_1">
+										<table id="simple-table" class="table table-striped table-bordered table-hover">
+											<thead>
+												<tr>
+													<th class="center">
 															<label class="pos-rel">
 																Numero
 															</label>
-														</th>
-														<th class="center">Asunto</th>
-														<th class="center">
+													</th>
+													<th class="center">
+															<label class="pos-rel">
+																Actividad
+															</label>
+													</th>
+													<th class="center">
+															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+															Fecha Planificada
+													</th>
+													<th class="center">
 															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
 															Fecha Ejecutada
-														</th>
-														<th class="center">Botones</th>
+													</th>
+													<th> Tipo
+														<span class="label label-sm label-pink">
+															Proyecto
+														</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${planilladetalle}" var="planilladetalle" varStatus="contador">
+													<c:if test="${planilladetalle.id_tipo_actividad == 6}">
+													<tr id="fila-planilla${planilladetalle.id_planilla_avance_detalle}">
+														<td class="center hidden-480">${planilladetalle.id_planilla_avance_detalle}</td>
+														<td class="right">${planilladetalle.actividad}</td>
+														<td class="center">
+															<span class="label label-default">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_planificacion}"/>
+															</span>
+														</td>
+														<td class="center">
+															<span class="label label-warning">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_ejecucion}"/>
+															</span>
+														</td>
+														<td class="center">
+															<span class="label label-sm info">${planilladetalle.nombre_tipo}</span>
+														</td>
 													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="center">
-															<label class="pos-rel">1</label>
-														</td>
-														<td class="center">
-															<a>Primer Parcial</a>
-														</td>
-														<td class="center">enero 1</td>
-														<td class="center">
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
-
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
+													</c:if>
+												</c:forEach>
+											</tbody>
+										</table>
+									</form>
 									<hr>
 
-									<div class="col-xs-10">
-										<div class="widget-box widget-color-purple">
-											<div class="widget-header">
-												<h5 class="widget-title">Examen de grado</h5>
-											</div>
-										</div>
+									<hr>
+									<div class="table-header">
+										LABORATORIOS
 									</div>
-									<div class="col-xs-2 ">
-										<a href="#" class="btn btn-block btn-purple">
-											<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-											<span>Agregar</span>
-										</a>
-									</div>
-									<div>
-										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th class="center">
+									<form id="frm_Admin_1">
+										<table id="simple-table" class="table table-striped table-bordered table-hover">
+											<thead>
+												<tr>
+													<th class="center">
 															<label class="pos-rel">
 																Numero
 															</label>
-														</th>
-														<th class="center">Asunto</th>
-														<th class="center">
-															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-															Fecha Ejecutada
-														</th>
-														<th class="center">Botones</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="center">
-															<label class="pos-rel">1</label>
-														</td>
-														<td class="center">
-															<a>Primer Parcial</a>
-														</td>
-														<td class="center">enero 1</td>
-														<td class="center">
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
-
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<hr>
-
-									<div class="col-xs-10">
-										<div class="widget-box widget-color-purple">
-											<div class="widget-header">
-												<h5 class="widget-title">Tesis (Proyecto de Grado)</h5>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-2 ">
-										<a href="#" class="btn btn-block btn-purple">
-											<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-											<span>Agregar</span>
-										</a>
-									</div>
-									<div>
-										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th class="center">
+													</th>
+													<th class="center">
 															<label class="pos-rel">
-																Numero
+																Actividad
 															</label>
-														</th>
-														<th class="center">Asunto</th>
-														<th class="center">
+													</th>
+													<th class="center">
+															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+															Fecha Planificada
+													</th>
+													<th class="center">
 															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
 															Fecha Ejecutada
-														</th>
-														<th class="center">Botones</th>
+													</th>
+													<th> Tipo
+														<span class="label label-sm label-warning">
+															Laboratorio
+														</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${planilladetalle}" var="planilladetalle" varStatus="contador">
+													<c:if test="${planilladetalle.id_tipo_actividad == 35}">
+													<tr id="fila-planilla${planilladetalle.id_planilla_avance_detalle}">
+														<td class="center hidden-480">${planilladetalle.id_planilla_avance_detalle}</td>
+														<td class="right">${planilladetalle.actividad}</td>
+														<td class="center">
+															<span class="label label-default">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_planificacion}"/>
+															</span>
+														</td>
+														<td class="center">
+															<span class="label label-warning">
+																<fmt:formatDate type = "date" dateStyle ="long" timeStyle ="long" value="${planilladetalle.fecha_ejecucion}"/>
+															</span>
+														</td>
+														<td class="center">
+															<span class="label label-sm info">${planilladetalle.nombre_tipo}</span>
+														</td>
 													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="center">
-															<label class="pos-rel">1</label>
-														</td>
-														<td class="center">
-															<a>Primer Parcial</a>
-														</td>
-														<td class="center">enero 1</td>
-														<td class="center">
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
+													</c:if>
+												</c:forEach>
+											</tbody>
+										</table>
+									</form>
+								</div>
+								<!--
+								<hr>
+								<div id='actividades_1'class="table-header">
+									EXAMENES DE COMPETENCIA
+								</div>
+								<form id="frm_Admin_3">
+									<table id="tabla_memoria" class="table table-striped table-bordered table-hover">
+										<thead class="thead-dark" name='tabla_head'>
+										</thead>
+										<tbody id="body_competencia">
+										</tbody>
+									</table>
+								</form>
+								<hr>
+								<div id='actividades_2' class="table-header">
+									EXAMENES DE GRADO
+								</div>
+								<form id="frm_Admin_4">
+									<table id="tabla_memoria" class="table table-striped table-bordered table-hover">
+										<thead name='tabla_head'>
+										</thead>
+										<tbody id="body_exgrado">
+										</tbody>
+									</table>
+								</form>
+								<hr>
+								<div id='actividades_3' class="table-header">
+									TESIS (PROYECTO DE GRADO)
+								</div>
+								<form id="frm_Admin_4">
+									<table id="tabla_memoria" class="table table-striped table-bordered table-hover">
+										<thead name='tabla_head'>
+										</thead>
+										<tbody id="body_tesis">
+										</tbody>
+									</table>
+								</form>
+								<hr>
+								comment -->
 
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<hr>
+
+								<div id='actividades_1' class="table-header">
+									EXAMENES DE COMPETENCIA)
+								</div>
+								<div id='add_tabla_1'></div>
+
+								<div id='actividades_2' class="table-header">
+									EXAMENES DE GRADO
+								</div>
+								<div id='add_tabla_2'></div>
+
+								<div id='actividades_3' class="table-header">
+									TESIS (PROYECTO DE GRADO)
+								</div>
+								<div id='add_tabla_3'></div>
+
 								</div>
 							</div>
 						</div>
@@ -516,125 +389,18 @@
 								</a>
 							</h4>
 						</div>
-
 						<div class="panel-collapse collapse" id="collapseTwo">
-							<div class="panel-body">
-								<div class="col-xs-10">
-									<div class="widget-box widget-color-blue">
-										<div class="widget-header">
-											<h5 class="widget-title">Proyecto</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-2 ">
-									<a href="#" class="btn btn-block btn-primary">
-										<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-										<span>Agregar</span>
-									</a>
-								</div>
-								<div>
-									<div>
-										<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-											<thead>
-												<tr>
-													<th class="center">
-														<label class="pos-rel">
-															Numero
-														</label>
-													</th>
-													<th class="center">Tema</th>
-													<th class="center">
-														<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-														Fecha
-													</th>
-													<th class="center">Botones</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td class="center">
-														<label class="pos-rel">1</label>
-													</td>
-													<td class="center">
-														<a>Primer Parcial</a>
-													</td>
-													<td class="center">Feb 12</td>
-													<td class="center">
-														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="green" href="#">
-																<i class="ace-icon fa fa-pencil bigger-130"></i>
-															</a>
-
-															<a class="red" href="#">
-																<i class="ace-icon fa fa-trash-o bigger-130"></i>
-															</a>
-														</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								<div class="col-xs-10">
-									<div class="widget-box widget-color-blue">
-										<div class="widget-header">
-											<h5 class="widget-title">Tesis de Grado</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-2 ">
-									<a href="#" class="btn btn-block btn-primary">
-										<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-										<span>Agregar</span>
-									</a>
-								</div>
-								<div>
-									<div>
-										<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-											<thead>
-												<tr>
-													<th class="center">
-														<label class="pos-rel">
-															Numero
-														</label>
-													</th>
-													<th class="center">Tema</th>
-													<th class="center">
-														<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-														Fecha
-													</th>
-													<th class="center">Botones</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td class="center">
-														<label class="pos-rel">1</label>
-													</td>
-													<td class="center">
-														<a>Primer Parcial</a>
-													</td>
-													<td class="center">Feb 12</td>
-													<td class="center">
-														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="green" href="#">
-																<i class="ace-icon fa fa-pencil bigger-130"></i>
-															</a>
-
-															<a class="red" href="#">
-																<i class="ace-icon fa fa-trash-o bigger-130"></i>
-															</a>
-														</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
+							<div id='actividades_4' class="table-header">
+								PROYECTO DE GRADO
 							</div>
+							<div id='add_tabla_4'></div>
+
+							<div id='actividades_5' class="table-header">
+								TESIS DE GRADO
+							</div>
+							<div id='add_tabla_5'></div>
 						</div>
 					</div>
-
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class="panel-title">
@@ -644,66 +410,11 @@
 								</a>
 							</h4>
 						</div>
-
 						<div class="panel-collapse collapse" id="collapseThree">
-							<div class="panel-body">
-								<div class="col-xs-10">
-									<div class="widget-box widget-color-blue">
-										<div class="widget-header">
-											<h5 class="widget-title">Tesis (Proyecto de Grado)</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-2 ">
-									<a href="#" class="btn btn-block btn-primary">
-										<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-										<span>Agregar</span>
-									</a>
-								</div>
-								<div>
-									<div>
-										<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-											<thead>
-												<tr>
-													<th class="center">
-														<label class="pos-rel">
-															Numero
-														</label>
-													</th>
-													<th class="center">Tema</th>
-													<th class="center">
-														<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-														Fecha
-													</th>
-													<th class="center">Botones</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td class="center">
-														<label class="pos-rel">1</label>
-													</td>
-													<td class="center">
-														<a>Primer Parcial</a>
-													</td>
-													<td class="center">Feb 12</td>
-													<td class="center">
-														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="green" href="#">
-																<i class="ace-icon fa fa-pencil bigger-130"></i>
-															</a>
-
-															<a class="red" href="#">
-																<i class="ace-icon fa fa-trash-o bigger-130"></i>
-															</a>
-														</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
+							<div id='actividades_6' class="table-header">
+								TAREAS ENCOMENDADAS POR AUTORIDADES
 							</div>
+							<div id='add_tabla_6'></div>
 						</div>
 					</div>
 
@@ -716,71 +427,188 @@
 								</a>
 							</h4>
 						</div>
-
 						<div class="panel-collapse collapse" id="collapseFour">
-							<div class="panel-body">
-								<div class="col-xs-10">
-									<div class="widget-box widget-color-blue">
-										<div class="widget-header">
-											<h5 class="widget-title">Tesis (Proyecto de Grado)</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-2 ">
-									<a href="#" class="btn btn-block btn-primary">
-										<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
-										<span>Agregar</span>
-									</a>
-								</div>
-								<div>
-									<div>
-										<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-											<thead>
-												<tr>
-													<th class="center">
-														<label class="pos-rel">
-															Numero
-														</label>
-													</th>
-													<th class="center">Tema</th>
-													<th class="center">
-														<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-														Fecha
-													</th>
-													<th class="center">Botones</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td class="center">
-														<label class="pos-rel">1</label>
-													</td>
-													<td class="center">
-														<a>Primer Parcial</a>
-													</td>
-													<td class="center">Feb 12</td>
-													<td class="center">
-														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="green" href="#">
-																<i class="ace-icon fa fa-pencil bigger-130"></i>
-															</a>
-
-															<a class="red" href="#">
-																<i class="ace-icon fa fa-trash-o bigger-130"></i>
-															</a>
-														</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
+							<div id='actividades_7' class="table-header">
+								DOCENCIA EN PROGRAMA DE POSTGRADO
 							</div>
+							<div id='add_tabla_7'></div>
 						</div>
 					</div>
 				</div>
-				<!-- /section:elements.accordion -->
 			</div><!-- /.col -->
 		</div><!-- /.ROW -->
 	</form>
 </div>
+<script>
+	$(function () {
+			listar();
+			//AgregarNuevo();
+	});
+
+	function AgregarFila(variable) {
+		console.log(variable);
+		var fila  = '<tr id="variable">' +
+						'<td></td>' +
+						'<td class="center"><input name="nombre_actividad" type="text" class="form-control" ></td>' +
+						'<td class="center"><input name="fecha_ini1" type="date"required class="form-control"></td>' +
+						'<td>'+
+							'<div class="hidden-sm hidden-xs btn-group">'+
+								'<button class="btn btn-xs btn-success" onclick="GuardarNuevoDato('+variable+');">'+
+									'<i class="ace-icon fa fa-check bigger-120"></i>'+
+								'</button>'+
+							'</div>'+
+						'</td>' +
+					'</tr>';
+			//$('thead[name="tabla_head_'+variable+'"]').append(fila);
+			$("#tabla_"+variable+" tbody").append(fila);
+		/**
+		$.ajax({
+			success: function () {
+			},
+			error: function () {
+				Toast.fire({
+					icon: 'error',
+					title: 'Error'
+				});
+			}
+		});**/
+	};
+
+	function Botones(variable) {
+		let botones =
+			'<div class="widget-toolbar">'+
+				'<div class="btn-group" role="group">'+
+					'<button type="button" class="btn_add btn btn-inverse" onclick="AgregarFila('+variable+');"><i class="fa fa-plus"></i> Añadir</button>'+
+				'</div>'+
+			'</div>';
+			$("#actividades_"+variable).append(botones);
+	};
+
+	function crear_thead(variable) {
+		let cabezera  =
+						'<tr>'+
+							'<th class="center">'+
+								'<label class="pos-rel">Numero</label>'+
+							'</th>'+
+							'<th class="center">'+
+								'<label class="pos-rel">Actividad</label>'+
+							'</th>'+
+							'<th class="center">'+
+								'<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>Fecha'+
+							'</th>'+
+							'<th></th>'+
+						'</tr>';
+		$('thead[name="tabla_head_'+variable+'"]').append(cabezera);
+	};
+	function crear_tabla(variable) {
+		let tabla  =
+			'<form id="formulario_'+variable+'">'+
+				'<table id="tabla_'+variable+'" class="table table-striped table-bordered table-hover">'+
+					'<thead name="tabla_head_'+variable+'">'+
+					'</thead>'+
+					'<tbody id="tabla_body_'+variable+'">'+
+					'</tbody>'+
+				'</table>'+
+			'</form>'+
+			'<hr>';
+		$('#add_tabla_'+variable).append(tabla);
+	};
+	function llenar_body(variable) {
+		let tabla  =
+			'<form id="formulario_'+variable+'">'+
+				'<table id="tabla_'+variable+'" class="table table-striped table-bordered table-hover">'+
+					'<thead name="tabla_head_'+variable+'">'+
+					'</thead>'+
+					'<tbody id="tabla_body_'+variable+'">'+
+					'</tbody>'+
+				'</table>'+
+			'</form>'+
+			'<hr>';
+		$('#add_tabla_'+variable).append(tabla);
+	};
+
+		function listar(){
+		//$("#simple_tabla1").empty();
+		$.ajax({
+			type: "POST",
+			url: 'informememoria/listar.html',
+			success: function (response) {
+				let i = 0;
+				while (i < response.data.length) {
+					Botones(i);
+					crear_tabla(i);
+					crear_thead(i);
+					let cuerpo =
+						'<tr id="fila_'+i+'">'+
+							'<td class="center hidden-480">'+response.data[i].id_actividad_docente+'</td>'+
+							'<td class="right">'+response.data[i].nombre_actividad+'</td>'+
+							'<td class="center"><span class="label label-default">'+response.data[i].fecha_ini+'</span></td>'+
+							'<td class="center"></td>'+
+					'</tr>';
+					$("#tabla_body_"+i).append(cuerpo);
+					/**
+					switch (response.data[i].id_tipo_actividad) {
+					case 7:
+						$("#tabla_body_"+i).append(cuerpo);
+						break;
+					case 8:
+						$("#tabla_body_2").append(cuerpo);
+						break;
+					case 9:
+						$("#tabla_body_3").append(cuerpo);
+						break;
+					case 10:
+						$("#body_progrado").append(cuerpo);
+						break;
+					case 11:
+						$("#body_tgrado").append(cuerpo);
+						break;
+					case 12:
+						$("#body_tarea").append(cuerpo);
+						break;
+					case 13:
+						$("#body_postgrado").append(cuerpo);
+						break;
+					default:
+						$("#simple_cuerpo10	").append(cuerpo);
+				}**/
+				//console.log(i);
+				i++;
+			}
+		},
+			error: function () {
+
+				Toast.fire({
+					icon: 'error',
+					title: 'Error'
+				});
+			}
+		});
+	}
+
+	function GuardarNuevoDato(variable){
+		//console.log("estamos en GuardarNuevoDato",variable);
+		var data = $("#formulario_"+variable).serializeArray();
+		console.log(data);
+		$.ajax({
+		type: "POST",
+		url: 'informememoria/nuevo.html',
+		data: data,
+		success: function (response) {
+			console.log(response);
+			Toast.fire({
+			icon: 'success',
+			title: 'Llamada realizada con exito'
+			});
+			//mostrarTablaAvance();
+		},
+		error: function () {
+		Toast.fire({
+			icon: 'error',
+			title: 'Error'
+				});
+				}
+		});
+	}
+</script>
+
