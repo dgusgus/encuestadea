@@ -57,6 +57,7 @@
 			, #{id_planilla_avance}
 		);
 	</insert>
+
 	<update id="update" parameterType="PlanillaAvanceDetalle">
 	update dea.planilla_avance_detalle
 	set

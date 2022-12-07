@@ -5,6 +5,7 @@
 package bo.edu.uto.encuestadea.controladores;
 
 import bo.edu.uto.encuestadea.dominios.InformeMemoria;
+import bo.edu.uto.encuestadea.dominios.PlanillaAvanceDetalle;
 import bo.edu.uto.encuestadea.mapas.InformeMemoriaMapa;
 
 import java.text.ParseException;
@@ -93,9 +94,38 @@ public class InformeMemoriaController {
 		InformeMemoria.setFecha_mod(new Date());
 		InformeMemoria.setId_informe(1);
 		InformeMemoria.setId_planilla_avance(1);
-		System.out.println(InformeMemoria);
-		//planillaavancedetalleMapa.insert(Planilladeavancedetalle);
-		//modelo.put("Planilladeavancedetalle", Planilladeavancedetalle);
+		//System.out.println(InformeMemoria);
+		informememoriaMapa.insertNuevo(InformeMemoria);
+		modelo.put("InformeMemoria", InformeMemoria);
 		return modelo;
 	}
+
+	@RequestMapping(value = "/getById")
+	@ResponseBody
+	public Object getById(Integer id) {
+		HashMap modelo = new HashMap();
+		//System.out.println(id);
+		InformeMemoria informevariable = informememoriaMapa.getById(id);
+		//System.out.println(informevariable);
+		modelo.put("informevariable", informevariable);
+		return modelo;
+	}
+
+	@RequestMapping(value = "/guardareditar")
+	@ResponseBody
+	public Object guardareditar(InformeMemoria informevariable, HttpSession hs,String fecha_ini1) throws ParseException {
+		HashMap modelo = new HashMap();
+		Integer id_usuarioModificar = (Integer) hs.getAttribute("__id_usuario");
+		informevariable.setFecha_ini(new SimpleDateFormat("yyyy-MM-dd").parse(fecha_ini1));
+		//informevariable.setNombre_actividad(actividad);
+		informevariable.setId_estado(true);
+		informevariable.setId_usuario_mod(id_usuarioModificar);
+		informevariable.setFecha_mod(new Date());
+		informevariable.setId_informe(1);
+		informevariable.setId_planilla_avance(1);
+		//System.out.println("Aqui va los datos traidos de la vista "+informevariable);
+		informememoriaMapa.update(informevariable);
+		modelo.put("informevariable", informevariable);
+		return modelo;
+		}
 }

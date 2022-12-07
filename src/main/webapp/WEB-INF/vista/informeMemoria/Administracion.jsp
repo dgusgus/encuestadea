@@ -360,20 +360,20 @@
 								comment -->
 
 
+								<div id='actividades_0' class="table-header">
+									EXAMENES DE COMPETENCIA
+								</div>
+								<div id='add_tabla_0'></div>
+
 								<div id='actividades_1' class="table-header">
-									EXAMENES DE COMPETENCIA)
+									EXAMENES DE GRADO
 								</div>
 								<div id='add_tabla_1'></div>
 
 								<div id='actividades_2' class="table-header">
-									EXAMENES DE GRADO
-								</div>
-								<div id='add_tabla_2'></div>
-
-								<div id='actividades_3' class="table-header">
 									TESIS (PROYECTO DE GRADO)
 								</div>
-								<div id='add_tabla_3'></div>
+								<div id='add_tabla_2'></div>
 
 								</div>
 							</div>
@@ -390,15 +390,14 @@
 							</h4>
 						</div>
 						<div class="panel-collapse collapse" id="collapseTwo">
-							<div id='actividades_4' class="table-header">
+							<div id='actividades_3' class="table-header">
 								PROYECTO DE GRADO
 							</div>
-							<div id='add_tabla_4'></div>
-
-							<div id='actividades_5' class="table-header">
+							<div id='add_tabla_3'></div>
+							<div id='actividades_4' class="table-header">
 								TESIS DE GRADO
 							</div>
-							<div id='add_tabla_5'></div>
+							<div id='add_tabla_4'></div>
 						</div>
 					</div>
 					<div class="panel panel-default">
@@ -411,10 +410,13 @@
 							</h4>
 						</div>
 						<div class="panel-collapse collapse" id="collapseThree">
-							<div id='actividades_6' class="table-header">
-								TAREAS ENCOMENDADAS POR AUTORIDADES
+
+							<div id='actividades_5' class="table-header">
+								TAREAS ENCOMENDADAS POR AUTORIDADES EJECUTIVAS
 							</div>
-							<div id='add_tabla_6'></div>
+							<div id='add_tabla_5'></div>
+
+
 						</div>
 					</div>
 
@@ -428,8 +430,13 @@
 							</h4>
 						</div>
 						<div class="panel-collapse collapse" id="collapseFour">
-							<div id='actividades_7' class="table-header">
+							<div id='actividades_6' class="table-header">
 								DOCENCIA EN PROGRAMA DE POSTGRADO
+							</div>
+							<div id='add_tabla_6'></div>
+
+							<div id='actividades_7' class="table-header">
+								TABLA DE MAS PARA PRUEBAS
 							</div>
 							<div id='add_tabla_7'></div>
 						</div>
@@ -514,6 +521,7 @@
 		$('#add_tabla_'+variable).append(tabla);
 	};
 	function llenar_body(variable) {
+		/**
 		let tabla  =
 			'<form id="formulario_'+variable+'">'+
 				'<table id="tabla_'+variable+'" class="table table-striped table-bordered table-hover">'+
@@ -524,60 +532,52 @@
 				'</table>'+
 			'</form>'+
 			'<hr>';
-		$('#add_tabla_'+variable).append(tabla);
+		$('#add_tabla_'+variable).append(tabla);**/
 	};
 
 		function listar(){
-		//$("#simple_tabla1").empty();
 		$.ajax({
 			type: "POST",
 			url: 'informememoria/listar.html',
 			success: function (response) {
 				let i = 0;
+				let tipo =  7;
 				while (i < response.data.length) {
 					Botones(i);
 					crear_tabla(i);
 					crear_thead(i);
-					let cuerpo =
-						'<tr id="fila_'+i+'">'+
-							'<td class="center hidden-480">'+response.data[i].id_actividad_docente+'</td>'+
-							'<td class="right">'+response.data[i].nombre_actividad+'</td>'+
-							'<td class="center"><span class="label label-default">'+response.data[i].fecha_ini+'</span></td>'+
-							'<td class="center"></td>'+
-					'</tr>';
-					$("#tabla_body_"+i).append(cuerpo);
-					/**
-					switch (response.data[i].id_tipo_actividad) {
-					case 7:
-						$("#tabla_body_"+i).append(cuerpo);
-						break;
-					case 8:
-						$("#tabla_body_2").append(cuerpo);
-						break;
-					case 9:
-						$("#tabla_body_3").append(cuerpo);
-						break;
-					case 10:
-						$("#body_progrado").append(cuerpo);
-						break;
-					case 11:
-						$("#body_tgrado").append(cuerpo);
-						break;
-					case 12:
-						$("#body_tarea").append(cuerpo);
-						break;
-					case 13:
-						$("#body_postgrado").append(cuerpo);
-						break;
-					default:
-						$("#simple_cuerpo10	").append(cuerpo);
-				}**/
-				//console.log(i);
-				i++;
-			}
+					//console.log(i);
+					let j = 0;
+					let k = 1;
+					while (	j < response.data.length) {
+						if (tipo == response.data[j].id_tipo_actividad){
+							let fecha = new Date(response.data[j].fecha_ini).toLocaleDateString('es');
+							let cuerpo =
+										'<tr id="fila_'+k+'">'+
+											'<td class="center hidden-480">'+k+'</td>'+
+											'<td class="right">'+response.data[j].nombre_actividad+'</td>'+
+
+											'<td class="center"><span class="label label-default">'+fecha+'</span></td>'+
+											'<td class="center">'+
+												'<div class="btns_edit hidden-sm hidden-xs btn-group">'+
+													'<button type="button" class="btn btn-xs btn-info" onclick="crearEditar('+response.data[j].id_actividad_docente+','+i+','+k+');">'+
+														'<i class="ace-icon fa fa-pencil bigger-120"></i>'+
+													'</button>'+
+													'<button class="btn btn-xs btn-danger" onclick="eliminar();">'+
+														'<i class="ace-icon fa fa-trash-o bigger-120"></i>'+
+													'</button>'+
+												'</div>'+
+											'</td>'+
+										'</tr>';
+							$("#tabla_body_"+i).append(cuerpo);
+							k++;
+							//console.log("esto es j",j);
+						}
+					j++;}
+				tipo++;
+				i++;}
 		},
 			error: function () {
-
 				Toast.fire({
 					icon: 'error',
 					title: 'Error'
@@ -589,6 +589,8 @@
 	function GuardarNuevoDato(variable){
 		//console.log("estamos en GuardarNuevoDato",variable);
 		var data = $("#formulario_"+variable).serializeArray();
+		data.push({name: 'id_tipo_actividad', value: variable + 7});
+		//variable + 6 es una suma para llegar a tipi de dato ya que "i" inicia de 1 y id_tipo_actividad inicia de 7
 		console.log(data);
 		$.ajax({
 		type: "POST",
@@ -608,6 +610,67 @@
 			title: 'Error'
 				});
 				}
+		});
+	}
+
+	function crearEditar(id,i,k){
+			$('.btns_edit').hide(); // para cultar los botones de agregar
+			//$('.btns_a_d').css('display','none');
+			$.ajax({
+			type: "POST",
+			url: 'informememoria/getById.html?id=' + id,
+			success: function (response) {
+			console.log(response);
+			let datos = new Date(response.informevariable.fecha_ini);
+			var filanueva ='<tr>'+
+					'<td></td>'+
+					'<td><input name="nombre_actividad" class="form-control" value="'+response.informevariable.nombre_actividad+'"></td>'+
+					'<td><input name="fecha_ini1" type="date" class="form-control" value="' +response.informevariable.fecha_ini+ '"></td>'+
+					'<td>'+
+						'<div class="hidden-sm hidden-xs btn-group">'+
+							'<button type="button" class="btn btn-xs btn-success" onclick="editarGuardar('+response.informevariable.id_actividad_docente+','+i+','+response.informevariable.id_tipo_actividad+');">'+
+								'<i class="ace-icon fa fa-check bigger-120"></i>'+
+							'</button>'+
+							'<button  class="btn btn-xs btn-danger">'+
+								'<i class="ace-icon fa  fa-ban bigger-120"></i>'+
+							'</button>'+
+						'</div>'+
+					'</td>' +
+					'</tr>';
+			$('#tabla_'+i+' #fila_'+k+'').replaceWith(filanueva);
+			},
+			error: function () {
+				Toast.fire({
+					icon: 'error',
+					title: 'Error'
+				});
+			}
+		});
+	}
+	function editarGuardar(id,formulario,tipo) {
+		var data = $("#formulario_"+formulario).serializeArray();
+		data.push({name: 'id_actividad_docente', value: id});
+		data.push({name: 'id_tipo_actividad', value: tipo});
+		//console.log('editando');
+		//console.log(data);
+		type: "POST",
+		$.ajax({
+			url: 'informememoria/guardareditar.html',
+			data: data,
+			success: function (response) {
+				//$('.btns_a_d').show();
+				Toast.fire({
+					icon: 'success',
+					title: 'Edicion realizada con exito'
+				});
+				mostrarAdminstracion();
+			},
+			error: function () {
+				Toast.fire({
+					icon: 'error',
+					title: 'Error'
+				});
+			}
 		});
 	}
 </script>

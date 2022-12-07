@@ -9,10 +9,12 @@ public interface InformeMemoriaMapa{
 	public List<InformeMemoria> getAllplanilla()throws DataAccessException;
 
 	public List<InformeMemoria> getAll()throws DataAccessException;
-	/**
+	void insertNuevo(InformeMemoria informememoria)throws DataAccessException;
 	InformeMemoria getById(Integer id)throws DataAccessException;
+	/**
 	void insert(InformeMemoria planillaavancedetalle)throws DataAccessException;
 	void ActulizarInsert(InformeMemoria planillaavancedetalle)throws DataAccessException;
+	* **/
 	public void update(InformeMemoria planillaavancedetalle)throws DataAccessException;
-	**/
+
 }

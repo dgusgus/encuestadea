@@ -13,7 +13,58 @@
 	</select>
 	<select id="getAll" resultType="InformeMemoria">
 		select * from dea.actividad_docente a
-		order by a.id_actividad_docente
+		order by a.id_tipo_actividad
 		;
 	</select>
+	<insert id="insertNuevo" parameterType="InformeMemoria" useGeneratedKeys="true" keyProperty="id_actividad_docente" keyColumn="id_actividad_docente">
+		insert into dea.actividad_docente
+		(
+			nombre_actividad
+			, fecha_ini
+			, fecha_fin
+			, datalle
+			, grado
+			, id_estado
+			, id_usuario_mod
+			, fecha_mod
+			, id_informe
+			, id_tipo_actividad
+			, id_planilla_avance_detalle
+		)
+		values(
+			#{nombre_actividad}
+			, #{fecha_ini}
+			, #{fecha_fin}
+			, #{datalle}
+			, #{grado}
+			, #{id_estado}
+			, #{id_usuario_mod}
+			, #{fecha_mod}
+			, #{id_informe}
+			, #{id_tipo_actividad}
+			, #{id_planilla_avance_detalle}
+		);
+	</insert>
+	<select id="getById" resultType="InformeMemoria">
+		select * From dea.actividad_docente p
+			where p.id_actividad_docente = #{id}
+		;
+	</select>
+	<update id="update" parameterType="InformeMemoria">
+	update dea.actividad_docente
+	set
+		nombre_actividad = #{nombre_actividad}
+		,fecha_ini = #{fecha_ini}
+		,fecha_fin = #{fecha_fin}
+		,datalle = #{datalle}
+		,grado = #{grado}
+		,id_estado = #{id_estado}
+		,id_usuario_mod = #{id_usuario_mod}
+		,fecha_mod = #{fecha_mod}
+		,id_informe = #{id_informe}
+		,id_tipo_actividad = #{id_tipo_actividad}
+		,id_planilla_avance_detalle = #{id_planilla_avance_detalle}
+	where
+		id_actividad_docente = #{id_actividad_docente};
+	</update>
 </mapper>
